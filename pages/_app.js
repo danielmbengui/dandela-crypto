@@ -60,7 +60,9 @@ const App = (props) => {
               {
                 (auth) => auth.isLoading
                   ? <Fragment />
-                  : <DashboardLayout langage={langage} setLangage={setLangage}><Component {...pageProps} /></DashboardLayout>
+                  : <DashboardLayout langage={langage} setLangage={setLangage}>
+                    <Component {...pageProps} langage={langage} setLangage={setLangage} />
+                    </DashboardLayout>
               }
             </AuthConsumer>
           </AuthProvider>

@@ -4,10 +4,12 @@
     "langFrench": "Français",
     "langEnglish": "Anglais",
     "langPortuguese": "Portugais",
+    "lightMode": "normal",
+    "darkMode": "sombre",
     "last_24_h": "Dernières 24h",
     "crypto_lovers": "Passionnés de crypto",
     "data_provided_by_coingecko": "Données fournies par CoinGecko.",
     "explore_the_api": "Explorer l'API.",
-    "all_rights_reserved": "Tous droits réservés."
-
+    "all_rights_reserved": "Tous droits réservés.",
+    "message_caution": "ATTENTION : Investir dans la crypto-monnaie comporte des risques élevés. Veuillez vous informer de manière adéquate avant de prendre une décision d'investissement et n'investissez pas plus que ce que vous ne pouvez pas vous permettre de perdre. Les informations contenues sur ce site Web sont uniquement à des fins d'information générale et ne constituent pas des conseils en investissement."
 }

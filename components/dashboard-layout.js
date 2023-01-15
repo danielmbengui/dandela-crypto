@@ -4,6 +4,8 @@ import { styled } from '@mui/material/styles';
 import { AuthGuard } from './auth-guard';
 import { DashboardNavbar } from './dashboard-navbar';
 import { DashboardSidebar } from './dashboard-sidebar';
+import { useTranslation } from 'next-i18next';
+import { NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER } from '../constants';
 
 const DashboardLayoutRoot = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -17,6 +19,7 @@ const DashboardLayoutRoot = styled('div')(({ theme }) => ({
 
 export const DashboardLayout = (props) => {
   const { children, langage, setLangage } = props;
+  const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   return (
@@ -27,17 +30,14 @@ export const DashboardLayout = (props) => {
             display: 'flex',
             flex: '1 1 auto',
             flexDirection: 'column',
-            width: '100%'
+            width: '100%',
           }}
         >
           {children}
           <Grid container alignItems={"center"} justifyContent={"center"} py={20}>
             <Grid item xs={10} sx={{textAlign:'center'}}>
             <Typography>
-            CAUTION: Investing in cryptocurrency carries high risks. Please
-            adequately inform before making an investment decision and do not invest more than
-            you can't afford to loose. The information contained on this website is only
-            for general information purposes and does not constitute investment advice.
+            {`${t('message_caution')}`}
             </Typography>
             </Grid>
 
@@ -47,14 +47,16 @@ export const DashboardLayout = (props) => {
       {
         /* <DashboardNavbar onSidebarOpen={() => setSidebarOpen(true)} /> */
       }
-      <DashboardNavbar 
+       <DashboardNavbar 
       onSidebarOpen={() => setSidebarOpen(true)}
       langage={langage} setLangage={setLangage}
       />
-      <DashboardSidebar
+       <DashboardSidebar
         onClose={() => setSidebarOpen(false)}
         open={isSidebarOpen}
       />
+     
+   
     </AuthGuard>
   );
 };

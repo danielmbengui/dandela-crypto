@@ -5,6 +5,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { cryptocurrencies } from '../../__mocks__/cryptocurrencies';
+import { useTranslation } from 'next-i18next';
+import { NAMESPACE_LANGAGE_CRYPTO_CONVERTER } from '../../constants';
+import { capitalizeFirstLetter } from '../../lib/func/func';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 0;
@@ -54,6 +57,7 @@ function getCryptoCurrency(name) {
 
 export default function SelectCryptoCurrency(props) {
   const {cryptocurrency, onChangeCryptoCurrency} = props;
+  const {t} = useTranslation([NAMESPACE_LANGAGE_CRYPTO_CONVERTER])
   const theme = useTheme();
   const [selectedCrypto, setSelectedCrypto] = React.useState(cryptocurrency ? cryptocurrency.name : "");
 
@@ -80,7 +84,7 @@ export default function SelectCryptoCurrency(props) {
           input={<OutlinedInput />}
           renderValue={(selected) => {
             if (selected.length === 0) {
-              return <em>Crypto Currencies</em>;
+              return <em>{`${capitalizeFirstLetter(t('cryptocurrencies'))}`}</em>;
             }
 
             return selectedCrypto;
@@ -89,7 +93,7 @@ export default function SelectCryptoCurrency(props) {
           inputProps={{ 'aria-label': 'Without label' }}
         >
           <MenuItem disabled value="">
-            <em>Crypto Currencies</em>
+            <em>{`${capitalizeFirstLetter(t('cryptocurrencies'))}`}</em>
           </MenuItem>
           {
             cryptocurrencies.map((cryptocurrency, index) => {

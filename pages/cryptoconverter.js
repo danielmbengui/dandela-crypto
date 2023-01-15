@@ -3,18 +3,22 @@ import Head from 'next/head';
 import { Box, Button, Container, Grid, Pagination, Stack, TextField, Typography } from '@mui/material';
 import { products } from '../__mocks__/products';
 import { ProductCard } from '../components/product/product-card';
-import { DashboardLayout } from '../components/dashboard-layout';
 import SelectCryptoCurrency from '../components/converttofiat/select-crypto';
 import SelectFiat from '../components/converttofiat/select-fiat';
-import CustomSelect from '../components/converttofiat/select-crypto-currency';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import IconButton from '@mui/material/IconButton';
 import { cryptocurrencies } from '../__mocks__/cryptocurrencies';
 import { currencies } from '../__mocks__/currencies';
 import { CryptoConvertListToolbar } from '../components/cryptoconvert/crypto-converter-toolbar';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER } from '../constants';
+import { useTranslation } from 'next-i18next';
+import CustomInput from '../components/custom/custom-input';
+import { capitalizeAllWord, capitalizeFirstLetter } from '../lib/func/func';
 
-const CryptoConverterPage = () => {
-  //const {cryptocurrency, currency, bgCrypto} = props;
+const CryptoConverterPage = (props) => {
+  const {langage, setLangage} = props;
+  const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_COMMON]);
   const [amount, setAmount] = useState(1);
   const [cryptocurrency, setCryptoCurrency] = useState(cryptocurrencies ? cryptocurrencies[0] : "");
   const [currency, setCurrency] = useState(currencies ? currencies[0] : "");
@@ -24,17 +28,22 @@ const CryptoConverterPage = () => {
   const [cryptoToFiat, setCryptoToFiat] = useState(true);
   const [directionConvert, setDirectionConvert] = useState({xs:"column", sm: "row"});
 
+  const onChangeLanguage = (language) => {
+    i18n.changeLanguage(language);
+};
+
+useEffect(() => {
+    onChangeLanguage(langage);
+}, [langage]);
+
   const onChangeCryptoCurrency = (_crypto) => {
-      console.log("NEW CRYPTO", _crypto);
       setCryptoCurrency(_crypto);
   }
   const onChangeCurrency = (_currency) => {
-    console.log("NEW CURRENCY", _currency);
     setCurrency(_currency);
 }
   const onChangeAmount = (event) => {
     const _amount = event.target.value;
-    console.log("NEW AMOUNT", _amount);
     setAmount(_amount);
 }
 
@@ -43,7 +52,6 @@ const CryptoConverterPage = () => {
     setCryptoToFiat(!cryptoToFiat);
     const _directionConvertNew = cryptoToFiat ? {xs:"column-reverse", sm: "row-reverse"} : {xs:"column", sm: "row"};
     setDirectionConvert(_directionConvertNew);
-    console.log("NEW direction convert", _directionConvertNew);
 }
 
   useEffect(() => {
@@ -76,13 +84,13 @@ const CryptoConverterPage = () => {
     }
     
     init();
-  }, [cryptocurrency, currency, cryptoToFiat, result]);
+  }, [result]);
 
   return (
     <>
       <Head>
         <title>
-          Crypto Converter | Dandela
+          {`Dandela | ${t('menuCryptoConverter', {ns:NAMESPACE_LANGAGE_COMMON})}`}
         </title>
       </Head>
       <Box
@@ -92,12 +100,12 @@ const CryptoConverterPage = () => {
           py: 3
         }}
       >
-        <CryptoConvertListToolbar title={"Crypto Converter"} />
+        <CryptoConvertListToolbar title={t('menuCryptoConverter', {ns:NAMESPACE_LANGAGE_COMMON})} />
         <Container maxWidth={false} sx={{py:3}}>
           {/* */}
           <Grid container justifyContent={'center'} alignItems={'center'} mb={3}>
             <Grid item xs={12} sm sx={{textAlign: 'center', verticalAlign: 'middle' }}>
-              <CustomSelect amount={amount} onChangeAmount={onChangeAmount} />
+              <CustomInput label={capitalizeFirstLetter(t('amount'))} value={amount} onChange={onChangeAmount} />
             </Grid>
           </Grid>
           <Grid container direction={directionConvert} justifyContent={'center'} alignItems={'stretch'} spacing={{ xs: 1, sm: 0 }}>
@@ -128,7 +136,7 @@ const CryptoConverterPage = () => {
               setResult(_result);
             }} sx={{":hover": {
                 backgroundColor:'secondary.main'
-            }}}>Convert</Button>
+            }}}>{`${capitalizeAllWord(t('convert'))}`}</Button>
           </Grid>
           <Grid container justifyContent={'center'} alignItems={'center'} mt={3} sx={{display: result > 0 ? 'flex' : 'none'}}>
             <Typography variant='h1' sx={{ fontWeight: 'bold' }}>{result} {currency.symbol}</Typography>
@@ -172,10 +180,21 @@ const CryptoConverterPage = () => {
   )
 };
 
-CryptoConverterPage.getLayout = (page) => (
-  <DashboardLayout>
-    {page}
-  </DashboardLayout>
-);
+export async function getStaticProps({ locale }) {
+  return {
+      props: {
+          ...(await serverSideTranslations(locale, [
+              NAMESPACE_LANGAGE_COMMON,
+              NAMESPACE_LANGAGE_CRYPTO_CONVERTER,
+              //'footer',
+          ], null, [
+            LANGAGE_ENGLISH,
+              LANGAGE_FRENCH,  
+              LANGAGE_PORTUGUESE
+          ])),
+          // Will be passed to the page component as props
+      },
+  }
+}
 
 export default CryptoConverterPage;

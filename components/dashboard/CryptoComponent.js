@@ -62,14 +62,14 @@ export const CryptoComponent = (props) => {
         >
           <Grid item>
             <Typography
-              color="textSecondary"
+              color="text.primary"
               gutterBottom
               variant="overline"
             >
             {cryptocurrency.name} {`(${cryptocurrency.symbol.toString().toUpperCase()})`}
             </Typography>
             <Typography
-              color="textPrimary"
+              color="text.primary"
               variant="h4"
             >
               {currency.symbol}{price}
@@ -121,7 +121,7 @@ export const CryptoComponent = (props) => {
             {Math.round(changePercent)}%
           </Typography>
           <Typography
-            color="textSecondary"
+            color="text.primary"
             variant="caption"
           >
             {t('last_24_h')}

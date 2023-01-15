@@ -4,9 +4,12 @@
     "langFrench": "French",
     "langEnglish": "English",
     "langPortuguese": "Portuguese",
+    "lightMode": "normal",
+    "darkMode": "dark",
     "last_24_h": "Last 24h",
     "crypto_lovers": "Crypto Lovers",
     "data_provided_by_coingecko": "Data provided by CoinGecko.",
     "explore_the_api": "Explore the API.",
-    "all_rights_reserved": "All Rights Reserved."
+    "all_rights_reserved": "All Rights Reserved.",
+    "message_caution": "CAUTION: Investing in cryptocurrency carries high risks. Please adequately inform before making an investment decision and do not invest more than you can't afford to loose. The information contained on this website is only for general information purposes and does not constitute investment advice."
 }

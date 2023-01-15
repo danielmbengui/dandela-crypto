@@ -112,7 +112,6 @@ export default function LanguagePopover(props) {
     }
 
     const onChangeLanguage = (_language) => {
-        
         setLangage(_language);
         handleClose();
         console.log("LANGAE", _language)

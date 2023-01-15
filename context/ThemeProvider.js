@@ -1,11 +1,22 @@
 import React, { useState,useMemo, createContext, useEffect } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { DEFAULT_SCREEN_MODE, STORAGE_SCREEN_MODE } from '../constants';
+import { palette } from '@mui/system';
 
 export const ThemeModeProviderContext = createContext({ toggleColorMode: () => {} });
 
 export default function ThemeModeProvider({children, screenMode}) {
     const [mode, setMode] = useState(screenMode);
+
+    const black = "#000000";
+    const white = "#FFFFFF";
+    const blueLight = "#378aff";
+    const blue = "#094397";
+    const blueDark = "#000c25";
+    const blueDarkOpacity = "#000c2580";
+    const grey = "#727171";
+    const greyLight = "#efefef";
+    const greyDark = "#1d1d1d";
 
     useEffect(() => {
       let _screenMode = DEFAULT_SCREEN_MODE;
@@ -83,9 +94,10 @@ export default function ThemeModeProvider({children, screenMode}) {
               styleOverrides: {
                 root: {
                   padding: '32px 24px',
+                  backgroundColor: mode === 'dark' ? greyDark : '',
                   '&:last-child': {
                     paddingBottom: '32px'
-                  }
+                  },
                 }
               }
             },
@@ -167,6 +179,27 @@ export default function ThemeModeProvider({children, screenMode}) {
             }
           },
           palette: {
+            bluelight: {
+              main:blueLight,
+              light:blueLight,
+              dark:blueLight,
+              contrastText: black,
+          },
+          bluedark: {
+            main:blueDark,
+            light:blueDark,
+            dark:blueDark,
+            contrastText: white,
+        },
+        greydark: {
+          main:greyDark,
+      },
+      grey: {
+        main:grey,
+    },
+      greylight: {
+        main:greyLight,
+    },
             success: {
               main: '#14B8A6',
               light: '#43C6B7',
@@ -215,12 +248,13 @@ export default function ThemeModeProvider({children, screenMode}) {
               },
               background: {
                 //default: '#F9FAFC',
-                default: '#FFFFFF',
-                paper: '#FFFFFF'
+                default: white,
+                paper: greyLight,
+                menu: white,
               },
               divider: '#E6E8F0',
               primary: {
-                main: '#000c25',
+                main: blue,
                 light: '#378aff',
                 dark: '#3832A0',
                 contrastText: '#FFFFFF'
@@ -232,8 +266,8 @@ export default function ThemeModeProvider({children, screenMode}) {
                 contrastText: '#FFFFFF'
               },
               text: {
-                primary: '#121828',
-                secondary: '#65748B',
+                primary: black,
+                secondary: white,
                 disabled: 'rgba(55, 65, 81, 0.48)'
               }
             }
@@ -259,12 +293,13 @@ export default function ThemeModeProvider({children, screenMode}) {
               },
               background: {
                 //default: '#F9FAFC',
-                default: '#000000',
-                paper: '#FFFFFF'
+                default: black,
+                paper: greyDark,
+                menu: black,
               },
               divider: '#E6E8F0',
               primary: {
-                main: '#378aff',
+                main: blueLight,
                 light: '#000c25',
                 dark: '#3832A0',
                 contrastText: '#FFFFFF'
@@ -276,8 +311,8 @@ export default function ThemeModeProvider({children, screenMode}) {
                 contrastText: '#FFFFFF'
               },
               text: {
-                primary: '#121828',
-                secondary: '#65748B',
+                primary: white,
+                secondary: black,
                 disabled: 'rgba(55, 65, 81, 0.48)'
               }
             }

@@ -7,6 +7,7 @@ export const LANGAGE_ENGLISH = 'en';
 export const LANGAGE_PORTUGUESE = 'pt';
 export const NAMESPACE_LANGAGE_COMMON = 'common';
 export const NAMESPACE_LANGAGE_HOME = 'home';
+export const NAMESPACE_LANGAGE_CRYPTO_CONVERTER = 'cryptoconverter';
 
 /*
 export const PAGE_LINK_HOME = "/";

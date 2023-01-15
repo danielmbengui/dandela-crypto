@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
-import { Switch } from "@mui/material";
+import { Switch, Typography } from "@mui/material";
 import { updateScreenModeStorage } from '../lib/storage/UserStorageFunctions';
 import { ThemeModeProviderContext } from '../context/ThemeProvider';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { useTranslation } from 'next-i18next';
+import { NAMESPACE_LANGAGE_COMMON } from '../constants';
 
 const CustomSwitch = styled(Switch)(() => ({
     width: 62,
@@ -53,6 +55,7 @@ const CustomSwitch = styled(Switch)(() => ({
 }));
 
 export default function MaterialUISwitch() {
+    const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
     const theme = useTheme();
     const themeMode = useContext(ThemeModeProviderContext);
     const [checked, setChecked] = useState(theme.palette.mode === 'dark' ? true : false);
@@ -69,7 +72,13 @@ export default function MaterialUISwitch() {
     return (
         <FormControlLabel
         control={ <CustomSwitch checked={checked} onChange={onChangeMode} />}
-        label={`${theme.palette.mode.charAt(0).toUpperCase() + theme.palette.mode.slice(1)} mode`}
+        label={
+        <Typography sx={{fontWeight:'bold'}} color={'text.primary'}>
+            {
+                theme.palette.mode === 'light' ? `${t('lightMode')}` : `${t('darkMode')}`
+            }
+        </Typography>
+    }
       />
        
     )

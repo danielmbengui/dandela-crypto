@@ -5,14 +5,14 @@ import { DashboardLayout } from '../components/dashboard-layout';
 import { CryptoComponent } from '../components/dashboard/CryptoComponent';
 import { cryptocurrencies } from '../__mocks__/cryptocurrencies';
 import { HomeListToolbar } from '../components/home/home-list-toolbar';
-import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_HOME } from '../constants';
+import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME } from '../constants';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
 export default function HomePage(props) {
   const {langage, setLangage} = props;
   const { t, i18n } = useTranslation(NAMESPACE_LANGAGE_COMMON);
-/*
+
   const onChangeLanguage = (language) => {
     i18n.changeLanguage(language);
 };
@@ -21,13 +21,11 @@ useEffect(() => {
     onChangeLanguage(langage);
 }, [langage]);
 
-*/
-
   return (
     <>
       <Head>
         <title>
-          {t('menuHome')} | Dandela
+          {`Dandela | ${t('menuHome')}`}
         </title>
       </Head>
       <Box
@@ -80,7 +78,7 @@ export async function getStaticProps({ locale }) {
       props: {
           ...(await serverSideTranslations(locale, [
               NAMESPACE_LANGAGE_COMMON,
-              //NAMESPACE_LANGAGE_HOME,
+              NAMESPACE_LANGAGE_CRYPTO_CONVERTER,
               //'footer',
           ], null, [
             LANGAGE_ENGLISH,

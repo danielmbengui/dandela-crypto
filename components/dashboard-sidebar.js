@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Box, Button, Divider, Drawer, Stack, Typography, useMediaQuery } from '@mui/material';
+import { Box, Button, Divider, Drawer, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { ChartBar as ChartBarIcon } from '../icons/chart-bar';
 import { Cog as CogIcon } from '../icons/cog';
@@ -28,6 +28,7 @@ import { NAMESPACE_LANGAGE_COMMON } from '../constants';
 export const DashboardSidebar = (props) => {
   const {t} = useTranslation(NAMESPACE_LANGAGE_COMMON);
   const { open, onClose } = props;
+  const theme = useTheme();
 
 
 const items = [
@@ -105,12 +106,12 @@ const items = [
   );
 
   const content = (
-    <>
-      <Box
+    <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          height: '100%'
+          height: '100%',
+          
         }}
       >
         <div>
@@ -135,7 +136,8 @@ const items = [
             <Box
               sx={{
                 alignItems: 'center',
-                backgroundColor: 'rgba(255, 255, 255, 0.09)',
+                backgroundColor: theme.palette.mode === 'light' ? 'primary.main' : 'rgba(255, 255, 255, 0.09)',
+                opacity:0.85,
                 cursor: 'pointer',
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -146,13 +148,13 @@ const items = [
             >
               <div>
                 <Typography
-                  color="inherit"
+                  color="white"
                   variant="subtitle1"
                 >
                   {'Dandela'}
                 </Typography>
                 <Typography
-                  color="neutral.400"
+                  color={theme.palette.mode === 'light' ? "neutral.400" : "neutral.500"}
                   variant="subtitle1"
                 >
                   {t('menuCryptoConverter')}
@@ -168,8 +170,7 @@ const items = [
             </Box>
           </Box>
         </div>
-        <Divider
-          sx={{
+        <Divider sx={{
             borderColor: '#2D3748',
             my: 3
           }}
@@ -192,7 +193,7 @@ const items = [
           }}
         >
           <Typography
-            color="neutral.100"
+            color="text.primary"
             variant="subtitle2"
           >
             {t('data_provided_by_coingecko')}
@@ -200,7 +201,7 @@ const items = [
           <NextLink href={"https://www.coingecko.com/en/api/documentation"}>
           <a target="_blank" style={{textDecoration: 'none'}}>
           <Typography
-            color="neutral.500"
+            color="primary.main"
             variant="body2"
           >
             {t('explore_the_api')}
@@ -218,7 +219,6 @@ const items = [
               }
             }}
           >
-            
             <NextLink 
             href="https://www.coingecko.com/"
             >
@@ -246,8 +246,8 @@ const items = [
             }}
           >
             <Typography
-                  color="neutral.400"
-                  variant="subtitle1"
+                  color="neutral.600"
+                  variant="subtitle2"
                   sx={{fontWeight:'bold'}}
                 >
                   {`© ${new Date().getFullYear()} Dandela`}
@@ -264,38 +264,14 @@ const items = [
             }}
           >
                 <Typography
-                  color="neutral.400"
-                  variant="subtitle1"
+                  color="neutral.600"
+                  variant="subtitle3"
                 >
                   {t('all_rights_reserved')}
                 </Typography>
           </Box>
-
-
-          
-          {
-            /*
-<NextLink
-            href="https://www.coingecko.com/"
-            passHref
-            target={"_blank"}
-          >
-            <Button
-              color="secondary"
-              component="a"
-              endIcon={(<OpenInNewIcon />)}
-              fullWidth
-              sx={{ mt: 2 }}
-              variant="contained"
-            >
-              Explore the website
-            </Button>
-          </NextLink>
-            */
-          }
         </Box>
       </Box>
-    </>
   );
 
   if (lgUp) {
@@ -305,7 +281,8 @@ const items = [
         open
         PaperProps={{
           sx: {
-            backgroundColor: 'neutral.900',
+            //backgroundColor: 'neutral.900',
+            backgroundColor: 'background.menu',
             //bgcolor:'red',
             color: '#FFFFFF',
             width: 280
@@ -323,14 +300,18 @@ const items = [
       anchor="left"
       onClose={onClose}
       open={open}
+   
       PaperProps={{
         sx: {
-          backgroundColor: 'neutral.900',
-          color: '#FFFFFF',
+          backgroundColor: 'background.menu',
+          //color: '#FFFFFF',
+  //        border: "5px red solid",
           width: 280
         }
       }}
-      sx={{ zIndex: (theme) => theme.zIndex.appBar + 100 }}
+      sx={{ 
+        zIndex: (theme) => theme.zIndex.appBar + 100,
+      }}
       variant="temporary"
     >
       {content}

@@ -5,6 +5,9 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { currencies } from '../../__mocks__/currencies';
+import { useTranslation } from 'next-i18next';
+import { NAMESPACE_LANGAGE_CRYPTO_CONVERTER } from '../../constants';
+import { capitalizeFirstLetter } from '../../lib/func/func';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 0;
@@ -54,6 +57,7 @@ function getCurrency(name) {
 
 export default function SelectCurrency(props) {
   const {currency, onChangeCurrency} = props;
+  const {t} = useTranslation([NAMESPACE_LANGAGE_CRYPTO_CONVERTER])
   const theme = useTheme();
   const [selectedCurrency, setSelectedCrypto] = React.useState(currency ? currency.name : "");
 
@@ -80,7 +84,7 @@ export default function SelectCurrency(props) {
           input={<OutlinedInput />}
           renderValue={(selected) => {
             if (selected.length === 0) {
-              return <em>Currencies</em>;
+              return <em>{`${capitalizeFirstLetter(t('currencies'))}`}</em>;
             }
 
             return selectedCurrency;
@@ -89,7 +93,7 @@ export default function SelectCurrency(props) {
           inputProps={{ 'aria-label': 'Without label' }}
         >
           <MenuItem disabled value="">
-            <em>Currencies</em>
+            <em>{`${capitalizeFirstLetter(t('currencies'))}`}</em>
           </MenuItem>
           {
             currencies.map((currency, index) => {

@@ -1,12 +1,13 @@
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Box, Button, ListItem } from '@mui/material';
+import { Box, Button, ListItem, Typography, useTheme } from '@mui/material';
 
 export const NavItem = (props) => {
   const { href, icon, title, ...others } = props;
   const router = useRouter();
   const active = href ? (router.pathname === href) : false;
+  const theme = useTheme();
 
   return (
     <ListItem
@@ -28,9 +29,10 @@ export const NavItem = (props) => {
           startIcon={icon}
           disableRipple
           sx={{
-            backgroundColor: active && 'rgba(255,255,255, 0.08)',
+            backgroundColor: active && 'primary.main',
+            opacity: active ? 0.85 : 1,
             borderRadius: 1,
-            color: active ? 'secondary.main' : 'neutral.300',
+            color: active ? 'text.secondary' : 'primary.main',
             fontWeight: active && 'fontWeightBold',
             justifyContent: 'flex-start',
             px: 3,
@@ -38,15 +40,21 @@ export const NavItem = (props) => {
             textTransform: 'none',
             width: '100%',
             '& .MuiButton-startIcon': {
-              color: active ? 'secondary.main' : 'neutral.400'
+              color: active ? 'text.secondary' : 'primary.main',
+              '&:hover': {
+                color: 'text.secondary',
+              }
             },
             '&:hover': {
-              backgroundColor: 'rgba(255,255,255, 0.08)'
+              //backgroundColor: theme.palette.mode === 'light' ? 'primary.main' : 'grey.main',
+              backgroundColor: 'primary.main',
+              opacity: 0.85,
+              color: 'text.secondary',
             }
           }}
         >
           <Box sx={{ flexGrow: 1 }}>
-            {title}
+          {title}
           </Box>
         </Button>
       </NextLink>
