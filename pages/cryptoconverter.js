@@ -126,7 +126,9 @@ const CryptoConverterPage = () => {
             <Button variant='contained' onClick={() => {
               const _result = cryptoToFiat ? amount * price : amount / price;
               setResult(_result);
-            }}>Convert</Button>
+            }} sx={{":hover": {
+                backgroundColor:'secondary.main'
+            }}}>Convert</Button>
           </Grid>
           <Grid container justifyContent={'center'} alignItems={'center'} mt={3} sx={{display: result > 0 ? 'flex' : 'none'}}>
             <Typography variant='h1' sx={{ fontWeight: 'bold' }}>{result} {currency.symbol}</Typography>

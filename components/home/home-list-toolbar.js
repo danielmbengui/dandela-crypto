@@ -8,12 +8,15 @@ import {
     SvgIcon,
     Typography
   } from '@mui/material';
+import { useTranslation } from 'next-i18next';
+import { NAMESPACE_LANGAGE_COMMON } from '../../constants';
   import { Download as DownloadIcon } from '../../icons/download';
   import { Search as SearchIcon } from '../../icons/search';
   import { Upload as UploadIcon } from '../../icons/upload';
   
   export const HomeListToolbar = (props) => {
-    
+    const { t, i18n } = useTranslation(NAMESPACE_LANGAGE_COMMON);
+
     return (
         <Box {...props}>
           <Box
@@ -29,7 +32,7 @@ import {
               sx={{ m: 1 }}
               variant="h4"
             >
-              {"Home"}
+              {t('menuHome')}
             </Typography>
             <Box sx={{ m: 1, display: 'none' }}>
               <Button

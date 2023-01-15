@@ -13,7 +13,11 @@ export const theme = createTheme({
   components: {
     MuiButton: {
       defaultProps: {
-        disableElevation: true
+        disableElevation: true,
+
+        ":hover":{
+          backgroundColor: 'red'
+        }
       },
       styleOverrides: {
         root: {
@@ -36,7 +40,7 @@ export const theme = createTheme({
         },
         textSizeLarge: {
           padding: '12px 16px'
-        }
+        },
       }
     },
     MuiButtonBase: {
@@ -141,7 +145,7 @@ export const theme = createTheme({
       600: '#4B5563',
       700: '#374151',
       800: '#1F2937',
-      900: '#111827'
+      900: '#000c25'
     },
     action: {
       active: '#6B7280',
@@ -152,18 +156,19 @@ export const theme = createTheme({
       disabled: 'rgba(55, 65, 81, 0.26)'
     },
     background: {
-      default: '#F9FAFC',
+      //default: '#F9FAFC',
+      default: '#FFFFFF',
       paper: '#FFFFFF'
     },
     divider: '#E6E8F0',
     primary: {
-      main: '#5048E5',
-      light: '#828DF8',
+      main: '#000c25',
+      light: '#378aff',
       dark: '#3832A0',
       contrastText: '#FFFFFF'
     },
     secondary: {
-      main: '#10B981',
+      main: '#378aff',
       light: '#3FC79A',
       dark: '#0B815A',
       contrastText: '#FFFFFF'

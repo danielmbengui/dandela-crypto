@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Box, Button, Divider, Drawer, Typography, useMediaQuery } from '@mui/material';
+import { Box, Button, Divider, Drawer, Stack, Typography, useMediaQuery } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { ChartBar as ChartBarIcon } from '../icons/chart-bar';
 import { Cog as CogIcon } from '../icons/cog';
@@ -21,17 +21,25 @@ import RepeatIcon from '@mui/icons-material/Repeat';
 import Image from 'next/image';
 import Link from 'next/link';
 import HomeIcon from '@mui/icons-material/Home';
+import MaterialUISwitch from './switch-theme-mode';
+import { useTranslation } from 'next-i18next';
+import { NAMESPACE_LANGAGE_COMMON } from '../constants';
+
+export const DashboardSidebar = (props) => {
+  const {t} = useTranslation(NAMESPACE_LANGAGE_COMMON);
+  const { open, onClose } = props;
+
 
 const items = [
   {
     href: '/',
     icon: (<HomeIcon fontSize="small" />),
-    title: 'Home'
+    title: t('menuHome'),
   },
   {
     href: '/cryptoconverter',
     icon: (<RepeatIcon fontSize="small" />),
-    title: 'Crypto Converter'
+    title: t('menuCryptoConverter')
   },
 /*
   {
@@ -76,9 +84,6 @@ const items = [
   }
 */
 ];
-
-export const DashboardSidebar = (props) => {
-  const { open, onClose } = props;
   const router = useRouter();
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'), {
     defaultMatches: true,
@@ -110,6 +115,7 @@ export const DashboardSidebar = (props) => {
       >
         <div>
           <Box sx={{ p: 3 }}>
+            <Stack direction={'row'}>
             <NextLink
               href="/"
               passHref
@@ -123,12 +129,13 @@ export const DashboardSidebar = (props) => {
                 />
               </a>
             </NextLink>
+            </Stack>
           </Box>
           <Box sx={{ px: 2 }}>
             <Box
               sx={{
                 alignItems: 'center',
-                backgroundColor: 'rgba(255, 255, 255, 0.04)',
+                backgroundColor: 'rgba(255, 255, 255, 0.09)',
                 cursor: 'pointer',
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -142,15 +149,13 @@ export const DashboardSidebar = (props) => {
                   color="inherit"
                   variant="subtitle1"
                 >
-                  M. Dandela
+                  {'Dandela'}
                 </Typography>
                 <Typography
                   color="neutral.400"
                   variant="subtitle1"
                 >
-                  
-                  {'Crypto lovers '}
-                  
+                  {'Crypto Converter'}
                 </Typography>
               </div>
               <SelectorIcon
@@ -190,7 +195,7 @@ export const DashboardSidebar = (props) => {
             color="neutral.100"
             variant="subtitle2"
           >
-            Data provided by CoinGecko.
+            {t('data_provided_by_coingecko')}
           </Typography>
           <NextLink href={"https://www.coingecko.com/en/api/documentation"}>
           <a target="_blank" style={{textDecoration: 'none'}}>
@@ -198,7 +203,7 @@ export const DashboardSidebar = (props) => {
             color="neutral.500"
             variant="body2"
           >
-            Explore the API.
+            {t('explore_the_api')}
           </Typography>
           </a>
           </NextLink>
@@ -229,6 +234,44 @@ export const DashboardSidebar = (props) => {
               </a>
             </NextLink>
           </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              mt: 20,
+              //mx: 'auto',
+              width: '160px',
+              '& img': {
+                width: '100%'
+              }
+            }}
+          >
+            <Typography
+                  color="neutral.400"
+                  variant="subtitle1"
+                >
+                  {`© ${new Date().getFullYear()} Dandela`}
+                </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              //mx: 'auto',
+              width: '160px',
+              '& img': {
+                width: '100%'
+              }
+            }}
+          >
+                <Typography
+                  color="neutral.400"
+                  variant="subtitle1"
+                >
+                  {t('all_rights_reserved')}
+                </Typography>
+          </Box>
+
+
+          
           {
             /*
 <NextLink
@@ -262,6 +305,7 @@ export const DashboardSidebar = (props) => {
         PaperProps={{
           sx: {
             backgroundColor: 'neutral.900',
+            //bgcolor:'red',
             color: '#FFFFFF',
             width: 280
           }

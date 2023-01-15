@@ -4,12 +4,16 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MoneyIcon from '@mui/icons-material/Money';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
+import { NAMESPACE_LANGAGE_COMMON } from '../../constants';
 
 /*
 
   */
 
 export const CryptoComponent = (props) => {
+  const { t, i18n } = useTranslation(NAMESPACE_LANGAGE_COMMON);
+
     const {cryptocurrency, currency, bgCrypto} = props;
   const [price, setPrice] = useState(0);
   const [changePercent, setChangePercent] = useState(0);
@@ -120,7 +124,7 @@ export const CryptoComponent = (props) => {
             color="textSecondary"
             variant="caption"
           >
-            Last 24h
+            {t('last_24_h')}
           </Typography>
         </Box>
       </CardContent>

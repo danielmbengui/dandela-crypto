@@ -8,6 +8,9 @@ import { Bell as BellIcon } from '../icons/bell';
 import { UserCircle as UserCircleIcon } from '../icons/user-circle';
 import { Users as UsersIcon } from '../icons/users';
 import { AccountPopover } from './account-popover';
+import MaterialUISwitch from './switch-theme-mode';
+import LanguagePopover from './langage-popover';
+import Image from 'next/image';
 
 const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -15,7 +18,7 @@ const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({
 }));
 
 export const DashboardNavbar = (props) => {
-  const { onSidebarOpen, ...other } = props;
+  const { onSidebarOpen, langage, setLangage, ...other } = props;
   const settingsRef = useRef(null);
   const [openAccountPopover, setOpenAccountPopover] = useState(false);
 
@@ -50,13 +53,34 @@ export const DashboardNavbar = (props) => {
           >
             <MenuIcon fontSize="small" />
           </IconButton>
+
+          
+          
+          
+          <div style={{marginLeft:5, display:'none'}}>
+          <Image 
+src={'/static/images/logos/logo.png'}
+width={32}
+height={25}
+          />
+          </div>
+          <div style={{ mx: 10 }}>
+          <LanguagePopover 
+          langage={langage} setLangage={setLangage}
+          />
+          </div>
+          <div style={{ marginLeft: 10 }}>
+          <MaterialUISwitch />
+          </div>
+          
+          <div style={{display:'none'}}>
           <Tooltip title="Search">
             <IconButton sx={{ ml: 1 }}>
               <SearchIcon fontSize="small" />
             </IconButton>
           </Tooltip>
-          <Box sx={{ flexGrow: 1 }} />
-          <Tooltip title="Contacts">
+
+          <Tooltip title="Contacts" >
             <IconButton sx={{ ml: 1 }}>
               <UsersIcon fontSize="small" />
             </IconButton>
@@ -85,6 +109,9 @@ export const DashboardNavbar = (props) => {
           >
             <UserCircleIcon fontSize="small" />
           </Avatar>
+          </div>
+          
+          
         </Toolbar>
       </DashboardNavbarRoot>
       <AccountPopover
