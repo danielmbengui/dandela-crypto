@@ -1,22 +1,22 @@
 export const cryptocurrencies = [
     {
         id: "bitcoin",
-        symbol: "btc",
+        symbol: "BTC",
         name: "Bitcoin",
     },
     {
         id: "ethereum",
-        symbol: "eth",
+        symbol: "ETH",
         name: "Ethereum",
     },
     {
         id: "binancecoin",
-        symbol: "bnb",
+        symbol: "BNB",
         name: "BNB",
     },
     {
         id: "tether",
-        symbol: "usdt",
+        symbol: "USDT",
         name: "Tether",
     },
 ];

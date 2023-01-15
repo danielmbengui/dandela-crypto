@@ -14,13 +14,16 @@ import ThemeModeProvider from '../context/ThemeProvider';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { DashboardLayout } from '../components/dashboard-layout';
 import { NAMESPACE_LANGAGE_COMMON } from '../constants';
+import axios from 'axios';
+import { cryptocurrencies } from '../__mocks__/cryptocurrencies';
+import { currencies } from '../__mocks__/currencies';
 
 registerChartJs();
 
 const clientSideEmotionCache = createEmotionCache();
 
 const App = (props) => {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const { Component, emotionCache = clientSideEmotionCache, pageProps, tabPrice } = props;
   const [screenMode,] = useState(getScreenModeStorage());
   const [langage, setLangage] = useState(getLangageStorage());
   const { t } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
@@ -65,8 +68,8 @@ const App = (props) => {
               {
                 (auth) => auth.isLoading
                   ? <Fragment />
-                  : <DashboardLayout langage={langage} setLangage={setLangage}>
-                    <Component {...pageProps} langage={langage} setLangage={setLangage} />
+                  : <DashboardLayout tabPrice={tabPrice} langage={langage} setLangage={setLangage}>
+                    <Component tabPrice={tabPrice} {...pageProps} langage={langage} setLangage={setLangage} />
                   </DashboardLayout>
               }
             </AuthConsumer>

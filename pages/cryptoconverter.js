@@ -14,14 +14,15 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, PAGE_LINK_CRYPTO_CONVERTER } from '../constants';
 import { useTranslation } from 'next-i18next';
 import CustomInput from '../components/custom/custom-input';
-import { capitalizeAllWord, capitalizeFirstLetter } from '../lib/func/func';
+import { capitalizeAllWord, capitalizeFirstLetter, roundNumber } from '../lib/func/func';
 import { CustomPagetitle } from '../components/custom/custom-page-title';
+import axios from 'axios';
 
 const CryptoConverterPage = (props) => {
-  const {langage, setLangage} = props;
+  const {langage, setLangage, tabPrice} = props;
   const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_COMMON]);
   const [amount, setAmount] = useState(1);
-  const [cryptocurrency, setCryptoCurrency] = useState(cryptocurrencies ? cryptocurrencies[0] : "");
+  const [cryptocurrency, setCryptoCurrency] = useState(tabPrice ? tabPrice[0] : "");
   const [currency, setCurrency] = useState(currencies ? currencies[0] : "");
   const [result, setResult] = useState(0);
   const [price, setPrice] = useState(0);
@@ -31,6 +32,7 @@ const CryptoConverterPage = (props) => {
 
   const onChangeLanguage = (language) => {
     i18n.changeLanguage(language);
+    setLangage(language);
 };
 
 useEffect(() => {
@@ -56,6 +58,8 @@ useEffect(() => {
 }
 
   useEffect(() => {
+    setPrice(roundNumber(cryptocurrency[currency.id]));
+    /*
     async function init() {
       const url = `https://api.coingecko.com/api/v3/simple/price?ids=${cryptocurrency.id}&vs_currencies=${currency.id}&include_24hr_change=true`;
       const response = await fetch(url, {
@@ -85,6 +89,7 @@ useEffect(() => {
     }
     
     init();
+    */
   }, [result]);
 
   return (
@@ -183,8 +188,32 @@ useEffect(() => {
 };
 
 export async function getStaticProps({ locale }) {
+  const tabCryptoCurrencies = [];
+  const tabCurrencies = [];
+  cryptocurrencies.forEach((cryptocurrency) => {
+    tabCryptoCurrencies.push(cryptocurrency.id);
+  });
+  currencies.forEach((currency) => {
+    tabCurrencies.push(currency.id);
+  });
+  const url = `https://api.coingecko.com/api/v3/simple/price?ids=${tabCryptoCurrencies.join(",")}&vs_currencies=${tabCurrencies.join(",")}&include_24hr_change=true`;
+  const response = await axios.get(url).then((resp) => {
+    let array = [];
+    for (let i in cryptocurrencies) {
+      const crypto = cryptocurrencies[i];
+      const cryptoData = resp.data[crypto.id];
+      cryptoData.id = crypto.id;
+      cryptoData.name = crypto.name;
+      cryptoData.symbol = crypto.symbol;
+      array.push(cryptoData);
+    }
+    return (array)
+  }).catch(() => {
+    return ([]);
+  });
   return {
       props: {
+        tabPrice: response,
           ...(await serverSideTranslations(locale, [
               NAMESPACE_LANGAGE_COMMON,
               NAMESPACE_LANGAGE_CRYPTO_CONVERTER,

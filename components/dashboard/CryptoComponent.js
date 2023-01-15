@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 import { NAMESPACE_LANGAGE_COMMON } from '../../constants';
 import { myLoader } from '../../lib/ImageLoader';
+import { roundNumber } from '../../lib/func/func';
 
 /*
 
@@ -18,9 +19,12 @@ export const CryptoComponent = (props) => {
   const { cryptocurrency, currency, bgCrypto } = props;
   const [price, setPrice] = useState(0);
   const [changePercent, setChangePercent] = useState(0);
-
+console.log("cryptoCURRENCY", cryptocurrency)
   useEffect(() => {
-    async function init() {
+    setPrice(roundNumber(cryptocurrency[currency.id]));
+    setChangePercent(roundNumber(cryptocurrency[`${currency.id}_24h_change`]));
+    /*
+async function init() {
       const url = `https://api.coingecko.com/api/v3/simple/price?ids=${cryptocurrency.id}&vs_currencies=${currency.name}&include_24hr_change=true`;
       const response = await fetch(url, {
         method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -42,13 +46,13 @@ export const CryptoComponent = (props) => {
         return (resp.json())
       });
       console.log("BITCOIN price usd", response);
-      setPrice(response[cryptocurrency.id][currency.name]);
-      setChangePercent(response[cryptocurrency.id][`${currency.name}_24h_change`]);
+      
       //usd_24h_change
     }
 
     init();
-  });
+    */
+  }, []);
 
   return (
     <Card
@@ -108,20 +112,20 @@ export const CryptoComponent = (props) => {
         >
 
           {
-            changePercent < 0 && <ArrowDownwardIcon color="error" />
+            cryptocurrency[`${currency.id}_24h_change`] < 0 && <ArrowDownwardIcon color="error" />
           }
 
           {
-            changePercent >= 0 && <ArrowUpwardIcon color="success" />
+            cryptocurrency[`${currency.id}_24h_change`] >= 0 && <ArrowUpwardIcon color="success" />
           }
           <Typography
-            color={changePercent >= 0 ? "success.main" : "error.main"}
+            color={cryptocurrency[`${currency.id}_24h_change`] >= 0 ? "success.main" : "error.main"}
             sx={{
               mr: 1,
             }}
           //variant="body2"
           >
-            {Math.round(changePercent)}%
+            {changePercent}%
           </Typography>
           <Typography
             color="text.primary"
