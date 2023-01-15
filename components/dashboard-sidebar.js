@@ -155,7 +155,7 @@ const items = [
                   color="neutral.400"
                   variant="subtitle1"
                 >
-                  {'Crypto Converter'}
+                  {t('menuCryptoConverter')}
                 </Typography>
               </div>
               <SelectorIcon
@@ -248,6 +248,7 @@ const items = [
             <Typography
                   color="neutral.400"
                   variant="subtitle1"
+                  sx={{fontWeight:'bold'}}
                 >
                   {`© ${new Date().getFullYear()} Dandela`}
                 </Typography>
