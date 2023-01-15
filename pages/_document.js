@@ -44,7 +44,6 @@ class CustomDocument extends Document {
             href="/icons/favicon64x64.ico"
           />
           <link rel="manifest" href="/manifest.json" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto+Slab|Roboto:300,400,500,700" />
 
           <link
             rel="preconnect"
@@ -60,7 +59,7 @@ class CustomDocument extends Document {
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto+Slab|Roboto:300,400,500,700&display=optional"
+            href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto+Slab|Roboto:300,400,500,700&display=swap"
           />
 
           <meta name="theme-color" content="#094397" />

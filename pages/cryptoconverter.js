@@ -94,7 +94,6 @@ useEffect(() => {
           {`Dandela | ${t('menuCryptoConverter', {ns:NAMESPACE_LANGAGE_COMMON})}`}
         </title>
         <meta name="description" content={t('description_page', {ns:NAMESPACE_LANGAGE_CRYPTO_CONVERTER})} />
-        <link rel="canonical" href={`${PAGE_LINK_CRYPTO_CONVERTER}`} />
       </Head>
       <Box
         component="main"

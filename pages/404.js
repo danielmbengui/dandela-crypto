@@ -9,7 +9,15 @@ import { useTranslation } from 'next-i18next';
 import { capitalizeAllWord } from '../lib/func/func';
 
 const NotFoundPage = () => {
-  const { t } = useTranslation([NAMESPACE_LANGAGE_404, NAMESPACE_LANGAGE_COMMON])
+  const { t, i18n} = useTranslation([NAMESPACE_LANGAGE_404, NAMESPACE_LANGAGE_COMMON])
+
+  const onChangeLanguage = (language) => {
+    i18n.changeLanguage(language);
+};
+
+useEffect(() => {
+    onChangeLanguage(langage);
+}, [langage]);
 
   return (
     <>
@@ -18,7 +26,6 @@ const NotFoundPage = () => {
           {`Dandela | ${t('menu404', { ns: NAMESPACE_LANGAGE_COMMON })}`}
         </title>
         <meta name="description" content={t('description_page', { ns: NAMESPACE_LANGAGE_404 })} />
-        <link rel="canonical" href={`${PAGE_LINK_404}`} />
       </Head>
       <Box
         component="main"

@@ -14,7 +14,7 @@ export default function HomePage(props) {
   const {langage, setLangage} = props;
   const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_HOME]);
 
-  /*
+  
   const onChangeLanguage = (language) => {
     i18n.changeLanguage(language);
 };
@@ -22,7 +22,7 @@ export default function HomePage(props) {
 useEffect(() => {
     onChangeLanguage(langage);
 }, [langage]);
-*/
+
 
   return (
     <>
@@ -31,7 +31,6 @@ useEffect(() => {
           {`Dandela | ${t('menuHome')}`}
         </title>
         <meta name="description" content={t('description_page', {ns:NAMESPACE_LANGAGE_HOME})} />
-        <link rel="canonical" href={`${PAGE_LINK_HOME}`} />
       </Head>
       <Box
         component="main"
