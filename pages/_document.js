@@ -2,12 +2,15 @@ import { Children } from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import { createEmotionCache } from '../utils/create-emotion-cache';
+import Script from 'next/script';
 
 class CustomDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
+          <Script src="../intersection-observer.js" />
+          <Script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver" />
           <meta charSet="utf-8" />
           <meta name="description" content="Dandela Crypto Converter - Financial freedom | Freedom to choose." />
           <link

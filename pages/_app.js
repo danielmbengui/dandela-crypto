@@ -23,9 +23,9 @@ const App = (props) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const [screenMode,] = useState(getScreenModeStorage());
   const [langage, setLangage] = useState(getLangageStorage());
-  const {t} = useTranslation([NAMESPACE_LANGAGE_COMMON]);
+  const { t } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
   //const getLayout = Component.getLayout ?? ((page) => page);
-  
+
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -49,13 +49,14 @@ const App = (props) => {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-      <title>{`Dandela | ${t('description_page', {ns:NAMESPACE_LANGAGE_COMMON})}`}</title>
+        <title>{`Dandela | ${t('description_page', { ns: NAMESPACE_LANGAGE_COMMON })}`}</title>
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=yes, viewport-fit=cover' />
-        <meta name="description" content={t('description_page', {ns:NAMESPACE_LANGAGE_COMMON})} />
+        <meta name="description" content={t('description_page', { ns: NAMESPACE_LANGAGE_COMMON })} />
+
       </Head>
       <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
-      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"
-        crossOrigin="anonymous" />
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"
+          crossOrigin="anonymous" />
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <ThemeModeProvider screenMode={screenMode}>
           <CssBaseline />
@@ -66,7 +67,7 @@ const App = (props) => {
                   ? <Fragment />
                   : <DashboardLayout langage={langage} setLangage={setLangage}>
                     <Component {...pageProps} langage={langage} setLangage={setLangage} />
-                    </DashboardLayout>
+                  </DashboardLayout>
               }
             </AuthConsumer>
           </AuthProvider>
@@ -74,7 +75,7 @@ const App = (props) => {
       </LocalizationProvider>
 
       <ins className="adsbygoogle"
-        style={{display:"block", textAlign:"center"}}
+        style={{ display: "block", textAlign: "center" }}
         data-ad-layout="in-article"
         data-ad-format="fluid"
         data-ad-client="ca-pub-2953886510697247"

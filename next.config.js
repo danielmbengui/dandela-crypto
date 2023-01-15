@@ -1,3 +1,5 @@
+// Require the polyfill before requiring any other modules.
+require('intersection-observer');
 const { i18n } = require('./next-i18next.config')
 
 /** @type {import('next').NextConfig} */
