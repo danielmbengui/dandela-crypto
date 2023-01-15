@@ -71,7 +71,7 @@ const App = (props) => {
         </ThemeProvider>
       </LocalizationProvider>
 
-      <ins className="adsbygoogle"
+      <ins class="adsbygoogle"
         style={{display:"block", textAlign:"center"}}
         data-ad-layout="in-article"
         data-ad-format="fluid"
