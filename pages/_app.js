@@ -24,7 +24,7 @@ const App = (props) => {
   const [screenMode,] = useState(getScreenModeStorage());
   const [langage, setLangage] = useState(getLangageStorage());
   const {t} = useTranslation([NAMESPACE_LANGAGE_COMMON]);
-  const getLayout = Component.getLayout ?? ((page) => page);
+  //const getLayout = Component.getLayout ?? ((page) => page);
   
 
   useEffect(() => {
