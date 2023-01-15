@@ -4,10 +4,6 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import MoneyIcon from '@mui/icons-material/Money';
 import Image from 'next/image';
 
-/*
-
-  */
-
 export const BitcoinComponent = (props) => {
     const {currency} = props;
   const [bitcoinPrice, setBitcoinPrice] = useState(0);
@@ -75,7 +71,8 @@ export const BitcoinComponent = (props) => {
             >
               {/* <MoneyIcon /> */}
               <Image
-              alt='bitcoin'
+              alt={"the logo of Bitcoin"}
+
               src={"/static/images/crypto/bitcoin.png"}
               layout='fill'
               />

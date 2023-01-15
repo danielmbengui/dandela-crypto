@@ -76,7 +76,7 @@ const Register = () => {
         <Container maxWidth="sm">
           <NextLink
             href="/"
-            passHref
+            passHref legacyBehavior
           >
             <Button
               component="a"
@@ -171,7 +171,7 @@ const Register = () => {
                 {' '}
                 <NextLink
                   href="#"
-                  passHref
+                  passHref legacyBehavior
                 >
                   <Link
                     color="primary"
@@ -208,7 +208,7 @@ const Register = () => {
               {' '}
               <NextLink
                 href="/login"
-                passHref
+                passHref legacyBehavior
               >
                 <Link
                   variant="subtitle2"

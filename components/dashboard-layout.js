@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { AuthGuard } from './auth-guard';
 import { DashboardNavbar } from './dashboard-navbar';
 import { DashboardSidebar } from './dashboard-sidebar';
 import { useTranslation } from 'next-i18next';
-import { NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER } from '../constants';
+import { NAMESPACE_LANGAGE_COMMON } from '../constants';
 
 const DashboardLayoutRoot = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -44,9 +44,7 @@ export const DashboardLayout = (props) => {
           </Grid>
         </Box>
       </DashboardLayoutRoot>
-      {
-        /* <DashboardNavbar onSidebarOpen={() => setSidebarOpen(true)} /> */
-      }
+
        <DashboardNavbar 
       onSidebarOpen={() => setSidebarOpen(true)}
       langage={langage} setLangage={setLangage}

@@ -1,6 +1,9 @@
 {
+    "description_page" : "Financial freedom | Freedom to choose",
     "menuHome": "Home",
     "menuCryptoConverter": "Crypto Converter",
+    "menuPrivacyPolicy": "Privacy Policy",
+    "menu404": "404",
     "langFrench": "French",
     "langEnglish": "English",
     "langPortuguese": "Portuguese",

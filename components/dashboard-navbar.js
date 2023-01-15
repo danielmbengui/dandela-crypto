@@ -11,6 +11,7 @@ import { AccountPopover } from './account-popover';
 import MaterialUISwitch from './switch-theme-mode';
 import LanguagePopover from './langage-popover';
 import Image from 'next/image';
+import { myLoader } from '../lib/ImageLoader';
 
 const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -60,8 +61,12 @@ export const DashboardNavbar = (props) => {
           <div style={{marginLeft:5, display:'none'}}>
           <Image 
 src={'/static/images/logos/logo.png'}
+alt={"the logo of Dandela Crypto Converter created by M. Dandela"}
 width={32}
 height={25}
+loader={myLoader}
+quality={100}
+priority
           />
           </div>
           <div style={{ mx: 10 }}>

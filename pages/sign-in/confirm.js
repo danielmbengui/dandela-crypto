@@ -99,7 +99,7 @@ const Page = () => {
         <Box sx={{ p: 3 }}>
           <NextLink
             href="/"
-            passHref
+            passHref legacyBehavior
           >
             <a>
               <Logo

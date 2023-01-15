@@ -49,7 +49,7 @@ const Login = () => {
         <Container maxWidth="sm">
           <NextLink
             href="/"
-            passHref
+            passHref legacyBehavior
           >
             <Button
               component="a"

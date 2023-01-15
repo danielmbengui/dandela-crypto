@@ -5,14 +5,16 @@ import { DashboardLayout } from '../components/dashboard-layout';
 import { CryptoComponent } from '../components/dashboard/CryptoComponent';
 import { cryptocurrencies } from '../__mocks__/cryptocurrencies';
 import { HomeListToolbar } from '../components/home/home-list-toolbar';
-import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME } from '../constants';
+import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, PAGE_LINK_HOME } from '../constants';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import { CustomPagetitle } from '../components/custom/custom-page-title';
 
 export default function HomePage(props) {
   const {langage, setLangage} = props;
-  const { t, i18n } = useTranslation(NAMESPACE_LANGAGE_COMMON);
+  const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_HOME]);
 
+  /*
   const onChangeLanguage = (language) => {
     i18n.changeLanguage(language);
 };
@@ -20,6 +22,7 @@ export default function HomePage(props) {
 useEffect(() => {
     onChangeLanguage(langage);
 }, [langage]);
+*/
 
   return (
     <>
@@ -27,6 +30,8 @@ useEffect(() => {
         <title>
           {`Dandela | ${t('menuHome')}`}
         </title>
+        <meta name="description" content={t('description_page', {ns:NAMESPACE_LANGAGE_HOME})} />
+        <link rel="canonical" href={`${PAGE_LINK_HOME}`} />
       </Head>
       <Box
         component="main"
@@ -35,7 +40,7 @@ useEffect(() => {
           py: 3
         }}
       >
-        <HomeListToolbar />
+        <CustomPagetitle title={`${t('menuHome')}`} />
         <Container maxWidth={false}>
           <Grid
             container
@@ -78,6 +83,7 @@ export async function getStaticProps({ locale }) {
       props: {
           ...(await serverSideTranslations(locale, [
               NAMESPACE_LANGAGE_COMMON,
+              NAMESPACE_LANGAGE_HOME,
               NAMESPACE_LANGAGE_CRYPTO_CONVERTER,
               //'footer',
           ], null, [

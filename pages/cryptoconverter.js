@@ -11,10 +11,11 @@ import { cryptocurrencies } from '../__mocks__/cryptocurrencies';
 import { currencies } from '../__mocks__/currencies';
 import { CryptoConvertListToolbar } from '../components/cryptoconvert/crypto-converter-toolbar';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER } from '../constants';
+import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, PAGE_LINK_CRYPTO_CONVERTER } from '../constants';
 import { useTranslation } from 'next-i18next';
 import CustomInput from '../components/custom/custom-input';
 import { capitalizeAllWord, capitalizeFirstLetter } from '../lib/func/func';
+import { CustomPagetitle } from '../components/custom/custom-page-title';
 
 const CryptoConverterPage = (props) => {
   const {langage, setLangage} = props;
@@ -75,7 +76,7 @@ useEffect(() => {
         //console.log("BITCOIN price usd", resp.json());
         return (resp.json())
       });
-      console.log("BITCOIN price usd", response);
+      //console.log("BITCOIN price usd", response);
       setPrice(response[cryptocurrency.id][currency.id]);
       const _result = cryptoToFiat ? amount * price : amount / price;
     setResult(_result);
@@ -92,6 +93,8 @@ useEffect(() => {
         <title>
           {`Dandela | ${t('menuCryptoConverter', {ns:NAMESPACE_LANGAGE_COMMON})}`}
         </title>
+        <meta name="description" content={t('description_page', {ns:NAMESPACE_LANGAGE_CRYPTO_CONVERTER})} />
+        <link rel="canonical" href={`${PAGE_LINK_CRYPTO_CONVERTER}`} />
       </Head>
       <Box
         component="main"
@@ -100,7 +103,7 @@ useEffect(() => {
           py: 3
         }}
       >
-        <CryptoConvertListToolbar title={t('menuCryptoConverter', {ns:NAMESPACE_LANGAGE_COMMON})} />
+        <CustomPagetitle title={t('menuCryptoConverter', {ns:NAMESPACE_LANGAGE_COMMON})} />
         <Container maxWidth={false} sx={{py:3}}>
           {/* */}
           <Grid container justifyContent={'center'} alignItems={'center'} mb={3}>

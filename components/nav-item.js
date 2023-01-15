@@ -22,7 +22,8 @@ export const NavItem = (props) => {
     >
       <NextLink
         href={href}
-        passHref
+        passHref 
+        legacyBehavior
       >
         <Button
           component="a"

@@ -1,6 +1,9 @@
 {
+    "description_page" : "Liberdade financeira | Liberdade de escolha",
     "menuHome": "Inicio",
     "menuCryptoConverter": "Conversor Cripto",
+    "menuPrivacyPolicy": "Política de Privacidade",
+    "menu404": "404",
     "langFrench": "Francês",
     "langEnglish": "Inglês",
     "langPortuguese": "Português",

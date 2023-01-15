@@ -11,8 +11,9 @@ import { registerChartJs } from '../utils/register-chart-js';
 import Script from 'next/script';
 import { getLangageStorage, getScreenModeStorage } from '../lib/storage/UserStorageFunctions';
 import ThemeModeProvider from '../context/ThemeProvider';
-import { appWithTranslation } from 'next-i18next';
+import { appWithTranslation, useTranslation } from 'next-i18next';
 import { DashboardLayout } from '../components/dashboard-layout';
+import { NAMESPACE_LANGAGE_COMMON } from '../constants';
 
 registerChartJs();
 
@@ -22,6 +23,7 @@ const App = (props) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const [screenMode,] = useState(getScreenModeStorage());
   const [langage, setLangage] = useState(getLangageStorage());
+  const {t} = useTranslation([NAMESPACE_LANGAGE_COMMON]);
   const getLayout = Component.getLayout ?? ((page) => page);
   
 
@@ -47,11 +49,13 @@ const App = (props) => {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
+      <title>{`Dandela | ${t('description_page', {ns:NAMESPACE_LANGAGE_COMMON})}`}</title>
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=yes, viewport-fit=cover' />
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
+        <meta name="description" content={t('description_page', {ns:NAMESPACE_LANGAGE_COMMON})} />
+      </Head>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"
         crossOrigin="anonymous" />
-      </Head>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <ThemeModeProvider screenMode={screenMode}>
           <CssBaseline />

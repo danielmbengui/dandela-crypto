@@ -1,0 +1,6 @@
+{
+    "description_page" : "Error 404",
+    "page_not_there":"A página que você procura não está aqui",
+    "message_error": "Você tentou alguma rota obscura ou veio aqui por engano. Seja qual for, tente usar a navegação",
+    "back_to_dasboard":"voltar para casa"
+}

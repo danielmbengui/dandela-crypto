@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import { useTheme } from '@mui/material/styles';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
@@ -59,7 +59,7 @@ export default function SelectCurrency(props) {
   const {currency, onChangeCurrency} = props;
   const {t} = useTranslation([NAMESPACE_LANGAGE_CRYPTO_CONVERTER])
   const theme = useTheme();
-  const [selectedCurrency, setSelectedCrypto] = React.useState(currency ? currency.name : "");
+  const [selectedCurrency, setSelectedCrypto] = useState(currency ? currency.name : "");
 
   const handleChange = (event) => {
     const {

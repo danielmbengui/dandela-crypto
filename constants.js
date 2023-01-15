@@ -8,7 +8,13 @@ export const LANGAGE_PORTUGUESE = 'pt';
 export const NAMESPACE_LANGAGE_COMMON = 'common';
 export const NAMESPACE_LANGAGE_HOME = 'home';
 export const NAMESPACE_LANGAGE_CRYPTO_CONVERTER = 'cryptoconverter';
+export const NAMESPACE_LANGAGE_PRIVACY_POLICY = 'privacypolicy';
+export const NAMESPACE_LANGAGE_404= '404';
 
+export const PAGE_LINK_HOME = "/";
+export const PAGE_LINK_CRYPTO_CONVERTER = "/cryptoconverter";
+export const PAGE_LINK_PRIVACY_POLICY = "/privacypolicy";
+export const PAGE_LINK_404 = "/404";
 /*
 export const PAGE_LINK_HOME = "/";
 export const PAGE_LINK_ERROR_LOGIN = "/app/authentication/errorlogin";

@@ -114,7 +114,7 @@ const Page = () => {
             >
               <NextLink
                 href="/"
-                passHref
+                passHref legacyBehavior
               >
                 <a>
                   <Logo

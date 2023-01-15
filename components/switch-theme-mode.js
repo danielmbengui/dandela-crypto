@@ -71,15 +71,16 @@ export default function MaterialUISwitch() {
     }
     return (
         <FormControlLabel
-        control={ <CustomSwitch checked={checked} onChange={onChangeMode} />}
-        label={
+        control={ <CustomSwitch inputProps={{ 'aria-label': theme.palette.mode === 'light' ? `${t('lightMode')}` : `${t('darkMode')}` }} checked={checked} onChange={onChangeMode} />}
+        /*
+label={
         <Typography sx={{fontWeight:'bold'}} color={'text.primary'}>
             {
                 theme.palette.mode === 'light' ? `${t('lightMode')}` : `${t('darkMode')}`
             }
         </Typography>
     }
+        */
       />
-       
     )
 }
