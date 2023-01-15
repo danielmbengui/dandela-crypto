@@ -1,8 +1,8 @@
 {
-  "name": "material-kit-react",
-  "author": "Devias IO",
+  "name": "dandela",
+  "author": "M. Dandela",
   "licence": "MIT",
-  "version": "2.1.1",
+  "version": "0.1.1",
   "private": false,
   "scripts": {
     "dev": "next",

@@ -37,17 +37,18 @@ const App = (props) => {
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) { }
     }
-  })
+  }, [])
 
   return (
     <CacheProvider value={emotionCache}>
       <Head>
         <title>DandelApp</title>
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=yes, viewport-fit=cover' />
-      </Head>
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"
         crossOrigin="anonymous" />
+      </Head>
+      
       
       {
         /*

@@ -72,6 +72,7 @@ export const Budget = (props) => {
             >
               {/* <MoneyIcon /> */}
               <Image
+              alt='budget'
               src={"/static/images/crypto/bitcoin.png"}
               layout='fill'
               />

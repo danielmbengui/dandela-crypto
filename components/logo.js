@@ -10,9 +10,11 @@ export const Logo = styled((props) => {
   return (
     <>
     <Image
+    alt='logo Dandela'
 src={'/logo.png'}
 width={72}
 height={55}
+priority
 //layout='responsive'
     />
     {

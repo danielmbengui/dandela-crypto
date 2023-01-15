@@ -83,7 +83,9 @@ export const CryptoComponent = (props) => {
               {/* <MoneyIcon /> */}
               <Image
               src={`/static/images/crypto/${cryptocurrency.id}.png`}
-              layout='fill'
+              alt={`${cryptocurrency.name}`}
+              width={56}
+              height={56}
               priority
               />
             </Avatar>
@@ -118,7 +120,7 @@ export const CryptoComponent = (props) => {
             color="textSecondary"
             variant="caption"
           >
-            Dernier 24h
+            Last 24h
           </Typography>
         </Box>
       </CardContent>

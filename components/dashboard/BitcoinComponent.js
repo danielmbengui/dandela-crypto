@@ -75,6 +75,7 @@ export const BitcoinComponent = (props) => {
             >
               {/* <MoneyIcon /> */}
               <Image
+              alt='bitcoin'
               src={"/static/images/crypto/bitcoin.png"}
               layout='fill'
               />

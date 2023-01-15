@@ -36,7 +36,7 @@ export const DashboardLayout = (props) => {
             <Typography>
             CAUTION: Investing in cryptocurrency carries high risks. Please
             adequately inform before making an investment decision and do not invest more than
-            you can't afford to lose. The information contained on this website is only
+            you can't afford to loose. The information contained on this website is only
             for general information purposes and does not constitute investment advice.
             </Typography>
             </Grid>

@@ -10,6 +10,7 @@ class CustomDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="utf-8" />
+          <meta name="description" content="Dandela | Crypto Converter - the link between you and crypto world" />
           <link
             rel="icon"
             type="image/ico"
@@ -62,16 +63,19 @@ class CustomDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto+Slab|Roboto:300,400,500,700&display=optional"
           />
+
+<meta name="application-name" content="Dandela Crypto Converter" />
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+                <meta name="apple-mobile-web-app-title" content="Dandela Crypto converter" />
+                <meta name="description" content="Dandela | Crypto Converter - the link between you and crypto world" />
+                <meta name="format-detection" content="telephone=no" />
+                <meta name="mobile-web-app-capable" content="yes" />
+                <meta name="msapplication-config" content="/icons/browserconfig.xml" />
+                <meta name="msapplication-TileColor" content="#2B5797" />
+                <meta name="msapplication-tap-highlight" content="no" />
           
-          {
-            /*
-<link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/apple-touch-icon.png"
-          />
-            */
-          }
+         
           <meta
             name="theme-color"
             content="#111827"

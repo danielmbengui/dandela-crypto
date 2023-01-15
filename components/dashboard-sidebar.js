@@ -146,7 +146,7 @@ export const DashboardSidebar = (props) => {
                 </Typography>
                 <Typography
                   color="neutral.400"
-                  variant="body2"
+                  variant="subtitle1"
                 >
                   
                   {'Crypto lovers '}
@@ -223,6 +223,7 @@ export const DashboardSidebar = (props) => {
             src="/static/images/sponsors/coingecko.png"
             width={50}
             height={50}
+            priority
             //layout='responsive'
             />
               </a>
