@@ -31,7 +31,12 @@ const App = (props) => {
       gtag('config', 'G-MJ6X1M1YRR');
     }
 
-
+    var ads = document.getElementsByClassName("adsbygoogle").length;
+    for (var i = 0; i < ads; i++) {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) { }
+    }
   })
 
   return (
@@ -42,7 +47,15 @@ const App = (props) => {
       </Head>
       <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"
-     crossorigin="anonymous" />
+        crossOrigin="anonymous" />
+      
+      {
+        /*
+        <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+        */
+      }
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
@@ -57,6 +70,13 @@ const App = (props) => {
           </AuthProvider>
         </ThemeProvider>
       </LocalizationProvider>
+
+      <ins className="adsbygoogle"
+        style={{display:"block", textAlign:"center"}}
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-2953886510697247"
+        data-ad-slot="9537139740"></ins>
     </CacheProvider>
   );
 };
