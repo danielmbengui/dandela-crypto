@@ -34,10 +34,10 @@ export const DashboardLayout = (props) => {
           <Grid container alignItems={"center"} justifyContent={"center"} py={20}>
             <Grid item xs={10} sx={{textAlign:'center'}}>
             <Typography>
-            ATTENTION : Les investissements en cryptomonnaie comportent des risques élevés. Veuillez vous 
-            informer adéquatement avant de prendre une décision d'investissement et n'investissez pas plus que 
-            vous ne pouvez vous permettre de perdre. Les informations contenues sur ce site web sont uniquement 
-            à des fins d'information générale et ne constituent en aucun cas des conseils en investissement.
+            CAUTION: Investing in cryptocurrency carries high risks. Please
+            adequately inform before making an investment decision and do not invest more than
+            you can't afford to lose. The information contained on this website is only
+            for general information purposes and does not constitute investment advice.
             </Typography>
             </Grid>
 
