@@ -56,7 +56,7 @@ function getCurrency(name) {
 }
 
 export default function SelectCurrency(props) {
-  const {currency, onChangeCurrency} = props;
+  const {currency, onChangeCurrency, disabled} = props;
   const {t} = useTranslation([NAMESPACE_LANGAGE_CRYPTO_CONVERTER])
   const theme = useTheme();
   const [selectedCurrency, setSelectedCrypto] = useState(currency ? currency.name : "");
@@ -75,7 +75,7 @@ export default function SelectCurrency(props) {
 
   return (
     <div>
-      <FormControl sx={{ width: {xs:250, md:300},  }}>
+      <FormControl sx={{ width: {xs:250, md:300},  }} disabled={disabled}>
         <Select
           //multiple
           displayEmpty

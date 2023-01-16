@@ -15,8 +15,13 @@ import { myLoader } from '../lib/ImageLoader';
 
 export const DashboardSidebar = (props) => {
   const { t } = useTranslation(NAMESPACE_LANGAGE_COMMON);
-  const { open, onClose } = props;
+  const { open, onClose, langage } = props;
   const theme = useTheme();
+  const router = useRouter();
+  const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'), {
+    defaultMatches: true,
+    noSsr: false
+  });
 
   const items = [
     {
@@ -72,11 +77,7 @@ export const DashboardSidebar = (props) => {
       }
     */
   ];
-  const router = useRouter();
-  const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'), {
-    defaultMatches: true,
-    noSsr: false
-  });
+
 
   useEffect(
     () => {
@@ -105,9 +106,10 @@ export const DashboardSidebar = (props) => {
         <Box sx={{ p: 3 }}>
           <Stack direction={'row'}>
             <NextLink
-              href="/"
+              href={PAGE_LINK_HOME}
               passHref
               legacyBehavior
+              locale={langage}
             >
               <a>
                 <Logo
@@ -146,7 +148,7 @@ export const DashboardSidebar = (props) => {
 
                 variant="subtitle1"
               >
-                {t('menuCryptoConverter')}
+                {t('Crypto Converter')}
               </Typography>
             </div>
             <SelectorIcon
@@ -167,6 +169,7 @@ export const DashboardSidebar = (props) => {
       <Box sx={{ flexGrow: 1 }}>
         {items.map((item) => (
           <NavItem
+          langage={langage}
             key={item.title}
             icon={item.icon}
             href={item.href}
@@ -187,7 +190,11 @@ export const DashboardSidebar = (props) => {
         >
           {t('data_provided_by_coingecko')}
         </Typography>
-        <NextLink href={"https://www.coingecko.com/en/api/documentation"} passHref legacyBehavior>
+        <NextLink 
+        href={"https://www.coingecko.com/en/api/documentation"}
+        passHref
+        legacyBehavior
+        >
           <a target="_blank" style={{ textDecoration: 'none' }}>
             <Typography
               color="primary.main"

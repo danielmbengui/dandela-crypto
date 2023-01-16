@@ -13,10 +13,11 @@ import { getLangageStorage, getScreenModeStorage } from '../lib/storage/UserStor
 import ThemeModeProvider from '../context/ThemeProvider';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { DashboardLayout } from '../components/dashboard-layout';
-import { NAMESPACE_LANGAGE_COMMON } from '../constants';
+import { DEFAULT_LANGAGE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_HOME, TAB_NAMEPACES } from '../constants';
 import axios from 'axios';
 import { cryptocurrencies } from '../__mocks__/cryptocurrencies';
 import { currencies } from '../__mocks__/currencies';
+import { useRouter } from 'next/router';
 
 registerChartJs();
 
@@ -26,9 +27,20 @@ const App = (props) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps, tabPrice } = props;
   const [screenMode,] = useState(getScreenModeStorage());
   const [langage, setLangage] = useState(getLangageStorage());
-  const { t } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
-  //const getLayout = Component.getLayout ?? ((page) => page);
+  //const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
+  const { t, i18n} = useTranslation(TAB_NAMEPACES);
 
+  const router = useRouter();
+  const onChangeLanguage = (language) => {
+    console.log("change index LANGAGE NOOOOOW", language)
+    setLangage(language);
+  };
+
+  useEffect(() => {
+    i18n.changeLanguage(langage);
+    router.push(router.pathname, {},
+      { locale: langage });
+  }, [langage]);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -55,11 +67,7 @@ const App = (props) => {
         <title>{`Dandela | ${t('description_page', { ns: NAMESPACE_LANGAGE_COMMON })}`}</title>
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=yes, viewport-fit=cover' />
         <meta name="description" content={t('description_page', { ns: NAMESPACE_LANGAGE_COMMON })} />
-
       </Head>
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
-        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"
-          crossOrigin="anonymous" />
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <ThemeModeProvider screenMode={screenMode}>
           <CssBaseline />
@@ -68,8 +76,8 @@ const App = (props) => {
               {
                 (auth) => auth.isLoading
                   ? <Fragment />
-                  : <DashboardLayout tabPrice={tabPrice} langage={langage} setLangage={setLangage}>
-                    <Component tabPrice={tabPrice} {...pageProps} langage={langage} setLangage={setLangage} />
+                  : <DashboardLayout tabPrice={tabPrice} langage={langage} setLangage={onChangeLanguage}>
+                    <Component t={t} tabPrice={tabPrice} {...pageProps} langage={langage} setLangage={onChangeLanguage} />
                   </DashboardLayout>
               }
             </AuthConsumer>

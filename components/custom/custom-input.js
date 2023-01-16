@@ -41,11 +41,11 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function CustomInput(props) {
-  const {value, onChange, label} = props;
+  const {value, onChange, label, disabled} = props;
  
     return (
       <div>
-        <FormControl sx={{ m: 1 }} variant="standard">
+        <FormControl sx={{ m: 1 }} variant="standard" disabled={disabled}>
           <InputLabel htmlFor="demo-customized-textbox">{label}</InputLabel>
           <BootstrapInput id="demo-customized-textbox" type='number' onChange={onChange} value={value} placeholder={label} />
         </FormControl>

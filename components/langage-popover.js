@@ -6,6 +6,7 @@ import { FR, GB, PT } from "country-flag-icons/react/3x2";
 import { useTranslation } from 'next-i18next';
 import { updateLangageStorage } from '../lib/storage/UserStorageFunctions';
 import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON } from '../constants';
+import { useRouter } from 'next/router';
 
 // ----------------------------------------------------------------------
 const sizeFlag = 45;
@@ -15,6 +16,7 @@ export default function LanguagePopover(props) {
     const { t, i18n } = useTranslation(NAMESPACE_LANGAGE_COMMON);
     const { langage, setLangage } = props;
     const [open, setOpen] = useState(null);
+    const router = useRouter();
 
     useEffect(() => {
       i18n.changeLanguage(langage);
@@ -174,7 +176,6 @@ export default function LanguagePopover(props) {
             }}
             >
               {/* <Box component="img" alt={option.label} src={option.icon} sx={{ width: 28, mr: 2 }} /> */}
-              
               <Stack direction={'row'} spacing={1} justifyContent={'center'} alignItems={'center'}>
               <div>{option.smallFlag}</div>
               <div>{option.label}</div>

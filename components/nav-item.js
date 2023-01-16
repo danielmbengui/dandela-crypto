@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Box, Button, ListItem, Typography, useTheme } from '@mui/material';
 
 export const NavItem = (props) => {
-  const { href, icon, title, ...others } = props;
+  const { langage, href, icon, title, ...others } = props;
   const router = useRouter();
   const active = href ? (router.pathname === href) : false;
   const theme = useTheme();
@@ -24,6 +24,7 @@ export const NavItem = (props) => {
         href={href}
         passHref 
         legacyBehavior
+        locale={langage}
       >
         <Button
           component="a"

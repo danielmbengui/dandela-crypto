@@ -50,6 +50,7 @@ export const DashboardLayout = (props) => {
       langage={langage} setLangage={setLangage}
       />
        <DashboardSidebar
+       langage={langage}
         onClose={() => setSidebarOpen(false)}
         open={isSidebarOpen}
       />

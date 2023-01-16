@@ -3,14 +3,20 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import { createEmotionCache } from '../utils/create-emotion-cache';
 import Script from 'next/script';
+import { DEFAULT_LANGAGE } from '../constants';
 
 class CustomDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html>
         <Head>
-          <Script src="../intersection-observer.js" />
+          {/*
+          <Script src="/intersection-observer.js" />
           <Script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver" />
+          */}
+          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
+          <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"
+            crossOrigin="anonymous" />
           <meta charSet="utf-8" />
           <meta name="description" content="Dandela Crypto Converter - Financial freedom | Freedom to choose." />
           <link
@@ -100,7 +106,7 @@ class CustomDocument extends Document {
           <meta property="og:description" content="Dandela Crypto Converter - Financial freedom | Freedom to choose" />
           <meta property="og:site_name" content="Dandela Crypto Converter - Financial freedom | Freedom to choose" />
           <meta property="og:url" content="https://dandela.com" />
-          <meta property="og:image" content="https://dandela.com/static/images/logos/logo.png" />
+          <meta property="og:image" content="/static/images/logos/logo.png" />
         </Head>
         <body>
           <Main />

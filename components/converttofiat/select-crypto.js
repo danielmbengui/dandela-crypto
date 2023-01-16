@@ -4,7 +4,6 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { cryptocurrencies } from '../../__mocks__/cryptocurrencies';
 import { useTranslation } from 'next-i18next';
 import { NAMESPACE_LANGAGE_CRYPTO_CONVERTER } from '../../constants';
 import { capitalizeFirstLetter } from '../../lib/func/func';
@@ -42,24 +41,26 @@ function getStyles(name, selectedCrypto, theme) {
   };
 }
 
-function getCryptoCurrency(name) {
-  let i = 0;
-  while (i < cryptocurrencies.length) {
-    const cryptocurrency = cryptocurrencies[i];
-    console.log("CRYPTO", cryptocurrency);
-    if (cryptocurrency.name === name) {
-      return (cryptocurrency);
-    }
-    i++;
-  }
-  return (null);
-}
+
 
 export default function SelectCryptoCurrency(props) {
-  const {cryptocurrency, onChangeCryptoCurrency} = props;
+  const {cryptocurrency, onChangeCryptoCurrency, cryptocurrencies, disabled} = props;
   const {t} = useTranslation([NAMESPACE_LANGAGE_CRYPTO_CONVERTER])
   const theme = useTheme();
   const [selectedCrypto, setSelectedCrypto] = useState(cryptocurrency ? cryptocurrency.name : "");
+
+  function getCryptoCurrency(name) {
+    let i = 0;
+    while (i < cryptocurrencies.length) {
+      const cryptocurrency = cryptocurrencies[i];
+      console.log("CRYPTO", cryptocurrency);
+      if (cryptocurrency.name === name) {
+        return (cryptocurrency);
+      }
+      i++;
+    }
+    return (null);
+  }
 
   const handleChange = (event) => {
     const {
@@ -75,7 +76,7 @@ export default function SelectCryptoCurrency(props) {
 
   return (
     <div>
-      <FormControl sx={{ width: {xs:250, md:300},  }}>
+      <FormControl sx={{ width: {xs:250, md:300},  }} disabled={disabled}>
         <Select
           //multiple
           displayEmpty

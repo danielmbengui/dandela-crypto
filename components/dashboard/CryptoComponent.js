@@ -97,7 +97,7 @@ async function init() {
                   height={56}
                   loader={myLoader}
                   quality={100}
-                  priority
+                  loading="lazy"
                 />
               </Avatar>
             </Grid>
