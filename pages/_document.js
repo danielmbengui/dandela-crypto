@@ -14,9 +14,7 @@ class CustomDocument extends Document {
           <Script src="/intersection-observer.js" />
           <Script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver" />
           */}
-          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
-          <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"
-            crossOrigin="anonymous" />
+
           <meta charSet="utf-8" />
           <meta name="description" content="Dandela Crypto Converter - Financial freedom | Freedom to choose." />
           <link

@@ -28,7 +28,7 @@ const App = (props) => {
   const [screenMode,] = useState(getScreenModeStorage());
   const [langage, setLangage] = useState(getLangageStorage());
   //const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
-  const { t, i18n} = useTranslation(TAB_NAMEPACES);
+  const { t, i18n } = useTranslation(TAB_NAMEPACES);
 
   const router = useRouter();
   const onChangeLanguage = (language) => {
@@ -69,6 +69,9 @@ const App = (props) => {
         <meta name="description" content={t('description_page', { ns: NAMESPACE_LANGAGE_COMMON })} />
       </Head>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"
+          crossOrigin="anonymous" />
         <ThemeModeProvider screenMode={screenMode}>
           <CssBaseline />
           <AuthProvider>
