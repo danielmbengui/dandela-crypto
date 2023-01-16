@@ -7,13 +7,15 @@ import Select from '@mui/material/Select';
 import { useTranslation } from 'next-i18next';
 import { NAMESPACE_LANGAGE_CRYPTO_CONVERTER } from '../../constants';
 import { capitalizeFirstLetter } from '../../lib/func/func';
+import { Stack, Typography } from '@mui/material';
 
-const ITEM_HEIGHT = 48;
+const INPUT_HEIGHT = 40;
+const ITEM_HEIGHT = 25;
 const ITEM_PADDING_TOP = 0;
 const MenuProps = {
   PaperProps: {
     style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      maxHeight: ITEM_HEIGHT * 10 + ITEM_PADDING_TOP,
       width: {xs:200, md:250},
     },
   },
@@ -76,25 +78,30 @@ export default function SelectCryptoCurrency(props) {
 
   return (
     <div>
-      <FormControl sx={{ width: {xs:250, md:300},  }} disabled={disabled}>
+      <FormControl sx={{ width: {xs:250, md:300},}} disabled={disabled}>
         <Select
           //multiple
+          sx={{height: INPUT_HEIGHT,}}
           displayEmpty
           value={selectedCrypto}
           onChange={handleChange}
           input={<OutlinedInput />}
           renderValue={(selected) => {
             if (selected.length === 0) {
-              return <em>{`${capitalizeFirstLetter(t('cryptocurrencies'))}`}</em>;
+              return <Stack sx={{height:INPUT_HEIGHT}} alignItems={'center'} justifyContent={'center'}>
+                <Typography variant='body2'><em>{`${capitalizeFirstLetter(t('cryptocurrencies'))}`}</em></Typography>
+              </Stack>;
             }
 
-            return selectedCrypto;
+            return <Stack sx={{height:INPUT_HEIGHT}} alignItems={'center'} justifyContent={'center'}>
+              <Typography variant='body2' sx={{fontWeight:'bold'}}>{selectedCrypto}</Typography>
+            </Stack>;
           }}
           MenuProps={MenuProps}
           inputProps={{ 'aria-label': 'Without label' }}
         >
           <MenuItem disabled value="">
-            <em>{`${capitalizeFirstLetter(t('cryptocurrencies'))}`}</em>
+          <Typography variant='body2'><em>{`${capitalizeFirstLetter(t('cryptocurrencies'))}`}</em></Typography>
           </MenuItem>
           {
             cryptocurrencies.map((cryptocurrency, index) => {
@@ -104,7 +111,7 @@ export default function SelectCryptoCurrency(props) {
               value={cryptocurrency.name}
               style={getStyles(cryptocurrency.name, selectedCrypto, theme)}
             >
-              {cryptocurrency.name}
+              <Typography variant='body2' sx={{fontWeight:cryptocurrency.name === selectedCrypto ? 'bold' : ''}}>{cryptocurrency.name}</Typography>
             </MenuItem>
               )
             })

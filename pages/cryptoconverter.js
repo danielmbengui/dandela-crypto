@@ -17,6 +17,8 @@ import CustomInput from '../components/custom/custom-input';
 import { capitalizeAllWord, capitalizeFirstLetter, roundNumber } from '../lib/func/func';
 import { CustomPagetitle } from '../components/custom/custom-page-title';
 import axios from 'axios';
+import { styled, useTheme } from '@mui/material/styles';
+
 
 const CryptoConverterPage = (props) => {
   const {t, langage, setLangage, tabPrice} = props;
@@ -28,6 +30,7 @@ const CryptoConverterPage = (props) => {
   const [changePercent, setChangePercent] = useState(0);
   const [cryptoToFiat, setCryptoToFiat] = useState(true);
   const [directionConvert, setDirectionConvert] = useState({xs:"column", sm: "row"});
+const theme = useTheme();
 
   const onChangeCryptoCurrency = (_cryptocurrency) => {
       setCryptoCurrency(_cryptocurrency);
@@ -77,7 +80,7 @@ const CryptoConverterPage = (props) => {
           {/* */}
           <Grid container justifyContent={'center'} alignItems={'center'} mb={3}>
             <Grid item xs={12} sm sx={{textAlign: 'center', verticalAlign: 'middle' }}>
-              <CustomInput disabled={result>0 || !amount || amount <= 0} label={capitalizeFirstLetter(t('amount'))} value={amount} onChange={onChangeAmount} />
+              <CustomInput disabled={result>0} label={capitalizeFirstLetter(t('amount'))} value={amount} onChange={onChangeAmount} />
             </Grid>
           </Grid>
           <Grid container direction={directionConvert} justifyContent={'center'} alignItems={'stretch'} spacing={{ xs: 1, sm: 0 }}>
@@ -87,7 +90,7 @@ const CryptoConverterPage = (props) => {
             <Grid item xs={12} sm={1} sx={{ textAlign: 'center' }}>
               <Grid container sx={{ height: '100%' }} direction={'column'} justifyContent={'center'} alignItems={'center'}>
                 <IconButton disabled={result>0 || !amount || amount <= 0} color="primary" aria-label="swap" onClick={onChangeDirectionConvert}>
-                  <RepeatIcon color="primary" sx={{ transform: { xs: 'rotate(90deg)', sm: 'rotate(0deg)' }, transition: 'transform 150ms ease', }} />
+                  <RepeatIcon color={result>0 || !amount || amount <= 0 ? `grey${theme.palette.mode}` : "primary"} sx={{ transform: { xs: 'rotate(90deg)', sm: 'rotate(0deg)' }, transition: 'transform 150ms ease', }} />
                 </IconButton>
               </Grid>
             </Grid>
@@ -120,10 +123,10 @@ const CryptoConverterPage = (props) => {
           </Grid>
           <Grid container justifyContent={'center'} alignItems={'center'} spacing={1} sx={{py:3, display: result > 0 ? 'inline-flex' : 'none'}}>
             <Grid item>
-            <Typography variant='body1'>{`${amount} ${!cryptoToFiat ? currency.symbol : cryptocurrency.symbol} ≃ `}</Typography>
+            <Typography variant='body1'>{`${amount} ${!cryptoToFiat ? currency.symbol : cryptocurrency.symbol}`}</Typography>
             </Grid>
             <Grid item>
-            <Typography variant='h5' sx={{ fontWeight: 'bold' }}>{`${cryptoToFiat ? roundNumber(result) : roundNumber(result, 6)} ${cryptoToFiat ? currency.symbol : cryptocurrency.symbol}`}</Typography>
+            <Typography variant='h5' sx={{ fontWeight: 'bold' }}>{`≃ ${cryptoToFiat ? roundNumber(result) : roundNumber(result, 6)} ${cryptoToFiat ? currency.symbol : cryptocurrency.symbol}`}</Typography>
             </Grid>
           </Grid>
   

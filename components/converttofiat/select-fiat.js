@@ -8,13 +8,15 @@ import { currencies } from '../../__mocks__/currencies';
 import { useTranslation } from 'next-i18next';
 import { NAMESPACE_LANGAGE_CRYPTO_CONVERTER } from '../../constants';
 import { capitalizeFirstLetter } from '../../lib/func/func';
+import { Stack, Typography } from '@mui/material';
 
-const ITEM_HEIGHT = 48;
+const INPUT_HEIGHT = 40;
+const ITEM_HEIGHT = 25;
 const ITEM_PADDING_TOP = 0;
 const MenuProps = {
   PaperProps: {
     style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      maxHeight: ITEM_HEIGHT * 10 + ITEM_PADDING_TOP,
       width: {xs:200, md:250},
     },
   },
@@ -78,22 +80,27 @@ export default function SelectCurrency(props) {
       <FormControl sx={{ width: {xs:250, md:300},  }} disabled={disabled}>
         <Select
           //multiple
+          sx={{height: INPUT_HEIGHT}}
           displayEmpty
           value={selectedCurrency}
           onChange={handleChange}
           input={<OutlinedInput />}
           renderValue={(selected) => {
             if (selected.length === 0) {
-              return <em>{`${capitalizeFirstLetter(t('currencies'))}`}</em>;
+              return <Stack sx={{height:INPUT_HEIGHT}} justifyContent={'center'} alignItems={'center'}>
+                <Typography variant='body2'><em>{`${capitalizeFirstLetter(t('currencies'))}`}</em></Typography>
+                </Stack>;
             }
 
-            return selectedCurrency;
+            return <Stack sx={{height:INPUT_HEIGHT}} justifyContent={'center'} alignItems={'center'}>
+              <Typography variant='body2' sx={{fontWeight: 'bold'}}>{selectedCurrency}</Typography>
+            </Stack>;
           }}
           MenuProps={MenuProps}
           inputProps={{ 'aria-label': 'Without label' }}
         >
           <MenuItem disabled value="">
-            <em>{`${capitalizeFirstLetter(t('currencies'))}`}</em>
+          <Typography variant='body2'><em>{`${capitalizeFirstLetter(t('currencies'))}`}</em></Typography>
           </MenuItem>
           {
             currencies.map((currency, index) => {
@@ -103,7 +110,7 @@ export default function SelectCurrency(props) {
               value={currency.name}
               style={getStyles(currency.name, selectedCurrency, theme)}
             >
-              {currency.name}
+              <Typography variant='body2' sx={{fontWeight:currency.name === selectedCurrency ? 'bold' : ''}}>{currency.name}</Typography>
             </MenuItem>
               )
             })

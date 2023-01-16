@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -10,6 +10,7 @@ import InputBase from '@mui/material/InputBase';
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
   'label + &': {
     marginTop: theme.spacing(3),
+    color: theme.palette.text.primary,
   },
   '& .MuiInputBase-input': {
     borderRadius: 4,
@@ -42,11 +43,12 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
 
 export default function CustomInput(props) {
   const {value, onChange, label, disabled} = props;
+  const theme = useTheme();
  
     return (
       <div>
         <FormControl sx={{ m: 1 }} variant="standard" disabled={disabled}>
-          <InputLabel htmlFor="demo-customized-textbox">{label}</InputLabel>
+          <InputLabel htmlFor="demo-customized-textbox" sx={{color:theme.palette.text.primary}}>{label}</InputLabel>
           <BootstrapInput id="demo-customized-textbox" type='number' onChange={onChange} value={value} placeholder={label} />
         </FormControl>
       </div>
