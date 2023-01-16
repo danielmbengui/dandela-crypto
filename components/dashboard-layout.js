@@ -36,7 +36,7 @@ export const DashboardLayout = (props) => {
           {children}
           <Grid container alignItems={"center"} justifyContent={"center"} py={20}>
             <Grid item xs={10} sx={{textAlign:'center'}}>
-            <Typography>
+            <Typography variant='body2' sx={{textAlign:'center'}}>
             {`${t('message_caution')}`}
             </Typography>
             </Grid>

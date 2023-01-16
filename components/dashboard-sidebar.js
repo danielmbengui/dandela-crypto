@@ -265,7 +265,7 @@ export const DashboardSidebar = (props) => {
         >
           <Typography
             color="neutral.600"
-            variant="subtitle3"
+            variant="body2"
           >
             {t('all_rights_reserved')}
           </Typography>
