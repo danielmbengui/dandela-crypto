@@ -10,7 +10,7 @@ import axios from 'axios';
 import { currencies } from '../__mocks__/currencies';
 
 export default function HomePage(props) {
-  const { tabPrice, t} = props;
+  const { cryptocurrencies, t} = props;
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function HomePage(props) {
           >
 
             {
-              tabPrice.map((cryptocurrency, index) => {
+              cryptocurrencies.map((cryptocurrency, index) => {
                 return (
                   <Grid
                     item
@@ -58,35 +58,9 @@ export default function HomePage(props) {
 }
 
 export async function getStaticProps({ locale }) {
-  const tabCryptoCurrencies = [];
-  const tabCurrencies = [];
-  cryptocurrencies.forEach((cryptocurrency) => {
-    tabCryptoCurrencies.push(cryptocurrency.id);
-  });
-  currencies.forEach((currency) => {
-    tabCurrencies.push(currency.id);
-  });
-  const url = `https://api.coingecko.com/api/v3/simple/price?ids=${tabCryptoCurrencies.join(",")}&vs_currencies=${tabCurrencies.join(",")}&include_24hr_change=true`;
-  const response = await axios.get(url).then((resp) => {
-    
-    let array = [];
-    for (let i in cryptocurrencies) {
-      const crypto = cryptocurrencies[i];
-      const cryptoData = resp.data[crypto.id];
-      cryptoData.id = crypto.id;
-      cryptoData.name = crypto.name;
-      cryptoData.symbol = crypto.symbol;
-      array.push(cryptoData);
-    }
-    return (array)
-  }).catch(() => {
-    return ([]);
-  });
-  //console.log("tab", tabCryptoCurrencies);
-  console.log("result", response);
   return {
     props: {
-      tabPrice: response,
+      //tabPrice: response,
       ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
         LANGAGE_ENGLISH,
         LANGAGE_FRENCH,

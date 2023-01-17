@@ -15,26 +15,46 @@ import { appWithTranslation, useTranslation } from 'next-i18next';
 import { DashboardLayout } from '../components/dashboard-layout';
 import { DEFAULT_LANGAGE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_HOME, TAB_NAMEPACES } from '../constants';
 import axios from 'axios';
-import { cryptocurrencies } from '../__mocks__/cryptocurrencies';
-import { currencies } from '../__mocks__/currencies';
 import { useRouter } from 'next/router';
+
+const cryptocurrencies = require("../public/static/assets/cryptocurrencies/completecryptocurrencies.json");
 
 registerChartJs();
 
 const clientSideEmotionCache = createEmotionCache();
 
 const App = (props) => {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps, tabPrice } = props;
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const [screenMode,] = useState(getScreenModeStorage());
   const [langage, setLangage] = useState(getLangageStorage());
   //const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
   const { t, i18n } = useTranslation(TAB_NAMEPACES);
+  //console.log("custooooooooom CUREENCIES", cryptocurrencies)
 
   const router = useRouter();
   const onChangeLanguage = (language) => {
     console.log("change index LANGAGE NOOOOOW", language)
     setLangage(language);
   };
+
+  useEffect(() => {
+    async function init() {
+      const url = "/api/cryptocurrency/updatecryptocurrencies";
+      const response = await axios.post(url, {
+        action: "UPDATE_CRYPTO_CURRENCIES",
+      }).then((resp) => {
+        return (resp.data);
+      }).catch((error) => {
+        return (error);
+      });
+      //console.log("MY RESP", response);
+    }
+    if (router.isReady) {
+      //init();
+    }
+
+    
+  }, [router.isReady])
 
   useEffect(() => {
     i18n.changeLanguage(langage);
@@ -79,8 +99,8 @@ const App = (props) => {
               {
                 (auth) => auth.isLoading
                   ? <Fragment />
-                  : <DashboardLayout tabPrice={tabPrice} langage={langage} setLangage={onChangeLanguage}>
-                    <Component t={t} tabPrice={tabPrice} {...pageProps} langage={langage} setLangage={onChangeLanguage} />
+                  : <DashboardLayout cryptocurrencies={cryptocurrencies} langage={langage} setLangage={onChangeLanguage}>
+                    <Component t={t} cryptocurrencies={cryptocurrencies} {...pageProps} langage={langage} setLangage={onChangeLanguage} />
                   </DashboardLayout>
               }
             </AuthConsumer>

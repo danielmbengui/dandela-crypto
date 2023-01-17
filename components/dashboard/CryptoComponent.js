@@ -19,39 +19,9 @@ export const CryptoComponent = (props) => {
   const { cryptocurrency, currency, bgCrypto } = props;
   const [price, setPrice] = useState(0);
   const [changePercent, setChangePercent] = useState(0);
-console.log("cryptoCURRENCY", cryptocurrency)
   useEffect(() => {
     setPrice(roundNumber(cryptocurrency[currency.id]));
     setChangePercent(roundNumber(cryptocurrency[`${currency.id}_24h_change`]));
-    /*
-async function init() {
-      const url = `https://api.coingecko.com/api/v3/simple/price?ids=${cryptocurrency.id}&vs_currencies=${currency.name}&include_24hr_change=true`;
-      const response = await fetch(url, {
-        method: 'GET', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        "Access-Control-Allow-Origin": "*",
-        //cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        //credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-          'Content-Type': 'application/json',
-          "Access-Control-Allow-Origin": "*",
-
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        //redirect: 'follow', // manual, *follow, error
-        //referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        //body: JSON.stringify(data) // body data type must match "Content-Type" header
-      }).then((resp) => {
-        //console.log("BITCOIN price usd", resp.json());
-        return (resp.json())
-      });
-      console.log("BITCOIN price usd", response);
-      
-      //usd_24h_change
-    }
-
-    init();
-    */
   }, []);
 
   return (
@@ -68,8 +38,9 @@ async function init() {
           <Grid item>
             <Typography
               color="text.primary"
-              gutterBottom
-              variant="overline"
+              //display={'inline-flex'}
+              //gutterBottom
+              variant="subtitle1"
             >
               {cryptocurrency.name} {`(${cryptocurrency.symbol.toString().toUpperCase()})`}
             </Typography>
@@ -91,7 +62,7 @@ async function init() {
               >
                 {/* <MoneyIcon /> */}
                 <Image
-                  src={`/static/images/crypto/${cryptocurrency.id}.png`}
+                  src={cryptocurrency.logo}
                   alt={`the cryptocurrency logo of ${cryptocurrency.name} (${cryptocurrency.symbol}) provided by CoinGecko`}
                   width={56}
                   height={56}

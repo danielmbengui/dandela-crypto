@@ -8,9 +8,9 @@ import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_
 import { useTranslation } from 'next-i18next';
 import { capitalizeAllWord } from '../lib/func/func';
 
-const NotFoundPage = () => {
+const NotFoundPage = (props) => {
   const { t, i18n} = useTranslation([NAMESPACE_LANGAGE_404, NAMESPACE_LANGAGE_COMMON])
-
+/*
   const onChangeLanguage = (language) => {
     i18n.changeLanguage(language);
 };
@@ -18,6 +18,7 @@ const NotFoundPage = () => {
 useEffect(() => {
     onChangeLanguage(langage);
 }, [langage]);
+*/
 
   return (
     <>
