@@ -59,9 +59,9 @@ export default async function handler(req, res) {
       for (let i in cryptocurrencies) {
         const crypto = cryptocurrencies[i];
         const cryptoData = resp.data[crypto.id];
-        cryptoData.id = crypto.id;
-        cryptoData.name = crypto.name;
-        cryptoData.symbol = crypto.symbol;
+        //cryptoData.id = crypto.id;
+        //cryptoData.name = crypto.name;
+        //cryptoData.symbol = crypto.symbol;
         cryptoData.logo = crypto.logo;
         array.push(cryptoData);
       }
