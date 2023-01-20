@@ -13,7 +13,7 @@ import { getLangageStorage, getScreenModeStorage } from '../lib/storage/UserStor
 import ThemeModeProvider from '../context/ThemeProvider';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { DashboardLayout } from '../components/dashboard-layout';
-import { DEFAULT_LANGAGE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_HOME, TAB_NAMEPACES } from '../constants';
+import { DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_HOME, TAB_NAMEPACES } from '../constants';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
@@ -53,7 +53,7 @@ const App = (props) => {
       //init();
     }
 
-    
+
   }, [router.isReady])
 
   useEffect(() => {
@@ -82,40 +82,54 @@ const App = (props) => {
   }, [])
 
   return (
-    <CacheProvider value={emotionCache}>
+    <ThemeModeProvider screenMode={screenMode}>
       <Head>
         <title>{`Dandela | ${t('description_page', { ns: NAMESPACE_LANGAGE_COMMON })}`}</title>
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=yes, viewport-fit=cover' />
         <meta name="description" content={t('description_page', { ns: NAMESPACE_LANGAGE_COMMON })} />
-      </Head>
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
+{
+  /*
+          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
         <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"
           crossOrigin="anonymous" />
-        <ThemeModeProvider screenMode={screenMode}>
-          <CssBaseline />
-          <AuthProvider>
-            <AuthConsumer>
-              {
-                (auth) => auth.isLoading
-                  ? <Fragment />
-                  : <DashboardLayout cryptocurrencies={cryptocurrencies} langage={langage} setLangage={onChangeLanguage}>
-                    <Component t={t} cryptocurrencies={cryptocurrencies} {...pageProps} langage={langage} setLangage={onChangeLanguage} />
-                  </DashboardLayout>
-              }
-            </AuthConsumer>
-          </AuthProvider>
-        </ThemeModeProvider>
-      </LocalizationProvider>
+  */
+}
+      </Head>
 
+      <CssBaseline />
+      <AuthProvider>
+        <AuthConsumer>
+          {
+            (auth) => auth.isLoading
+              ? <Fragment />
+              : <DashboardLayout cryptocurrencies={cryptocurrencies} langage={langage} setLangage={onChangeLanguage}>
+                <Component t={t} cryptocurrencies={cryptocurrencies} {...pageProps} langage={langage} setLangage={onChangeLanguage} />
+              </DashboardLayout>
+          }
+        </AuthConsumer>
+      </AuthProvider>
       <ins className="adsbygoogle"
         style={{ display: "block", textAlign: "center" }}
         data-ad-layout="in-article"
         data-ad-format="fluid"
         data-ad-client="ca-pub-2953886510697247"
         data-ad-slot="9537139740"></ins>
-    </CacheProvider>
+    </ThemeModeProvider>
   );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      //tabPrice: response,
+      ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
+        LANGAGE_ENGLISH,
+        LANGAGE_FRENC$,
+        LANGAGE_PORTUGUESE
+      ])),
+      // Will be passed to the page component as props
+    },
+  }
+}
 
 export default appWithTranslation(App);

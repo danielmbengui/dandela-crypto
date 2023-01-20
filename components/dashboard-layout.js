@@ -25,6 +25,7 @@ export const DashboardLayout = (props) => {
   return (
     <AuthGuard>
       <DashboardLayoutRoot>
+        <main>
         <Box
           sx={{
             display: 'flex',
@@ -43,6 +44,7 @@ export const DashboardLayout = (props) => {
 
           </Grid>
         </Box>
+        </main>
       </DashboardLayoutRoot>
 
        <DashboardNavbar 

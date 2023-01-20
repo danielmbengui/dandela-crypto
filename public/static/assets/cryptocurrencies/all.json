@@ -1,0 +1,290 @@
+[
+  {
+    "id": "bitcoin",
+    "name": "Bitcoin",
+    "symbol": "btc",
+    "logo": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579",
+    "total_supply": 21000000,
+    "max_supply": 21000000
+  },
+  {
+    "id": "ethereum",
+    "name": "Ethereum",
+    "symbol": "eth",
+    "logo": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880",
+    "total_supply": 120518597.222597,
+    "max_supply": null
+  },
+  {
+    "id": "tether",
+    "name": "Tether",
+    "symbol": "usdt",
+    "logo": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1668148663",
+    "total_supply": 66484835812.223,
+    "max_supply": null
+  },
+  {
+    "id": "usd-coin",
+    "name": "USD Coin",
+    "symbol": "usdc",
+    "logo": "https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png?1547042389",
+    "total_supply": 42911847361.3987,
+    "max_supply": null
+  },
+  {
+    "id": "binancecoin",
+    "name": "BNB",
+    "symbol": "bnb",
+    "logo": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1644979850",
+    "total_supply": 157219628.63,
+    "max_supply": 200000000
+  },
+  {
+    "id": "ripple",
+    "name": "XRP",
+    "symbol": "xrp",
+    "logo": "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731",
+    "total_supply": 99989156648,
+    "max_supply": 100000000000
+  },
+  {
+    "id": "binance-usd",
+    "name": "Binance USD",
+    "symbol": "busd",
+    "logo": "https://assets.coingecko.com/coins/images/9576/large/BUSD.png?1568947766",
+    "total_supply": 16372919906.35,
+    "max_supply": null
+  },
+  {
+    "id": "cardano",
+    "name": "Cardano",
+    "symbol": "ada",
+    "logo": "https://assets.coingecko.com/coins/images/975/large/cardano.png?1547034860",
+    "total_supply": 45000000000,
+    "max_supply": 45000000000
+  },
+  {
+    "id": "dogecoin",
+    "name": "Dogecoin",
+    "symbol": "doge",
+    "logo": "https://assets.coingecko.com/coins/images/5/large/dogecoin.png?1547792256",
+    "total_supply": null,
+    "max_supply": null
+  },
+  {
+    "id": "matic-network",
+    "name": "Polygon",
+    "symbol": "matic",
+    "logo": "https://assets.coingecko.com/coins/images/4713/large/matic-token-icon.png?1624446912",
+    "total_supply": 10000000000,
+    "max_supply": 10000000000
+  },
+  {
+    "id": "solana",
+    "name": "Solana",
+    "symbol": "sol",
+    "logo": "https://assets.coingecko.com/coins/images/4128/large/solana.png?1640133422",
+    "total_supply": 538941355.072612,
+    "max_supply": null
+  },
+  {
+    "id": "polkadot",
+    "name": "Polkadot",
+    "symbol": "dot",
+    "logo": "https://assets.coingecko.com/coins/images/12171/large/polkadot.png?1639712644",
+    "total_supply": 1274725227.2999,
+    "max_supply": null
+  },
+  {
+    "id": "shiba-inu",
+    "name": "Shiba Inu",
+    "symbol": "shib",
+    "logo": "https://assets.coingecko.com/coins/images/11939/large/shiba.png?1622619446",
+    "total_supply": 999990968807043,
+    "max_supply": null
+  },
+  {
+    "id": "litecoin",
+    "name": "Litecoin",
+    "symbol": "ltc",
+    "logo": "https://assets.coingecko.com/coins/images/2/large/litecoin.png?1547033580",
+    "total_supply": 84000000,
+    "max_supply": 84000000
+  },
+  {
+    "id": "tron",
+    "name": "TRON",
+    "symbol": "trx",
+    "logo": "https://assets.coingecko.com/coins/images/1094/large/tron-logo.png?1547035066",
+    "total_supply": 91856993205.6597,
+    "max_supply": null
+  },
+  {
+    "id": "dai",
+    "name": "Dai",
+    "symbol": "dai",
+    "logo": "https://assets.coingecko.com/coins/images/9956/large/4943.png?1636636734",
+    "total_supply": 5112831975.25976,
+    "max_supply": 5112831975.25976
+  },
+  {
+    "id": "avalanche-2",
+    "name": "Avalanche",
+    "symbol": "avax",
+    "logo": "https://assets.coingecko.com/coins/images/12559/large/Avalanche_Circle_RedWhite_Trans.png?1670992574",
+    "total_supply": 419845465.855935,
+    "max_supply": 720000000
+  },
+  {
+    "id": "uniswap",
+    "name": "Uniswap",
+    "symbol": "uni",
+    "logo": "https://assets.coingecko.com/coins/images/12504/large/uniswap-uni.png?1600306604",
+    "total_supply": 1000000000,
+    "max_supply": 1000000000
+  },
+  {
+    "id": "wrapped-bitcoin",
+    "name": "Wrapped Bitcoin",
+    "symbol": "wbtc",
+    "logo": "https://assets.coingecko.com/coins/images/7598/large/wrapped_bitcoin_wbtc.png?1548822744",
+    "total_supply": 180197.6213473,
+    "max_supply": 180197.6213473
+  },
+  {
+    "id": "chainlink",
+    "name": "Chainlink",
+    "symbol": "link",
+    "logo": "https://assets.coingecko.com/coins/images/877/large/chainlink-new-logo.png?1547034700",
+    "total_supply": 1000000000,
+    "max_supply": 1000000000
+  },
+  {
+    "id": "monero",
+    "name": "Monero",
+    "symbol": "xmr",
+    "logo": "https://assets.coingecko.com/coins/images/69/large/monero_logo.png?1547033729",
+    "total_supply": null,
+    "max_supply": null
+  },
+  {
+    "id": "ethereum-classic",
+    "name": "Ethereum Classic",
+    "symbol": "etc",
+    "logo": "https://assets.coingecko.com/coins/images/453/large/ethereum-classic-logo.png?1547034169",
+    "total_supply": 210700000,
+    "max_supply": 210700000
+  },
+  {
+    "id": "bitcoin-cash",
+    "name": "Bitcoin Cash",
+    "symbol": "bch",
+    "logo": "https://assets.coingecko.com/coins/images/780/large/bitcoin-cash-circle.png?1594689492",
+    "total_supply": 21000000,
+    "max_supply": 21000000
+  },
+  {
+    "id": "stellar",
+    "name": "Stellar",
+    "symbol": "xlm",
+    "logo": "https://assets.coingecko.com/coins/images/100/large/Stellar_symbol_black_RGB.png?1552356157",
+    "total_supply": 50001787492.8572,
+    "max_supply": 50001787492.8572
+  },
+  {
+    "id": "near",
+    "name": "NEAR Protocol",
+    "symbol": "near",
+    "logo": "https://assets.coingecko.com/coins/images/10365/large/near_icon.png?1601359077",
+    "total_supply": 1000000000,
+    "max_supply": 1000000000
+  },
+  {
+    "id": "apecoin",
+    "name": "ApeCoin",
+    "symbol": "ape",
+    "logo": "https://assets.coingecko.com/coins/images/24383/large/apecoin.jpg?1647476455",
+    "total_supply": 1000000000,
+    "max_supply": 1000000000
+  },
+  {
+    "id": "vechain",
+    "name": "VeChain",
+    "symbol": "vet",
+    "logo": "https://assets.coingecko.com/coins/images/1167/large/VeChain-Logo-768x725.png?1547035194",
+    "total_supply": 85985041177,
+    "max_supply": 86712634466
+  },
+  {
+    "id": "internet-computer",
+    "name": "Internet Computer",
+    "symbol": "icp",
+    "logo": "https://assets.coingecko.com/coins/images/14495/large/Internet_Computer_logo.png?1620703073",
+    "total_supply": 494308345.004374,
+    "max_supply": 469213710
+  },
+  {
+    "id": "decentraland",
+    "name": "Decentraland",
+    "symbol": "mana",
+    "logo": "https://assets.coingecko.com/coins/images/878/large/decentraland-mana.png?1550108745",
+    "total_supply": 2193236627.32015,
+    "max_supply": 2193236627.32015
+  },
+  {
+    "id": "aave",
+    "name": "Aave",
+    "symbol": "aave",
+    "logo": "https://assets.coingecko.com/coins/images/12645/large/AAVE.png?1601374110",
+    "total_supply": 16000000,
+    "max_supply": 16000000
+  },
+  {
+    "id": "the-sandbox",
+    "name": "The Sandbox",
+    "symbol": "sand",
+    "logo": "https://assets.coingecko.com/coins/images/12129/large/sandbox_logo.jpg?1597397942",
+    "total_supply": 3000000000,
+    "max_supply": 3000000000
+  },
+  {
+    "id": "axie-infinity",
+    "name": "Axie Infinity",
+    "symbol": "axs",
+    "logo": "https://assets.coingecko.com/coins/images/13029/large/axie_infinity_logo.png?1604471082",
+    "total_supply": 270000000,
+    "max_supply": 270000000
+  },
+  {
+    "id": "tezos",
+    "name": "Tezos",
+    "symbol": "xtz",
+    "logo": "https://assets.coingecko.com/coins/images/976/large/Tezos-logo.png?1547034862",
+    "total_supply": null,
+    "max_supply": null
+  },
+  {
+    "id": "huobi-token",
+    "name": "Huobi",
+    "symbol": "ht",
+    "logo": "https://assets.coingecko.com/coins/images/2822/large/huobi-token-logo.png?1547036992",
+    "total_supply": 203980445.3,
+    "max_supply": 203980445.3
+  },
+  {
+    "id": "kucoin-shares",
+    "name": "KuCoin",
+    "symbol": "kcs",
+    "logo": "https://assets.coingecko.com/coins/images/1047/large/sa9z79.png?1610678720",
+    "total_supply": 144885672.457236,
+    "max_supply": null
+  },
+  {
+    "id": "ethereum-name-service",
+    "name": "Ethereum Name Service",
+    "symbol": "ens",
+    "logo": "https://assets.coingecko.com/coins/images/19785/large/acatxTm8_400x400.jpg?1635850140",
+    "total_supply": 100000000,
+    "max_supply": 100000000
+  }
+]

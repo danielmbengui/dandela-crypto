@@ -20,6 +20,7 @@ export const ACTION_UPDATE_PLAYER_BY_TWITTER_NAME = 'update_player_by_twitter_na
 //export const PATH_PUBLIC_DIR = `${process.cwd()}/public/extras/winnoandbees/list`;
 export const PATH_PUBLIC_DIR = `${process.cwd()}/public/static/assets`;
 export const PATH_CRYPTO_CURRENCIES_DIR = `${PATH_PUBLIC_DIR}/cryptocurrencies`;
+export const PATH_FILE_CRYPTO_CURRENCIES_INFOS = `${PATH_CRYPTO_CURRENCIES_DIR}/infos.json`;
 export const PATH_FILE_CRYPTO_CURRENCIES = `${PATH_CRYPTO_CURRENCIES_DIR}/completecryptocurrencies.json`;
 //export const PATH_FILE_PLAYERS = `${PATH_PUBLIC_DIR}/players.json`;
 

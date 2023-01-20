@@ -14,7 +14,9 @@ class CustomDocument extends Document {
           <Script src="/intersection-observer.js" />
           <Script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver" />
           */}
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"
+          crossOrigin="anonymous" />
           <meta charSet="utf-8" />
           <meta name="description" content="Dandela Crypto Converter - Financial freedom | Freedom to choose." />
           <link
@@ -22,15 +24,7 @@ class CustomDocument extends Document {
             type="image/ico"
             href="/icons/favicon.ico"
           />
-          <link
-            rel="icon"
-            type="image/ico"
-            sizes="32x32"
-            href="/icons/favicon32x32.ico"
-          />
-          <link rel="shortcut icon" href="/favicon32x32.ico" />
-
-          <link
+                    <link
             rel="icon"
             type="image/ico"
             sizes="16x16"
@@ -43,7 +37,6 @@ class CustomDocument extends Document {
             href="/icons/favicon32x32.ico"
           />
           <link rel="shortcut icon" href="/favicon32x32.ico" />
-
           <link
             rel="icon"
             type="image/ico"
