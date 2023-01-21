@@ -62,7 +62,7 @@ export default function HomePage(props) {
   );
 }
 
-export async function getStaticProps({locale}) {
+export async function getServerSideProps({locale}) {
   return {
     props: {
       //tabPrice: response,

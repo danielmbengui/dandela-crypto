@@ -20,7 +20,7 @@ export default function LanguagePopover(props) {
     const router = useRouter();
 
     useEffect(() => {
-      i18n.changeLanguage(langage);
+      //i18n.changeLanguage(langage);
       updateLangageStorage(langage);
       //router.push(router.pathname, {}, { locale: langage });
     

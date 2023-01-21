@@ -20,7 +20,6 @@ export default function LangageProvider({children, langageMode}){
     
     //const {langage} = props;
     const router = useRouter();
-    console.log("LAGAGE useUserLanguageRoute", langage)
   
     useEffect(() => {
       const {

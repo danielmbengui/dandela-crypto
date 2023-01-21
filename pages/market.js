@@ -3,7 +3,7 @@ import axios from 'axios';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { CustomPagetitle } from '../components/custom/custom-page-title';
-import { NAMESPACE_LANGAGE_HOME, TAB_LANGAGES, TAB_NAMEPACES } from '../constants';
+import { NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_HOME, TAB_LANGAGES, TAB_NAMEPACES } from '../constants';
 import styles from '../styles/SearchBar.module.css';
 import CustomTable from '../components/custom/custom-table';
 import { useTranslation } from 'next-i18next';
@@ -21,7 +21,7 @@ const SearchBar = ({ ...rest }) => {
 }
 
 export default function MarketPage(props) {
-    const {t} = useTranslation();
+    const {t} = useTranslation([NAMESPACE_LANGAGE_COMMON]);
     const { coinsData, langage } = props;
     //console.log("LOCALE ListPage index", coinsData, );
     const [search, setSearch] = useState('');
@@ -31,7 +31,6 @@ export default function MarketPage(props) {
     });
 
     const handleChangeSearch = (e) => {
-        //e.preventDefdault();
         setSearch(e.target.value.toLowerCase());
     }
 
@@ -52,30 +51,21 @@ export default function MarketPage(props) {
                     flexGrow: 1,
                     py: 3
                 }}
-                
             >
                 <CustomPagetitle title={`${t('menuMarket')}`} />
                 <Container maxWidth={false} sx={{ py: 3 }}>
                     <SearchBar type='text' placeholder='Search' onChange={handleChangeSearch} />
                     <CustomTable list={filteredCoins} langage={langage} />
-                    {
-                        /*
-                        <CoinList coinsData={coinsData} />
-                        */
-                    }
                 </Container>
             </Box>
-
         </div>
     )
 }
 
-export async function getStaticProps({locale}) {
+export async function getServerSideProps({locale}) {
     const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
     const response = await axios.get(url);
     const coinsData = await response.data;
-    
-    //console.log("LOCALE",url, locale,);
     return {
       props: {
         coinsData,
