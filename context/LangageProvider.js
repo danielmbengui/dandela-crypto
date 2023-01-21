@@ -39,10 +39,10 @@ export default function LangageProvider({children, langageMode}){
       const shouldChangeLocale =
         isReady// and here I use it
         //&& locale !== langage
-        //&& locale !== browserLanguage
+        && locale !== browserLanguage
         //&& locale === defaultLocale
         && locales.includes(langage)
-        //&& locales.includes(browserLanguage)
+        && locales.includes(browserLanguage)
   
         if (shouldChangeLocale) {
           //document.documentElement.setAttribute("lang", langage);

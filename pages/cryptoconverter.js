@@ -22,7 +22,7 @@ import CustomAutoComplete from '../components/custom/custom-autocomplete';
 
 const CryptoConverterPage = (props) => {
   const {langage, setLangage, cryptocurrencies} = props;
-  const {t} = useTranslation();
+  const {t} = useTranslation([NAMESPACE_LANGAGE_COMMON]);
   const [amount, setAmount] = useState(1);
   const [cryptocurrency, setCryptoCurrency] = useState(cryptocurrencies ? cryptocurrencies[0] : "");
   const [currency, setCurrency] = useState(currencies ? currencies[0] : "");
