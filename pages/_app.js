@@ -14,7 +14,7 @@ import { cryptocurrencies_ids } from '../__mocks__/cryptocurrencie_ids';
 import LangageProvider from '../context/LangageProvider';
 const cryptocurrencies = require("../public/static/assets/cryptocurrencies/completecryptocurrencies.json");
 
-registerChartJs();
+//registerChartJs();
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -25,7 +25,6 @@ const App = (props) => {
   const {t, i18n} = useTranslation([TAB_NAMEPACES]);
 
   const onChangeLanguage = (language) => {
-    console.log("change index LANGAGE NOOOOOW", language)
     setLangage(language);
   };
 

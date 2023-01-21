@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
 import { CryptoComponent } from '../components/dashboard/CryptoComponent';
 import { cryptocurrencies } from '../__mocks__/cryptocurrencies';
-import { DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, TAB_NAMEPACES } from '../constants';
+import { DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, TAB_LANGAGES, TAB_NAMEPACES } from '../constants';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { CustomPagetitle } from '../components/custom/custom-page-title';
 import axios from 'axios';
@@ -62,15 +62,11 @@ export default function HomePage(props) {
   );
 }
 
-export async function getServerSideProps({locale}) {
+export async function getStaticProps({locale}) {
   return {
     props: {
       //tabPrice: response,
-      ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
-        LANGAGE_ENGLISH,
-        LANGAGE_FRENCH,
-        LANGAGE_PORTUGUESE
-      ])),
+      ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, TAB_LANGAGES)),
       // Will be passed to the page component as props
     },
   }

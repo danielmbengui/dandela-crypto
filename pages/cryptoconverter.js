@@ -11,7 +11,7 @@ import { cryptocurrencies } from '../__mocks__/cryptocurrencies';
 import { currencies } from '../__mocks__/currencies';
 import { CryptoConvertListToolbar } from '../components/cryptoconvert/crypto-converter-toolbar';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, PAGE_LINK_CRYPTO_CONVERTER, TAB_NAMEPACES } from '../constants';
+import { DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, PAGE_LINK_CRYPTO_CONVERTER, TAB_LANGAGES, TAB_NAMEPACES } from '../constants';
 import { useTranslation } from 'next-i18next';
 import CustomInput from '../components/custom/custom-input';
 import { capitalizeAllWord, capitalizeFirstLetter, roundNumber } from '../lib/func/func';
@@ -202,15 +202,11 @@ const theme = useTheme();
   )
 };
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   return {
       props: {
         //tabPrice: response,
-          ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
-            LANGAGE_ENGLISH,
-              LANGAGE_FRENCH,  
-              LANGAGE_PORTUGUESE
-          ])),
+          ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, TAB_LANGAGES)),
           // Will be passed to the page component as props
       },
   }
