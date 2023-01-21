@@ -3,88 +3,27 @@ import axios from 'axios';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { CustomPagetitle } from '../components/custom/custom-page-title';
-import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_HOME, TAB_LANGAGES, TAB_NAMEPACES } from '../constants';
+import { NAMESPACE_LANGAGE_HOME, TAB_LANGAGES, TAB_NAMEPACES } from '../constants';
 import styles from '../styles/SearchBar.module.css';
-import styleCoins from '../styles/Coins.module.css';
 import CustomTable from '../components/custom/custom-table';
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import { cryptocurrencies_ids } from '../__mocks__/cryptocurrencie_ids';
-import Link from 'next/link';
 
 const SearchBar = ({ ...rest }) => {
     return (
         <Grid container className={styles['coin__search']} justifyContent={'center'}>
             <Grid item>
             <input className={styles.coin__input} {...rest} />
-
-{
-    /*
-     <div className={styles['coin__search']}>
-        </div>
-    */
-}
             </Grid>
         </Grid>
-       
-    )
-}
-
-const CoinList = ({ coinsData }) => {
-    return (
-        <>
-            {coinsData.map(coin => {
-                return (
-                    <Coins 
-                        key={coin.id}
-                        name={coin.name}
-                        id={coin.id}
-                        price={coin.current_price}
-                        symbol={coin.symbol}
-                        marketcap={coin.market_cap}
-                        volume={coin.total_volume}
-                        image={coin.image}
-                        priceChange={coin.price_change_percentage_24h}
-                    />
-                )
-            })}
-        </>
-    )
-}
-
-const Coins = ({ name, id, price, symbol, marketcap, market_cap_rank, volume, image, priceChange }) => {
-    return (
-       <Link href={`/coins/${id}`}>
-        <div className={styleCoins.coin__container}>
-            <div className={styleCoins.coin__row}>
-                <div className={styleCoins.coin}>
-                    <h1 >{market_cap_rank}</h1>
-                    <img src={image} alt={name} className={styleCoins.coin__img} />
-                    <h1 className={styleCoins.coin__h1}>{name}</h1>
-                    <p className={styleCoins.coin__symbol}>{symbol}</p>
-                </div>
-                <div className={styleCoins.coin__data}>
-                    <p className={styleCoins.coin__price}>${price}</p>
-                    <p className={styleCoins.coin__volume}>${volume.toLocaleString}</p>
-                    {priceChange < 0 ? (
-                        <p className={`${styleCoins['coin__percent']}, ${styleCoins['red']}`}>{priceChange.toFixed(2)}</p>
-                    ) : (
-                        <p className={`${styleCoins['coin__percent']}, ${styleCoins['green']}`}>{priceChange.toFixed(2)}</p>
-                    )}
-                    <p className={styleCoins.coin__marketcap}>
-                        Mkt Cap: ${marketcap.toLocaleString()}
-                    </p>
-                </div>
-            </div>
-        </div>
-       </Link>
     )
 }
 
 export default function MarketPage(props) {
-    const {t} = useTranslation(TAB_NAMEPACES);
+    const {t} = useTranslation();
     const { coinsData, langage } = props;
-    console.log("LOCALE ListPage index", coinsData, );
+    //console.log("LOCALE ListPage index", coinsData, );
     const [search, setSearch] = useState('');
 
     const filteredCoins = coinsData.filter((coin) => {
