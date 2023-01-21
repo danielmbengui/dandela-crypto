@@ -9,10 +9,19 @@ import { useRouter } from 'next/router';
 
 const Coin = ({coin, langage}) => {
   const router = useRouter();
-  const { id } = router.query;
+  //const { id } = router.query;
   //const [coin, setCoin] = useState(null);
 
   useEffect(() => {
+    console.log("IIIIIIID", router.query ? router.query.id : 'NULL');
+    /*
+    async function init() {
+      const res = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`);
+      const data = await res.data;
+      console.log("YEEEEEES", data);
+    }
+    init();
+    */
     //router.push(router.pathname, {}, { locale: langage });
     /*
     async function init() {
@@ -42,6 +51,7 @@ const Coin = ({coin, langage}) => {
     );
 };
 export default Coin;
+
 
 export async function getStaticPaths() {
     // Call an external API endpoint to get posts

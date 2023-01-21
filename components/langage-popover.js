@@ -17,11 +17,15 @@ export default function LanguagePopover(props) {
     //const {t} = props;
     const { langage, setLangage } = props;
     const [open, setOpen] = useState(null);
-    //const router = useRouter();
+    const router = useRouter();
 
     useEffect(() => {
-      //i18n.changeLanguage(langage);
+      i18n.changeLanguage(langage);
       updateLangageStorage(langage);
+      //router.push(router.pathname, {}, { locale: langage });
+    
+    
+    
       console.log("CHANGE LANGAGE" ,langage);
     }, [langage])
     
@@ -119,6 +123,7 @@ export default function LanguagePopover(props) {
     const onChangeLanguage = (_language) => {
         setLangage(_language);
         //updateLangageStorage(_language);
+        
         handleClose();
         console.log("LANGAE", _language)
     };

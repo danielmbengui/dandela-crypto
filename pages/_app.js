@@ -27,7 +27,7 @@ const App = (props) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const [screenMode,] = useState(getScreenModeStorage());
   const [langage, setLangage] = useState(getLangageStorage());
-  const {t} = useTranslation([TAB_NAMEPACES]);
+  const {t, i18n} = useTranslation([TAB_NAMEPACES]);
   
   //console.log("custooooooooom CUREENCIES", cryptocurrencies)
 
@@ -52,15 +52,43 @@ const App = (props) => {
     if (router.isReady) {
       //init();
     }
-    
+    //router.push(router.pathname, {}, { locale: langage });
 
 //console.log("CRYPTO_CURRENCIEs", cryptocurrencies);
   }, [router.isReady])
 
   useEffect(() => {
     //i18n.changeLanguage(langage);
-    router.push(router.pathname, {}, { locale: langage });
-
+    router.push({
+      pathname:router.pathname,
+      query: router.query,
+    }, {}, {locale:langage});
+    /*
+    router.push({
+      ...router,
+      pathname: router.pathname,
+      query: {...router.query},
+    },
+    //...router.asPath,
+    //...router,
+        { locale: langage }
+    );
+    */
+   /*
+    router.push({
+      //...router,
+      pathname: router.pathname,
+      query: {...router.query},
+      //locale: {...router.locale},
+    },
+    
+    //{},
+    //{},
+    //...router.asPath,
+    //...router,
+      { locale: langage }
+    );
+    */
 /*
       
         */
