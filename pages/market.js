@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { CustomPagetitle } from '../components/custom/custom-page-title';
 import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_HOME, TAB_NAMEPACES } from '../constants';
-import styles from '../styles/Searchbar.module.css';
+import styles from '../styles/SearchBar.module.css';
 import styleCoins from '../styles/Coins.module.css';
 import CustomTable from '../components/custom/custom-table';
 import { useTranslation } from 'next-i18next';
