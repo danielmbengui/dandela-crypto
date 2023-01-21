@@ -3,7 +3,7 @@ import axios from 'axios';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { CustomPagetitle } from '../components/custom/custom-page-title';
-import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_HOME, TAB_NAMEPACES } from '../constants';
+import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_HOME, TAB_LANGAGES, TAB_NAMEPACES } from '../constants';
 import styles from '../styles/SearchBar.module.css';
 import styleCoins from '../styles/Coins.module.css';
 import CustomTable from '../components/custom/custom-table';
@@ -82,7 +82,7 @@ const Coins = ({ name, id, price, symbol, marketcap, market_cap_rank, volume, im
 }
 
 export default function MarketPage(props) {
-    const {t} = useTranslation([TAB_NAMEPACES]);
+    const {t} = useTranslation(TAB_NAMEPACES);
     const { coinsData, langage } = props;
     console.log("LOCALE ListPage index", coinsData, );
     const [search, setSearch] = useState('');
@@ -131,7 +131,7 @@ export default function MarketPage(props) {
     )
 }
 
-export async function getServerSideProps({locale}) {
+export async function getStaticProps({locale}) {
     const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
     const response = await axios.get(url);
     const coinsData = await response.data;
@@ -141,11 +141,7 @@ export async function getServerSideProps({locale}) {
       props: {
         coinsData,
         //tabPrice: response,
-        ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
-          LANGAGE_ENGLISH,
-          LANGAGE_FRENCH,
-          LANGAGE_PORTUGUESE
-        ])),
+        ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, TAB_LANGAGES)),
         // Will be passed to the page component as props
       },
     }
