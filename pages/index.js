@@ -15,7 +15,7 @@ import { useRouter } from 'next/router';
 export default function HomePage(props) {
   const router = useRouter();
   const { cryptocurrencies} = props;
-  const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
+  const { t } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
 
   return (
     <>
@@ -63,9 +63,6 @@ export default function HomePage(props) {
 }
 
 export async function getServerSideProps({locale}) {
-  //const {locale} = context;
-  console.log("LOCALE getServerSideProps index", locale, "DEFAULT", DEFAULT_LANGAGE, "ACTUAL", getLangageStorage());
-  console.log("LOCALE",);
   return {
     props: {
       //tabPrice: response,

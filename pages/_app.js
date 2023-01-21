@@ -65,7 +65,7 @@ const App = (props) => {
   useEffect(() => {
     //i18n.changeLanguage(langage);
     
-      router.push({pathname:router.pathname, query: {...router.query}}, {}, {locale:langage})
+      //router.push({pathname:router.pathname, query: {...router.query}}, {}, {locale:langage})
       /*
       router.push({
         //...router,

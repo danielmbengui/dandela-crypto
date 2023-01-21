@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
 import { CryptoComponent } from '../../components/dashboard/CryptoComponent';
-import { cryptocurrencies } from '../../__mocks__/cryptocurrencies';
+//import { cryptocurrencies } from '../../__mocks__/cryptocurrencies';
 import { DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, TAB_NAMEPACES } from '../../constants';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { CustomPagetitle } from '../../components/custom/custom-page-title';
@@ -11,8 +11,47 @@ import { currencies } from '../../__mocks__/currencies';
 import { useTranslation } from 'next-i18next';
 import { getLangageStorage } from '../../lib/storage/UserStorageFunctions';
 import { useRouter } from 'next/router';
-import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencie_ids';
+//import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencie_ids';
 import styles from '../../styles/Coin.module.css';
+
+const cryptocurrencies_ids = [
+    "bitcoin",
+    "ethereum",
+     "matic-network",
+     "binancecoin",
+     "tether",
+    "usd-coin",
+    "binance-usd",
+    "dai",
+    "ripple",
+    "cardano",
+    "dogecoin",
+    "solana",
+    "polkadot",
+    "shiba-inu",
+    "avalanche-2",
+    "uniswap",
+    "tron",
+    "wrapped-bitcoin",
+    "litecoin",
+    "chainlink",
+    "ethereum-classic",
+    "monero",
+    "bitcoin-cash",
+    "vechain",
+    "stellar",
+    "tezos",
+    "axie-infinity",
+    "decentraland",
+    "the-sandbox",
+    "apecoin",
+    "near",
+    "internet-computer",
+    "aave",
+    "huobi-token",
+    "kucoin-shares",
+    "ethereum-name-service",
+];
 
 export default function CoinPage(props) {
 const router = useRouter();
@@ -68,7 +107,7 @@ export async function getStaticPaths() {
     // (faster builds, but slower initial page load)  
     // Get the paths we want to prerender based on posts
     // In production environments, prerender all pages
-    // (slower builds, but faster initial page load)
+    // (slower builds, but faster initial page load);
     const paths = [];
     for (let i = 0; i < cryptocurrencies_ids.length; i++) {
         const id = cryptocurrencies_ids[i];
@@ -92,11 +131,13 @@ export async function getStaticProps(context) {
   const { id } = params;
     const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
     const data = await res.json();
-  console.log("LOCALE getServerSideProps index", locale, "DEFAULT", DEFAULT_LANGAGE, "ACTUAL", getLangageStorage());
-  console.log("LOCALE",);
   return {
     props: {
-      coin: data,
+      coin: {
+        name:data.name, 
+        image:data.image, 
+        market_data:data.market_data
+    },
       ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
         LANGAGE_ENGLISH,
         LANGAGE_FRENCH,

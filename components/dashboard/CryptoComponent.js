@@ -68,6 +68,7 @@ export const CryptoComponent = (props) => {
                   height={56}
                   loader={myLoader}
                   quality={100}
+                  priority
                 />
               </Avatar>
             </Grid>
