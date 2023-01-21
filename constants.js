@@ -1,7 +1,8 @@
 export const COMPANY_NAME = 'Dandela';
 export const APP_NAME = 'Dandela Web App';
 export const DEFAULT_SCREEN_MODE = 'light';
-export const DEFAULT_LANGAGE = 'en';
+export const DEFAULT_CURRENCY = 'usd';
+export const DEFAULT_LANGAGE = 'pt';
 export const LANGAGE_FRENCH = 'fr';
 export const LANGAGE_ENGLISH = 'en';
 export const LANGAGE_PORTUGUESE = 'pt';
@@ -19,7 +20,10 @@ export const TAB_NAMEPACES = [
 ];
 
 export const PAGE_LINK_HOME = "/";
+export const PAGE_LINK_MARKET = "/market";
+export const PAGE_LINK_COIN = "/coin";
 export const PAGE_LINK_CRYPTO_CONVERTER = "/cryptoconverter";
+export const PAGE_LINK_LIST_CRYPTO_CURRENCIES = "/list";
 export const PAGE_LINK_PRIVACY_POLICY = "/privacypolicy";
 export const PAGE_LINK_404 = "/404";
 /*
@@ -41,4 +45,5 @@ export const NAMESPACE_LANGAGE_INPROGRESS_LIST = 'transferts/inprogress';
 
 /* --------------- STORAGE -------------- */
 export const STORAGE_SCREEN_MODE = 'screenMode';
+export const STORAGE_CURRENCY = 'currency';
 export const STORAGE_LANGAGE = 'lang';

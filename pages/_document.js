@@ -8,11 +8,13 @@ import { DEFAULT_LANGAGE } from '../constants';
 class CustomDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang='en'>
         <Head>
           {/*
           <Script src="/intersection-observer.js" />
           <Script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver" />
+
+          
           */}
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"

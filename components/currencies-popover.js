@@ -12,7 +12,7 @@ import { updateLangageStorage } from '../lib/storage/UserStorageFunctions';
 const sizeFlag = 45;
 // ----------------------------------------------------------------------
 
-export default function LanguagePopover(props) {
+export default function CurrenciesPopover(props) {
     const { t, i18n } = useTranslation(NAMESPACE_LANGAGE_COMMON);
     //const {t} = props;
     const { langage, setLangage } = props;

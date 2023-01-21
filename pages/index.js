@@ -3,14 +3,17 @@ import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
 import { CryptoComponent } from '../components/dashboard/CryptoComponent';
 import { cryptocurrencies } from '../__mocks__/cryptocurrencies';
-import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, TAB_NAMEPACES } from '../constants';
+import { DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, TAB_NAMEPACES } from '../constants';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { CustomPagetitle } from '../components/custom/custom-page-title';
 import axios from 'axios';
 import { currencies } from '../__mocks__/currencies';
+import { useTranslation } from 'next-i18next';
+import { getLangageStorage } from '../lib/storage/UserStorageFunctions';
 
 export default function HomePage(props) {
-  const { cryptocurrencies, t} = props;
+  const { cryptocurrencies} = props;
+  const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
 
   return (
     <>
@@ -57,7 +60,10 @@ export default function HomePage(props) {
   );
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({locale}) {
+  //const {locale} = context;
+  console.log("LOCALE getServerSideProps index", locale, "DEFAULT", DEFAULT_LANGAGE, "ACTUAL", getLangageStorage());
+  console.log("LOCALE",);
   return {
     props: {
       //tabPrice: response,

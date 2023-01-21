@@ -20,18 +20,18 @@ const DashboardLayoutRoot = styled('div')(({ theme }) => ({
 export const DashboardLayout = (props) => {
   const { children, langage, setLangage } = props;
   const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <AuthGuard>
       <DashboardLayoutRoot>
-        <main>
-        <Box
+      <Box
           sx={{
             display: 'flex',
             flex: '1 1 auto',
             flexDirection: 'column',
             width: '100%',
+            //py:40,
           }}
         >
           {children}
@@ -41,14 +41,14 @@ export const DashboardLayout = (props) => {
             {`${t('message_caution')}`}
             </Typography>
             </Grid>
-
           </Grid>
         </Box>
-        </main>
       </DashboardLayoutRoot>
 
        <DashboardNavbar 
+       //isSidebarOpen={isSidebarOpen}
       onSidebarOpen={() => setSidebarOpen(true)}
+      onClose={() => setSidebarOpen(false)}
       langage={langage} setLangage={setLangage}
       />
        <DashboardSidebar

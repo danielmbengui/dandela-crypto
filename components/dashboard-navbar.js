@@ -12,6 +12,7 @@ import MaterialUISwitch from './switch-theme-mode';
 import LanguagePopover from './langage-popover';
 import Image from 'next/image';
 import { myLoader } from '../lib/ImageLoader';
+import CurrenciesPopover from './currencies-popover';
 
 const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.background.paper,
@@ -54,10 +55,6 @@ export const DashboardNavbar = (props) => {
           >
             <MenuIcon fontSize="small" />
           </IconButton>
-
-          
-          
-          
           <div style={{marginLeft:5, display:'none'}}>
           <Image 
 src={'/static/images/logos/logo.png'}
@@ -74,17 +71,20 @@ priority
           langage={langage} setLangage={setLangage}
           />
           </div>
+          <div style={{ mx: 10 }}>
+          <CurrenciesPopover 
+          langage={langage} setLangage={setLangage}
+          />
+          </div>
           <div style={{ marginLeft: 10 }}>
           <MaterialUISwitch />
           </div>
-          
           <div style={{display:'none'}}>
           <Tooltip title="Search">
             <IconButton sx={{ ml: 1 }}>
               <SearchIcon fontSize="small" />
             </IconButton>
           </Tooltip>
-
           <Tooltip title="Contacts" >
             <IconButton sx={{ ml: 1 }}>
               <UsersIcon fontSize="small" />

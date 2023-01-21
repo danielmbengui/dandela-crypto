@@ -9,9 +9,11 @@ import { NavItem } from './nav-item';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import Image from 'next/image';
 import HomeIcon from '@mui/icons-material/Home';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import { useTranslation } from 'next-i18next';
-import { NAMESPACE_LANGAGE_COMMON, PAGE_LINK_CRYPTO_CONVERTER, PAGE_LINK_HOME } from '../constants';
+import { PAGE_LINK_LIST_CRYPTO_CURRENCIES, PAGE_LINK_CRYPTO_CONVERTER, PAGE_LINK_HOME, NAMESPACE_LANGAGE_COMMON, PAGE_LINK_MARKET } from '../constants';
 import { myLoader } from '../lib/ImageLoader';
+import InsightsIcon from '@mui/icons-material/Insights';
 
 export const DashboardSidebar = (props) => {
   const { t } = useTranslation(NAMESPACE_LANGAGE_COMMON);
@@ -34,6 +36,18 @@ export const DashboardSidebar = (props) => {
       icon: (<RepeatIcon fontSize="small" />),
       title: t('menuCryptoConverter')
     },
+    {
+      href: PAGE_LINK_MARKET,
+      icon: (<InsightsIcon fontSize="small" />),
+      title: t('menuMarket')
+    },
+    /*
+    {
+      href: PAGE_LINK_LIST_CRYPTO_CURRENCIES,
+      icon: (<FormatListNumberedIcon fontSize="small" />),
+      title: t('menuListCryptoCurrencies')
+    },
+    */
     /*
       {
         href: '/converttocrypto',
