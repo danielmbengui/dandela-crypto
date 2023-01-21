@@ -17,6 +17,7 @@ import { DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, N
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { cryptocurrencies_ids } from '../__mocks__/cryptocurrencie_ids';
+import LangageProvider from '../context/LangageProvider';
 const cryptocurrencies = require("../public/static/assets/cryptocurrencies/completecryptocurrencies.json");
 
 registerChartJs();
@@ -32,6 +33,8 @@ const App = (props) => {
   //console.log("custooooooooom CUREENCIES", cryptocurrencies)
 
   const router = useRouter();
+  //const userRoute = useUserLanguageRoute({langage:langage});
+
   const onChangeLanguage = (language) => {
     console.log("change index LANGAGE NOOOOOW", language)
     setLangage(language);
@@ -49,20 +52,32 @@ const App = (props) => {
       });
       //console.log("MY RESP", response);
     }
+    /*
     if (router.isReady) {
       //init();
     }
+    */
     //router.push(router.pathname, {}, { locale: langage });
 
 //console.log("CRYPTO_CURRENCIEs", cryptocurrencies);
-  }, [router.isReady])
+  }, [])
 
   useEffect(() => {
     //i18n.changeLanguage(langage);
-    router.push({
-      pathname:router.pathname,
-      query: router.query,
-    }, {}, {locale:langage});
+    
+      router.push({pathname:router.pathname, query: {...router.query}}, {}, {locale:langage})
+      /*
+      router.push({
+        //...router,
+        pathname: router.pathname,
+        query: router.query,
+      }, 
+      {}, 
+      {locale:langage}
+      );
+      */
+    
+    
     /*
     router.push({
       ...router,
@@ -93,7 +108,7 @@ const App = (props) => {
       
         */
         //updateLangageStorage(langage)
-      console.log("DEFAULT _app", router.locale, "ACTUAL", getLangageStorage());
+      //console.log("DEFAULT _app", router.locale, "ACTUAL", getLangageStorage());
   }, [langage]);
 
   useEffect(() => {
@@ -133,7 +148,8 @@ const App = (props) => {
       </Head>
 
       <CssBaseline />
-      <AuthProvider>
+<LangageProvider langageMode={langage} >
+<AuthProvider>
         <AuthConsumer>
           {
             (auth) => auth.isLoading
@@ -160,6 +176,7 @@ const App = (props) => {
         data-ad-format="fluid"
         data-ad-client="ca-pub-2953886510697247"
         data-ad-slot="9537139740"></ins>
+</LangageProvider>
     </ThemeModeProvider>
   );
 };

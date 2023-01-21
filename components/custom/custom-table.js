@@ -73,11 +73,7 @@ export default function CustomTable(props) {
                 <TableBody>
                     {list.map((row) => (
                         <StyledTableRow key={row.name} onClick={() => {
-                            router.push(
-                                {
-                                    pathname:`${PAGE_LINK_COIN}/${row.id}`
-                                }
-                            );
+                            router.push(`${PAGE_LINK_COIN}/${row.id}`);
                             /*
                             router.push({
                                 pathname: `${PAGE_LINK_COIN}/${row.id}`,

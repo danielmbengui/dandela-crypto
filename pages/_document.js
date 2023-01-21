@@ -8,7 +8,7 @@ import { DEFAULT_LANGAGE } from '../constants';
 class CustomDocument extends Document {
   render() {
     return (
-      <Html lang='en'>
+      <Html>
         <Head>
           {/*
           <Script src="/intersection-observer.js" />

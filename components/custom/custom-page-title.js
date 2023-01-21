@@ -9,12 +9,14 @@ import {
     Typography
   } from '@mui/material';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { NAMESPACE_LANGAGE_COMMON } from '../../constants';
   import { Download as DownloadIcon } from '../../icons/download';
   import { Search as SearchIcon } from '../../icons/search';
   import { Upload as UploadIcon } from '../../icons/upload';
   
   export const CustomPagetitle = (props) => {
+    const router = useRouter();
     const { t, i18n } = useTranslation(NAMESPACE_LANGAGE_COMMON);
     const {title} = props;
 
@@ -33,7 +35,7 @@ import { NAMESPACE_LANGAGE_COMMON } from '../../constants';
               sx={{ m: 1 }}
               variant="h2"
             >
-              {title}
+              {`${title} - ${router.locale}`}
             </Typography>
             <Box sx={{ m: 1, display: 'none' }}>
               <Button

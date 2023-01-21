@@ -2,10 +2,15 @@ export const COMPANY_NAME = 'Dandela';
 export const APP_NAME = 'Dandela Web App';
 export const DEFAULT_SCREEN_MODE = 'light';
 export const DEFAULT_CURRENCY = 'usd';
-export const DEFAULT_LANGAGE = 'pt';
+export const DEFAULT_LANGAGE = 'eng';
 export const LANGAGE_FRENCH = 'fr';
 export const LANGAGE_ENGLISH = 'en';
 export const LANGAGE_PORTUGUESE = 'pt';
+export const TAB_LANGAGES = [
+    LANGAGE_ENGLISH,
+    LANGAGE_FRENCH,
+    LANGAGE_PORTUGUESE,
+];
 export const NAMESPACE_LANGAGE_COMMON = 'common';
 export const NAMESPACE_LANGAGE_HOME = 'home';
 export const NAMESPACE_LANGAGE_CRYPTO_CONVERTER = 'cryptoconverter';

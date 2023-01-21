@@ -10,8 +10,10 @@ import axios from 'axios';
 import { currencies } from '../__mocks__/currencies';
 import { useTranslation } from 'next-i18next';
 import { getLangageStorage } from '../lib/storage/UserStorageFunctions';
+import { useRouter } from 'next/router';
 
 export default function HomePage(props) {
+  const router = useRouter();
   const { cryptocurrencies} = props;
   const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
 

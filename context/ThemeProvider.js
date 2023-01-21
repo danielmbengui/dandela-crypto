@@ -2,6 +2,7 @@ import React, { useState, useMemo, createContext, useEffect } from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { DEFAULT_SCREEN_MODE, STORAGE_SCREEN_MODE } from '../constants';
 import { palette } from '@mui/system';
+import { getScreenModeStorage, updateScreenModeStorage } from '../lib/storage/UserStorageFunctions';
 
 export const ThemeModeProviderContext = createContext({ toggleColorMode: () => { } });
 
@@ -21,17 +22,18 @@ export default function ThemeModeProvider({ children, screenMode }) {
   useEffect(() => {
     let _screenMode = DEFAULT_SCREEN_MODE;
     if (typeof (Storage) !== "undefined") {
-      if (window.localStorage.getItem(STORAGE_SCREEN_MODE) === null) {
-        window.localStorage.setItem(STORAGE_SCREEN_MODE, _screenMode);
+      if (getScreenModeStorage() === null) {
+        updateScreenModeStorage(_screenMode);
       }
-      _screenMode = window.localStorage.getItem(STORAGE_SCREEN_MODE);
+      _screenMode = getScreenModeStorage();
     }
     setMode(_screenMode);
   }, [screenMode]);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", mode);
-    window.localStorage.setItem(STORAGE_SCREEN_MODE, mode);
+    //window.localStorage.setItem(STORAGE_SCREEN_MODE, mode);
+    updateScreenModeStorage(mode);
     console.log('Change SCREEEN MODE theme', mode);
   }, [mode]);
 
