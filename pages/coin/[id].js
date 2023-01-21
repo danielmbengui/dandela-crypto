@@ -133,11 +133,7 @@ export async function getStaticProps(context) {
     const data = await res.json();
   return {
     props: {
-      coin: {
-        name:data.name, 
-        image:data.image, 
-        market_data:data.market_data
-    },
+      coin: data,
       ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
         LANGAGE_ENGLISH,
         LANGAGE_FRENCH,
