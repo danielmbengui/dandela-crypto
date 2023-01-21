@@ -29,10 +29,6 @@ const App = (props) => {
   };
 
   useEffect(() => {
-    i18n.changeLanguage(langage);
-  }, [langage]);
-
-  useEffect(() => {
     if (typeof window !== 'undefined') {
       // You now have access to `window`
       window.dataLayer = window.dataLayer || [];

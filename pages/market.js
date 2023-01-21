@@ -38,7 +38,7 @@ export default function MarketPage(props) {
         <div className='layout'>
             <Head>
                 <title>
-                    {`Dandela | ${t('menuMarket')}`}
+                    {`Dandela | ${t('menuMarket', { ns: NAMESPACE_LANGAGE_COMMON })}`}
                 </title>
                 <meta name="description" content={t('description_page', { ns: NAMESPACE_LANGAGE_HOME })} />
             </Head>
@@ -52,7 +52,7 @@ export default function MarketPage(props) {
                     py: 3
                 }}
             >
-                <CustomPagetitle title={`${t('menuMarket')}`} />
+                <CustomPagetitle title={`${t('menuMarket', { ns: NAMESPACE_LANGAGE_COMMON })}`} />
                 <Container maxWidth={false} sx={{ py: 3 }}>
                     <SearchBar type='text' placeholder='Search' onChange={handleChangeSearch} />
                     <CustomTable list={filteredCoins} langage={langage} />
@@ -63,12 +63,17 @@ export default function MarketPage(props) {
 }
 
 export async function getServerSideProps({locale}) {
-    const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
+    var coinsData = null;
+    try {
+        const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
     const response = await axios.get(url);
-    const coinsData = await response.data;
+    coinsData = await response.data;
+    } catch {
+        coinsData = {}
+    }
     return {
       props: {
-        coinsData,
+        coinsData:coinsData,
         //tabPrice: response,
         ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, TAB_LANGAGES)),
         // Will be passed to the page component as props
