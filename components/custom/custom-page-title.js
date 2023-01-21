@@ -31,7 +31,7 @@ import { NAMESPACE_LANGAGE_COMMON } from '../../constants';
           >
             <Typography
               sx={{ m: 1 }}
-              variant="h1"
+              variant="h2"
             >
               {title}
             </Typography>
