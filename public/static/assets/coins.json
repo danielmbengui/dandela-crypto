@@ -31,7 +31,7 @@
     },
     "market_data": {
       "current_price": {
-        "usd": 1.001
+        "usd": 0.999497
       }
     }
   },
@@ -67,7 +67,7 @@
     },
     "market_data": {
       "current_price": {
-        "usd": 0.406348
+        "usd": 0.405696
       }
     }
   },

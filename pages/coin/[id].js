@@ -16,51 +16,51 @@ import styles from '../../styles/Coin.module.css';
 import BackspaceIcon from '@mui/icons-material/Backspace';
 
 const cryptocurrencies_ids = [
-    "bitcoin",
-    "ethereum",
-     "matic-network",
-     "binancecoin",
-     "tether",
-    "usd-coin",
-    "binance-usd",
-    "dai",
-    "ripple",
-    "cardano",
-    "dogecoin",
-    "solana",
-    "polkadot",
-    "shiba-inu",
-    "avalanche-2",
-    "uniswap",
-    "tron",
-    "wrapped-bitcoin",
-    "litecoin",
-    "chainlink",
-    "ethereum-classic",
-    "monero",
-    "bitcoin-cash",
-    "vechain",
-    "stellar",
-    "tezos",
-    "axie-infinity",
-    "decentraland",
-    "the-sandbox",
-    "apecoin",
-    "near",
-    "internet-computer",
-    "aave",
-    "huobi-token",
-    "kucoin-shares",
-    "ethereum-name-service",
+  "bitcoin",
+  "ethereum",
+  "matic-network",
+  "binancecoin",
+  "tether",
+  "usd-coin",
+  "binance-usd",
+  "dai",
+  "ripple",
+  "cardano",
+  "dogecoin",
+  "solana",
+  "polkadot",
+  "shiba-inu",
+  "avalanche-2",
+  "uniswap",
+  "tron",
+  "wrapped-bitcoin",
+  "litecoin",
+  "chainlink",
+  "ethereum-classic",
+  "monero",
+  "bitcoin-cash",
+  "vechain",
+  "stellar",
+  "tezos",
+  "axie-infinity",
+  "decentraland",
+  "the-sandbox",
+  "apecoin",
+  "near",
+  "internet-computer",
+  "aave",
+  "huobi-token",
+  "kucoin-shares",
+  "ethereum-name-service",
 ];
 
 export default function CoinPage(props) {
-const router = useRouter();
-  const { coin, cryptocurrencies, langage} = props;
+  const router = useRouter();
+  const { coin, cryptocurrencies, langage } = props;
   const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
 
   useEffect(() => {
-    
+
   }, []);
 
   return (
@@ -76,72 +76,74 @@ const router = useRouter();
         sx={{
           flexGrow: 1,
           py: 3,
-          px:3
+          px: 3
         }}
       >
         <CustomPagetitle title={`${router.query ? router.query.id : 'UNKNOW'}`} />
-        <BackspaceIcon sx={{cursor:'pointer'}} onClick={() => {
+        <BackspaceIcon sx={{ cursor: 'pointer' }} onClick={() => {
           router.back();
         }} />
-<Grid container justifyContent={'center'}>
-    <Grid item>
-    {
-         coin && <div className={styles.coin__container}>
-         <img
-             src={coin.image.large}
-             alt={coin.name}
-             className={styles.coin__image}
-         />
-         <h1 className={styles.coin__name}>{coin.name}</h1>
-         <p className={styles.coin__ticker}>{coin.symbol}</p>
-         <p className={styles.coin__current}>
-             {`$${coin.market_data.current_price.usd}`}
-         </p>
-     </div>
-       }
-    </Grid>
-</Grid>
+        <Grid container justifyContent={'center'}>
+          <Grid item>
+            {
+              coin && <div className={styles.coin__container}>
+                <img
+                  src={coin.image.large}
+                  alt={coin.name}
+                  className={styles.coin__image}
+                />
+                <h1 className={styles.coin__name}>{coin.name}</h1>
+                <p className={styles.coin__ticker}>{coin.symbol}</p>
+                <p className={styles.coin__current}>
+                  {`$${coin.market_data.current_price.usd}`}
+                </p>
+              </div>
+            }
+          </Grid>
+        </Grid>
       </Box>
     </>
   );
 }
 
 export async function getStaticPaths() {
-    // When this is true (in preview environments) don't
-    // prerender any static pages
-    // (faster builds, but slower initial page load)  
-    // Get the paths we want to prerender based on posts
-    // In production environments, prerender all pages
-    // (slower builds, but faster initial page load);
-    const paths = [];
-    for (let i = 0; i < cryptocurrencies_ids.length; i++) {
-        const id = cryptocurrencies_ids[i];
-        paths.push({ params: { id: id } });
-        paths.push({ params: { id: id}, locale: LANGAGE_ENGLISH });
-        paths.push({ params: { id: id}, locale: LANGAGE_FRENCH });
-        paths.push({ params: { id: id}, locale: LANGAGE_PORTUGUESE });
-        //paths.push({ params: { id: 'post-1' }, locale: DEFAULT_LANGAGE });
-    }
-    /*
-    const paths = cryptocurrencies.map((post) => (
-        {params: { id: post.id },})
-        )
-  */
-    // { fallback: false } means other routes should 404
-    return { paths, fallback: true }
+  // When this is true (in preview environments) don't
+  // prerender any static pages
+  // (faster builds, but slower initial page load)  
+  // Get the paths we want to prerender based on posts
+  // In production environments, prerender all pages
+  // (slower builds, but faster initial page load);
+  const paths = [];
+  for (let i = 0; i < cryptocurrencies_ids.length; i++) {
+    const id = cryptocurrencies_ids[i];
+    paths.push({ params: { id: id } });
+    paths.push({ params: { id: id }, locale: LANGAGE_ENGLISH });
+    paths.push({ params: { id: id }, locale: LANGAGE_FRENCH });
+    paths.push({ params: { id: id }, locale: LANGAGE_PORTUGUESE });
+    //paths.push({ params: { id: 'post-1' }, locale: DEFAULT_LANGAGE });
   }
+  /*
+  const paths = cryptocurrencies.map((post) => (
+      {params: { id: post.id },})
+      )
+*/
+  // { fallback: false } means other routes should 404
+  return { paths, fallback: true }
+}
 
 export async function getStaticProps(context) {
-  const {locale, params} = context;
+  const { locale, params } = context;
   const { id } = params;
-    const res = await axios.get(`${process.env.domain}/api/coin/${id}`).then((resp) => {
-      return (resp.data);
-    });
-    const data = res.coin;
-    console.log("MY COOOIN", data)
+  const response = await axios.get(`${process.env.domain}/api/coin/${id}`).then((resp) => {
+    return (resp.data.coin);
+  }).catch(() => {
+    return ({});
+  });
+  //const data = res.coin;
+  console.log("MY COOOIN", response)
   return {
     props: {
-      coin: data,
+      coin: response,
       ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
         LANGAGE_ENGLISH,
         LANGAGE_FRENCH,
