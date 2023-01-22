@@ -24,7 +24,10 @@ export default function HomePage(props) {
     useEffect(() => {
       console.log("AAAAA", coins,)      
         async function init() {
-            await axios.get(`${process.env.domain}/api/market?currency=${currency.id}`, {
+            await axios.get(`${process.env.domain}/api/market`, {
+              params:{
+                currency:currency.id
+              },
               mode: 'cors',
               headers: {
                   'Content-Type': 'application/json',

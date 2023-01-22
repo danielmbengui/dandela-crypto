@@ -99,13 +99,7 @@ export default async function handler(req, res) {
       currency = req.query.currency;
     }
     const url = `https://api.coingecko.com/api/v3/coins/${id}`;
-    const response = await axios.get(url, {
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-        "Access-Control-Allow-Origin": "*",
-      }
-    })
+    const response = await axios.get(url)
       .then((resp) => {
         return (resp.data);
       }).catch(() => {

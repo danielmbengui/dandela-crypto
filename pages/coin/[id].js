@@ -161,7 +161,10 @@ export async function getStaticProps(context) {
   const { locale, params } = context;
   const { id } = params;
 
-  const coinData = await axios.get(`${process.env.domain}/api/coin/${id}?currency=${DEFAULT_CURRENCY}`, {
+  const coinData = await axios.get(`${process.env.domain}/api/coin/${id}`, {
+    params: {
+      currency:DEFAULT_CURRENCY,
+    },
     mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
