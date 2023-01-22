@@ -20,7 +20,7 @@ import { styled, useTheme } from '@mui/material/styles';
 import CustomAutoComplete from '../components/custom/custom-autocomplete';
 
 
-const CryptoConverterPage = (props) => {
+export default function CryptoConverterPage(props){
   const {langage, setLangage, cryptocurrencies} = props;
   const {t} = useTranslation([NAMESPACE_LANGAGE_COMMON]);
   const [amount, setAmount] = useState(1);
@@ -212,4 +212,4 @@ export async function getStaticProps({ locale }) {
   }
 }
 
-export default CryptoConverterPage;
+//export default CryptoConverterPage;
