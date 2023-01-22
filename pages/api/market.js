@@ -73,7 +73,7 @@ export default async function handler(req, res) {
         if (req.method === METHOD_GET) {
             if (req.query.action === 'get_file') {
                 const cryptocurrencies = getCryptoCurrenciesFile();
-                res.status(200).json({ msg: "GET_FILE", coins: cryptocurrencies })
+                return (res.status(200).json({ msg: "GET_FILE", coins: cryptocurrencies }))
             }
         } else if (req.method === METHOD_POST) {
             const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
@@ -111,7 +111,7 @@ export default async function handler(req, res) {
     price_change_percentage_7d_in_currency: 4.6193923721380505
             */
             updateCryptoCurrenciesFile(coins);
-            res.status(200).json({ msg: "POST_DATA", coins: coins })
+            return (res.status(200).json({ msg: "POST_DATA", coins: coins }))
         }
 
     } catch (err) {

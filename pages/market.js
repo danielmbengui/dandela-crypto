@@ -8,7 +8,6 @@ import styles from '../styles/SearchBar.module.css';
 import CustomTable from '../components/custom/custom-table';
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
-import { cryptocurrencies_ids } from '../__mocks__/cryptocurrencie_ids';
 
 const SearchBar = ({ ...rest }) => {
     return (
@@ -23,10 +22,9 @@ const SearchBar = ({ ...rest }) => {
 export default function MarketPage(props) {
     const {t} = useTranslation([NAMESPACE_LANGAGE_COMMON]);
     const { coinsData, langage } = props;
-    //console.log("LOCALE ListPage index", coinsData, );
     const [search, setSearch] = useState('');
 
-    console.log("LLIIIST FRONT", coinsData)
+    //console.log("LLIIIST FRONT", coinsData)
     const filteredCoins = coinsData.filter((coin) => {
         return (coin.name.toLowerCase().includes(search.toLowerCase()));
     });
@@ -69,7 +67,7 @@ export async function getStaticProps({locale}) {
     //const data = await response.data;
     const response = await axios.get(`${process.env.domain}/api/market?action=get_file`);
     const coinsData = response.data.coins;
-    console.log("LIIIIIIST", coinsData)
+    //console.log("LIIIIIIST", coinsData)
     return {
       props: {
         coinsData,
