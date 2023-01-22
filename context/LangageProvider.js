@@ -47,8 +47,8 @@ export default function LangageProvider({children, langageMode}){
         if (shouldChangeLocale) {
           //document.documentElement.setAttribute("lang", langage);
     //window.localStorage.setItem(STORAGE_SCREEN_MODE, mode);
-    i18n.changeLanguage(langage);
-    updateLangageStorage(langage);
+    //i18n.changeLanguage(langage);
+    //updateLangageStorage(langage);
           router.push(
             {
                 //...router,

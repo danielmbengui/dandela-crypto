@@ -12,6 +12,7 @@ import { DashboardLayout } from '../components/dashboard-layout';
 import { NAMESPACE_LANGAGE_COMMON, TAB_NAMEPACES } from '../constants';
 import { cryptocurrencies_ids } from '../__mocks__/cryptocurrencie_ids';
 import LangageProvider from '../context/LangageProvider';
+import { useRouter } from 'next/router';
 const cryptocurrencies = require("../public/static/assets/cryptocurrencies/completecryptocurrencies.json");
 
 //registerChartJs();
@@ -23,10 +24,24 @@ const App = (props) => {
   const [screenMode,] = useState(getScreenModeStorage());
   const [langage, setLangage] = useState(getLangageStorage());
   const {t, i18n} = useTranslation([TAB_NAMEPACES]);
+  const router = useRouter();
 
   const onChangeLanguage = (language) => {
     setLangage(language);
   };
+
+  useEffect(() => {
+    i18n.changeLanguage(langage);
+    updateLangageStorage(langage);
+    router.push(
+      {
+        pathname:router.pathname,
+        query:{...router.query}
+      },
+      router.asPath,
+      {locale:langage}
+    )
+  }, [langage])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -56,8 +71,7 @@ const App = (props) => {
       </Head>
 
       <CssBaseline />
-<LangageProvider langageMode={langage} >
-<AuthProvider>
+      <AuthProvider>
         <AuthConsumer>
           {
             (auth) => auth.isLoading
@@ -66,15 +80,6 @@ const App = (props) => {
               <DashboardLayout cryptocurrencies={cryptocurrencies} langage={langage} setLangage={onChangeLanguage}>
                 <Component cryptocurrencies_ids={cryptocurrencies_ids} cryptocurrencies={cryptocurrencies} {...pageProps} langage={langage} setLangage={onChangeLanguage} />
               </DashboardLayout>
-                
-                /*
-                                             <Component t={t} cryptocurrencies={cryptocurrencies} {...pageProps} langage={langage} setLangage={onChangeLanguage} />
-
-                <DashboardLayout cryptocurrencies={cryptocurrencies} langage={langage} setLangage={onChangeLanguage}>
-                <Component t={t} cryptocurrencies={cryptocurrencies} {...pageProps} langage={langage} setLangage={onChangeLanguage} />
-              </DashboardLayout>
-                */
-              
           }
         </AuthConsumer>
       </AuthProvider>
@@ -84,7 +89,6 @@ const App = (props) => {
         data-ad-format="fluid"
         data-ad-client="ca-pub-2953886510697247"
         data-ad-slot="9537139740"></ins>
-</LangageProvider>
     </ThemeModeProvider>
   );
 };

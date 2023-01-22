@@ -13,15 +13,15 @@ const sizeFlag = 45;
 // ----------------------------------------------------------------------
 
 export default function LanguagePopover(props) {
-    const { t, i18n } = useTranslation(NAMESPACE_LANGAGE_COMMON);
+    const { t, i18n } = useTranslation();
     //const {t} = props;
     const { langage, setLangage } = props;
     const [open, setOpen] = useState(null);
     const router = useRouter();
 
     useEffect(() => {
-      i18n.changeLanguage(langage);
-      updateLangageStorage(langage);
+      //i18n.changeLanguage(langage);
+     // updateLangageStorage(langage);
       //router.push(router.pathname, {}, { locale: langage });
     
     

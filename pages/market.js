@@ -68,7 +68,7 @@ export async function getStaticProps({locale}) {
     //coinsData = await response.data;
     return {
       props: {
-        coinsData:response.data,
+        coinsData:await response.data,
         //tabPrice: response,
         ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, TAB_LANGAGES)),
         // Will be passed to the page component as props
