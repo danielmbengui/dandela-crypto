@@ -28,7 +28,7 @@ export default function HomePage(props) {
                 "Access-Control-Allow-Origin":"*",
               }
             }).then(async (resp) => {
-                setCoins(await resp.data.coins);
+                setCoins(resp.data.coins);
             });
             //console.log("COOOOINS CLIENT SIDE", response, currency)
         }
@@ -91,7 +91,7 @@ export async function getStaticProps({locale}) {
       "Access-Control-Allow-Origin": "*",
   }
 }).then(async (resp) => {
-    return (await resp.data.coins)
+    return (resp.data.coins)
 }).catch(() => {
     return ([]);
 });

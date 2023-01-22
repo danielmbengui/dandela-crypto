@@ -67,6 +67,7 @@ export default function CoinPage(props) {
       await axios.get(`${process.env.domain}/api/coin/${id}`, {
         currency: currency.id,
       }, {
+        
         headers: {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
