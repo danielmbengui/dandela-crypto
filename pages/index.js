@@ -12,11 +12,13 @@ import { useTranslation } from 'next-i18next';
 import { getLangageStorage } from '../lib/storage/UserStorageFunctions';
 import { useRouter } from 'next/router';
 
+const cryptos = require("../public/static/assets/market.json");
+
 export default function HomePage(props) {
   const router = useRouter();
   const { cryptocurrencies, currency, coinsData} = props;
   const { t } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
-  const [coins, setCoins] = useState(coinsData);
+  const [coins, setCoins] = useState(cryptos);
   console.log("INIT", coins, coinsData)
     useEffect(() => {
       console.log("AAAAA", coins,)
