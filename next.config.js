@@ -31,7 +31,7 @@ module.exports = withPWA({
   //nextConfig,
   i18n,
   env: {
-    domain: process.env.NODE_ENV === "production" ? 'https://dandela.com' : 'http://localhost:3000',
+    domain: process.env.NODE_ENV === "production" ? 'https://www.dandela.com' : 'http://localhost:3000',
   },
   async headers() {
     return [
