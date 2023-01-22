@@ -95,19 +95,5 @@ const App = (props) => {
     </ThemeModeProvider>
   );
 };
-/*
-export async function getServerSideProps({ locale }) {
-  return {
-    props: {
-      //tabPrice: response,
-      ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
-        LANGAGE_ENGLISH,
-        LANGAGE_FRENCH,
-        LANGAGE_PORTUGUESE
-      ])),
-      // Will be passed to the page component as props
-    },
-  }
-}
-*/
+
 export default appWithTranslation(App);
