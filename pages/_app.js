@@ -29,7 +29,7 @@ const App = (props) => {
   const onChangeLanguage = (language) => {
     setLangage(language);
   };
-/*
+
   useEffect(() => {
     i18n.changeLanguage(langage);
     updateLangageStorage(langage);
@@ -42,8 +42,7 @@ const App = (props) => {
       {locale:langage}
     )
   }, [langage])
-  */
-
+  
   useEffect(() => {
     if (typeof window !== 'undefined') {
       // You now have access to `window`
