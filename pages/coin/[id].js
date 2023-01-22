@@ -137,15 +137,14 @@ export async function getStaticProps(context) {
     const res = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`);
     const data = await res.data;
     const myCoin = {
-      id:data.id,
-      name:data.name,
-      
+      id:data ? data.id : '',
+      name:data ? data.name : '',
 image:{
-  large:data.image.large
+  large:data ? data.image.large : ''
 },
 market_data:{
   current_price:{
-    usd:data.market_data.current_price.usd
+    usd:data ? data.market_data.current_price.usd : 0
   }
 }
     }
