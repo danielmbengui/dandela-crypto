@@ -1,6 +1,6 @@
 import Cors from 'cors';
 import initMiddleware from '../../../lib/init-middleware';
-import { PATH_PUBLIC_DIR, METHOD_POST, METHOD_GET, PATH_MARKET_DIR, PATH_MARKET_FILE, PATH_COINS_FILE } from "../constants";
+import { PATH_PUBLIC_DIR, METHOD_POST, METHOD_GET, PATH_MARKET_DIR, FILE_NAME_MARKET, PATH_COINS_FILE, FILE_NAME_COINS } from "../constants";
 //import initMiddleware from '../../lib/init-middleware';
 //import { ACTION_UPDATE_PLAYER, ACTION_UPDATE_PLAYER_BY_TWITTER_NAME, ACTION_UPDATE_PLAYER_BY_TWITTER_UID, ACTION_UPDATE_PLAYER_BY_WALLET, METHOD_POST, TEXT_ACTION_DONT_EXIST } from './constants';
 //import { updatePlayerByTwitterName, updatePlayerByTwitterUid, updatePlayerByWallet } from './functions';
@@ -9,25 +9,28 @@ import axios from 'axios';
 //import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencie_ids';
 //import { currencies } from '../../__mocks__/currencies';
 import fs from 'fs';
+import { DEFAULT_CURRENCY } from '../../../constants';
 
 const PATH_CRYPTO_CURRENCIES_DIR = `${PATH_PUBLIC_DIR}/cryptocurrencies`;
 //const PATH_FILE_CRYPTO_CURRENCIES = `${PATH_CRYPTO_CURRENCIES_DIR}/descriptions.json`;
 //const PATH_FILE_RESULT = `${PATH_CRYPTO_CURRENCIES_DIR}/all.json`;
 
-function getCryptoCurrenciesFile() {
-  if (!fs.existsSync(PATH_PUBLIC_DIR)) {
-    fs.mkdirSync(PATH_PUBLIC_DIR, { recursive: true });
+function getCryptoCurrenciesFile(currency) {
+  const myPath = `${PATH_PUBLIC_DIR}/${currency}`;
+  const myFile = `${myPath}/${FILE_NAME_COINS}`;
+  if (!fs.existsSync(myPath)) {
+    fs.mkdirSync(myPath, { recursive: true });
   }
 
-  if (!fs.existsSync(PATH_COINS_FILE)) {
-    fs.writeFileSync(PATH_COINS_FILE, JSON.stringify([], null, 2));
+  if (!fs.existsSync(myFile)) {
+    fs.writeFileSync(myFile, JSON.stringify([], null, 2));
   }
-  return JSON.parse(fs.readFileSync(PATH_COINS_FILE));
+  return JSON.parse(fs.readFileSync(myFile));
 }
 
-function getCryptoCurrency(id) {
-  const cryptocurrencies = getCryptoCurrenciesFile();
-  if (isInCryptoCurrenciesFile(id)) {
+function getCryptoCurrency(id, currency) {
+  const cryptocurrencies = getCryptoCurrenciesFile(currency);
+  if (isInCryptoCurrenciesFile(id, currency)) {
     for (let i = 0; i < cryptocurrencies.length; i++) {
       const element = cryptocurrencies[i];
       if (element.id === id) {
@@ -39,8 +42,8 @@ function getCryptoCurrency(id) {
   return (null);
 }
 
-const isInCryptoCurrenciesFile = (crypto_id) => {
-  const cryptocurrencies = getCryptoCurrenciesFile();
+const isInCryptoCurrenciesFile = (crypto_id, currency) => {
+  const cryptocurrencies = getCryptoCurrenciesFile(currency);
   for (let i = 0; i < cryptocurrencies.length; i++) {
     const element = cryptocurrencies[i];
     if (element.id === crypto_id) {
@@ -50,9 +53,9 @@ const isInCryptoCurrenciesFile = (crypto_id) => {
   return (false);
 }
 
-const indexCryptoCurrency = (crypto_id) => {
-  if (isInCryptoCurrenciesFile(crypto_id)) {
-    const cryptocurrencies = getCryptoCurrenciesFile();
+const indexCryptoCurrency = (crypto_id, currency) => {
+  if (isInCryptoCurrenciesFile(crypto_id, currency)) {
+    const cryptocurrencies = getCryptoCurrenciesFile(currency);
     for (let i = 0; i < cryptocurrencies.length; i++) {
       const element = cryptocurrencies[i];
       if (element.id === crypto_id) {
@@ -65,9 +68,11 @@ const indexCryptoCurrency = (crypto_id) => {
 
 
 
-const updateCryptoCurrency = (data) => {
-  const cryptocurrencies = getCryptoCurrenciesFile();
-  const index = indexCryptoCurrency(data.id);
+const updateCryptoCurrency = (data, currency) => {
+  const myPath = `${PATH_PUBLIC_DIR}/${currency}`;
+  const myFile = `${myPath}/${FILE_NAME_COINS}`;
+  const cryptocurrencies = getCryptoCurrenciesFile(currency);
+  const index = indexCryptoCurrency(data.id, currency);
   if (index >= 0) {
     cryptocurrencies[index] = data;
   } else {
@@ -75,7 +80,7 @@ const updateCryptoCurrency = (data) => {
   }
 
   try {
-    fs.writeFileSync(PATH_COINS_FILE, JSON.stringify(cryptocurrencies, null, 2));
+    fs.writeFileSync(myFile, JSON.stringify(cryptocurrencies, null, 2));
   } catch {
     return (false);
   }
@@ -108,14 +113,17 @@ export default async function handler(req, res) {
     }
 */
     //console.log("START API", "ok")
-    
-    
-    const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`).then((resp) => {
+    var currency = DEFAULT_CURRENCY;
+    if (req.body.currency) {
+      currency = req.body.currency;
+    }
+    const url = `https://api.coingecko.com/api/v3/coins/${id}`;
+    const response = await axios.get(url).then((resp) => {
       //console.log("DAAATA", resp.data)
       return (resp.data);
     }).catch(() => {
       //console.log("ERRRROR", err)
-      return (getCryptoCurrency(id));
+      return (getCryptoCurrency(id, currency));
     });
     //console.log("DAAATA", response)
     const myCoin = {
@@ -126,21 +134,17 @@ export default async function handler(req, res) {
         large: response ? response.image.large : ''
       },
       market_data: {
-        current_price: {
-          usd: response ? response.market_data.current_price.usd : 0
-        }
+        current_price: response ? response.market_data.current_price[currency] : 0,
       }
     }
-    //var coin = getCryptoCurrency(id);
     //console.log("GEEEEET COIN", coin)
-    updateCryptoCurrency(myCoin);
+    updateCryptoCurrency(myCoin, currency);
     res.status(200).json({ msg: 'OK', coin: myCoin })
 
     //console.log("MY COOOIN", myCoin)
   } catch (err) {
     res.status(500).json({ msg: 'failed to load data', coin: null })
   }
-  //const cryptocurrencies = getCryptoCurrenciesFile();
   //console.log("SUCCESS", _cryptocurrencies);
 
 }

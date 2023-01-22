@@ -10,9 +10,10 @@ import ThemeModeProvider from '../context/ThemeProvider';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { DashboardLayout } from '../components/dashboard-layout';
 import { NAMESPACE_LANGAGE_COMMON, TAB_NAMEPACES } from '../constants';
-import { cryptocurrencies_ids } from '../__mocks__/cryptocurrencie_ids';
+import { cryptocurrencies_ids } from '../__mocks__/cryptocurrencies_ids';
 import LangageProvider from '../context/LangageProvider';
 import { useRouter } from 'next/router';
+import { getCurrencyMock } from '../__mocks__/currencies';
 const cryptocurrencies = require("../public/static/assets/cryptocurrencies/completecryptocurrencies.json");
 
 //registerChartJs();
@@ -23,7 +24,7 @@ const App = (props) => {
   const { Component = clientSideEmotionCache, pageProps } = props;
   const [screenMode,] = useState(getScreenModeStorage());
   const [langage, setLangage] = useState(getLangageStorage());
-  const [currency, setCurrency] = useState(getCurrencyStorage());
+  const [currency, setCurrency] = useState(getCurrencyMock(getCurrencyStorage()));
   const {t, i18n} = useTranslation([TAB_NAMEPACES]);
   const router = useRouter();
 
@@ -85,8 +86,12 @@ const App = (props) => {
             (auth) => auth.isLoading
               ? <Fragment />
 :
-              <DashboardLayout cryptocurrencies={cryptocurrencies} currency={currency} setCurrency={onChangeCurrency} langage={langage} setLangage={onChangeLanguage}>
-                <Component cryptocurrencies_ids={cryptocurrencies_ids} cryptocurrencies={cryptocurrencies} {...pageProps} langage={langage} setLangage={onChangeLanguage} />
+              <DashboardLayout cryptocurrencies={cryptocurrencies} 
+              currency={currency} setCurrency={onChangeCurrency} 
+              langage={langage} setLangage={onChangeLanguage}>
+                <Component cryptocurrencies_ids={cryptocurrencies_ids} cryptocurrencies={cryptocurrencies} {...pageProps} 
+                currency={currency} setCurrency={onChangeCurrency} langage={langage} setLangage={onChangeLanguage} 
+                />
               </DashboardLayout>
           }
         </AuthConsumer>

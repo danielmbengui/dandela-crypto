@@ -21,7 +21,8 @@ export const ACTION_UPDATE_PLAYER_BY_TWITTER_NAME = 'update_player_by_twitter_na
 export const PATH_PUBLIC_DIR = `${process.cwd()}/public/static/assets`;
 //export const PATH_MARKET_DIR = `${PATH_PUBLIC_DIR}/market`;
 export const PATH_COINS_FILE = `${PATH_PUBLIC_DIR}/coins.json`;
-export const PATH_MARKET_FILE = `${PATH_PUBLIC_DIR}/market.json`;
+export const FILE_NAME_MARKET = `market.json`;
+export const FILE_NAME_COINS = `coins.json`;
 
 
 export const PATH_CRYPTO_CURRENCIES_DIR = `${PATH_PUBLIC_DIR}/cryptocurrencies`;

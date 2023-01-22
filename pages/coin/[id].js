@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
 import { CryptoComponent } from '../../components/dashboard/CryptoComponent';
@@ -14,7 +14,7 @@ import { useRouter } from 'next/router';
 //import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencie_ids';
 import styles from '../../styles/Coin.module.css';
 import BackspaceIcon from '@mui/icons-material/Backspace';
-import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencie_ids';
+import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencies_ids';
 /*
 const cryptocurrencies_ids = [
   "bitcoin",
@@ -57,12 +57,27 @@ const cryptocurrencies_ids = [
 */
 export default function CoinPage(props) {
   const router = useRouter();
-  const { coin, cryptocurrencies, langage } = props;
+  const { cryptocurrencies, langage, currency, id } = props;
   const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
+  const [coin, setCoin] = useState(null);
 
   useEffect(() => {
-
-  }, []);
+    console.log("IIIIIID", id)
+    async function init() {
+      const response = await axios.post(`${process.env.domain}/api/coin/${id}`, {
+          currency:currency.id,
+      }).then((resp) => {
+          setCoin(resp.data.coin);
+          return (resp.data.coin)
+      }).catch(() => {
+          return ([]);
+      });
+      console.log("COOOOINS CLIENT SIDE", response, currency)
+  }
+  if (currency) {
+      init();
+  }
+  }, [currency]);
 
   return (
     <>
@@ -80,7 +95,7 @@ export default function CoinPage(props) {
           px: 3
         }}
       >
-        <CustomPagetitle title={`${coin.name} (${coin.symbol.toUpperCase()})`} />
+        <CustomPagetitle title={coin ? `${coin.name} (${coin.symbol.toUpperCase()})` : `UNKNOW`} />
         <BackspaceIcon sx={{ cursor: 'pointer' }} onClick={() => {
           router.back();
         }} />
@@ -96,7 +111,7 @@ export default function CoinPage(props) {
                 <h1 className={styles.coin__name}>{coin.name}</h1>
                 <p className={styles.coin__ticker}>{coin.symbol}</p>
                 <p className={styles.coin__current}>
-                  {`$${coin.market_data.current_price.usd}`}
+                  {`${currency.symbol} ${coin.market_data.current_price}`}
                 </p>
               </div>
             }
@@ -135,7 +150,9 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const { locale, params } = context;
   const { id } = params;
-  const coin = await axios.get(`${process.env.domain}/api/coin/${id}`).then((resp) => {
+  const coin = await axios.post(`${process.env.domain}/api/coin/${id}`, {
+    currency: 'chf'
+  }).then((resp) => {
     return (resp.data.coin);
   }).catch(() => {
     return ({});
@@ -144,7 +161,8 @@ export async function getStaticProps(context) {
   console.log("MY COOOIN", coin)
   return {
     props: {
-      coin,
+      //coin,
+      id,
       ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
         LANGAGE_ENGLISH,
         LANGAGE_FRENCH,

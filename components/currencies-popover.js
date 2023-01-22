@@ -4,9 +4,10 @@ import { alpha } from '@mui/material/styles';
 import { Box, MenuItem, Stack, IconButton, Popover, Grid, Typography } from '@mui/material';
 import { FR, GB, PT } from "country-flag-icons/react/3x2";
 import { useTranslation } from 'next-i18next';
-import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, TEXT_SYMBOL_DOLLARS, TEXT_SYMBOL_EUROS, TEXT_SYMBOL_LIVRE_STERLING } from '../constants';
+import { CURRENCY_DOLLARS, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, TEXT_SYMBOL_DOLLARS, TEXT_SYMBOL_EUROS, TEXT_SYMBOL_LIVRE_STERLING, TEXT_SYMBOL_SWISS_FRANCS } from '../constants';
 import { useRouter } from 'next/router';
-import { updateCurrencyStorage, updateLangageStorage } from '../lib/storage/UserStorageFunctions';
+import { getCurrencyStorage, updateCurrencyStorage, updateLangageStorage } from '../lib/storage/UserStorageFunctions';
+import { getCurrencyMock } from '../__mocks__/currencies';
 
 // ----------------------------------------------------------------------
 const sizeFlag = 45;
@@ -21,34 +22,25 @@ export default function CurrenciesPopover(props) {
 
     useEffect(() => {
       //i18n.changeLanguage(langage);
-      updateLangageStorage(langage);
-      updateCurrencyStorage(currency);
-      console.log("CHANGE CURRENCY" ,currency);
+      //updateLangageStorage(langage);
+      updateCurrencyStorage(currency.id);
+      console.log("CHANGE CURRENCY" ,currency, getCurrencyStorage());
     }, [currency])
     
-    
+    console.log("CURRENCY MOCK", getCurrencyMock('usd'))
 
     const CURRENCIES = [
       {
-        value: 'Dollars',
+        value: 'usd',
         label: 'Dollars',
+        //symbol: getCurrencyMock(CURRENCY_DOLLARS).symbol,
         symbol: TEXT_SYMBOL_DOLLARS,
         content: <Typography sx={{fontWeight:'bold'}}>{TEXT_SYMBOL_DOLLARS}</Typography>,
         //label: t('langEnglish'),
         icon: '/assets/icons/ic_flag_en.svg',
-        smallFlag: <GB
-        title={t('langEnglish')}
-        style={{
-            cursor: 'pointer',
-            //border: langage === 'fr' ? '3px solid var(--primary)' : '',
-            borderRadius: '50%',
-            width: sizeFlag / 1.5,
-            height: sizeFlag / 1.5
-        }}
-        />
       },
       {
-        value: 'Euros',
+        value: 'eur',
         label: 'Euros',
         symbol: TEXT_SYMBOL_EUROS,
         content: <Typography sx={{fontWeight:'bold'}}>{TEXT_SYMBOL_EUROS}</Typography>,
@@ -66,10 +58,28 @@ export default function CurrenciesPopover(props) {
         />
       },
       {
-        value: "Livre Sterling",
+        value: "gbp",
         label: "Livre Sterling",
         symbol: TEXT_SYMBOL_LIVRE_STERLING,
         content: <Typography sx={{fontWeight:'bold'}}>{TEXT_SYMBOL_LIVRE_STERLING}</Typography>,
+        //label: t('langPortuguese'),
+        icon: '/assets/icons/ic_flag_de.svg',
+        smallFlag: <PT
+        title={t('langPortuguese')}
+        style={{
+            cursor: 'pointer',
+            //border: langage === 'fr' ? '3px solid var(--primary)' : '',
+            borderRadius: '50%',
+            width: sizeFlag / 1.5,
+            height: sizeFlag / 1.5
+        }}
+        />
+      },
+      {
+        value: "chf",
+        label: "Swiss Francs",
+        symbol: TEXT_SYMBOL_SWISS_FRANCS,
+        content: <Typography sx={{fontWeight:'bold'}}>{TEXT_SYMBOL_SWISS_FRANCS}</Typography>,
         //label: t('langPortuguese'),
         icon: '/assets/icons/ic_flag_de.svg',
         smallFlag: <PT
@@ -127,7 +137,7 @@ export default function CurrenciesPopover(props) {
         
         {
           /* <img src={CURRENCIES[0].icon} alt={CURRENCIES[0].label} /> */
-          getCurrency(currency).content
+          getCurrency(currency.id).content
           //CURRENCIES[0].content
         }
       </IconButton>
@@ -154,14 +164,14 @@ export default function CurrenciesPopover(props) {
       >
         <Stack spacing={0.75}>
           {CURRENCIES.map((option) => (
-            <MenuItem key={option.value} selected={option.value === langage}
+            <MenuItem key={option.value} selected={option.value === currency.id}
             onClick={() => {
-              onChangeCurrency(option.value);
+              onChangeCurrency(getCurrencyMock(option.value));
             }}
             >
               {/* <Box component="img" alt={option.label} src={option.icon} sx={{ width: 28, mr: 2 }} /> */}
               <Grid container spacing={2}>
-                <Grid item xs={1} sx={{fontWeight:'bold'}}>
+                <Grid item xs={3} sx={{fontWeight:'bold'}}>
                 {option.symbol}
                 </Grid>
                 <Grid xs item>

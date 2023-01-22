@@ -21,11 +21,11 @@ import CustomAutoComplete from '../components/custom/custom-autocomplete';
 
 
 export default function CryptoConverterPage(props){
-  const {langage, setLangage, cryptocurrencies} = props;
+  const {langage, setLangage, cryptocurrencies, currency} = props;
   const {t} = useTranslation([NAMESPACE_LANGAGE_COMMON]);
   const [amount, setAmount] = useState(1);
   const [cryptocurrency, setCryptoCurrency] = useState(cryptocurrencies ? cryptocurrencies[0] : "");
-  const [currency, setCurrency] = useState(currencies ? currencies[0] : "");
+  const [currencyToConvert, setCurrencyToConvert] = useState(currency);
   const [result, setResult] = useState(0);
   const [price, setPrice] = useState(0);
   const [changePercent, setChangePercent] = useState(0);
@@ -35,10 +35,10 @@ const theme = useTheme();
 
   const onChangeCryptoCurrency = (_cryptocurrency) => {
       setCryptoCurrency(_cryptocurrency);
-      //setPrice(cryptoToFiat ? roundNumber(_cryptocurrency[currency.id]) : roundNumber(1 / _cryptocurrency[currency.id], 6));
+      //setPrice(cryptoToFiat ? roundNumber(_cryptocurrency[currencyToConvert.id]) : roundNumber(1 / _cryptocurrency[currencyToConvert.id], 6));
   }
   const onChangeCurrency = (_currency) => {
-    setCurrency(_currency);
+    setCurrencyToConvert(_currency);
     setPrice(cryptoToFiat ? roundNumber(cryptocurrency[_currency.id], 8) : roundNumber(1 / cryptocurrency[_currency.id], 8));
   }
   const onChangeAmount = (event) => {
@@ -49,14 +49,14 @@ const theme = useTheme();
   const onChangeDirectionConvert = () => {
     const newCryptoToFiat = !cryptoToFiat;
     setCryptoToFiat(newCryptoToFiat);
-    console.log("ON change convert", newCryptoToFiat, newCryptoToFiat ? cryptocurrency[currency.id] : 0, newCryptoToFiat ? 0 : 1 / cryptocurrency[currency.id])
-    setPrice(newCryptoToFiat ? roundNumber(cryptocurrency[currency.id], 8) : roundNumber(1 / cryptocurrency[currency.id], 8));
+    console.log("ON change convert", newCryptoToFiat, newCryptoToFiat ? cryptocurrency[currencyToConvert.id] : 0, newCryptoToFiat ? 0 : 1 / cryptocurrency[currencyToConvert.id])
+    setPrice(newCryptoToFiat ? roundNumber(cryptocurrency[currencyToConvert.id], 8) : roundNumber(1 / cryptocurrency[currencyToConvert.id], 8));
     const _directionConvertNew = newCryptoToFiat ? {xs:"column", sm: "row"} : {xs:"column-reverse", sm: "row-reverse"};
     setDirectionConvert(_directionConvertNew);
 }
 
   useEffect(() => {
-    setPrice(cryptoToFiat ? roundNumber(cryptocurrency[currency.id], 8) : roundNumber(1 / cryptocurrency[currency.id], 8));
+    setPrice(cryptoToFiat ? roundNumber(cryptocurrency[currencyToConvert.id], 8) : roundNumber(1 / cryptocurrency[currencyToConvert.id], 8));
   
   }, [result, cryptocurrency]);
   
@@ -115,13 +115,13 @@ const theme = useTheme();
                 <CustomAutoComplete 
                 t={t}
                 disabled={result>0 || !amount || amount <= 0}
-                item={currency}
+                item={currencyToConvert}
                 onChange={onChangeCurrency}
                 list={currencies} />
                 </div>
 {
   /*
-                <SelectFiat disabled={result>0 || !amount || amount <= 0} currency={currency} onChangeCurrency={onChangeCurrency} />
+                <SelectFiat disabled={result>0 || !amount || amount <= 0} currencyToConvert={currencyToConvert} onChangeCurrency={onChangeCurrency} />
 
   */
 }
@@ -131,8 +131,8 @@ const theme = useTheme();
 
           <Grid container justifyContent={'center'} alignItems={'center'} mt={2}>
             <Typography variant='body2' sx={{display: 'inline-flex' }}>
-              {cryptocurrency && currency && cryptoToFiat && `1 ${cryptocurrency.symbol.toString().toUpperCase()} (${cryptocurrency.name}) ≃ ${price}${currency.symbol} (${currency.name})`}
-              {cryptocurrency && currency && !cryptoToFiat && `1 ${currency.symbol} (${currency.name}) ≃ ${price} ${cryptocurrency.symbol.toString().toUpperCase()} (${cryptocurrency.name}) `}
+              {cryptocurrency && currencyToConvert && cryptoToFiat && `1 ${cryptocurrency.symbol.toString().toUpperCase()} (${cryptocurrency.name}) ≃ ${price}${currencyToConvert.symbol} (${currencyToConvert.name})`}
+              {cryptocurrency && currencyToConvert && !cryptoToFiat && `1 ${currencyToConvert.symbol} (${currencyToConvert.name}) ≃ ${price} ${cryptocurrency.symbol.toString().toUpperCase()} (${cryptocurrency.name}) `}
               </Typography>
           </Grid>
           <Grid container justifyContent={'center'} alignItems={'center'} mt={3}>
@@ -157,10 +157,10 @@ const theme = useTheme();
           </Grid>
           <Grid container justifyContent={'center'} alignItems={'center'} spacing={1} sx={{py:3, display: result > 0 ? 'inline-flex' : 'none'}}>
             <Grid item>
-            <Typography variant='body1'>{`${amount} ${!cryptoToFiat ? currency.symbol : cryptocurrency.symbol}`}</Typography>
+            <Typography variant='body1'>{`${amount} ${!cryptoToFiat ? currencyToConvert.symbol : cryptocurrency.symbol}`}</Typography>
             </Grid>
             <Grid item>
-            <Typography variant='h5' sx={{ fontWeight: 'bold' }}>{`≃ ${cryptoToFiat ? roundNumber(result) : roundNumber(result, 6)} ${cryptoToFiat ? currency.symbol : cryptocurrency.symbol}`}</Typography>
+            <Typography variant='h5' sx={{ fontWeight: 'bold' }}>{`≃ ${cryptoToFiat ? roundNumber(result) : roundNumber(result, 6)} ${cryptoToFiat ? currencyToConvert.symbol : cryptocurrency.symbol}`}</Typography>
             </Grid>
           </Grid>
   

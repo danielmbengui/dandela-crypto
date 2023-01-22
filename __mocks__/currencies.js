@@ -20,3 +20,13 @@ export const currencies = [
         name: "Livre Sterling",
     },
 ];
+
+export function getCurrencyMock(currency_id) {
+    for (let i = 0; i < currencies.length; i++) {
+        const element = currencies[i];
+        if (element.id === currency_id) {
+            return (element);
+        }
+    }
+    return (null);
+}

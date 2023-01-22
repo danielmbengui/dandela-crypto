@@ -8,7 +8,10 @@
     },
     "market_data": {
       "current_price": {
-        "usd": 22771
+        "usd": 22855,
+        "eur": 21011,
+        "chf": 21026,
+        "gbp": 18447.52
       }
     }
   },

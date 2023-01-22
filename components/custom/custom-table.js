@@ -52,7 +52,7 @@ const rows = [
 
 export default function CustomTable(props) {
     const router = useRouter();
-    const { list, langage } = props;
+    const { list, langage, currency } = props;
     const theme = useTheme();
 
     return (
@@ -110,7 +110,7 @@ export default function CustomTable(props) {
                                     </Grid>
                                 </Grid>
                             </StyledTableCell>
-                            <StyledTableCell align="left">{`$ ${row.current_price.toFixed(2)}`}</StyledTableCell>
+                            <StyledTableCell align="left">{`${currency.symbol} ${row.current_price.toFixed(2)}`}</StyledTableCell>
                             <StyledTableCell align="left">{row.total_volume.toLocaleString()}</StyledTableCell>
                             <StyledTableCell align="left">
                                 <p style={{ color: row.price_change_percentage_1h_in_currency < 0 ? 'red' : 'green' }}>
