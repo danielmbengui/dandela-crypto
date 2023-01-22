@@ -69,7 +69,10 @@ export default function CoinPage(props) {
   useEffect(() => {
     console.log("IIIIIID", crypto)
     async function init() {
-      await axios.get(`${process.env.domain}/api/coin/${id}?currency=${currency.id}`, {
+      await axios.get(`${process.env.domain}/api/coin/${id}`, {
+        params: {
+          currency:currency.id
+        },
         mode: 'cors',
         headers: {
           'Content-Type': 'application/json',

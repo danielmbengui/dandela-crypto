@@ -99,7 +99,13 @@ export default async function handler(req, res) {
       currency = req.query.currency;
     }
     const url = `https://api.coingecko.com/api/v3/coins/${id}`;
-    const response = await axios.get(url)
+    const response = await axios.get(url, {
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+      }
+    })
       .then((resp) => {
         return (resp.data);
       }).catch(() => {
@@ -119,6 +125,6 @@ export default async function handler(req, res) {
     updateCryptoCurrency(myCoin, currency);
     res.status(200).json({ msg: 'OK', coin: myCoin })
   } catch (err) {
-    res.status(500).json({ msg: 'failed to load data', coin: null })
+    res.status(500).json({ msg: 'failed to load data', error:err, coin: null })
   }
 }
