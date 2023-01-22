@@ -7,7 +7,7 @@ import fs from 'fs';
 import { DEFAULT_CURRENCY } from '../../constants';
 
 function getCryptoCurrenciesFile(currency) {
-    const myPath = `${process.env.domain}/static/assets/${currency}`;
+    const myPath = `${process.cwd()}/public/static/assets/${currency}`;
     const myFile = `${myPath}/${FILE_NAME_MARKET}`;
     if (!fs.existsSync(myPath)) {
         fs.mkdirSync(myPath, { recursive: true });
@@ -32,7 +32,7 @@ const isInCryptoCurrenciesFile = (crypto_id, currency) => {
 
 const updateCryptoCurrenciesFile = (data, currency) => {
     const cryptocurrencies = getCryptoCurrenciesFile(currency);
-    const myPath = `${process.env.domain}/static/assets/${currency}`;
+    const myPath = `${process.cwd()}/public/static/assets/${currency}`;
     const myFile = `${myPath}/${FILE_NAME_MARKET}`;
     for (let i = 0; i < data.length; i++) {
         const element = data[i];
