@@ -99,6 +99,6 @@ export async function getStaticProps({locale}) {
         ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, TAB_LANGAGES)),
         // Will be passed to the page component as props
       },
-      revalidate: 10,
+      //revalidate: 10,
     }
   }

@@ -81,7 +81,12 @@ export default async function handler(req, res) {
         }
         console.log("CCCCURRENY REQ", currency, getScreenModeStorage());
         const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
-        const response = await axios.get(url).then((resp) => {
+        const response = await axios.get(url, {
+            headers:{
+              "Content-Type":"application/json",
+              "Access-Control-Allow-Origin":"*",
+            }
+          }).then((resp) => {
             //console.log("DAAATA", resp.data)
             return (resp.data);
         }).catch(() => {
@@ -106,47 +111,15 @@ export default async function handler(req, res) {
                 price_change_percentage_7d_in_currency: element.price_change_percentage_7d_in_currency
             })
         }
+        /*
         const url1 = `https://api.coingecko.com/api/v3/simple/price?ids=${cryptocurrencies_ids.join(",")}&vs_currencies=${currencies_ids.join(",")}&include_24hr_change=true`;
         const response1 = await axios.get(url1).then((resp) => {
             console.log("DAAATA", resp.data)
             return (resp.data);
         })
+        */
         updateCryptoCurrenciesFile(coins, currency);
         return (res.status(200).json({ msg: "POST_DATA", coins: coins }))
-/*
-        if (req.method === METHOD_GET) {
-            if (req.query.action === 'get_file') {
-                const cryptocurrencies = getCryptoCurrenciesFile();
-                return (res.status(200).json({ msg: "GET_FILE", coins: cryptocurrencies }))
-            }
-        } else if (req.method === METHOD_POST) {
-            const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
-            const response = await axios.get(url);
-            const data = await response.data;
-            const coins = [];
-            for (let i = 0; i < data.length; i++) {
-                const element = data[i];
-                coins.push({
-                    id: element.id,
-                    symbol: element.symbol,
-                    name: element.name,
-                    image: element.image,
-                    current_price: element.current_price,
-                    market_cap: element.market_cap,
-                    market_cap_rank: element.market_cap_rank,
-                    total_volume: element.total_volume,
-                    price_change_percentage_24h: element.price_change_percentage_24h,
-                    price_change_percentage_1h_in_currency: element.price_change_percentage_1h_in_currency,
-                    //price_change_percentage_24h_in_currency: element.price_change_percentage_24h_in_currency,
-                    price_change_percentage_7d_in_currency: element.price_change_percentage_7d_in_currency
-                })
-            }
-            updateCryptoCurrenciesFile(coins);
-            return (res.status(200).json({ msg: "POST_DATA", coins: coins }))
-        } else {
-            res.status(500).json({ msg: 'failed to load data', coins: [] })
-        }
-*/
     } catch (err) {
         res.status(500).json({ msg: 'failed to load data', coins: [] })
     }
