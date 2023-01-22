@@ -23,7 +23,7 @@ export default function LanguagePopover(props) {
 
     useEffect(() => {
       i18n.changeLanguage(langage);
-     // updateLangageStorage(langage);
+      updateLangageStorage(langage);
       //router.push(router.pathname, {}, { locale: langage });
       langageMode.toggleLangageMode(langage);
     
