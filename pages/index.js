@@ -44,6 +44,7 @@ export default function HomePage(props) {
 
     useEffect(() => {
       if (coinsData.length > 0) {
+        console.log("COIIINS DATA", coinsData)
           setCoins(coinsData);
       }
     }, [coinsData])
@@ -94,7 +95,13 @@ export default function HomePage(props) {
 }
 
 export async function getStaticProps({locale}) {
-  const response = await axios.get(`${process.env.domain}/api/market?currency=${DEFAULT_CURRENCY}`)
+  const response = await axios.get(`${process.env.domain}/api/market?currency=${DEFAULT_CURRENCY}`, {
+    mode: 'no-cors',
+    headers: {
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+    }
+})
   .then(async (resp) => {
   const data = await resp.data;
   console.log("OOOOOOOK", data.coins)

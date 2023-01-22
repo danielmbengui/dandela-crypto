@@ -69,13 +69,19 @@ export default function CoinPage(props) {
   useEffect(() => {
     console.log("IIIIIID", crypto)
     async function init() {
-      await axios.get(`${process.env.domain}/api/coin/${id}?currency=${currency.id}`)
-      .then((resp) => {
-        setCoin(resp.data.coin);
-        //return (resp.data.coin)
-      }).catch(() => {
-        //return ([]);
-      });
+      await axios.get(`${process.env.domain}/api/coin/${id}?currency=${currency.id}`, {
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+          "Access-Control-Allow-Origin": "*",
+        }
+      })
+        .then((resp) => {
+          setCoin(resp.data.coin);
+          //return (resp.data.coin)
+        }).catch(() => {
+          //return ([]);
+        });
       //console.log("COOOOINS CLIENT SIDE", response, currency)
     }
     if (currency) {
@@ -155,12 +161,18 @@ export async function getStaticProps(context) {
   const { locale, params } = context;
   const { id } = params;
 
-  const coinData = await axios.get(`${process.env.domain}/api/coin/${id}?currency=${DEFAULT_CURRENCY}`)
-  .then((resp) => {
-    return (resp.data.coin);
-  }).catch(() => {
-    return ({});
-  });
+  const coinData = await axios.get(`${process.env.domain}/api/coin/${id}?currency=${DEFAULT_CURRENCY}`, {
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/json',
+      "Access-Control-Allow-Origin": "*",
+    }
+  })
+    .then((resp) => {
+      return (resp.data.coin);
+    }).catch(() => {
+      return ({});
+    });
   //const data = res.coin;
   //console.log("MY COOOIN", coinData)
 
