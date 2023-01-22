@@ -68,7 +68,9 @@ export default async function handler(req, res) {
             currency = req.query.currency; 
         }
         const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
-        const response = await axios.get(url)
+        const response = await axios.get(url, {
+            mode: 'no-cors'
+        })
         .then(async (resp) => {
             return (resp.data);
         }).catch(() => {

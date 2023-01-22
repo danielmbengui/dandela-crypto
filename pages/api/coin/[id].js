@@ -88,7 +88,7 @@ const cors = initMiddleware(
 export default async function handler(req, res) {
   // Run cors
   await cors(req, res);
-  
+
   //res.end(`Post: ${id}`)
 
 
@@ -99,12 +99,14 @@ export default async function handler(req, res) {
       currency = req.query.currency;
     }
     const url = `https://api.coingecko.com/api/v3/coins/${id}`;
-    const response = await axios.get(url)
-    .then((resp) => {
-      return (resp.data);
-    }).catch(() => {
-      return (getCryptoCurrency(id, currency));
-    });
+    const response = await axios.get(url, {
+      mode: 'no-cors'
+    })
+      .then((resp) => {
+        return (resp.data);
+      }).catch(() => {
+        return (getCryptoCurrency(id, currency));
+      });
     const myCoin = {
       id: response ? response.id : id,
       name: response ? response.name : '',

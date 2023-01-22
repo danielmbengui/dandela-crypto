@@ -20,5 +20,16 @@
     "market_data": {
       "current_price": 0.919132
     }
+  },
+  {
+    "id": "binancecoin",
+    "name": "BNB",
+    "symbol": "bnb",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1644979850"
+    },
+    "market_data": {
+      "current_price": 279.41
+    }
   }
 ]
