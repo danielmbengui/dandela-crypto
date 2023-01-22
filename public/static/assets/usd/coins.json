@@ -31,5 +31,27 @@
     "market_data": {
       "current_price": 1643.62
     }
+  },
+  {
+    "id": "cardano",
+    "name": "Cardano",
+    "symbol": "ada",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/975/large/cardano.png?1547034860"
+    },
+    "market_data": {
+      "current_price": 0.38235
+    }
+  },
+  {
+    "id": "binancecoin",
+    "name": "BNB",
+    "symbol": "bnb",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1644979850"
+    },
+    "market_data": {
+      "current_price": 303.91
+    }
   }
 ]

@@ -58,7 +58,8 @@ export default function CoinPage(props) {
     const list = require(`../../public/static/assets/${_id}/coins.json`);
     for (let i = 0; i < list.length; i++) {
       const element = list[i];
-      return (element);
+      if (element.id === id)
+        return (element);
     }
     return (null);
   }
