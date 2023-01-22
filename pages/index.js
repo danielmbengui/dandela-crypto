@@ -20,7 +20,7 @@ export default function HomePage(props) {
 
     useEffect(() => {
         async function init() {
-            await axios.post(`${process.env.domain}/api/market`, {
+            await axios.get(`${process.env.domain}/api/market`, {
                 currency:currency.id,
             }, {
               headers:{
@@ -82,9 +82,14 @@ export default function HomePage(props) {
   );
 }
 
-export async function getStaticProps({locale}) {
-  const response = await axios.post(`${process.env.domain}/api/market`, {
+export async function getServerSideProps({locale}) {
+  const response = await axios.get(`${process.env.domain}/api/market`, {
     currency:DEFAULT_CURRENCY
+}, {
+  headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+  }
 }).then((resp) => {
     return (resp.data.coins)
 }).catch(() => {

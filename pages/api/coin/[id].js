@@ -95,8 +95,8 @@ export default async function handler(req, res) {
   try {
     const { id } = req.query;
     var currency = DEFAULT_CURRENCY;
-    if (req.body.currency) {
-      currency = req.body.currency;
+    if (req.query.currency) {
+      currency = req.query.currency;
     }
     const url = `https://api.coingecko.com/api/v3/coins/${id}`;
     const response = await axios.get(url, {

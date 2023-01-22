@@ -64,7 +64,7 @@ export default function CoinPage(props) {
   useEffect(() => {
     console.log("IIIIIID", id)
     async function init() {
-      await axios.post(`${process.env.domain}/api/coin/${id}`, {
+      await axios.get(`${process.env.domain}/api/coin/${id}`, {
         currency: currency.id,
       }, {
         headers: {
@@ -156,9 +156,14 @@ export async function getStaticProps(context) {
   const { locale, params } = context;
   const { id } = params;
 
-  const coinData = await axios.post(`${process.env.domain}/api/coin/${id}`, {
+  const coinData = await axios.get(`${process.env.domain}/api/coin/${id}`, {
     currency: 'chf'
-  }).then((resp) => {
+  }, {
+    headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+    }
+}).then((resp) => {
     return (resp.data.coin);
   }).catch(() => {
     return ({});

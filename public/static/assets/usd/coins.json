@@ -20,5 +20,16 @@
     "market_data": {
       "current_price": 0.999774
     }
+  },
+  {
+    "id": "ethereum",
+    "name": "Ethereum",
+    "symbol": "eth",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880"
+    },
+    "market_data": {
+      "current_price": 1643.62
+    }
   }
 ]
