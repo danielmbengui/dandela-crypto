@@ -65,10 +65,10 @@ export default function MarketPage(props) {
 export async function getStaticProps({locale}) {
     const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
     const response = await axios.get(url);
-    //coinsData = await response.data;
+    const data = await response.data;
     return {
       props: {
-        coinsData:await response.data,
+        coinsData:data,
         //tabPrice: response,
         ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, TAB_LANGAGES)),
         // Will be passed to the page component as props
