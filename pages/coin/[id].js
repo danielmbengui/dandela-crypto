@@ -117,7 +117,7 @@ export async function getStaticPaths() {
     for (let i = 0; i < cryptocurrencies_ids.length; i++) {
         const id = cryptocurrencies_ids[i];
         paths.push({ params: { id: id } });
-        //paths.push({ params: { id: id}, locale: LANGAGE_ENGLISH });
+        paths.push({ params: { id: id}, locale: LANGAGE_ENGLISH });
         paths.push({ params: { id: id}, locale: LANGAGE_FRENCH });
         paths.push({ params: { id: id}, locale: LANGAGE_PORTUGUESE });
         //paths.push({ params: { id: 'post-1' }, locale: DEFAULT_LANGAGE });
@@ -128,19 +128,26 @@ export async function getStaticPaths() {
         )
   */
     // { fallback: false } means other routes should 404
-    return { paths, fallback: false }
+    return { paths, fallback: true }
   }
 
 export async function getStaticProps(context) {
   const {locale, params} = context;
   const { id } = params;
-    const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
-    const data = await res.json();
+    const res = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`);
+    const data = await res.data;
     const myCoin = {
-      //id:data.id,
+      id:data.id,
       name:data.name,
-image:data.image,
-market_data:data.market_data
+      
+image:{
+  large:data.image.large
+},
+market_data:{
+  current_price:{
+    usd:data.market_data.current_price.usd
+  }
+}
     }
     console.log("MY COOOIN", myCoin)
   return {
