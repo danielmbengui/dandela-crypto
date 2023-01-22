@@ -18,7 +18,7 @@ export const ACTION_UPDATE_PLAYER_BY_TWITTER_NAME = 'update_player_by_twitter_na
 */
 //-------------------     PATHS     --------------------//
 //export const PATH_PUBLIC_DIR = `${process.cwd()}/public/extras/winnoandbees/list`;
-export const PATH_PUBLIC_DIR = `../../public/static/assets`;
+export const PATH_PUBLIC_DIR = `${process.cwd()}/public/static/assets`;
 //export const PATH_MARKET_DIR = `${PATH_PUBLIC_DIR}/market`;
 export const PATH_COINS_FILE = `${PATH_PUBLIC_DIR}/coins.json`;
 export const FILE_NAME_MARKET = `market.json`;

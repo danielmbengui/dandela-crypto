@@ -7,7 +7,7 @@
       "large": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
     },
     "market_data": {
-      "current_price": 22928
+      "current_price": 22897
     }
   },
   {
@@ -52,6 +52,39 @@
     },
     "market_data": {
       "current_price": 303.63
+    }
+  },
+  {
+    "id": "solana",
+    "name": "Solana",
+    "symbol": "sol",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/4128/large/solana.png?1640133422"
+    },
+    "market_data": {
+      "current_price": 25.13
+    }
+  },
+  {
+    "id": "polkadot",
+    "name": "Polkadot",
+    "symbol": "dot",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/12171/large/polkadot.png?1639712644"
+    },
+    "market_data": {
+      "current_price": 6.41
+    }
+  },
+  {
+    "id": "vechain",
+    "name": "VeChain",
+    "symbol": "vet",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/1167/large/VeChain-Logo-768x725.png?1547035194"
+    },
+    "market_data": {
+      "current_price": 0.02283266
     }
   }
 ]

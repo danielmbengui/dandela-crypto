@@ -1,0 +1,13 @@
+[
+  {
+    "id": "vechain",
+    "name": "VeChain",
+    "symbol": "vet",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/1167/large/VeChain-Logo-768x725.png?1547035194"
+    },
+    "market_data": {
+      "current_price": 0.02283131
+    }
+  }
+]
