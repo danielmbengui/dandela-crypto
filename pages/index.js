@@ -22,6 +22,11 @@ export default function HomePage(props) {
         async function init() {
             await axios.post(`${process.env.domain}/api/market`, {
                 currency:currency.id,
+            }, {
+              headers:{
+                "Content-Type":"application/json",
+                "Access-Control-Allow-Origin":"*",
+              }
             }).then((resp) => {
                 setCoins(resp.data.coins);
             });
