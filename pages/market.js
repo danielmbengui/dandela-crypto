@@ -13,22 +13,27 @@ const SearchBar = ({ ...rest }) => {
     return (
         <Grid container className={styles['coin__search']} justifyContent={'center'}>
             <Grid item>
-            <input className={styles.coin__input} {...rest} />
+                <input className={styles.coin__input} {...rest} />
             </Grid>
         </Grid>
     )
 }
 
 export default function MarketPage(props) {
-    const {t} = useTranslation([NAMESPACE_LANGAGE_COMMON]);
+    const { t } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
     const { coinsData, langage, currency } = props;
     const [search, setSearch] = useState('');
-    const [coins, setCoins] = useState([]);
+    const [coins, setCoins] = useState(coinsData);
 
     useEffect(() => {
         async function init() {
-            await axios.post(`/api/market`, {
-                currency:currency.id,
+            await axios.post(`${process.env.domain}/api/market`, {
+                currency: currency.id,
+            }, {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*",
+                }
             }).then((resp) => {
                 setCoins(resp.data.coins);
                 //return (resp.data.coins)
@@ -58,8 +63,8 @@ export default function MarketPage(props) {
                 <meta name="description" content={t('description_page', { ns: NAMESPACE_LANGAGE_HOME })} />
             </Head>
             <Box
-            
-            className='coin__app'
+
+                className='coin__app'
                 component="main"
                 alignItems={'center'}
                 sx={{
@@ -77,28 +82,28 @@ export default function MarketPage(props) {
     )
 }
 
-export async function getStaticProps({locale}) {
+export async function getStaticProps({ locale }) {
     //const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
     //const response = await axios.get(url);
     //const data = await response.data;
-    /*
+
     const response = await axios.post(`${process.env.domain}/api/market`, {
-        currency:"gbp"
+        currency: DEFAULT_CURRENCY
     }).then((resp) => {
         return (resp.data.coins)
     }).catch(() => {
         return ([]);
     });
-    */
-    
+
+
     //console.log("LIIIIIIST", coinsData)
     return {
-      props: {
-        //coinsData: response,
-        //tabPrice: response,
-        ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, TAB_LANGAGES)),
-        // Will be passed to the page component as props
-      },
-      //revalidate: 10,
+        props: {
+            coinsData: response,
+            //tabPrice: response,
+            ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, TAB_LANGAGES)),
+            // Will be passed to the page component as props
+        },
+        //revalidate: 10,
     }
-  }
+}

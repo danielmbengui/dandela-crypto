@@ -1,18 +1,9 @@
 import Cors from 'cors';
 import initMiddleware from '../../../lib/init-middleware';
-import { PATH_PUBLIC_DIR, METHOD_POST, METHOD_GET, PATH_MARKET_DIR, FILE_NAME_MARKET, PATH_COINS_FILE, FILE_NAME_COINS } from "../constants";
-//import initMiddleware from '../../lib/init-middleware';
-//import { ACTION_UPDATE_PLAYER, ACTION_UPDATE_PLAYER_BY_TWITTER_NAME, ACTION_UPDATE_PLAYER_BY_TWITTER_UID, ACTION_UPDATE_PLAYER_BY_WALLET, METHOD_POST, TEXT_ACTION_DONT_EXIST } from './constants';
-//import { updatePlayerByTwitterName, updatePlayerByTwitterUid, updatePlayerByWallet } from './functions';
+import { PATH_PUBLIC_DIR, METHOD_POST, METHOD_GET, FILE_NAME_COINS } from "../constants";
 import axios from 'axios';
-//import { cryptocurrencies } from '../../__mocks__/cryptocurrencies';
-//import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencie_ids';
-//import { currencies } from '../../__mocks__/currencies';
 import fs from 'fs';
 import { DEFAULT_CURRENCY } from '../../../constants';
-
-//const PATH_FILE_CRYPTO_CURRENCIES = `${PATH_CRYPTO_CURRENCIES_DIR}/descriptions.json`;
-//const PATH_FILE_RESULT = `${PATH_CRYPTO_CURRENCIES_DIR}/all.json`;
 
 function getCryptoCurrenciesFile(currency) {
   const myPath = `${PATH_PUBLIC_DIR}/${currency}`;
@@ -97,21 +88,12 @@ const cors = initMiddleware(
 export default async function handler(req, res) {
   // Run cors
   await cors(req, res);
-  const { id } = req.query
+  
   //res.end(`Post: ${id}`)
 
 
   try {
-    //const result = await someAsyncOperation()
-    /*
-    if (req.method === METHOD_GET) {
-      
-      
-    } else {
-        res.status(500).json({ msg: 'failed to load data', coins: [] })
-    }
-*/
-    //console.log("START API", "ok")
+    const { id } = req.query;
     var currency = DEFAULT_CURRENCY;
     if (req.body.currency) {
       currency = req.body.currency;
@@ -123,13 +105,10 @@ export default async function handler(req, res) {
         "Access-Control-Allow-Origin":"*",
       }
     }).then((resp) => {
-      //console.log("DAAATA", resp.data)
       return (resp.data);
     }).catch(() => {
-      //console.log("ERRRROR", err)
       return (getCryptoCurrency(id, currency));
     });
-    //console.log("DAAATA", response)
     const myCoin = {
       id: response ? response.id : id,
       name: response ? response.name : '',
@@ -141,14 +120,9 @@ export default async function handler(req, res) {
         current_price: response ? response.market_data.current_price[currency] : 0,
       }
     }
-    //console.log("GEEEEET COIN", coin)
     updateCryptoCurrency(myCoin, currency);
     res.status(200).json({ msg: 'OK', coin: myCoin })
-
-    //console.log("MY COOOIN", myCoin)
   } catch (err) {
     res.status(500).json({ msg: 'failed to load data', coin: null })
   }
-  //console.log("SUCCESS", _cryptocurrencies);
-
 }

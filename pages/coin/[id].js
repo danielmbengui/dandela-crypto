@@ -57,26 +57,31 @@ const cryptocurrencies_ids = [
 */
 export default function CoinPage(props) {
   const router = useRouter();
-  const { cryptocurrencies, langage, currency, id } = props;
+  const { cryptocurrencies, langage, currency, id, coinData } = props;
   const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
-  const [coin, setCoin] = useState(null);
+  const [coin, setCoin] = useState(coinData);
 
   useEffect(() => {
     console.log("IIIIIID", id)
     async function init() {
       await axios.post(`${process.env.domain}/api/coin/${id}`, {
-          currency:currency.id,
+        currency: currency.id,
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        }
       }).then((resp) => {
-          setCoin(resp.data.coin);
-          //return (resp.data.coin)
+        setCoin(resp.data.coin);
+        //return (resp.data.coin)
       }).catch(() => {
-          //return ([]);
+        //return ([]);
       });
       //console.log("COOOOINS CLIENT SIDE", response, currency)
-  }
-  if (currency) {
+    }
+    if (currency) {
       init();
-  }
+    }
   }, [currency]);
 
   return (
@@ -150,8 +155,8 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const { locale, params } = context;
   const { id } = params;
-  /*
-  const coin = await axios.post(`${process.env.domain}/api/coin/${id}`, {
+
+  const coinData = await axios.post(`${process.env.domain}/api/coin/${id}`, {
     currency: 'chf'
   }).then((resp) => {
     return (resp.data.coin);
@@ -159,11 +164,11 @@ export async function getStaticProps(context) {
     return ({});
   });
   //const data = res.coin;
-  console.log("MY COOOIN", coin)
-  */
+  //console.log("MY COOOIN", coinData)
+
   return {
     props: {
-      //coin,
+      coinData,
       id,
       ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
         LANGAGE_ENGLISH,

@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
 import { CryptoComponent } from '../components/dashboard/CryptoComponent';
 import { cryptocurrencies } from '../__mocks__/cryptocurrencies';
-import { DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, TAB_LANGAGES, TAB_NAMEPACES } from '../constants';
+import { DEFAULT_CURRENCY, DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, TAB_LANGAGES, TAB_NAMEPACES } from '../constants';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { CustomPagetitle } from '../components/custom/custom-page-title';
 import axios from 'axios';
@@ -14,9 +14,9 @@ import { useRouter } from 'next/router';
 
 export default function HomePage(props) {
   const router = useRouter();
-  const { cryptocurrencies, currency} = props;
+  const { cryptocurrencies, currency, coinsData} = props;
   const { t } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
-  const [coins, setCoins] = useState([]);
+  const [coins, setCoins] = useState(coinsData);
 
     useEffect(() => {
         async function init() {
@@ -83,8 +83,16 @@ export default function HomePage(props) {
 }
 
 export async function getStaticProps({locale}) {
+  const response = await axios.post(`${process.env.domain}/api/market`, {
+    currency:DEFAULT_CURRENCY
+}).then((resp) => {
+    return (resp.data.coins)
+}).catch(() => {
+    return ([]);
+});
   return {
     props: {
+      coinsData:response,
       //tabPrice: response,
       ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, TAB_LANGAGES)),
       // Will be passed to the page component as props

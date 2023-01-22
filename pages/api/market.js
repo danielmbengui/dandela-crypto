@@ -1,21 +1,10 @@
 import Cors from 'cors';
 import initMiddleware from '../../lib/init-middleware';
-import { PATH_PUBLIC_DIR, METHOD_POST, METHOD_GET, PATH_MARKET_DIR, FILE_NAME_MARKET } from "./constants";
-//import initMiddleware from '../../lib/init-middleware';
-//import { ACTION_UPDATE_PLAYER, ACTION_UPDATE_PLAYER_BY_TWITTER_NAME, ACTION_UPDATE_PLAYER_BY_TWITTER_UID, ACTION_UPDATE_PLAYER_BY_WALLET, METHOD_POST, TEXT_ACTION_DONT_EXIST } from './constants';
-//import { updatePlayerByTwitterName, updatePlayerByTwitterUid, updatePlayerByWallet } from './functions';
+import { PATH_PUBLIC_DIR, METHOD_POST, METHOD_GET, FILE_NAME_MARKET } from "./constants";
 import axios from 'axios';
-import { cryptocurrencies } from '../../__mocks__/cryptocurrencies';
 import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencies_ids';
-import { currencies } from '../../__mocks__/currencies';
 import fs from 'fs';
 import { DEFAULT_CURRENCY } from '../../constants';
-import { getLangageStorage, getScreenModeStorage } from '../../lib/storage/UserStorageFunctions';
-import { currencies_ids } from '../../__mocks__/currencies_ids';
-
-const PATH_CRYPTO_CURRENCIES_DIR = `${PATH_PUBLIC_DIR}/cryptocurrencies`;
-const PATH_FILE_CRYPTO_CURRENCIES = `${PATH_CRYPTO_CURRENCIES_DIR}/descriptions.json`;
-const PATH_FILE_RESULT = `${PATH_CRYPTO_CURRENCIES_DIR}/all.json`;
 
 function getCryptoCurrenciesFile(currency) {
     const myPath = `${PATH_PUBLIC_DIR}/${currency}`;
@@ -74,12 +63,10 @@ export default async function handler(req, res) {
     await cors(req, res);
 
     try {
-        //const result = await someAsyncOperation();
         var currency = DEFAULT_CURRENCY;
         if (req.body.currency) {
             currency = req.body.currency; 
         }
-        console.log("CCCCURRENY REQ", currency, getScreenModeStorage());
         const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
         const response = await axios.get(url, {
             headers:{
@@ -87,10 +74,8 @@ export default async function handler(req, res) {
               "Access-Control-Allow-Origin":"*",
             }
           }).then((resp) => {
-            //console.log("DAAATA", resp.data)
             return (resp.data);
         }).catch(() => {
-            //console.log("ERRRROR", err)
             return (getCryptoCurrenciesFile(currency));
         });
         const coins = [];
@@ -111,19 +96,9 @@ export default async function handler(req, res) {
                 price_change_percentage_7d_in_currency: element.price_change_percentage_7d_in_currency
             })
         }
-        /*
-        const url1 = `https://api.coingecko.com/api/v3/simple/price?ids=${cryptocurrencies_ids.join(",")}&vs_currencies=${currencies_ids.join(",")}&include_24hr_change=true`;
-        const response1 = await axios.get(url1).then((resp) => {
-            console.log("DAAATA", resp.data)
-            return (resp.data);
-        })
-        */
         updateCryptoCurrenciesFile(coins, currency);
         return (res.status(200).json({ msg: "POST_DATA", coins: coins }))
     } catch (err) {
         res.status(500).json({ msg: 'failed to load data', coins: [] })
     }
-    //const cryptocurrencies = getCryptoCurrenciesFile();
-    //console.log("SUCCESS", _cryptocurrencies);
-
 }
