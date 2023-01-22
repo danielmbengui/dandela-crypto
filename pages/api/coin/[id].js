@@ -108,38 +108,34 @@ export default async function handler(req, res) {
     }
 */
     //console.log("START API", "ok")
-    const coin = getCryptoCurrency(id);
-
-    if (coin) {
-      res.status(200).json({ msg: 'OK', id: id, coin: coin });
-    } else {
-      console.log("GEEEEET COIN", coin)
-      const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`).then((resp) => {
-        //console.log("DAAATA", resp.data)
-        return (resp.data);
-      }).catch(() => {
-        //console.log("ERRRROR", err)
-        return ({});
-      });
-      //console.log("DAAATA", response)
-      const data = response;
-
-
-      const myCoin = {
-        id: data ? data.id : '',
-        name: data ? data.name : '',
-        image: {
-          large: data ? data.image.large : ''
-        },
-        market_data: {
-          current_price: {
-            usd: data ? data.market_data.current_price.usd : 0
-          }
+    
+    
+    const response = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`).then((resp) => {
+      //console.log("DAAATA", resp.data)
+      return (resp.data);
+    }).catch(() => {
+      //console.log("ERRRROR", err)
+      return (getCryptoCurrency(id));
+    });
+    //console.log("DAAATA", response)
+    const data = response;
+    const myCoin = {
+      id: data ? data.id : id,
+      name: data ? data.name : '',
+      image: {
+        large: data ? data.image.large : ''
+      },
+      market_data: {
+        current_price: {
+          usd: data ? data.market_data.current_price.usd : 0
         }
       }
-      updateCryptoCurrency(myCoin);
-      res.status(200).json({ msg: 'OK', id: id, coin: myCoin })
     }
+    //var coin = getCryptoCurrency(id);
+    const coin = myCoin;
+    //console.log("GEEEEET COIN", coin)
+    updateCryptoCurrency(myCoin);
+    res.status(200).json({ msg: 'OK', id: id, coin: coin })
 
     //console.log("MY COOOIN", myCoin)
   } catch (err) {

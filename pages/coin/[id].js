@@ -117,7 +117,7 @@ export async function getStaticPaths() {
     for (let i = 0; i < cryptocurrencies_ids.length; i++) {
         const id = cryptocurrencies_ids[i];
         paths.push({ params: { id: id } });
-        //paths.push({ params: { id: id}, locale: LANGAGE_ENGLISH });
+        paths.push({ params: { id: id}, locale: LANGAGE_ENGLISH });
         paths.push({ params: { id: id}, locale: LANGAGE_FRENCH });
         paths.push({ params: { id: id}, locale: LANGAGE_PORTUGUESE });
         //paths.push({ params: { id: 'post-1' }, locale: DEFAULT_LANGAGE });
@@ -138,22 +138,10 @@ export async function getStaticProps(context) {
       return (resp.data);
     });
     const data = res.coin;
-    const myCoin = {
-      id:data ? data.id : '',
-      name:data ? data.name : '',
-image:{
-  large:data ? data.image.large : ''
-},
-market_data:{
-  current_price:{
-    usd:data ? data.market_data.current_price.usd : 0
-  }
-}
-    }
-    console.log("MY COOOIN", myCoin)
+    console.log("MY COOOIN", data)
   return {
     props: {
-      coin: myCoin,
+      coin: data,
       ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
         LANGAGE_ENGLISH,
         LANGAGE_FRENCH,
