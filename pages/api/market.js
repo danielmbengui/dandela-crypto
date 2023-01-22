@@ -74,7 +74,7 @@ export default async function handler(req, res) {
               "Access-Control-Allow-Origin":"*",
             }
           }).then(async (resp) => {
-            return (await resp.data);
+            return (resp.data);
         }).catch(() => {
             return (getCryptoCurrenciesFile(currency));
         });
