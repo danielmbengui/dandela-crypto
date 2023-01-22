@@ -131,9 +131,15 @@ export async function getStaticProps(context) {
   const { id } = params;
     const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
     const data = await res.json();
+    const myCoin = {
+      id:data.id,
+      name:data.name,
+image:data.image,
+market_data:data.market_data
+    }
   return {
     props: {
-      coin: data,
+      coin: myCoin,
       ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
         LANGAGE_ENGLISH,
         LANGAGE_FRENCH,
