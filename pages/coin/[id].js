@@ -117,7 +117,7 @@ export async function getStaticPaths() {
     for (let i = 0; i < cryptocurrencies_ids.length; i++) {
         const id = cryptocurrencies_ids[i];
         paths.push({ params: { id: id } });
-        paths.push({ params: { id: id}, locale: LANGAGE_ENGLISH });
+        //paths.push({ params: { id: id}, locale: LANGAGE_ENGLISH });
         paths.push({ params: { id: id}, locale: LANGAGE_FRENCH });
         paths.push({ params: { id: id}, locale: LANGAGE_PORTUGUESE });
         //paths.push({ params: { id: 'post-1' }, locale: DEFAULT_LANGAGE });
