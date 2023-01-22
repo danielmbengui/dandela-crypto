@@ -13,6 +13,7 @@ import { getLangageStorage } from '../../lib/storage/UserStorageFunctions';
 import { useRouter } from 'next/router';
 //import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencie_ids';
 import styles from '../../styles/Coin.module.css';
+import BackspaceIcon from '@mui/icons-material/Backspace';
 
 const cryptocurrencies_ids = [
     "bitcoin",
@@ -74,10 +75,14 @@ const router = useRouter();
         component="main"
         sx={{
           flexGrow: 1,
-          py: 3
+          py: 3,
+          px:3
         }}
       >
         <CustomPagetitle title={`${router.query ? router.query.id : 'UNKNOW'}`} />
+        <BackspaceIcon sx={{cursor:'pointer'}} onClick={() => {
+          router.back();
+        }} />
 <Grid container justifyContent={'center'}>
     <Grid item>
     {
@@ -90,7 +95,7 @@ const router = useRouter();
          <h1 className={styles.coin__name}>{coin.name}</h1>
          <p className={styles.coin__ticker}>{coin.symbol}</p>
          <p className={styles.coin__current}>
-             {coin.market_data.current_price.usd}
+             {`$${coin.market_data.current_price.usd}`}
          </p>
      </div>
        }
@@ -132,11 +137,12 @@ export async function getStaticProps(context) {
     const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`);
     const data = await res.json();
     const myCoin = {
-      id:data.id,
+      //id:data.id,
       name:data.name,
 image:data.image,
 market_data:data.market_data
     }
+    console.log("MY COOOIN", myCoin)
   return {
     props: {
       coin: myCoin,

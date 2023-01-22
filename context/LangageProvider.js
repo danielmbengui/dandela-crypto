@@ -57,7 +57,7 @@ export default function LangageProvider({children, langageMode}){
               query: {...query},
             },
             asPath,
-            { locale: langage }
+            { locale: langage, scroll:false }
           )    
         }
     }, [langage]);

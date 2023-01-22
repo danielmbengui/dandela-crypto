@@ -27,9 +27,9 @@ export const CryptoComponent = (props) => {
   }, []);
 
   return (
-   <Link href={`${PAGE_LINK_COIN}/${cryptocurrency.id}`}>
+   <Link href={`${PAGE_LINK_COIN}/${cryptocurrency.id}`} style={{textDecoration:'none', cursor:'pointer'}}>
     <Card
-      sx={{ height: '100%', cursor:'pointer' }}
+      sx={{ height: '100%', }}
       {...props}
     >
       <CardContent>
@@ -41,8 +41,6 @@ export const CryptoComponent = (props) => {
           <Grid item>
             <Typography
               color="text.primary"
-              //display={'inline-flex'}
-              //gutterBottom
               variant="subtitle1"
             >
               {cryptocurrency.name} {`(${cryptocurrency.symbol.toString().toUpperCase()})`}
