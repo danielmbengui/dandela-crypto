@@ -111,6 +111,7 @@ export default function CoinPage(props) {
         <CustomPagetitle title={coin ? `${coin.name} (${coin.symbol.toUpperCase()})` : `UNKNOW`} />
         <BackspaceIcon sx={{ cursor: 'pointer' }} onClick={() => {
           router.back();
+          //router.push(PAGE)
         }} />
         <Grid container justifyContent={'center'}>
           <Grid item>

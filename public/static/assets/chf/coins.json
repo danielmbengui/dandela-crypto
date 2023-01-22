@@ -20,5 +20,16 @@
     "market_data": {
       "current_price": 0.919802
     }
+  },
+  {
+    "id": "ripple",
+    "name": "XRP",
+    "symbol": "xrp",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731"
+    },
+    "market_data": {
+      "current_price": 0.377253
+    }
   }
 ]

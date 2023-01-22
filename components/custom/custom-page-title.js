@@ -35,7 +35,7 @@ import { NAMESPACE_LANGAGE_COMMON } from '../../constants';
               sx={{ m: 1 }}
               variant="h2"
             >
-              {`${title} - ${router.locale}`}
+              {`${title}`}
             </Typography>
             <Box sx={{ m: 1, display: 'none' }}>
               <Button
