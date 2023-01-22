@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Box, Container, Grid } from '@mui/material';
 import { CryptoComponent } from '../components/dashboard/CryptoComponent';
@@ -14,8 +14,26 @@ import { useRouter } from 'next/router';
 
 export default function HomePage(props) {
   const router = useRouter();
-  const { cryptocurrencies} = props;
+  const { cryptocurrencies, currency} = props;
   const { t } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
+  const [coins, setCoins] = useState([]);
+
+    useEffect(() => {
+        async function init() {
+            const response = await axios.post(`${process.env.domain}/api/market`, {
+                currency:currency.id,
+            }).then((resp) => {
+                setCoins(resp.data.coins);
+                return (resp.data.coins)
+            }).catch(() => {
+                return ([]);
+            });
+            console.log("COOOOINS CLIENT SIDE", response, currency)
+        }
+        if (currency) {
+            init();
+        }
+    }, [currency])
 
   return (
     <>
@@ -40,7 +58,7 @@ export default function HomePage(props) {
           >
 
             {
-              cryptocurrencies.map((cryptocurrency, index) => {
+              coins.map((cryptocurrency, index) => {
                 return (
                   <Grid
                     item
@@ -50,7 +68,7 @@ export default function HomePage(props) {
                     xs={12}
                     key={cryptocurrency.name + index}
                   >
-                    <CryptoComponent cryptocurrency={cryptocurrency} currency={{ id:'usd', name: "dollars", symbol: "$" }} />
+                    <CryptoComponent cryptocurrency={cryptocurrency} currency={currency} />
                   </Grid>
                 )
               })

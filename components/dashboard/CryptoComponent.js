@@ -22,9 +22,9 @@ export const CryptoComponent = (props) => {
   const [price, setPrice] = useState(0);
   const [changePercent, setChangePercent] = useState(0);
   useEffect(() => {
-    setPrice(roundNumber(cryptocurrency[currency.id]));
-    setChangePercent(roundNumber(cryptocurrency[`${currency.id}_24h_change`]));
-  }, []);
+    setPrice(roundNumber(cryptocurrency.current_price));
+    setChangePercent(roundNumber(cryptocurrency.price_change_percentage_24h));
+  }, [currency]);
 
   return (
    <Link href={`${PAGE_LINK_COIN}/${cryptocurrency.id}`} style={{textDecoration:'none', cursor:'pointer'}}>
@@ -38,18 +38,21 @@ export const CryptoComponent = (props) => {
           //spacing={3}
           sx={{ justifyContent: 'space-between' }}
         >
-          <Grid item>
+          <Grid item xs={12}>
             <Typography
               color="text.primary"
               variant="subtitle1"
             >
               {cryptocurrency.name} {`(${cryptocurrency.symbol.toString().toUpperCase()})`}
             </Typography>
+          </Grid>
+          <Grid item xs={12}>
             <Typography
               color="text.primary"
               variant="h4"
             >
-              {currency.symbol}{price}
+              {price}<br />
+              {currency.symbol}
             </Typography>
           </Grid>
           <Grid container mt={3} justifyContent={'center'} alignItems={'center'}>
@@ -63,7 +66,7 @@ export const CryptoComponent = (props) => {
               >
                 {/* <MoneyIcon /> */}
                 <Image
-                  src={cryptocurrency.logo}
+                  src={cryptocurrency.image}
                   alt={`the cryptocurrency logo of ${cryptocurrency.name} (${cryptocurrency.symbol}) provided by CoinGecko`}
                   width={56}
                   height={56}
@@ -84,14 +87,13 @@ export const CryptoComponent = (props) => {
         >
 
           {
-            cryptocurrency[`${currency.id}_24h_change`] < 0 && <ArrowDownwardIcon color="error" />
+            cryptocurrency.price_change_percentage_24h < 0 ?
+             <ArrowDownwardIcon color="error" /> :
+             <ArrowUpwardIcon color="success" />
           }
 
-          {
-            cryptocurrency[`${currency.id}_24h_change`] >= 0 && <ArrowUpwardIcon color="success" />
-          }
           <Typography
-            color={cryptocurrency[`${currency.id}_24h_change`] >= 0 ? "success.main" : "error.main"}
+            color={cryptocurrency.price_change_percentage_24h >= 0 ? "success.main" : "error.main"}
             sx={{
               mr: 1,
             }}
