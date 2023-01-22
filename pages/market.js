@@ -29,7 +29,13 @@ export default function MarketPage(props) {
     useEffect(() => {
         console.log("AAAAA", coins,)      
         async function init() {
-            await axios.get(`${process.env.domain}/api/market?currency=${currency.id}`)
+            await axios.get(`${process.env.domain}/api/market?currency=${currency.id}`, {
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Access-Control-Allow-Origin": "*",
+                }
+            })
             .then((resp) => {
                 setCoins(resp.data.coins);
             });

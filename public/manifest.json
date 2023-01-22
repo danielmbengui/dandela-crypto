@@ -30,7 +30,7 @@
   ],
   "theme_color": "#094397",
   "background_color": "#ffffff",
-  "start_url": "/",
+  "start_url": "/index",
   "scope": "/",
   "related_applications": [{
     "platform": "webapp",
