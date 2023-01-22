@@ -25,7 +25,7 @@ export default function HomePage(props) {
       console.log("AAAAA", coins,)      
         async function init() {
             await axios.get(`${process.env.domain}/api/market?currency=${currency.id}`, {
-              mode: 'no-cors',
+              mode: 'cors',
               headers: {
                   'Content-Type': 'application/json',
                   "Access-Control-Allow-Origin": "*",
@@ -44,9 +44,10 @@ export default function HomePage(props) {
 
     useEffect(() => {
       if (coinsData.length > 0) {
-        console.log("COIIINS DATA", coinsData)
+       
           setCoins(coinsData);
       }
+      console.log("COIIINS DATA", coinsData)
     }, [coinsData])
 
   return (
@@ -95,24 +96,23 @@ export default function HomePage(props) {
 }
 
 export async function getStaticProps({locale}) {
-  const response = await axios.get(`${process.env.domain}/api/market?currency=${DEFAULT_CURRENCY}`, {
-    mode: 'no-cors',
+  const coinsData = await axios.get(`${process.env.domain}/api/market?currency=${DEFAULT_CURRENCY}`, {
+    mode: 'cors',
     headers: {
         'Content-Type': 'application/json',
         "Access-Control-Allow-Origin": "*",
     }
 })
   .then(async (resp) => {
-  const data = await resp.data;
-  console.log("OOOOOOOK", data.coins)
-    return (data.coins)
+  console.log("OOOOOOOK", resp.data.coins)
+    return (resp.data.coins)
 }).catch(() => {
   console.log("ERRRRROR")
     return ([]);
 });
   return {
     props: {
-      coinsData:response,
+      coinsData,
       //tabPrice: response,
       ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, TAB_LANGAGES)),
       // Will be passed to the page component as props

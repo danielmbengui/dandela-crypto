@@ -30,7 +30,7 @@ export default function MarketPage(props) {
         console.log("AAAAA", coins,)      
         async function init() {
             await axios.get(`${process.env.domain}/api/market?currency=${currency.id}`, {
-                mode: 'no-cors',
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/json',
                     "Access-Control-Allow-Origin": "*",
@@ -48,9 +48,9 @@ export default function MarketPage(props) {
 
     useEffect(() => {
         if (coinsData.length > 0) {
-            console.log("COIIINS DATA", coinsData)
             setCoins(coinsData);
         }
+        console.log("COIIINS DATA", coinsData)
     }, [coinsData])
 
     //console.log("LLIIIST FRONT", coinsData)
@@ -96,7 +96,7 @@ export async function getStaticProps({ locale }) {
     //const data = await response.data;
 
     const response = await axios.get(`${process.env.domain}/api/market=currency=${DEFAULT_CURRENCY}`, {
-        mode: 'no-cors',
+        mode: 'cors',
         headers: {
             'Content-Type': 'application/json',
             "Access-Control-Allow-Origin": "*",

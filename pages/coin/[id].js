@@ -70,7 +70,7 @@ export default function CoinPage(props) {
     console.log("IIIIIID", crypto)
     async function init() {
       await axios.get(`${process.env.domain}/api/coin/${id}?currency=${currency.id}`, {
-        mode: 'no-cors',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
           "Access-Control-Allow-Origin": "*",
@@ -162,7 +162,7 @@ export async function getStaticProps(context) {
   const { id } = params;
 
   const coinData = await axios.get(`${process.env.domain}/api/coin/${id}?currency=${DEFAULT_CURRENCY}`, {
-    mode: 'no-cors',
+    mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
       "Access-Control-Allow-Origin": "*",

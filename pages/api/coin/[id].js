@@ -100,7 +100,7 @@ export default async function handler(req, res) {
     }
     const url = `https://api.coingecko.com/api/v3/coins/${id}`;
     const response = await axios.get(url, {
-      mode: 'no-cors',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
         "Access-Control-Allow-Origin": "*",
