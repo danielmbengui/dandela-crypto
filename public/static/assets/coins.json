@@ -2,24 +2,26 @@
   {
     "id": "bitcoin",
     "name": "Bitcoin",
+    "symbol": "btc",
     "image": {
       "large": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
     },
     "market_data": {
       "current_price": {
-        "usd": 22842
+        "usd": 22771
       }
     }
   },
   {
     "id": "ethereum",
     "name": "Ethereum",
+    "symbol": "eth",
     "image": {
       "large": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880"
     },
     "market_data": {
       "current_price": {
-        "usd": 1626.99
+        "usd": 1620.32
       }
     }
   },

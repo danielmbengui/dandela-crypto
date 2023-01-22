@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 // @mui
 import { alpha } from '@mui/material/styles';
-import { Box, MenuItem, Stack, IconButton, Popover } from '@mui/material';
+import { Box, MenuItem, Stack, IconButton, Popover, Grid, Typography } from '@mui/material';
 import { FR, GB, PT } from "country-flag-icons/react/3x2";
 import { useTranslation } from 'next-i18next';
-import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON } from '../constants';
+import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, TEXT_SYMBOL_DOLLARS, TEXT_SYMBOL_EUROS, TEXT_SYMBOL_LIVRE_STERLING } from '../constants';
 import { useRouter } from 'next/router';
-import { updateLangageStorage } from '../lib/storage/UserStorageFunctions';
+import { updateCurrencyStorage, updateLangageStorage } from '../lib/storage/UserStorageFunctions';
 
 // ----------------------------------------------------------------------
 const sizeFlag = 45;
@@ -15,33 +15,27 @@ const sizeFlag = 45;
 export default function CurrenciesPopover(props) {
     const { t, i18n } = useTranslation(NAMESPACE_LANGAGE_COMMON);
     //const {t} = props;
-    const { langage, setLangage } = props;
+    const { langage, setLangage, currency, setCurrency } = props;
     const [open, setOpen] = useState(null);
     //const router = useRouter();
 
     useEffect(() => {
       //i18n.changeLanguage(langage);
       updateLangageStorage(langage);
-      console.log("CHANGE LANGAGE" ,langage);
-    }, [langage])
+      updateCurrencyStorage(currency);
+      console.log("CHANGE CURRENCY" ,currency);
+    }, [currency])
     
     
 
-    const LANGS = [
+    const CURRENCIES = [
       {
-        value: LANGAGE_ENGLISH,
-        label: t('langEnglish'),
+        value: 'Dollars',
+        label: 'Dollars',
+        symbol: TEXT_SYMBOL_DOLLARS,
+        content: <Typography sx={{fontWeight:'bold'}}>{TEXT_SYMBOL_DOLLARS}</Typography>,
+        //label: t('langEnglish'),
         icon: '/assets/icons/ic_flag_en.svg',
-        content: <GB
-        title={t('langEnglish')}
-        style={{
-            cursor: 'pointer',
-            //border: langage === 'fr' ? '3px solid var(--primary)' : '',
-            borderRadius: '50%',
-            width: sizeFlag - 5,
-            height: sizeFlag - 5
-        }}
-        />,
         smallFlag: <GB
         title={t('langEnglish')}
         style={{
@@ -54,19 +48,12 @@ export default function CurrenciesPopover(props) {
         />
       },
       {
-        value: LANGAGE_FRENCH,
-        label: t('langFrench'),
+        value: 'Euros',
+        label: 'Euros',
+        symbol: TEXT_SYMBOL_EUROS,
+        content: <Typography sx={{fontWeight:'bold'}}>{TEXT_SYMBOL_EUROS}</Typography>,
+        //label: t('langFrench'),
         icon: '/assets/icons/ic_flag_fr.svg',
-        content: <FR
-        title={t('langFrench')}
-        style={{
-            cursor: 'pointer',
-            //border: langage === 'fr' ? '3px solid var(--primary)' : '',
-            borderRadius: '50%',
-            width: '50px',
-            height: '50px'
-        }}
-    />,
         smallFlag: <FR
         title={t('langFrench')}
         style={{
@@ -79,19 +66,12 @@ export default function CurrenciesPopover(props) {
         />
       },
       {
-        value: LANGAGE_PORTUGUESE,
-        label: t('langPortuguese'),
+        value: "Livre Sterling",
+        label: "Livre Sterling",
+        symbol: TEXT_SYMBOL_LIVRE_STERLING,
+        content: <Typography sx={{fontWeight:'bold'}}>{TEXT_SYMBOL_LIVRE_STERLING}</Typography>,
+        //label: t('langPortuguese'),
         icon: '/assets/icons/ic_flag_de.svg',
-        content: <PT
-        title={t('langPortuguese')}
-        style={{
-            cursor: 'pointer',
-            //border: langage === 'fr' ? '3px solid var(--primary)' : '',
-            borderRadius: '50%',
-            width: '50px',
-            height: '50px'
-        }}
-    />,
         smallFlag: <PT
         title={t('langPortuguese')}
         style={{
@@ -105,22 +85,22 @@ export default function CurrenciesPopover(props) {
       },
     ];
     
-    function getLang(value) {
+    function getCurrency(value) {
       let i = 0;
-      while (i < LANGS.length) {
-        if (LANGS[i].value === value) {
-          return (LANGS[i]);
+      while (i < CURRENCIES.length) {
+        if (CURRENCIES[i].value === value) {
+          return (CURRENCIES[i]);
         }
         i++;
       }
-      return (LANGS[0]);
+      return (CURRENCIES[0]);
     }
 
-    const onChangeLanguage = (_language) => {
-        setLangage(_language);
+    const onChangeCurrency = (_currency) => {
+        setCurrency(_currency);
         //updateLangageStorage(_language);
         handleClose();
-        console.log("LANGAE", _language)
+        console.log("CURRENCY", _currency)
     };
 
   const handleOpen = (event) => {
@@ -146,9 +126,9 @@ export default function CurrenciesPopover(props) {
       >
         
         {
-          /* <img src={LANGS[0].icon} alt={LANGS[0].label} /> */
-          getLang(langage).content
-          //LANGS[0].content
+          /* <img src={CURRENCIES[0].icon} alt={CURRENCIES[0].label} /> */
+          getCurrency(currency).content
+          //CURRENCIES[0].content
         }
       </IconButton>
 
@@ -173,17 +153,29 @@ export default function CurrenciesPopover(props) {
         }}
       >
         <Stack spacing={0.75}>
-          {LANGS.map((option) => (
+          {CURRENCIES.map((option) => (
             <MenuItem key={option.value} selected={option.value === langage}
             onClick={() => {
-              onChangeLanguage(option.value);
+              onChangeCurrency(option.value);
             }}
             >
               {/* <Box component="img" alt={option.label} src={option.icon} sx={{ width: 28, mr: 2 }} /> */}
-              <Stack direction={'row'} spacing={1} justifyContent={'center'} alignItems={'center'}>
-              <div>{option.smallFlag}</div>
+              <Grid container spacing={2}>
+                <Grid item xs={1} sx={{fontWeight:'bold'}}>
+                {option.symbol}
+                </Grid>
+                <Grid xs item>
+                {option.label}
+                </Grid>
+              </Grid>
+              {
+                /*
+                <Stack direction={'row'} spacing={1} justifyContent={'center'} alignItems={'center'}>
+              <div style={{fontWeight:'bold'}}>{option.symbol}</div>
               <div>{option.label}</div>
               </Stack>
+                */
+              }
             </MenuItem>
           ))}
         </Stack>

@@ -5,7 +5,7 @@ import { CssBaseline } from '@mui/material';
 import { AuthConsumer, AuthProvider } from '../contexts/auth-context';
 import { createEmotionCache } from '../utils/create-emotion-cache';
 import { registerChartJs } from '../utils/register-chart-js';
-import { getLangageStorage, getScreenModeStorage, updateLangageStorage } from '../lib/storage/UserStorageFunctions';
+import { getCurrencyStorage, getLangageStorage, getScreenModeStorage, updateLangageStorage } from '../lib/storage/UserStorageFunctions';
 import ThemeModeProvider from '../context/ThemeProvider';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { DashboardLayout } from '../components/dashboard-layout';
@@ -23,11 +23,16 @@ const App = (props) => {
   const { Component = clientSideEmotionCache, pageProps } = props;
   const [screenMode,] = useState(getScreenModeStorage());
   const [langage, setLangage] = useState(getLangageStorage());
+  const [currency, setCurrency] = useState(getCurrencyStorage());
   const {t, i18n} = useTranslation([TAB_NAMEPACES]);
   const router = useRouter();
 
   const onChangeLanguage = (language) => {
     setLangage(language);
+  };
+
+  const onChangeCurrency = (_currency) => {
+    setCurrency(_currency);
   };
 
   useEffect(() => {
@@ -80,7 +85,7 @@ const App = (props) => {
             (auth) => auth.isLoading
               ? <Fragment />
 :
-              <DashboardLayout cryptocurrencies={cryptocurrencies} langage={langage} setLangage={onChangeLanguage}>
+              <DashboardLayout cryptocurrencies={cryptocurrencies} currency={currency} setCurrency={onChangeCurrency} langage={langage} setLangage={onChangeLanguage}>
                 <Component cryptocurrencies_ids={cryptocurrencies_ids} cryptocurrencies={cryptocurrencies} {...pageProps} langage={langage} setLangage={onChangeLanguage} />
               </DashboardLayout>
           }

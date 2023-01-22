@@ -48,7 +48,13 @@ export const NAMESPACE_LANGAGE_NEW_TRANSFER = 'transferts/new';
 export const NAMESPACE_LANGAGE_INPROGRESS_LIST = 'transferts/inprogress';
 */
 
+/* --------------- TEXTS -------------- */
+export const TEXT_SYMBOL_DOLLARS = '$';
+export const TEXT_SYMBOL_EUROS = '€';
+export const TEXT_SYMBOL_LIVRE_STERLING = '£';
+export const TEXT_SYMBOL_SWISS_FRANCS = 'CHF';
 /* --------------- STORAGE -------------- */
+
 export const STORAGE_SCREEN_MODE = 'screenMode';
 export const STORAGE_CURRENCY = 'currency';
 export const STORAGE_LANGAGE = 'lang';

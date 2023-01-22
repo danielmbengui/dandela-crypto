@@ -121,6 +121,7 @@ export default async function handler(req, res) {
     const myCoin = {
       id: response ? response.id : id,
       name: response ? response.name : '',
+      symbol: response ? response.symbol : '',
       image: {
         large: response ? response.image.large : ''
       },

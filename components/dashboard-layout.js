@@ -18,7 +18,7 @@ const DashboardLayoutRoot = styled('div')(({ theme }) => ({
 }));
 
 export const DashboardLayout = (props) => {
-  const { children, langage, setLangage } = props;
+  const { children, langage, setLangage, currency, setCurrency } = props;
   const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
@@ -50,6 +50,7 @@ export const DashboardLayout = (props) => {
       onSidebarOpen={() => setSidebarOpen(true)}
       onClose={() => setSidebarOpen(false)}
       langage={langage} setLangage={setLangage}
+      currency={currency} setCurrency={setCurrency}
       />
        <DashboardSidebar
        langage={langage}

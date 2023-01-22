@@ -14,7 +14,8 @@ import { useRouter } from 'next/router';
 //import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencie_ids';
 import styles from '../../styles/Coin.module.css';
 import BackspaceIcon from '@mui/icons-material/Backspace';
-
+import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencie_ids';
+/*
 const cryptocurrencies_ids = [
   "bitcoin",
   "ethereum",
@@ -53,7 +54,7 @@ const cryptocurrencies_ids = [
   "kucoin-shares",
   "ethereum-name-service",
 ];
-
+*/
 export default function CoinPage(props) {
   const router = useRouter();
   const { coin, cryptocurrencies, langage } = props;
@@ -79,7 +80,7 @@ export default function CoinPage(props) {
           px: 3
         }}
       >
-        <CustomPagetitle title={`${router.query ? router.query.id : 'UNKNOW'}`} />
+        <CustomPagetitle title={`${coin.name} (${coin.symbol.toUpperCase()})`} />
         <BackspaceIcon sx={{ cursor: 'pointer' }} onClick={() => {
           router.back();
         }} />
@@ -134,16 +135,16 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const { locale, params } = context;
   const { id } = params;
-  const response = await axios.get(`${process.env.domain}/api/coin/${id}`).then((resp) => {
+  const coin = await axios.get(`${process.env.domain}/api/coin/${id}`).then((resp) => {
     return (resp.data.coin);
   }).catch(() => {
     return ({});
   });
   //const data = res.coin;
-  console.log("MY COOOIN", response)
+  console.log("MY COOOIN", coin)
   return {
     props: {
-      coin: response,
+      coin,
       ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, [
         LANGAGE_ENGLISH,
         LANGAGE_FRENCH,
