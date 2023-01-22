@@ -32,7 +32,8 @@ const App = (props) => {
 
   useEffect(() => {
     i18n.changeLanguage(langage);
-    updateLangageStorage(langage);
+    //updateLangageStorage(langage);
+    /*
     router.push(
       {
         pathname:router.pathname,
@@ -41,7 +42,8 @@ const App = (props) => {
       router.asPath,
       {locale:langage}
     )
-  }, [langage])
+    */
+  }, [])
   
   useEffect(() => {
     if (typeof window !== 'undefined') {
