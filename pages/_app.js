@@ -29,7 +29,7 @@ const App = (props) => {
   const onChangeLanguage = (language) => {
     setLangage(language);
   };
-
+/*
   useEffect(() => {
     i18n.changeLanguage(langage);
     updateLangageStorage(langage);
@@ -42,6 +42,7 @@ const App = (props) => {
       {locale:langage}
     )
   }, [langage])
+  */
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -60,7 +61,7 @@ const App = (props) => {
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) { }
     }
-  }, [])
+  }, []);
 
   return (
     <ThemeModeProvider screenMode={screenMode}>
@@ -71,7 +72,8 @@ const App = (props) => {
       </Head>
 
       <CssBaseline />
-      <AuthProvider>
+<LangageProvider langageMode={langage}>
+<AuthProvider>
         <AuthConsumer>
           {
             (auth) => auth.isLoading
@@ -89,6 +91,7 @@ const App = (props) => {
         data-ad-format="fluid"
         data-ad-client="ca-pub-2953886510697247"
         data-ad-slot="9537139740"></ins>
+</LangageProvider>
     </ThemeModeProvider>
   );
 };

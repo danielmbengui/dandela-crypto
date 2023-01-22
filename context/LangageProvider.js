@@ -39,16 +39,16 @@ export default function LangageProvider({children, langageMode}){
       const shouldChangeLocale =
         isReady// and here I use it
         //&& locale !== langage
-        && locale !== browserLanguage
+        //&& locale !== browserLanguage
         //&& locale === defaultLocale
         && locales.includes(langage)
-        && locales.includes(browserLanguage)
+        //&& locales.includes(browserLanguage)
   
         if (shouldChangeLocale) {
           //document.documentElement.setAttribute("lang", langage);
     //window.localStorage.setItem(STORAGE_SCREEN_MODE, mode);
-    //i18n.changeLanguage(langage);
-    //updateLangageStorage(langage);
+    i18n.changeLanguage(langage);
+    updateLangageStorage(langage);
           router.push(
             {
                 //...router,

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 // @mui
 import { alpha } from '@mui/material/styles';
 import { Box, MenuItem, Stack, IconButton, Popover } from '@mui/material';
@@ -7,6 +7,7 @@ import { useTranslation } from 'next-i18next';
 import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON } from '../constants';
 import { useRouter } from 'next/router';
 import { updateLangageStorage } from '../lib/storage/UserStorageFunctions';
+import { LangageModeProviderContext } from '../context/LangageProvider';
 
 // ----------------------------------------------------------------------
 const sizeFlag = 45;
@@ -18,12 +19,13 @@ export default function LanguagePopover(props) {
     const { langage, setLangage } = props;
     const [open, setOpen] = useState(null);
     const router = useRouter();
+    const langageMode = useContext(LangageModeProviderContext);
 
     useEffect(() => {
       i18n.changeLanguage(langage);
      // updateLangageStorage(langage);
       //router.push(router.pathname, {}, { locale: langage });
-    
+      langageMode.toggleLangageMode(langage);
     
     
       console.log("CHANGE LANGAGE" ,langage);
