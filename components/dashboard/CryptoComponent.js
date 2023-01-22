@@ -5,9 +5,11 @@ import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import MoneyIcon from '@mui/icons-material/Money';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
-import { NAMESPACE_LANGAGE_COMMON } from '../../constants';
+import { NAMESPACE_LANGAGE_COMMON, PAGE_LINK_COIN } from '../../constants';
 import { myLoader } from '../../lib/ImageLoader';
 import { roundNumber } from '../../lib/func/func';
+import Link from 'next/link';
+import createPalette from '@mui/material/styles/createPalette';
 
 /*
 
@@ -25,8 +27,9 @@ export const CryptoComponent = (props) => {
   }, []);
 
   return (
+   <Link href={`${PAGE_LINK_COIN}/${cryptocurrency.id}`}>
     <Card
-      sx={{ height: '100%' }}
+      sx={{ height: '100%', cursor:'pointer' }}
       {...props}
     >
       <CardContent>
@@ -107,5 +110,6 @@ export const CryptoComponent = (props) => {
         </Box>
       </CardContent>
     </Card>
+   </Link>
   );
 }
