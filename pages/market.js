@@ -27,7 +27,7 @@ export default function MarketPage(props) {
 
     useEffect(() => {
         async function init() {
-            await axios.post(`${process.env.domain}/api/market`, {
+            await axios.post(`/api/market`, {
                 currency:currency.id,
             }).then((resp) => {
                 setCoins(resp.data.coins);
