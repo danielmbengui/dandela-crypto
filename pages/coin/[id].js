@@ -71,8 +71,8 @@ export default function CoinPage(props) {
           "Content-Type": "application/json",
           "Access-Control-Allow-Origin": "*",
         }
-      }).then((resp) => {
-        setCoin(resp.data.coin);
+      }).then(async (resp) => {
+        setCoin(await resp.data.coin);
         //return (resp.data.coin)
       }).catch(() => {
         //return ([]);
@@ -163,8 +163,8 @@ export async function getStaticProps(context) {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
     }
-}).then((resp) => {
-    return (resp.data.coin);
+}).then(async (resp) => {
+    return (await resp.data.coin);
   }).catch(() => {
     return ({});
   });

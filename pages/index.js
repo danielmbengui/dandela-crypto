@@ -27,8 +27,8 @@ export default function HomePage(props) {
                 "Content-Type":"application/json",
                 "Access-Control-Allow-Origin":"*",
               }
-            }).then((resp) => {
-                setCoins(resp.data.coins);
+            }).then(async (resp) => {
+                setCoins(await resp.data.coins);
             });
             //console.log("COOOOINS CLIENT SIDE", response, currency)
         }
@@ -82,7 +82,7 @@ export default function HomePage(props) {
   );
 }
 
-export async function getServerSideProps({locale}) {
+export async function getStaticProps({locale}) {
   const response = await axios.get(`${process.env.domain}/api/market`, {
     currency:DEFAULT_CURRENCY
 }, {
@@ -90,8 +90,8 @@ export async function getServerSideProps({locale}) {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
   }
-}).then((resp) => {
-    return (resp.data.coins)
+}).then(async (resp) => {
+    return (await resp.data.coins)
 }).catch(() => {
     return ([]);
 });

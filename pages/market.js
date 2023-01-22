@@ -34,8 +34,8 @@ export default function MarketPage(props) {
                     "Content-Type": "application/json",
                     "Access-Control-Allow-Origin": "*",
                 }
-            }).then((resp) => {
-                setCoins(resp.data.coins);
+            }).then(async (resp) => {
+                setCoins(await resp.data.coins);
                 //return (resp.data.coins)
             });
             //console.log("COOOOINS CLIENT SIDE", response, currency)
@@ -94,8 +94,8 @@ export async function getStaticProps({ locale }) {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
         }
-    }).then((resp) => {
-        return (resp.data.coins)
+    }).then(async (resp) => {
+        return (await resp.data.coins)
     }).catch(() => {
         return ([]);
     });
