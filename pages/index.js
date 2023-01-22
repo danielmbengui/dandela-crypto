@@ -20,14 +20,8 @@ export default function HomePage(props) {
 
     useEffect(() => {
         async function init() {
-            await axios.get(`${process.env.domain}/api/market`, {
-                currency:currency.id,
-            }, {
-              headers:{
-                "Content-Type":"application/json",
-                "Access-Control-Allow-Origin":"*",
-              }
-            }).then(async (resp) => {
+            await axios.get(`${process.env.domain}/api/market?currency=${currency.id}`)
+            .then(async (resp) => {
                 setCoins(resp.data.coins);
             });
             //console.log("COOOOINS CLIENT SIDE", response, currency)
