@@ -23,20 +23,15 @@ export default function MarketPage(props) {
     const { t } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
     const { coinsData, langage, currency } = props;
     const [search, setSearch] = useState('');
-    const [coins, setCoins] = useState(coinsData);
+    const cryptos = require(`../public/static/assets/${currency.id}/market.json`);
+    const [coins, setCoins] = useState(cryptos);
 
     useEffect(() => {
+        console.log("AAAAA", coins,)      
         async function init() {
-            await axios.get(`${process.env.domain}/api/market`, {
-                currency: currency.id,
-            }, {
-                headers: {
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "*",
-                }
-            }).then(async (resp) => {
-                setCoins(await resp.data.coins);
-                //return (resp.data.coins)
+            await axios.get(`${process.env.domain}/api/market?currency=${currency.id}`)
+            .then((resp) => {
+                setCoins(resp.data.coins);
             });
             //console.log("COOOOINS CLIENT SIDE", response, currency)
         }
@@ -44,6 +39,12 @@ export default function MarketPage(props) {
             init();
         }
     }, [currency])
+
+    useEffect(() => {
+        if (coinsData.length > 0) {
+            setCoins(coinsData);
+        }
+    }, [coinsData])
 
     //console.log("LLIIIST FRONT", coinsData)
     const filteredCoins = coins.filter((coin) => {
@@ -87,15 +88,9 @@ export async function getStaticProps({ locale }) {
     //const response = await axios.get(url);
     //const data = await response.data;
 
-    const response = await axios.get(`${process.env.domain}/api/market`, {
-        currency: DEFAULT_CURRENCY
-    }, {
-        headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-        }
-    }).then(async (resp) => {
-        return (await resp.data.coins)
+    const response = await axios.get(`${process.env.domain}/api/market=currency=${DEFAULT_CURRENCY}`)
+    .then((resp) => {
+        return (resp.data.coins)
     }).catch(() => {
         return ([]);
     });

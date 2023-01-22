@@ -12,25 +12,20 @@ import { useTranslation } from 'next-i18next';
 import { getLangageStorage } from '../lib/storage/UserStorageFunctions';
 import { useRouter } from 'next/router';
 
-const cryptos = require("../public/static/assets/market.json");
+
 
 export default function HomePage(props) {
   const router = useRouter();
   const { cryptocurrencies, currency, coinsData} = props;
   const { t } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
+  const [cryptos, setCryptos] = useState(require(`../public/static/assets/${currency.id}/market.json`));
   const [coins, setCoins] = useState(cryptos);
   console.log("INIT", coins, coinsData)
     useEffect(() => {
-      console.log("AAAAA", coins,)
-      /*
+      console.log("AAAAA", coins,)      
         async function init() {
-            await axios.get(`${process.env.domain}/api/market?currency=${currency.id}`, {
-              headers: {
-                  "Content-Type": "application/json",
-                  "Access-Control-Allow-Origin": "*",
-              }
-            })
-            .then(async (resp) => {
+            await axios.get(`${process.env.domain}/api/market?currency=${currency.id}`)
+            .then((resp) => {
                 setCoins(resp.data.coins);
             });
             //console.log("COOOOINS CLIENT SIDE", response, currency)
@@ -38,8 +33,14 @@ export default function HomePage(props) {
         if (currency) {
             init();
         }
-        */
+        
     }, [currency])
+
+    useEffect(() => {
+      if (coinsData.length > 0) {
+          setCoins(coinsData);
+      }
+    }, [coinsData])
 
   return (
     <>

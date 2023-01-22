@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { Box, Container, Grid } from '@mui/material';
-import { CryptoComponent } from '../../components/dashboard/CryptoComponent';
-//import { cryptocurrencies } from '../../__mocks__/cryptocurrencies';
-import { DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, TAB_NAMEPACES } from '../../constants';
+import { Box, Grid } from '@mui/material';
+import { DEFAULT_CURRENCY, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, TAB_NAMEPACES } from '../../constants';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { CustomPagetitle } from '../../components/custom/custom-page-title';
 import axios from 'axios';
-import { currencies } from '../../__mocks__/currencies';
 import { useTranslation } from 'next-i18next';
-import { getLangageStorage } from '../../lib/storage/UserStorageFunctions';
 import { useRouter } from 'next/router';
-//import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencie_ids';
 import styles from '../../styles/Coin.module.css';
 import BackspaceIcon from '@mui/icons-material/Backspace';
 import { cryptocurrencies_ids } from '../../__mocks__/cryptocurrencies_ids';
@@ -57,23 +52,25 @@ const cryptocurrencies_ids = [
 */
 export default function CoinPage(props) {
   const router = useRouter();
-  const { cryptocurrencies, langage, currency, id, coinData } = props;
-  const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
-  const [coin, setCoin] = useState(coinData);
+  const { langage, currency, id, coinData } = props;
+  const { t, } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
+  function getCrypto(_id) {
+    const list = require(`../../public/static/assets/${_id}/coins.json`);
+    for (let i = 0; i < list.length; i++) {
+      const element = list[i];
+      return (element);
+    }
+    return (null);
+  }
+  const crypto = getCrypto(currency.id);
+  const [coin, setCoin] = useState(crypto);
 
   useEffect(() => {
-    console.log("IIIIIID", id)
+    console.log("IIIIIID", crypto)
     async function init() {
-      await axios.get(`${process.env.domain}/api/coin/${id}`, {
-        currency: currency.id,
-      }, {
-        
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        }
-      }).then(async (resp) => {
-        setCoin(await resp.data.coin);
+      await axios.get(`${process.env.domain}/api/coin/${id}?currency=${currency.id}`)
+      .then((resp) => {
+        setCoin(resp.data.coin);
         //return (resp.data.coin)
       }).catch(() => {
         //return ([]);
@@ -157,15 +154,9 @@ export async function getStaticProps(context) {
   const { locale, params } = context;
   const { id } = params;
 
-  const coinData = await axios.get(`${process.env.domain}/api/coin/${id}`, {
-    currency: 'chf'
-  }, {
-    headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-    }
-}).then(async (resp) => {
-    return (await resp.data.coin);
+  const coinData = await axios.get(`${process.env.domain}/api/coin/${id}?currency=${DEFAULT_CURRENCY}`)
+  .then((resp) => {
+    return (resp.data.coin);
   }).catch(() => {
     return ({});
   });
