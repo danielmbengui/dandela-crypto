@@ -64,15 +64,15 @@ export default function CoinPage(props) {
   useEffect(() => {
     console.log("IIIIIID", id)
     async function init() {
-      const response = await axios.post(`${process.env.domain}/api/coin/${id}`, {
+      await axios.post(`${process.env.domain}/api/coin/${id}`, {
           currency:currency.id,
       }).then((resp) => {
           setCoin(resp.data.coin);
-          return (resp.data.coin)
+          //return (resp.data.coin)
       }).catch(() => {
-          return ([]);
+          //return ([]);
       });
-      console.log("COOOOINS CLIENT SIDE", response, currency)
+      //console.log("COOOOINS CLIENT SIDE", response, currency)
   }
   if (currency) {
       init();
@@ -150,6 +150,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const { locale, params } = context;
   const { id } = params;
+  /*
   const coin = await axios.post(`${process.env.domain}/api/coin/${id}`, {
     currency: 'chf'
   }).then((resp) => {
@@ -159,6 +160,7 @@ export async function getStaticProps(context) {
   });
   //const data = res.coin;
   console.log("MY COOOIN", coin)
+  */
   return {
     props: {
       //coin,

@@ -27,15 +27,13 @@ export default function MarketPage(props) {
 
     useEffect(() => {
         async function init() {
-            const response = await axios.post(`${process.env.domain}/api/market`, {
+            await axios.post(`${process.env.domain}/api/market`, {
                 currency:currency.id,
             }).then((resp) => {
                 setCoins(resp.data.coins);
-                return (resp.data.coins)
-            }).catch(() => {
-                return ([]);
+                //return (resp.data.coins)
             });
-            console.log("COOOOINS CLIENT SIDE", response, currency)
+            //console.log("COOOOINS CLIENT SIDE", response, currency)
         }
         if (currency) {
             init();
@@ -83,6 +81,7 @@ export async function getStaticProps({locale}) {
     //const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
     //const response = await axios.get(url);
     //const data = await response.data;
+    /*
     const response = await axios.post(`${process.env.domain}/api/market`, {
         currency:"gbp"
     }).then((resp) => {
@@ -90,6 +89,7 @@ export async function getStaticProps({locale}) {
     }).catch(() => {
         return ([]);
     });
+    */
     
     //console.log("LIIIIIIST", coinsData)
     return {

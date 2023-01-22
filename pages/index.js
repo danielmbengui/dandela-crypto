@@ -20,15 +20,12 @@ export default function HomePage(props) {
 
     useEffect(() => {
         async function init() {
-            const response = await axios.post(`${process.env.domain}/api/market`, {
+            await axios.post(`${process.env.domain}/api/market`, {
                 currency:currency.id,
             }).then((resp) => {
                 setCoins(resp.data.coins);
-                return (resp.data.coins)
-            }).catch(() => {
-                return ([]);
             });
-            console.log("COOOOINS CLIENT SIDE", response, currency)
+            //console.log("COOOOINS CLIENT SIDE", response, currency)
         }
         if (currency) {
             init();

@@ -11,7 +11,6 @@ import axios from 'axios';
 import fs from 'fs';
 import { DEFAULT_CURRENCY } from '../../../constants';
 
-const PATH_CRYPTO_CURRENCIES_DIR = `${PATH_PUBLIC_DIR}/cryptocurrencies`;
 //const PATH_FILE_CRYPTO_CURRENCIES = `${PATH_CRYPTO_CURRENCIES_DIR}/descriptions.json`;
 //const PATH_FILE_RESULT = `${PATH_CRYPTO_CURRENCIES_DIR}/all.json`;
 
