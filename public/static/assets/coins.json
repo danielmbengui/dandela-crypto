@@ -1,0 +1,434 @@
+[
+  {
+    "id": "bitcoin",
+    "name": "Bitcoin",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 22842
+      }
+    }
+  },
+  {
+    "id": "ethereum",
+    "name": "Ethereum",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 1629.71
+      }
+    }
+  },
+  {
+    "id": "tether",
+    "name": "Tether",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1668148663"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 1.003
+      }
+    }
+  },
+  {
+    "id": "usd-coin",
+    "name": "USD Coin",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png?1547042389"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 1.003
+      }
+    }
+  },
+  {
+    "id": "binancecoin",
+    "name": "BNB",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1644979850"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 303.56
+      }
+    }
+  },
+  {
+    "id": "ripple",
+    "name": "XRP",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 0.406348
+      }
+    }
+  },
+  {
+    "id": "binance-usd",
+    "name": "Binance USD",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/9576/large/BUSD.png?1568947766"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 1.001
+      }
+    }
+  },
+  {
+    "id": "cardano",
+    "name": "Cardano",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/975/large/cardano.png?1547034860"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 0.382956
+      }
+    }
+  },
+  {
+    "id": "dogecoin",
+    "name": "Dogecoin",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/5/large/dogecoin.png?1547792256"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 0.086094
+      }
+    }
+  },
+  {
+    "id": "solana",
+    "name": "Solana",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/4128/large/solana.png?1640133422"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 25
+      }
+    }
+  },
+  {
+    "id": "matic-network",
+    "name": "Polygon",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/4713/large/matic-token-icon.png?1624446912"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 0.999489
+      }
+    }
+  },
+  {
+    "id": "polkadot",
+    "name": "Polkadot",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/12171/large/polkadot.png?1639712644"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 6.29
+      }
+    }
+  },
+  {
+    "id": "shiba-inu",
+    "name": "Shiba Inu",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/11939/large/shiba.png?1622619446"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 0.00001216
+      }
+    }
+  },
+  {
+    "id": "litecoin",
+    "name": "Litecoin",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/2/large/litecoin.png?1547033580"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 89.08
+      }
+    }
+  },
+  {
+    "id": "tron",
+    "name": "TRON",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/1094/large/tron-logo.png?1547035066"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 0.062183
+      }
+    }
+  },
+  {
+    "id": "avalanche-2",
+    "name": "Avalanche",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/12559/large/Avalanche_Circle_RedWhite_Trans.png?1670992574"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 17.48
+      }
+    }
+  },
+  {
+    "id": "dai",
+    "name": "Dai",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/9956/large/4943.png?1636636734"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 1.002
+      }
+    }
+  },
+  {
+    "id": "uniswap",
+    "name": "Uniswap",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/12504/large/uniswap-uni.png?1600306604"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 6.86
+      }
+    }
+  },
+  {
+    "id": "wrapped-bitcoin",
+    "name": "Wrapped Bitcoin",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/7598/large/wrapped_bitcoin_wbtc.png?1548822744"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 22845
+      }
+    }
+  },
+  {
+    "id": "chainlink",
+    "name": "Chainlink",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/877/large/chainlink-new-logo.png?1547034700"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 6.9
+      }
+    }
+  },
+  {
+    "id": "monero",
+    "name": "Monero",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/69/large/monero_logo.png?1547033729"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 178.97
+      }
+    }
+  },
+  {
+    "id": "ethereum-classic",
+    "name": "Ethereum Classic",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/453/large/ethereum-classic-logo.png?1547034169"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 21.99
+      }
+    }
+  },
+  {
+    "id": "bitcoin-cash",
+    "name": "Bitcoin Cash",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/780/large/bitcoin-cash-circle.png?1594689492"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 129.69
+      }
+    }
+  },
+  {
+    "id": "stellar",
+    "name": "Stellar",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/100/large/Stellar_symbol_black_RGB.png?1552356157"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 0.091837
+      }
+    }
+  },
+  {
+    "id": "ethereum-name-service",
+    "name": "Ethereum Name Service",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/19785/large/acatxTm8_400x400.jpg?1635850140"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 14.67
+      }
+    }
+  },
+  {
+    "id": "kucoin-shares",
+    "name": "KuCoin",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/1047/large/sa9z79.png?1610678720"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 8.01
+      }
+    }
+  },
+  {
+    "id": "huobi-token",
+    "name": "Huobi",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/2822/large/huobi-token-logo.png?1547036992"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 5
+      }
+    }
+  },
+  {
+    "id": "tezos",
+    "name": "Tezos",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/976/large/Tezos-logo.png?1547034862"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 1.13
+      }
+    }
+  },
+  {
+    "id": "axie-infinity",
+    "name": "Axie Infinity",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/13029/large/axie_infinity_logo.png?1604471082"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 9.38
+      }
+    }
+  },
+  {
+    "id": "aave",
+    "name": "Aave",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/12645/large/AAVE.png?1601374110"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 86.09
+      }
+    }
+  },
+  {
+    "id": "the-sandbox",
+    "name": "The Sandbox",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/12129/large/sandbox_logo.jpg?1597397942"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 0.803589
+      }
+    }
+  },
+  {
+    "id": "decentraland",
+    "name": "Decentraland",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/878/large/decentraland-mana.png?1550108745"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 0.729628
+      }
+    }
+  },
+  {
+    "id": "internet-computer",
+    "name": "Internet Computer",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/14495/large/Internet_Computer_logo.png?1620703073"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 5.63
+      }
+    }
+  },
+  {
+    "id": "vechain",
+    "name": "VeChain",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/1167/large/VeChain-Logo-768x725.png?1547035194"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 0.0222405
+      }
+    }
+  },
+  {
+    "id": "near",
+    "name": "NEAR Protocol",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/10365/large/near_icon.png?1601359077"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 2.55
+      }
+    }
+  },
+  {
+    "id": "apecoin",
+    "name": "ApeCoin",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/24383/large/apecoin.jpg?1647476455"
+    },
+    "market_data": {
+      "current_price": {
+        "usd": 5.6
+      }
+    }
+  }
+]

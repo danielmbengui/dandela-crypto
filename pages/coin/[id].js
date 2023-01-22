@@ -134,8 +134,10 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const {locale, params} = context;
   const { id } = params;
-    const res = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}`);
-    const data = await res.data;
+    const res = await axios.get(`${process.env.domain}/api/coin/${id}`).then((resp) => {
+      return (resp.data);
+    });
+    const data = res.coin;
     const myCoin = {
       id:data ? data.id : '',
       name:data ? data.name : '',
