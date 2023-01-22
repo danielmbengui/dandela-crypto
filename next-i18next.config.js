@@ -5,5 +5,5 @@ module.exports = {
       localeDetection: false,
     },
     react: { useSuspense: false },//this line
-    trailingSlash: true,
+    //trailingSlash: true,
   }

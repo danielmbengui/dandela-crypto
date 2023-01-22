@@ -118,24 +118,22 @@ export default async function handler(req, res) {
       return (getCryptoCurrency(id));
     });
     //console.log("DAAATA", response)
-    const data = response;
     const myCoin = {
-      id: data ? data.id : id,
-      name: data ? data.name : '',
+      id: response ? response.id : id,
+      name: response ? response.name : '',
       image: {
-        large: data ? data.image.large : ''
+        large: response ? response.image.large : ''
       },
       market_data: {
         current_price: {
-          usd: data ? data.market_data.current_price.usd : 0
+          usd: response ? response.market_data.current_price.usd : 0
         }
       }
     }
     //var coin = getCryptoCurrency(id);
-    const coin = myCoin;
     //console.log("GEEEEET COIN", coin)
     updateCryptoCurrency(myCoin);
-    res.status(200).json({ msg: 'OK', coin: coin })
+    res.status(200).json({ msg: 'OK', coin: myCoin })
 
     //console.log("MY COOOIN", myCoin)
   } catch (err) {
