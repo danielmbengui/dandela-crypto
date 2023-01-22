@@ -6,7 +6,7 @@ import { PATH_PUBLIC_DIR, METHOD_POST, METHOD_GET } from "../constants";
 //import { updatePlayerByTwitterName, updatePlayerByTwitterUid, updatePlayerByWallet } from './functions';
 import axios from 'axios';
 import { cryptocurrencies } from '../../../__mocks__/cryptocurrencies';
-import { cryptocurrencies_ids } from '../../../__mocks__/cryptocurrencie_ids';
+import { cryptocurrencies_ids } from '../../../__mocks__/cryptocurrencies_ids';
 import { currencies } from '../../../__mocks__/currencies';
 import fs from 'fs';
 import { da } from 'date-fns/locale';

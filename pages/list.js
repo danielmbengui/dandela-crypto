@@ -9,7 +9,7 @@ import styleCoins from '../styles/Coins.module.css';
 import CustomTable from '../components/custom/custom-table';
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
-import { cryptocurrencies_ids } from '../__mocks__/cryptocurrencie_ids';
+import { cryptocurrencies_ids } from '../__mocks__/cryptocurrencies_ids';
 
 const SearchBar = ({ ...rest }) => {
     return (
