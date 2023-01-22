@@ -112,10 +112,12 @@ export default async function handler(req, res) {
             */
             updateCryptoCurrenciesFile(coins);
             return (res.status(200).json({ msg: "POST_DATA", coins: coins }))
+        } else {
+            res.status(500).json({ msg: 'failed to load data', coins: [] })
         }
 
     } catch (err) {
-        res.status(500).json({ msg: 'failed to load data' })
+        res.status(500).json({ msg: 'failed to load data', coins: [] })
     }
     //const cryptocurrencies = getCryptoCurrenciesFile();
     //console.log("SUCCESS", _cryptocurrencies);
