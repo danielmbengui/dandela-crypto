@@ -26,6 +26,7 @@ export default function MarketPage(props) {
     //console.log("LOCALE ListPage index", coinsData, );
     const [search, setSearch] = useState('');
 
+    console.log("LLIIIST FRONT", coinsData)
     const filteredCoins = coinsData.filter((coin) => {
         return (coin.name.toLowerCase().includes(search.toLowerCase()));
     });
@@ -64,13 +65,9 @@ export default function MarketPage(props) {
 
 export async function getStaticProps({locale}) {
     const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${cryptocurrencies_ids.join(',')}&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
-    const response = await axios.get(url).then((resp) => {
-        const data = resp.data;
-        return (data)
-    }).catch(() => {
-        return ([]);
-    });
-    const data = response;
+    const response = await axios.get(url);
+    const data = await response.data;
+    console.log("LIIIIIIST", data)
     return {
       props: {
         coinsData:data,
