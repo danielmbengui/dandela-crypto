@@ -82,11 +82,12 @@ useEffect(() => {
                 variant="contained"
                 sx={{
                   mt:3,
+                  textTransform:'capitalize',
                   ":hover": {
                   backgroundColor:'secondary.main'
               }}}
               >
-                {`${capitalizeAllWord(t('back_to_dasboard'))}`}
+                {`${t('back_to_dasboard')}`}
               </Button>
             </NextLink>
           </Box>
