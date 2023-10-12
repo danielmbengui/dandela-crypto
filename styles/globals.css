@@ -101,7 +101,10 @@
   --orange800: #86150E;
   --orange900: #6F090A;
 
-  --primary: var(--orange500);
+
+  --purple500: #504CAB;
+
+  --primary: var(--purple500);
 
  
 
@@ -134,8 +137,9 @@
   --orange200: #86150E;
   --orange100: #6F090A;
 
+  --purple500: #633294;
 
-  --primary: var(--orange500);
+  --primary: var(--purple500);
 
   --text: white;
   --text-secondary: black;
