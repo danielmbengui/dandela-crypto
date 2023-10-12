@@ -1,0 +1,16 @@
+/* styles/fonts.css */
+@font-face {
+    font-family: 'Coolvetica';
+    src: url('/fonts/coolvetica-rg.otf') format('opentype');
+    font-weight: 400; /* Normal */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'YourFontName';
+    src: url('/fonts/your-font-bold-filename.otf') format('opentype');
+    font-weight: 700; /* Bold */
+    font-style: normal;
+  }
+
+  

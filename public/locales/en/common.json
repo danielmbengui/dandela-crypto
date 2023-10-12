@@ -1,20 +1,126 @@
 {
-    "description_page" : "Financial freedom | Freedom to choose",
-    "menuHome": "Home",
-    "menuCryptoConverter": "Crypto Converter",
-    "menuPrivacyPolicy": "Privacy Policy",
-    "menuListCryptoCurrencies": "List",
-    "menuMarket":"Market",
-    "menu404": "404",
-    "langFrench": "French",
-    "langEnglish": "English",
-    "langPortuguese": "Portuguese",
-    "lightMode": "normal",
-    "darkMode": "dark",
-    "last_24_h": "Last 24h",
-    "crypto_lovers": "Crypto Lovers",
-    "data_provided_by_coingecko": "Data provided by CoinGecko.",
-    "explore_the_api": "Explore the API.",
-    "all_rights_reserved": "All Rights Reserved.",
-    "message_caution": "CAUTION: Investing in cryptocurrency carries high risks. Please adequately inform before making an investment decision and do not invest more than you can't afford to loose. The information contained on this website is only for general information purposes and does not constitute investment advice."
+    "titlePageHome": "Portfolio · Daniel Mbengui",
+    "welcome" :  "Hi 👋🏿, I'm Daan. Nice to meet you! I How are you doing today?",
+    "footer": {
+        "deployedWith" : "Crafted with passion and dedication, powered by",
+        "copyright" : "Copyright©",
+        "allRightsReserved" : "All rights reserved."
+    },
+    "langs": {
+        "title": "language",
+        "plural": "languages",
+        "fr": "french",
+        "en": "english"
+    },
+    "sections" :{
+        "skills" : {
+            "disclaimer" : "IMPORTANT: the skills and percentages listed don't necessarily represent my absolute level, but rather an estimate of my relative mastery of the topics discussed.",
+            "title": "Skills",
+            "langs" : {
+                "title" : "Languages",
+                "fr" : {
+                    "name" : "French",
+                    "value" : 100,
+                    "description" : "French is my native language, and I'm stoked to rock this beautiful language with ease. Thanks to this skill, I can express myself clearly and communicate effectively in all sorts of professional and personal situations, dude!"
+                },
+                "en" : {
+                    "name" : "English",
+                    "value" : 80,
+                    "description" : "Over time, I've developed strong English skills and can now speak it fluently. My journey has allowed me to improve my English through a past relationship, as well as my passion for computer programming and the tutorials available on YouTube. English has become an essential tool in both my professional and personal life, opening up new opportunities and allowing me to communicate with an international audience."
+                },
+                "it" : {
+                    "name" : "Italian",
+                    "value" : 50
+                },
+                "ao" : {
+                    "name" : "Lingala",
+                    "value" : 70,
+                    "description" : "In addition to French, I speak fluent Lingala, and a bit of Kikongo, the language of my Angolan roots. I'm particularly proud to master these languages, as they allow me to stay connected to my family and my community of origin. Lingala (in particular) plays a precious role in my life, strengthening cultural ties and authentic exchanges with those who share this linguistic heritage."
+                }
+            },
+            "programming" : {
+                "title" : "Programming",
+                "javascript" : {
+                    "name": "Javascript",
+                    "value": 50
+                }
+            },
+            "frameworks" : {
+                "title" : "Frameworks/Tools",
+                "react" : {
+                    "name": "ReactJS",
+                    "value": 80
+                }
+            },
+            "software" : {
+                "title" : "Software",
+                "visualStudio" : {
+                    "name": "Visual Studio Code",
+                    "value": 80
+                }
+            },
+            "web" : {
+                "title" : "Web",
+                "visualStudio" : {
+                    "name": "Visual Studio Code",
+                    "value": 80
+                }
+            },
+            "mobile" : {
+                "title" : "Mobile",
+                "visualStudio" : {
+                    "name": "Visual Studio Code",
+                    "value": 80
+                }
+            },
+            "blockchain" : {
+                "title" : "Blockchain",
+                "visualStudio" : {
+                    "name": "Visual Studio Code",
+                    "value": 80
+                }
+            },
+            "database" : {
+                "title" : "Database",
+                "visualStudio" : {
+                    "name": "Visual Studio Code",
+                    "value": 80
+                }
+            },
+            "artificial" : {
+                "title" : "Artificial Intelligence (AI)",
+                "visualStudio" : {
+                    "name": "Visual Studio Code",
+                    "value": 80
+                }
+            }
+        },
+        "projects" : {
+            "title" : "Projects"
+        },
+        "education" : {
+            "title": "Education",
+            "javascript" : {
+                "name" : "FreeCodeCamp",
+                "image" : "/logos/freecodecamp.jpeg",
+                "position" : "JavaScript Algorithms and Data Structures",
+                "date" : "2022-03-20",
+                "link": "https://www.freecodecamp.org/certification/fccef9a36a5-5f01-45d2-ad9e-88f37eac23d1/javascript-algorithms-and-data-structures"
+            }
+        }
+    },
+    "chatbot" : "Chat with me",
+    "seeMyCV" : "See my resume",
+    "sendMeMail" : "Contact me",
+    "profileLinkedin" : "Linkedin profile",
+    "profileGithub" : "Github profile",
+    "profilePlaystore" : "Playstore profile",
+    "slogan": "Because I'm a geek !",
+    "theme" : "theme",
+    "loadingDocument" : "Loading document...",
+    "buttons": {
+        "goChat": "Start the tour",
+        "goCv": "See my resume",
+        "downloadCv": "Download my resume"
+    }
 }
