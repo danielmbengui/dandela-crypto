@@ -5,6 +5,8 @@
     "buttons": {
         "goChat": "Start the tour",
         "goCv": "See my resume",
-        "downloadCv": "Download my resume"
+        "downloadCv": "Download my resume",
+        "terms": "Use terms",
+        "policy": "Private policy"
     }
 }

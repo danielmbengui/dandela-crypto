@@ -1,7 +1,7 @@
 /* --------------- GENERAL -------------- */
-export const _WEBSITE_NAME_ = 'danielmbengui.ch';
-export const _WEBSITE_ADDRESS_ = 'danielmbengui.ch';
-export const _WEBSITE_ADDRESS_FULL_ = 'https://danielmbengui.ch';
+export const _WEBSITE_NAME_ = 'DandelApp';
+export const _WEBSITE_ADDRESS_ = 'dandela.com';
+export const _WEBSITE_ADDRESS_FULL_ = 'https://dandela.com';
 export const _NEXTJS_LINK_ = 'https://nextjs.org/';
 
 /* --------------- NAME SPACES -------------- */
@@ -15,10 +15,12 @@ export const ARRAY_NAMEPACES = [
 
 /* --------------- LANGS -------------- */
 export const LANGAGE_FRENCH = 'fr';
+export const LANGAGE_PORTUGUESE = 'pt';
 export const LANGAGE_ENGLISH = 'en';
 export const DEFAULT_LANGAGE = LANGAGE_FRENCH;
 export const ARRAY_LANGAGES = [
     LANGAGE_FRENCH,
+    LANGAGE_PORTUGUESE,
     LANGAGE_ENGLISH,
 ];
 

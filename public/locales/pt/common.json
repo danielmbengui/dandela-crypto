@@ -2,16 +2,16 @@
     "titlePageHome": "Portfolio · Daniel Mbengui",
     "welcome" :  "Salut 👋🏿, je suis Daan. Heureux de te rencontrer! Comment tu vas aujourd'hui?",
     "footer": {
-        "deployedWith" : "Crée avec passion et dévouement, propulsé par",
+        "deployedWith" : "Criado com paixão e dedicação, alimentado por",
         "copyright" : "Copyright©",
-        "allRightsReserved" : "Tous droits réservés."
+        "allRightsReserved" : "Todos os direitos reservados."
     },
     "langs": {
         "title": "langue",
         "plural": "langues",
-        "fr": "français",
-        "pt": "portugais",
-        "en": "anglais"
+        "fr": "francês",
+        "pt": "português",
+        "en": "inglês"
     },
     "sections" :{
         "skills" : {
@@ -97,7 +97,7 @@
         "goChat": "Commencez votre visite",
         "goCv": "Voir mon CV",
         "downloadCv": "Télécharger mon CV",
-        "terms": "Conditions d'utilisation",
-        "policy": "Politique de confidentialité"
+        "terms": "Termos de uso",
+        "policy": "Política de rivacidade"
     }
 }

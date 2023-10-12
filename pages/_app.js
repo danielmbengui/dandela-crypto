@@ -104,10 +104,10 @@ goTopButton.forEach(function (el) {
         <title>{t('titlePageHome')}</title>
         <meta
           name="description"
-          content="Daniel Mbengui | Backend Developer | Web Developer "
+          content="Dandela | Bisso na bisso"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/me.ico" />
+        <link rel="icon" href="/favicon.ico" />
         
       </Head>
       <Script src="/assets/js/lib/bootstrap.min.js" />

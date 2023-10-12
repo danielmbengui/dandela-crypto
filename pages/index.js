@@ -21,7 +21,7 @@ import MobileLinksBar from '../components/layouts/MobileLinksBar';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import MobileSectionsBar from '../components/layouts/MobileSectionsBar';
 import Link from 'next/link';
-import { ResumeIcon } from '@/components/icons/IconMaterialUi';
+import { PolicyIconMui, ResumeIcon, TermsIconMui } from '@/components/icons/IconMaterialUi';
 import {PlayStoreIcon, AndroidIcon,XCodeIcon,FlutterIcon, CssIcon, HtmlIcon, JavascriptIcon, MaterialUiIcon, NextJsIcon, NodeJsIcon, PwaIcon, ReactIcon, VisualStudioIcon } from '@/components/icons/IconifiyIcons';
 import { motion, AnimatePresence } from "framer-motion"
 import { Bounce } from "react-awesome-reveal";
@@ -91,7 +91,7 @@ export function MobileAppBar() {
                   anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                   variant="dot"
                 >
-                  <Avatar src="/me-no-back.png" sx={{ width: 40, height: 40, background: 'var(--primary)' }} />
+                  <Avatar src="/logos/logo.png" sx={{ width: 40, height: 40, background: 'var(--primary)' }} />
                 </StyledBadge>
 
                 <Drawer
@@ -146,63 +146,6 @@ export function MobileAppBar() {
     </Box>
   );
 }
-
-const getMoodOptions = (actionProvider) => {
-  return [
-    {
-      text: 'Doing great! Tell me about yourself',
-      handler: () => actionProvider.handleGoodMood(),
-      id: 1,
-    },
-    {
-      text: 'Having a bad day...',
-      handler: () => actionProvider.handleBadMood(),
-      id: 2,
-    },
-  ];
-};
-
-const getJokeOptions = (actionProvider) => {
-  return [
-    {
-      text: "LOL that's funny",
-      handler: () => actionProvider.handleGoodMoodFinally(),
-      id: 1,
-    },
-    {
-      text: 'Tell me another one',
-      handler: () => actionProvider.handleBadMoodAgain(),
-      id: 2,
-    },
-  ];
-};
-
-const getPersonalOptions = (actionProvider) => {
-  return [
-    {
-      text: 'Experience',
-      handler: () => actionProvider.handleExperience(),
-      id: 1,
-    },
-    {
-      text: 'Projects',
-      handler: () => actionProvider.handleProjects(),
-      id: 2,
-    },
-    {
-      text: 'Skills',
-      handler: () => actionProvider.handleSkills(),
-      id: 3,
-    },
-    {
-      text: 'Blogs',
-      handler: () => actionProvider.handleBlogs(),
-      id: 4,
-    },
-  ];
-};
-
-
 
 export const WebHome = () => {
   const { t } = useTranslation();
@@ -289,162 +232,11 @@ export const WebHome = () => {
             opacity: 1,
             //background:'cyan'
           }}>
-          <Stack p={1} mt={3} direction={'row'} spacing={1} alignItems={'center'} justifyContent={'center'} sx={{
-            //background:'green',
-            //background:'cyan',
-            //width:'100%',
-            borderRadius: 10
-          }}>
-            <Stack justifyContent={'center'} alignItems={'center'} style={{
-              position: 'relative',
-              //background:'cyan',
-              //top: 0,
-              //left: 0,
-              width: 80,
-              height: 80,
-              objectFit: 'cover',
 
-            }}>
-              <AnimatePresence style={{
-                position: 'relative',
-                //background:'red',
-                margin: 'auto',
-                objectFit: 'cover',
-              }}>
-                <Grid container justifyContent={'center'} alignItems={'center'}>
-                  {imgProg.map((image, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: index === currentImageProg ? 1 : 0 }}
-                      exit={{ opacity: 0 }}
-                      //transition={{ duration: 0.5 }}
-                      whileTap={{
-                        scale: index === currentImageProg ? 2 : 1,
-                      }}
-                      transition={{ duration: 1 }}
-                      style={{
-                        position: 'absolute',
-                        //background:'yellow',
-                        top: 0,
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        //textAlign:'center'
-                      }}
-                    >
-                      <Stack justifyContent={'center'} alignItems={'center'} sx={{
-                        width: '100%',
-                        height: '100%'
-                      }}>
-                        {image}
-                      </Stack>
-                    </motion.div>
-                  ))}
-                </Grid>
-              </AnimatePresence>
-            </Stack>
-
-            <Stack justifyContent={'center'} alignItems={'center'} style={{
-              position: 'relative',
-              //background:'cyan',
-              //top: 0,
-              //left: 0,
-              width: 80,
-              height: 80,
-              objectFit: 'cover',
-            }}>
-              <AnimatePresence style={{
-                position: 'relative',
-                //background:'red',
-                margin: 'auto',
-                objectFit: 'cover',
-              }}>
-                <Grid container justifyContent={'center'} alignItems={'center'}>
-                  {imgFramework.map((image, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: index === currentImageFramework ? 1 : 0 }}
-                      exit={{ opacity: 0 }}
-                      //transition={{ duration: 0.5 }}
-                      transition={{ duration: 1 }}
-                      whileTap={{
-                        scale: index === currentImageFramework ? 2 : 1,
-                      }}
-                      style={{
-                        position: 'absolute',
-                        //background:'yellow',
-                        top: 0,
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        //textAlign:'center'
-                      }}
-                    >
-                      <Stack justifyContent={'center'} alignItems={'center'} sx={{
-                        width: '100%',
-                        height: '100%'
-                      }}>
-                        {image}
-                      </Stack>
-                    </motion.div>
-                  ))}
-                </Grid>
-              </AnimatePresence>
-            </Stack>
-
-            <Stack justifyContent={'center'} alignItems={'center'} style={{
-              position: 'relative',
-              //background:'cyan',
-              //top: 0,
-              //left: 0,
-              width: 80,
-              height: 80,
-              objectFit: 'cover',
-            }}>
-              <AnimatePresence style={{
-                position: 'relative',
-                //background:'red',
-                margin: 'auto',
-                objectFit: 'cover',
-              }}>
-                <Grid container justifyContent={'center'} alignItems={'center'}>
-                  {imgSoftware.map((image, index) => (
-                    <motion.div
-                      key={'img-software-' + index}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: index === currentImageSoftware ? 1 : 0 }}
-                      exit={{ opacity: 0 }}
-                      //transition={{ duration: 0.5 }}
-                      transition={{ duration: 1 }}
-                      whileTap={{
-                        scale: index === currentImageSoftware ? 2 : 1,
-                      }}
-                      style={{
-                        position: 'absolute',
-                        //background:'yellow',
-                        top: 0,
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        //textAlign:'center'
-                      }}
-                    >
-                      <Stack justifyContent={'center'} alignItems={'center'} sx={{
-                        width: '100%',
-                        height: '100%'
-                      }}>
-                        {image}
-                      </Stack>
-                    </motion.div>
-                  ))}
-                </Grid>
-              </AnimatePresence>
-            </Stack>
-          </Stack>
-
-          <Typography fontWeight={'bold'} pb={3}>{t('userPosition', { ns: _NAMESPACE_LANGAGE_HOME_ })}</Typography>
+<div style={{ textAlign: 'center', marginTop:20 }}>
+<Typography fontWeight={'bold'} color={'var(--primary)'} fontSize={30}>{'D A N D E L A'}</Typography>
+          <Typography fontWeight={'normal'} position={'center'} pb={3}>{'Bisso na bisso'}</Typography>
+</div>
 
           <Stack alignItems={'center'} spacing={1} mb={2}>
             <Bounce duration={3000}>
@@ -455,11 +247,20 @@ export const WebHome = () => {
                   //px:2,
                   borderRadius: '50%',
                   border: '3px solid var(--primary)',
-                  background: 'transparent'
+                  //background: 'transparent',
+                  background: theme.palette.background,
+    overflow: 'hidden',
                 }}>
-                <Avatar src="/me-no-back.png"
-                  sx={{ width: 150, height: 150, }}
-                />
+                <img 
+    src="/logos/logo-img.png" 
+    alt="Logo"
+    style={{ 
+      width: 200, 
+      height: 200,
+      display: 'block', 
+      borderRadius: '50%'
+    }} 
+  />
               </Paper>
             </Bounce>
 
@@ -467,15 +268,89 @@ export const WebHome = () => {
           </Stack>
 
 
-          <Stack my={5} p={1} alignItems={'center'}>
+          <Stack my={3} spacing={2} direction={'row'} alignItems={'center'}>
             <Link href={_PAGE_LINK_CHAT_BOT_} target={'_blank'}>
-              <Button sx={{ color: 'var(--text)' }} startIcon={<ResumeIcon />} variant='contained'>{t('buttons.goChat', { ns: _NAMESPACE_LANGAGE_HOME_ })}</Button>
+              <Button sx={{ color: 'white', background:'var(--primary)', '&:hover': {
+      background: 'var(--secondary)'
+    } }} startIcon={<TermsIconMui color='white' />} variant='contained'>{t('buttons.terms', { ns: _NAMESPACE_LANGAGE_HOME_ })}</Button>
             </Link>
-            <Link href={_PAGE_LINK_RESUME_} target={'_blank'} style={{ display: 'none' }}>
-              <Button sx={{ color: 'var(--text)' }}>{t('buttons.goCv', { ns: _NAMESPACE_LANGAGE_HOME_ })}</Button>
+            <Link href={_PAGE_LINK_CHAT_BOT_} target={'_blank'}>
+              <Button sx={{ color: 'white', background:'var(--primary)', '&:hover': {
+      background: 'var(--secondary)'
+    } }} startIcon={<PolicyIconMui color='white' />} variant='contained'>{t('buttons.policy', { ns: _NAMESPACE_LANGAGE_HOME_ })}</Button>
             </Link>
           </Stack>
 
+          <div style={{ 
+  textAlign: 'center', 
+  marginTop: 20, 
+  width: '50%', 
+  marginLeft: 'auto', 
+  marginRight: 'auto' 
+}}>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"DandelApp est la "}</Typography>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"solution ultime "}</Typography>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"pour une gestion financière "}</Typography>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"sans tracas "}</Typography>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"pour les familles qui naviguent entre l'"}</Typography>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"Europe "}</Typography>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"et l'"}</Typography>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"Angola"}</Typography>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"."}</Typography>
+</div>
+
+<div style={{ 
+  textAlign: 'center', 
+  marginTop: 10, 
+  width: '50%', 
+  marginLeft: 'auto', 
+  marginRight: 'auto' 
+}}>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"Cette plateforme révolutionnaire offre une comptabilisation simplifiée, permettant un enregistrement aisé des échanges financiers au sein de la famille, et ce, sans se préoccuper des complications liées à la conversion de devises."}</Typography>
+</div>
+
+<div style={{ 
+  textAlign: 'center', 
+  marginTop: 10, 
+  width: '50%', 
+  marginLeft: 'auto', 
+  marginRight: 'auto' 
+}}>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"Pour une confiance sans faille, DandelApp assure une transparence totale en permettant à tous les membres de la famille d'accéder à l'historique des transactions. En outre, ne manquez jamais une date de paiement grâce aux notifications et rappels. Le tableau de bord intuitif vous offre un résumé financier clair et compréhensible des flux monétaires familiaux. Et pour couronner le tout, la confidentialité est garantie chez DandelApp : vos données sont cryptées et sécurisées, sans partage avec des tiers. Avec DandelApp, la gestion financière en famille entre l'Europe et l'Angola devient un jeu d'enfant."}</Typography>
+</div>
+
+<div style={{ 
+  textAlign: 'center', 
+  marginTop: 10, 
+  width: '50%', 
+  marginLeft: 'auto', 
+  marginRight: 'auto' 
+}}>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"Le tableau de bord intuitif vous offre un résumé financier clair et compréhensible des flux monétaires familiaux. Et pour couronner le tout, la confidentialité est garantie chez DandelApp : vos données sont cryptées et sécurisées, sans partage avec des tiers. Avec DandelApp, la gestion financière en famille entre l'Europe et l'Angola devient un jeu d'enfant."}</Typography>
+</div>
+
+<div style={{ 
+  textAlign: 'center', 
+  marginTop: 10, 
+  width: '50%', 
+  marginLeft: 'auto', 
+  marginRight: 'auto' 
+}}>
+<Typography fontWeight={'normal'} color={'var(--text)'} fontSize={20} display={'inline'}>{"Avec DandelApp, la gestion financière en famille entre l'Europe et l'Angola devient un jeu d'enfant."}</Typography>
+</div>
+
+<Stack my={3} spacing={2} direction={'row'} alignItems={'center'}>
+            <Link href={_PAGE_LINK_CHAT_BOT_} target={'_blank'}>
+              <Button sx={{ color: 'white', background:'var(--primary)', '&:hover': {
+      background: 'var(--secondary)'
+    } }} startIcon={<TermsIconMui color='white' />} variant='contained'>{t('buttons.terms', { ns: _NAMESPACE_LANGAGE_HOME_ })}</Button>
+            </Link>
+            <Link href={_PAGE_LINK_CHAT_BOT_} target={'_blank'}>
+              <Button sx={{ color: 'white', background:'var(--primary)', '&:hover': {
+      background: 'var(--secondary)'
+    } }} startIcon={<PolicyIconMui color='white' />} variant='contained'>{t('buttons.policy', { ns: _NAMESPACE_LANGAGE_HOME_ })}</Button>
+            </Link>
+          </Stack>
 
         </Stack>
         <div className="appFooter" style={{ position: 'relative', background: 'var(--background)' }}>
@@ -508,10 +383,11 @@ export const WebHome = () => {
 
             <Tooltip sx={{
               zIndex: 1
-            }} title={t('sendMeMail')} placement="top">
+            }} open={false} title={t('sendMeMail')} placement="top">
               <a href={`mailto:${_MY_PROFILE_.mail}`} className="btn btn-icon btn-sm" style={{
                 background: 'var(--primary)',
-                color: 'black'
+                color: 'black',
+                display: "none"
               }}>
                 <ion-icon name="mail"></ion-icon>
               </a>
@@ -519,10 +395,11 @@ export const WebHome = () => {
 
             <Tooltip sx={{
               zIndex: 1
-            }} title={t('profileLinkedin')} placement="top">
+            }} open={false} title={t('profileLinkedin')} placement="top">
               <a href={_MY_PROFILE_.socials.linkedin} target='_blank' className="btn btn-icon btn-sm" style={{
                 background: 'var(--blue-linkedin)',
-                color: 'white'
+                color: 'white',
+                display: "none"
               }}>
                 <ion-icon name="logo-linkedin"></ion-icon>
               </a>
@@ -530,10 +407,11 @@ export const WebHome = () => {
 
             <Tooltip sx={{
               zIndex: 1
-            }} title={t('profileGithub')} placement="top">
+            }} open={false} title={t('profileGithub')} placement="top">
               <a href={_MY_PROFILE_.socials.github} target='_blank' className="btn btn-icon btn-sm" style={{
                 background: 'black',
-                color: 'white'
+                color: 'white',
+                display: "none"
               }}>
                 <ion-icon name="logo-github"></ion-icon>
               </a>
