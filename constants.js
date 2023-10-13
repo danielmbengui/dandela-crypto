@@ -6,14 +6,14 @@ export const CURRENCY_DOLLARS = 'usd';
 export const CURRENCY_EUROS = 'eur';
 export const CURRENCY_LIVRE_STERLING = 'gbp';
 export const CURRENCY_SWISS_FRANCS = 'chf';
-export const DEFAULT_LANGAGE = 'eng';
 export const LANGAGE_FRENCH = 'fr';
 export const LANGAGE_ENGLISH = 'en';
 export const LANGAGE_PORTUGUESE = 'pt';
+export const DEFAULT_LANGAGE = LANGAGE_FRENCH;
 export const TAB_LANGAGES = [
-    LANGAGE_ENGLISH,
     LANGAGE_FRENCH,
     LANGAGE_PORTUGUESE,
+    LANGAGE_ENGLISH,
 ];
 export const NAMESPACE_LANGAGE_COMMON = 'common';
 export const NAMESPACE_LANGAGE_HOME = 'home';

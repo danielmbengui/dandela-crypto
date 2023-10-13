@@ -11,9 +11,14 @@ export default function ThemeModeProvider({ children, screenMode }) {
 
   const black = "#000000";
   const white = "#FFFFFF";
+  const purpleLight = "#378aff";
+  const purple = "#094397";
+  const purpleDark = "#000c25";
+
   const blueLight = "#378aff";
   const blue = "#094397";
   const blueDark = "#000c25";
+
   const blueDarkOpacity = "#000c2580";
   const grey = "#727171";
   const greyLight = "#efefef";

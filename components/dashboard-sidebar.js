@@ -155,7 +155,7 @@ export const DashboardSidebar = (props) => {
                 color="text.secondary"
                 variant="subtitle1"
               >
-                {'Dandela'}
+                {'DandelApp par Dandela'}
               </Typography>
               <Typography
                 color={theme.palette.mode === 'light' ? 'neutral.300' : 'neutral.700'}
@@ -264,7 +264,7 @@ export const DashboardSidebar = (props) => {
             variant="subtitle2"
             sx={{ fontWeight: 'bold' }}
           >
-            {`© ${new Date().getFullYear()} Dandela`}
+            {new Date().getFullYear() == 2023 ? `©${new Date().getFullYear()} Dandela` : `©2023 - ${new Date().getFullYear()} Dandela`}
           </Typography>
         </Box>
         <Box

@@ -19,6 +19,14 @@
   --test: #000c25;
   --test-opacity: #000c2580;
   /*--blue-dandela: #094397;*/
+  --purple-dandela:rgb(80, 76, 171); /*#504CAB*/
+  --purple-opacity-dandela:rgba(80, 76, 171, 0.502); /*#504CAB*/
+  --purple-dandela-decimal: 80, 76, 171; /*#504CAB*/
+  --purple-light-dandela:rgb(99, 50, 148); /*#633294*/
+  --purple-light-opacity-dandela:rgba(99, 50, 148, 0.5); /*#633294*/
+  --purple-light-dandela-decimal:99, 50, 148; /*#633294*/
+
+
   --blue-dandela: rgb(9, 67, 151);
   /* blue dandela */
   --blue-dandela-decimal: 9, 67, 151;
@@ -30,22 +38,18 @@
   --blue-light-dandela-decimal: 55, 138, 255;
   /* blue dandela */
   --blue-light-opacity-dandela: rgba(55, 138, 255, 0.5);
-  /* blue dandela */
-  --purple-dandela: rgb(122, 107, 162);
   /* purple dandela */
-  --purple-dandela-decimal: 122, 107, 162;
-  /* purple dandela */
-  --primary: var(--blue-dandela);
+  --primary: var(--purple-dandela);
   /* blue dandela */
-  --primary-decimal: var(--blue-dandela-decimal);
+  --primary-decimal: var(--purple-dandela-decimal);
   /* blue dandela */
-  --primary-opacity: var(--blue-opacity-dandela);
+  --primary-opacity: var(--purple-opacity-dandela);
   /* blue dandela */
-  --secondary: var(--blue-light-dandela);
+  --secondary: var(--purple-light-dandela);
   /* purple dandela */
-  --secondary-decimal: var(--blue-light-dandela-decimal);
+  --secondary-decimal: var(--purple-light-dandela-decimal);
   /* purple dandela */
-  --secondary-opacity: var(--blue-light-opacity-dandela);
+  --secondary-opacity: var(--purple-light-opacity-dandela);
   /* purple dandela */
 
   --black: rgb(0, 0, 0);
@@ -99,10 +103,10 @@
 }
 
 [data-theme="dark"] {
-  --primary: var(--blue-light-dandela);
+  --primary: var(--purple-light-dandela);
   --primary-opacity: var(--secondary-opacity);
   /* blue dandela */
-  --secondary: var(--blue-dandela);
+  --secondary: var(--purple-dandela);
   --background-color: black;
   --text-primary: white;
   --text-secondary: black;
