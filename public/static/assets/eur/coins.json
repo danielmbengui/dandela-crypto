@@ -1,0 +1,35 @@
+[
+  {
+    "id": "bitcoin",
+    "name": "Bitcoin",
+    "symbol": "btc",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
+    },
+    "market_data": {
+      "current_price": 20943
+    }
+  },
+  {
+    "id": "usd-coin",
+    "name": "USD Coin",
+    "symbol": "usdc",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png?1547042389"
+    },
+    "market_data": {
+      "current_price": 0.919132
+    }
+  },
+  {
+    "id": "binancecoin",
+    "name": "BNB",
+    "symbol": "bnb",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1644979850"
+    },
+    "market_data": {
+      "current_price": 279.41
+    }
+  }
+]

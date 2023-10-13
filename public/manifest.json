@@ -1,0 +1,41 @@
+{
+  "name": "Dandela Crypto Converter",
+  "short_name": "Dandela Crypto Converter",
+  "description": "The link between you and crypto world",
+  "icons": [
+    {
+      "src": "/static/images/logos/logo192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/images/logos/maskable_icon_x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/static/images/logos/logo512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/images/logos/maskable_icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#094397",
+  "background_color": "#ffffff",
+  "start_url": "/index",
+  "scope": "/",
+  "related_applications": [{
+    "platform": "webapp",
+    "url": "https://dandela.com/manifest.json"
+  }],
+  "display": "standalone",
+  "orientation": "portrait"
+}

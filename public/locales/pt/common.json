@@ -1,103 +1,20 @@
 {
-    "titlePageHome": "Portfolio · Daniel Mbengui",
-    "welcome" :  "Salut 👋🏿, je suis Daan. Heureux de te rencontrer! Comment tu vas aujourd'hui?",
-    "footer": {
-        "deployedWith" : "Criado com paixão e dedicação, alimentado por",
-        "copyright" : "Copyright©",
-        "allRightsReserved" : "Todos os direitos reservados."
-    },
-    "langs": {
-        "title": "langue",
-        "plural": "langues",
-        "fr": "francês",
-        "pt": "português",
-        "en": "inglês"
-    },
-    "sections" :{
-        "skills" : {
-            "disclaimer" : "IMPORTANT : les compétences et les pourcentages indiqués ne représentent pas nécessairement mon niveau absolu, mais plutôt une estimation de ma maîtrise relative des sujets abordés.",
-            "title": "Compétences",
-            "langs" : {
-                "title" : "Langues",
-                "fr" : {
-                    "name" : "Français",
-                    "value" : 100,
-                    "description" : "Le français est ma langue maternelle, et je suis fier de maîtriser cette belle langue avec aisance. Grâce à cette compétence, je suis en mesure de m'exprimer clairement et de communiquer efficacement dans diverses situations professionnelles et personnelles."
-                },
-                "en" : {
-                    "name" : "Anglais",
-                    "value" : 80,
-                    "description" : "Au fil du temps, j'ai développé une solide compétence en anglais, langue que je parle couramment aujourd'hui. Mon parcours m'a permis d'améliorer cette langue à travers une ancienne relation, ainsi que par ma passion pour la programmation informatique et les tutoriels disponibles sur YouTube. L'anglais est devenu un outil essentiel dans ma vie professionnelle et personnelle, me permettant d'accéder à de nouvelles opportunités et de communiquer avec un public international."
-                },
-                "it" : {
-                    "name" : "Italien",
-                    "value" : 50
-                },
-                "ao" : {
-                    "name" : "Lingala",
-                    "value" : 70,
-                    "description" : "En plus du français, je parle couramment le lingala, et un peu de kikongo, la langue de mes racines angolaises. Je suis particulièrement fier de maîtriser ces langues, car elle me permettent de rester connecté à ma famille et à ma communauté d'origine. Le lingala (tout particulièrement) joue un rôle précieux dans ma vie, renforçant les liens culturels et les échanges authentiques avec ceux qui partagent ce patrimoine linguistique."
-                }
-            },
-            "programming" : {
-                "title" : "Programmation",
-                "javascript" : {
-                    "name": "Javascript",
-                    "value": 50
-                }
-            },
-            "frameworks" : {
-                "title" : "Librairies/Outils"
-            },
-            "software" : {
-                "title" : "Logiciels"
-            },
-            "web" : {
-                "title" : "Web"
-            },
-            "mobile" : {
-                "title" : "Mobile"
-            },
-            "blockchain" : {
-                "title" : "Blockchain"
-            },
-            "database" : {
-                "title" : "Base de données"
-            },
-            "artificial" : {
-                "title" : "Intelligence Artificielle (IA)"
-            }
-        
-            
-        },
-        "projects" : {
-            "title" : "Projets"
-        },
-        "education" : {
-            "title": "Formations",
-            "javascript" : {
-                "name" : "FreeCodeCamp",
-                "image" : "/logos/freecodecamp.jpeg",
-                "position" : "JavaScript Algorithms and Data Structures",
-                "date" : "2022-03-20",
-                "link": "https://www.freecodecamp.org/certification/fccef9a36a5-5f01-45d2-ad9e-88f37eac23d1/javascript-algorithms-and-data-structures"
-            }
-        }
-    },
-    "chatbot" : "Discutes avec moi",
-    "seeMyCV" : "Voir mon CV",
-    "sendMeMail" : "Contactes moi",
-    "profileLinkedin" : "Profil Linkedin",
-    "profileGithub" : "Profil Github",
-    "profilePlaystore" : "Profil Playstore",
-    "slogan" : "Parce que je suis un geek !",
-    "theme" : "thème",
-    "loadingDocument" : "Chargement du document...",
-    "buttons": {
-        "goChat": "Commencez votre visite",
-        "goCv": "Voir mon CV",
-        "downloadCv": "Télécharger mon CV",
-        "terms": "Termos de uso",
-        "policy": "Política de rivacidade"
-    }
+    "description_page" : "Liberdade financeira | Liberdade de escolha",
+    "menuHome": "Inicio",
+    "menuCryptoConverter": "Conversor Cripto",
+    "menuPrivacyPolicy": "Política de Privacidade",
+    "menuListCryptoCurrencies": "Lista",
+    "menuMarket":"Mercado",
+    "menu404": "404",
+    "langFrench": "Francês",
+    "langEnglish": "Inglês",
+    "langPortuguese": "Português",
+    "lightMode": "normal",
+    "darkMode": "escuro",
+    "last_24_h": "Últimas 24h",
+    "crypto_lovers": "Crypto Lovers",
+    "data_provided_by_coingecko": "Dados fornecidos pela CoinGecko.",
+    "explore_the_api": "Explorar a API.",
+    "all_rights_reserved": "Todos direitos reservados.",
+    "message_caution": "CUIDADO: Investir em criptomoeda acarreta altos riscos. Por favor, informe-se adequadamente antes de tomar uma decisão de investimento e não invista mais do que você pode perder. As informações contidas neste site são apenas para fins de informação geral e não constituem aconselhamento de investimento."
 }

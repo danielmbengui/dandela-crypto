@@ -1,0 +1,35 @@
+[
+  {
+    "id": "bitcoin",
+    "name": "Bitcoin",
+    "symbol": "btc",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
+    },
+    "market_data": {
+      "current_price": 21084
+    }
+  },
+  {
+    "id": "usd-coin",
+    "name": "USD Coin",
+    "symbol": "usdc",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/6319/large/USD_Coin_icon.png?1547042389"
+    },
+    "market_data": {
+      "current_price": 0.919802
+    }
+  },
+  {
+    "id": "ripple",
+    "name": "XRP",
+    "symbol": "xrp",
+    "image": {
+      "large": "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1605778731"
+    },
+    "market_data": {
+      "current_price": 0.377253
+    }
+  }
+]
