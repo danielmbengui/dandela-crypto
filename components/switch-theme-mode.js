@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
-import { Switch, Typography } from "@mui/material";
+import { Switch } from "@mui/material";
 import { updateScreenModeStorage } from '../lib/storage/UserStorageFunctions';
 import { ThemeModeProviderContext } from '../context/ThemeProvider';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -72,15 +72,6 @@ export default function MaterialUISwitch() {
     return (
         <FormControlLabel
         control={ <CustomSwitch inputProps={{ 'aria-label': theme.palette.mode === 'light' ? `${t('lightMode')}` : `${t('darkMode')}` }} checked={checked} onChange={onChangeMode} />}
-        /*
-label={
-        <Typography sx={{fontWeight:'bold'}} color={'text.primary'}>
-            {
-                theme.palette.mode === 'light' ? `${t('lightMode')}` : `${t('darkMode')}`
-            }
-        </Typography>
-    }
-        */
       />
     )
 }

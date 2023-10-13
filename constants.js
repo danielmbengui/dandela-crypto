@@ -1,6 +1,8 @@
 export const COMPANY_NAME = 'Dandela';
 export const APP_NAME = 'Dandela Web App';
-export const DEFAULT_SCREEN_MODE = 'light';
+export const LIGHT_SCREEN_MODE = 'light';
+export const DARK_SCREEN_MODE = 'dark';
+export const DEFAULT_SCREEN_MODE = LIGHT_SCREEN_MODE;
 export const DEFAULT_CURRENCY = 'usd';
 export const CURRENCY_DOLLARS = 'usd';
 export const CURRENCY_EUROS = 'eur';
@@ -62,3 +64,4 @@ export const TEXT_SYMBOL_SWISS_FRANCS = 'CHF';
 export const STORAGE_SCREEN_MODE = 'screenMode';
 export const STORAGE_CURRENCY = 'currency';
 export const STORAGE_LANGAGE = 'lang';
+

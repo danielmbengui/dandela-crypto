@@ -1,5 +1,5 @@
 {
-    "description_page" : "Financial freedom | Freedom to choose",
+    "description_page" : "The ultimate solution for hassle-free financial management for families navigating between Europe and Angola.",
     "menuHome": "Home",
     "menuCryptoConverter": "Crypto Converter",
     "menuPrivacyPolicy": "Privacy Policy",
@@ -16,5 +16,11 @@
     "data_provided_by_coingecko": "Data provided by CoinGecko.",
     "explore_the_api": "Explore the API.",
     "all_rights_reserved": "All Rights Reserved.",
-    "message_caution": "CAUTION: Investing in cryptocurrency carries high risks. Please adequately inform before making an investment decision and do not invest more than you can't afford to loose. The information contained on this website is only for general information purposes and does not constitute investment advice."
+    "message_caution": "CAUTION: Investing in cryptocurrency carries high risks. Please adequately inform before making an investment decision and do not invest more than you can't afford to loose. The information contained on this website is only for general information purposes and does not constitute investment advice.",
+    "disclaimer" : {
+        "title": "Disclaimer",
+        "paragraph1": "While DandelApp offers advanced features to simplify accounting and financial management within your family, it's important to note that no financial transaction is carried out directly via the app.",
+        "paragraph2": "DandelApp serves solely as a tracking and management tool, allowing for total transparency and easy accounting of transactions among family members. Notifications and reminders are provided for convenience and do not constitute a payment or funds transfer method.",
+        "paragraph3": "By using DandelApp, you acknowledge that all financial transactions must be carried out outside of the app, through payment methods or platforms of your choosing. DandelApp is not responsible for any financial transactions, payment errors, or any other financial activity conducted outside of the app."
+    }
 }

@@ -17,6 +17,7 @@ import { PAGE_LINK_COIN, PAGE_LINK_MARKET } from '../../constants';
 import { useRouter } from 'next/router';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    //borderLeft:`1px solid ${theme.palette.text.primary}`,
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: theme.palette.text.primary,
         color: theme.palette.text.secondary,
@@ -25,12 +26,14 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
         fontSize: theme.typography.body2,
         color: theme.palette.text.primary,
         margin: 1,
+        borderBottom:`1px solid ${theme.palette.text.primary}`
     },
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
+        //backgroundColor: theme.palette.action.hover,
+        
     },
     // hide last border
     '&:last-child td, &:last-child th': {
@@ -38,17 +41,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-}
 
-const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 export default function CustomTable(props) {
     const router = useRouter();
@@ -57,7 +50,7 @@ export default function CustomTable(props) {
 
     return (
         <TableContainer component={Paper} >
-            <Table sx={{ py: 30 }} aria-label="customized table">
+            <Table sx={{ py: 30, border:`1px solid ${theme.palette.text.primary}` }} aria-label="customized table">
                 <TableHead>
                     <TableRow>
                         <StyledTableCell theme={theme}>{"#"}</StyledTableCell>

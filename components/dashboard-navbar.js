@@ -71,13 +71,17 @@ priority
           langage={langage} setLangage={setLangage}
           />
           </div>
-          <div style={{ mx: 10 }}>
+          {
+            /*
+<div style={{ mx: 10 }}>
           <CurrenciesPopover 
           langage={langage} setLangage={setLangage}
           currency={currency} setCurrency={setCurrency}
           />
           </div>
-          <div style={{ marginLeft: 10 }}>
+            */
+          }
+          <div style={{ marginLeft: 30 }}>
           <MaterialUISwitch />
           </div>
           <div style={{display:'none'}}>

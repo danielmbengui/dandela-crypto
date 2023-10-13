@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { Box, Button, Divider, Drawer, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Selector as SelectorIcon } from '../icons/selector';
 import { Logo } from './logo';
 import { NavItem } from './nav-item';
@@ -14,6 +15,7 @@ import { useTranslation } from 'next-i18next';
 import { PAGE_LINK_LIST_CRYPTO_CURRENCIES, PAGE_LINK_CRYPTO_CONVERTER, PAGE_LINK_HOME, NAMESPACE_LANGAGE_COMMON, PAGE_LINK_MARKET } from '../constants';
 import { myLoader } from '../lib/ImageLoader';
 import InsightsIcon from '@mui/icons-material/Insights';
+import { ResumeIcon } from '../icons/IconMaterialUi';
 
 export const DashboardSidebar = (props) => {
   const { t } = useTranslation(NAMESPACE_LANGAGE_COMMON);
@@ -28,12 +30,13 @@ export const DashboardSidebar = (props) => {
   const items = [
     {
       href: PAGE_LINK_HOME,
-      icon: (<HomeIcon fontSize="small" />),
+      icon: (<HomeIcon fontSize="small"/>),
       title: t('menuHome'),
     },
+    /*
     {
       href: PAGE_LINK_CRYPTO_CONVERTER,
-      icon: (<RepeatIcon fontSize="small" />),
+      icon: (<RepeatIcon fontSize="small" color={'inherit'} />),
       title: t('menuCryptoConverter')
     },
     {
@@ -41,7 +44,7 @@ export const DashboardSidebar = (props) => {
       icon: (<InsightsIcon fontSize="small" />),
       title: t('menuMarket')
     },
-    /*
+    
     {
       href: PAGE_LINK_LIST_CRYPTO_CURRENCIES,
       icon: (<FormatListNumberedIcon fontSize="small" />),
@@ -141,8 +144,8 @@ export const DashboardSidebar = (props) => {
             sx={{
               alignItems: 'center',
               backgroundColor: 'primary.main',
-              opacity: 0.85,
-              cursor: 'pointer',
+              //opacity: 0.85,
+              //cursor: 'pointer',
               display: 'flex',
               justifyContent: 'space-between',
               px: 3,
@@ -152,26 +155,19 @@ export const DashboardSidebar = (props) => {
           >
             <div>
               <Typography
-                color="text.secondary"
+                color="white.main"
                 variant="subtitle1"
               >
-                {'DandelApp par Dandela'}
+                {'Dandela'}
               </Typography>
               <Typography
-                color={theme.palette.mode === 'light' ? 'neutral.300' : 'neutral.700'}
+                color={'neutral.300'}
 
                 variant="subtitle1"
               >
-                {t('Crypto Converter')}
+                {t('Bisso Na Bisso')}
               </Typography>
-            </div>
-            <SelectorIcon
-              sx={{
-                color: theme.palette.mode === 'light' ? 'neutral.300' : 'neutral.700',
-                width: 14,
-                height: 14
-              }}
-            />
+            </div>            
           </Box>
         </Box>
       </div>
@@ -191,14 +187,16 @@ export const DashboardSidebar = (props) => {
           />
         ))}
       </Box>
-      <Divider sx={{ borderColor: '#2D3748' }} />
+      
       <Box
         sx={{
           px: 2,
           py: 3
         }}
       >
-        <Typography
+        {
+          /*
+<Typography
           color="text.primary"
           variant="subtitle2"
         >
@@ -248,10 +246,18 @@ export const DashboardSidebar = (props) => {
             </a>
           </NextLink>
         </Box>
+          */
+        }
+
+{
+  /*
+  <Divider sx={{ borderColor: '#2D3748' }} />
+  */
+}
         <Box
           sx={{
             display: 'flex',
-            mt: 20,
+            mt: 5,
             //mx: 'auto',
             width: '160px',
             '& img': {

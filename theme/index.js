@@ -198,7 +198,7 @@ export const theme = createTheme({
       contrastText: '#FFFFFF'
     },
     text: {
-      primary: '#121828',
+      primary: 'red',
       secondary: '#65748B',
       disabled: 'rgba(55, 65, 81, 0.48)'
     }

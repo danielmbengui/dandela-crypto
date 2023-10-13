@@ -1,13 +1,14 @@
 import { useState, useEffect, useContext } from 'react';
 // @mui
 import { alpha } from '@mui/material/styles';
-import { Box, MenuItem, Stack, IconButton, Popover } from '@mui/material';
+import { Box, MenuItem, Stack, IconButton, Popover, Typography } from '@mui/material';
 import { FR, GB, PT } from "country-flag-icons/react/3x2";
 import { useTranslation } from 'next-i18next';
 import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON } from '../constants';
 import { useRouter } from 'next/router';
 import { updateLangageStorage } from '../lib/storage/UserStorageFunctions';
 import { LangageModeProviderContext } from '../context/LangageProvider';
+import { getFlag } from '../icons/FlagIcons';
 
 // ----------------------------------------------------------------------
 const sizeFlag = 45;
@@ -35,79 +36,25 @@ export default function LanguagePopover(props) {
 
     const LANGS = [
       {
-        value: LANGAGE_ENGLISH,
-        label: t('langEnglish'),
-        icon: '/assets/icons/ic_flag_en.svg',
-        content: <GB
-        title={t('langEnglish')}
-        style={{
-            cursor: 'pointer',
-            //border: langage === 'fr' ? '3px solid var(--primary)' : '',
-            borderRadius: '50%',
-            width: sizeFlag - 5,
-            height: sizeFlag - 5
-        }}
-        />,
-        smallFlag: <GB
-        title={t('langEnglish')}
-        style={{
-            cursor: 'pointer',
-            //border: langage === 'fr' ? '3px solid var(--primary)' : '',
-            borderRadius: '50%',
-            width: sizeFlag / 1.5,
-            height: sizeFlag / 1.5
-        }}
-        />
-      },
-      {
         value: LANGAGE_FRENCH,
         label: t('langFrench'),
         icon: '/assets/icons/ic_flag_fr.svg',
-        content: <FR
-        title={t('langFrench')}
-        style={{
-            cursor: 'pointer',
-            //border: langage === 'fr' ? '3px solid var(--primary)' : '',
-            borderRadius: '50%',
-            width: '50px',
-            height: '50px'
-        }}
-    />,
-        smallFlag: <FR
-        title={t('langFrench')}
-        style={{
-            cursor: 'pointer',
-            //border: langage === 'fr' ? '3px solid var(--primary)' : '',
-            borderRadius: '50%',
-            width: sizeFlag / 1.5,
-            height: sizeFlag / 1.5
-        }}
-        />
+        content: getFlag(LANGAGE_FRENCH, sizeFlag-5, { title: t('langFrench')}),
+        smallFlag: getFlag(LANGAGE_FRENCH, sizeFlag / 1.5, { title: t('langFrench')}),
       },
       {
         value: LANGAGE_PORTUGUESE,
         label: t('langPortuguese'),
         icon: '/assets/icons/ic_flag_de.svg',
-        content: <PT
-        title={t('langPortuguese')}
-        style={{
-            cursor: 'pointer',
-            //border: langage === 'fr' ? '3px solid var(--primary)' : '',
-            borderRadius: '50%',
-            width: '50px',
-            height: '50px'
-        }}
-    />,
-        smallFlag: <PT
-        title={t('langPortuguese')}
-        style={{
-            cursor: 'pointer',
-            //border: langage === 'fr' ? '3px solid var(--primary)' : '',
-            borderRadius: '50%',
-            width: sizeFlag / 1.5,
-            height: sizeFlag / 1.5
-        }}
-        />
+        content: getFlag(LANGAGE_PORTUGUESE, sizeFlag-5, { title: t('langPortuguese')}),
+        smallFlag: getFlag(LANGAGE_PORTUGUESE, sizeFlag / 1.5, { title: t('langPortuguese')}),
+      },
+      {
+        value: LANGAGE_ENGLISH,
+        label: t('langEnglish'),
+        icon: '/assets/icons/ic_flag_en.svg',
+        content: getFlag(LANGAGE_ENGLISH, sizeFlag-5, { title: t('langEnglish')}),
+        smallFlag: getFlag(LANGAGE_ENGLISH, sizeFlag / 1.5, { title: t('langEnglish')}),
       },
     ];
     
@@ -147,7 +94,7 @@ export default function LanguagePopover(props) {
           width: 44,
           height: 44,
           ...(open && {
-            bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.focusOpacity),
+            bgcolor: (theme) => alpha(theme.palette.primary.dark, theme.palette.action.focusOpacity),
           }),
         }}
       >
@@ -175,6 +122,7 @@ export default function LanguagePopover(props) {
               px: 1,
               typography: 'body2',
               borderRadius: 0.75,
+              color:'white'
             },
           },
         }}
@@ -185,11 +133,18 @@ export default function LanguagePopover(props) {
             onClick={() => {
               onChangeLanguage(option.value);
             }}
+            sx={{
+              color:"text.primary",
+              backgroundColor: option.value == langage ?'primary.light' : '',
+              '&:hover': {
+                backgroundColor:'primary.main',
+                color: option.value == langage ? 'inherit' : 'text.withPrimaryBack',
+              }
+            }}
             >
               {/* <Box component="img" alt={option.label} src={option.icon} sx={{ width: 28, mr: 2 }} /> */}
-              <Stack direction={'row'} spacing={1} justifyContent={'center'} alignItems={'center'}>
-              <div>{option.smallFlag}</div>
-              <div>{option.label}</div>
+              <Stack alignItems="flex-end" direction={'row'} spacing={1} sx={{cursor:'pointer'}}>
+              {option.smallFlag} <label style={{cursor:'pointer'}}>{option.label}</label>
               </Stack>
             </MenuItem>
           ))}

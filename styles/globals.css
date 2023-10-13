@@ -18,20 +18,49 @@
   /*-----   WINNO BEARZ COLORS   -----*/
   --test: #000c25;
   --test-opacity: #000c2580;
-  /*--blue-dandela: #094397;*/
-  --purple-dandela:rgb(80, 76, 171); /*#504CAB*/
-  --purple-opacity-dandela:rgba(80, 76, 171, 0.502); /*#504CAB*/
-  --purple-dandela-decimal: 80, 76, 171; /*#504CAB*/
-  --purple-light-dandela:rgb(99, 50, 148); /*#633294*/
-  --purple-light-opacity-dandela:rgba(99, 50, 148, 0.5); /*#633294*/
-  --purple-light-dandela-decimal:99, 50, 148; /*#633294*/
 
+  --color1:#374151;
+  /*BLUE*/
+  /*Original*/
+  --blue100:rgb(224, 222, 250); /*#E0DEFA*/
+  --blue200:rgb(194, 191, 246); /*#C2BFF6*/
+  --blue300:rgb(157, 153, 229); /*#9D99E5*/
+  --blue400:rgb(123, 119, 204); /*#7B77CC*/
+  --blue500:rgb(80, 76, 171); /*#504CAB*/
+  --blue600:rgb(59, 55, 147); /*#3B3793*/
+  --blue700:rgb(41, 38, 123); /*#29267B*/
+  --blue800:rgb(26, 24, 99); /*#1A1863*/
+  --blue900:rgb(16, 14, 82); /*#100E52*/
+  /*Opacity*/
+  --blue-opacity500:rgba(80, 76, 171, 0.5); /*#504CAB*/
+  /*PURPLE*/
+  /*Original*/
+  --purple100:rgb(239, 216, 249); /*#EFD8F9*/
+  --purple200:rgb(221, 179, 244); /*#DDB3F4*/
+  --purple300:rgb(187, 134, 222); /*#BB86DE*/
+  --purple400:rgb(148, 96, 190); /*#9460BE*/
+  --purple500:rgb(99, 50, 148); /*#633294*/
+  --purple600:rgb(77, 36, 127); /*#4D247F*/
+  --purple700:rgb(57, 25, 106); /*#39196A*/
+  --purple800:rgb(40, 15, 85); /*#280F55*/
+  --purple900:rgb(28, 9, 71); /*#1C0947*/
+/*Opacity*/
+--purple-opacity500:rgba(99, 50, 148, 0.5); /*#633294*/
 
-  --blue-dandela: rgb(9, 67, 151);
+/*-------------------------------*/
+
+  --purple-dandela-decimal: 80, 76, 171;
+  --purple-light-dandela:rgb(99, 50, 148);
+  --purple-light-opacity-dandela:rgba(99, 50, 148, 0.5);
+  --purple-light-dandela-decimal:99, 50, 148;
+
+  --blue-dandela: var(--blue500);
+  --blue-opacity-dandela: var(--blue-opacity500);
+  --purple-dandela: var(--purple500);
+  --purple-opacity-dandela: var(--purple-opacity500);
   /* blue dandela */
   --blue-dandela-decimal: 9, 67, 151;
   /* blue dandela */
-  --blue-opacity-dandela: rgba(9, 67, 151, 0.502);
   /* blue dandela */
   --blue-light-dandela: rgb(55, 138, 255);
   /* blue dandela */
@@ -39,17 +68,17 @@
   /* blue dandela */
   --blue-light-opacity-dandela: rgba(55, 138, 255, 0.5);
   /* purple dandela */
-  --primary: var(--purple-dandela);
+  --primary: var(--blue-dandela);
   /* blue dandela */
   --primary-decimal: var(--purple-dandela-decimal);
   /* blue dandela */
-  --primary-opacity: var(--purple-opacity-dandela);
+  --primary-opacity: var(--blue-opacity-dandela);
   /* blue dandela */
-  --secondary: var(--purple-light-dandela);
+  --secondary: var(--purple-dandela);
   /* purple dandela */
   --secondary-decimal: var(--purple-light-dandela-decimal);
   /* purple dandela */
-  --secondary-opacity: var(--purple-light-opacity-dandela);
+  --secondary-opacity: var(--purple-opacity-dandela);
   /* purple dandela */
 
   --black: rgb(0, 0, 0);
@@ -103,10 +132,12 @@
 }
 
 [data-theme="dark"] {
-  --primary: var(--purple-light-dandela);
-  --primary-opacity: var(--secondary-opacity);
+  --primary: var(--purple-dandela);
+  --primary-opacity: var(--purple-opacity-dandela);
   /* blue dandela */
-  --secondary: var(--purple-dandela);
+  --secondary: var(--blue-dandela);
+  --secondary-opacity: var(--blue-opacity-dandela);
+
   --background-color: black;
   --text-primary: white;
   --text-secondary: black;
@@ -162,7 +193,7 @@ a:hover {
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
-  color: var(--text-primary);
+  /*color: var(--white);*/
 }
 
 .coin__app {

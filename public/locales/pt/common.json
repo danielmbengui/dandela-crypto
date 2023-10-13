@@ -1,6 +1,6 @@
 {
-    "description_page" : "Liberdade financeira | Liberdade de escolha",
-    "menuHome": "Inicio",
+    "description_page" : "A solução definitiva para uma gestão financeira sem complicações para famílias que navegam entre a Europa e Angola.",
+    "menuHome": "Casa",
     "menuCryptoConverter": "Conversor Cripto",
     "menuPrivacyPolicy": "Política de Privacidade",
     "menuListCryptoCurrencies": "Lista",
@@ -16,5 +16,11 @@
     "data_provided_by_coingecko": "Dados fornecidos pela CoinGecko.",
     "explore_the_api": "Explorar a API.",
     "all_rights_reserved": "Todos direitos reservados.",
-    "message_caution": "CUIDADO: Investir em criptomoeda acarreta altos riscos. Por favor, informe-se adequadamente antes de tomar uma decisão de investimento e não invista mais do que você pode perder. As informações contidas neste site são apenas para fins de informação geral e não constituem aconselhamento de investimento."
+    "message_caution": "CUIDADO: Investir em criptomoeda acarreta altos riscos. Por favor, informe-se adequadamente antes de tomar uma decisão de investimento e não invista mais do que você pode perder. As informações contidas neste site são apenas para fins de informação geral e não constituem aconselhamento de investimento.",
+    "disclaimer" : {
+        "title": "Aviso Legal",
+        "paragraph1": "Embora o DandelApp ofereça recursos avançados para simplificar a contabilidade e a gestão financeira dentro da sua família, é importante notar que nenhuma transação financeira é realizada diretamente através do aplicativo.",
+        "paragraph2": "O DandelApp serve apenas como uma ferramenta de rastreamento e gestão, permitindo total transparência e fácil contabilização de transações entre membros da família. Notificações e lembretes são fornecidos para conveniência e não constituem um método de pagamento ou transferência de fundos.",
+        "paragraph3": "Ao usar o DandelApp, você reconhece que todas as transações financeiras devem ser realizadas fora do aplicativo, através de métodos de pagamento ou plataformas de sua escolha. O DandelApp não é responsável por quaisquer transações financeiras, erros de pagamento ou qualquer outra atividade financeira realizada fora do aplicativo."
+    }
 }

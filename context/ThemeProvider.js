@@ -11,6 +11,28 @@ export default function ThemeModeProvider({ children, screenMode }) {
 
   const black = "#000000";
   const white = "#FFFFFF";
+  //BLUE
+  const blue100 = "#E0DEFA";
+  const blue200 = "#C2BFF6";
+  const blue300 = "#9D99E5";
+  const blue400 = "#7B77CC";
+  const blue500 = "#504CAB";
+  const blue600 = "#3B3793";
+  const blue700 = "#29267B";
+  const blue800 = "#1A1863";
+  const blue900 = "#100E52";
+  //PURPLE
+  const purple100 = "#EFD8F9";
+  const purple200 = "#DDB3F4";
+  const purple300 = "#BB86DE";
+  const purple400 = "#9460BE";
+  const purple500 = "#633294";
+  const purple600 = "#4D247F";
+  const purple700 = "#39196A";
+  const purple800 = "#280F55";
+  const purple900 = "#1C0947";
+
+
   const purpleLight = "#378aff";
   const purple = "#094397";
   const purpleDark = "#000c25";
@@ -67,6 +89,7 @@ export default function ThemeModeProvider({ children, screenMode }) {
           MuiButton: {
             defaultProps: {
               disableElevation: true,
+              //color:white,
             },
             styleOverrides: {
               root: {
@@ -136,7 +159,7 @@ export default function ThemeModeProvider({ children, screenMode }) {
                 display: 'flex',
                 flexDirection: 'column',
                 minHeight: '100%',
-                width: '100%'
+                width: '100%',
               },
               body: {
                 display: 'flex',
@@ -186,16 +209,50 @@ export default function ThemeModeProvider({ children, screenMode }) {
           }
         },
         palette: {
+          white: {
+            main: white,
+            light: white,
+            dark: white,
+            contrastText: black,
+          },
+          black: {
+            main: black,
+            light: black,
+            dark: black,
+            contrastText: white,
+          },
+          blue: {
+            100: blue100,
+            200: blue200,
+            300: blue300,
+            400: blue400,
+            500: blue500,
+            600: blue600,
+            700: blue700,
+            800: blue800,
+            900: blue900
+          },
+          purple: {
+            100: purple100,
+            200: purple200,
+            300: purple300,
+            400: purple400,
+            500: purple500,
+            600: purple600,
+            700: purple700,
+            800: purple800,
+            900: purple900
+          },
           bluelight: {
-            main: blueLight,
-            light: blueLight,
-            dark: blueLight,
+            main: blue300,
+            light: blue300,
+            dark: blue300,
             contrastText: black,
           },
           bluedark: {
-            main: blueDark,
-            light: blueDark,
-            dark: blueDark,
+            main: blue700,
+            light: blue700,
+            dark: blue700,
             contrastText: white,
           },
           greydark: {
@@ -246,10 +303,10 @@ export default function ThemeModeProvider({ children, screenMode }) {
                 900: '#000c25'
               },
               action: {
-                active: '#6B7280',
+                active: blue500,
                 focus: 'rgba(55, 65, 81, 0.12)',
-                hover: 'rgba(55, 65, 81, 0.04)',
-                selected: 'rgba(55, 65, 81, 0.08)',
+                hover: blue800,
+                selected: 'rgba(55, 65, 81, 0.8)',
                 disabledBackground: 'rgba(55, 65, 81, 0.12)',
                 disabled: 'rgba(55, 65, 81, 0.26)'
               },
@@ -261,21 +318,22 @@ export default function ThemeModeProvider({ children, screenMode }) {
               },
               divider: '#E6E8F0',
               primary: {
-                main: blue,
-                light: '#378aff',
-                dark: '#3832A0',
+                main: blue500,
+                light: blue400,
+                dark: blue700,
                 contrastText: '#FFFFFF'
               },
               secondary: {
-                main: '#378aff',
-                light: '#3FC79A',
-                dark: '#0B815A',
+                main: purple500,
+                light: purple300,
+                dark: purple700,
                 contrastText: '#FFFFFF'
               },
               text: {
                 primary: black,
                 secondary: white,
-                disabled: 'rgba(55, 65, 81, 0.48)'
+                disabled: 'rgba(55, 65, 81, 0.48)',
+                withPrimaryBack: white,
               }
             }
             : {
@@ -306,21 +364,22 @@ export default function ThemeModeProvider({ children, screenMode }) {
               },
               divider: '#E6E8F0',
               primary: {
-                main: blueLight,
-                light: '#000c25',
-                dark: '#3832A0',
+                main: purple500,
+                light: purple300,
+                dark: purple700,
                 contrastText: '#FFFFFF'
               },
               secondary: {
-                main: '#000c25',
-                light: '#3FC79A',
-                dark: '#0B815A',
+                main: blue500,
+                light: blue300,
+                dark: blue700,
                 contrastText: '#FFFFFF'
               },
               text: {
                 primary: white,
                 secondary: black,
-                disabled: 'rgba(55, 65, 81, 0.48)'
+                disabled: 'rgba(55, 65, 81, 0.48)',
+                withPrimaryBack: white,
               }
             }
 
