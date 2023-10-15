@@ -47,14 +47,106 @@ export default function Terms() {
 
 
           <Grid container sx={{textAlign:'justify', width:'80%'}}>
-              <Typography fontSize={18} pt={2}>En utilisant l'application DandelApp, vous acceptez les conditions suivantes :</Typography>
+              <Typography fontSize={18} pt={2}>{t('page.description_paragraph', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
             </Grid>
-
-              <Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
-              <Typography fontSize={18} fontWeight={'bold'}>1. Inscription et Profil</Typography>
-              <Typography fontSize={18}>Lors de votre inscription, vous devez fournir des informations exactes, complètes et à vous êtes responsable de la confidentialité de vos informations de connexion.</Typography>
+{/****************************/}
+            <Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title1', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
               </Grid>
-
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph1', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+<Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title2', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph2', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+<Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title3', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph3', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+<Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title4', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph4', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+<Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title5', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph5', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+<Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title6', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph6', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+<Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title7', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph7.1', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}} pt={1}>
+              <Typography fontSize={18}>{t('page.paragraph7.2', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+<Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title8', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph8', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+<Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title9', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph9', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+<Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title10', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+<Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title11', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph11.1', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}} pt={1}>
+              <Typography fontSize={18}>{t('page.paragraph11.2', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+<Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title12', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph12', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+<Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>{t('page.title13', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+              <Grid container sx={{textAlign:'justify', width:'80%'}}>
+              <Typography fontSize={18}>{t('page.paragraph13', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
 
             </Stack>
           

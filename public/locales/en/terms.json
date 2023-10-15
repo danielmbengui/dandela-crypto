@@ -1,3 +1,38 @@
 {
-    "description_page" : "Terms of use"
+    "description_page": "Terms of Use",
+    "page": {
+        "description_paragraph": "By using the DandelApp, you agree to the following terms:",
+        "title1": "1. What You Need to Know",
+        "paragraph1": "Our application is solely a management application, no payment or any transaction is carried out. It is designed to allow users to manage transfers they make within the community. Members can securely access their data and track the status of their transactions. Account creation is only possible via the agreement of a community member; then the user can add their own information and manage their money transfers within the community. The application supports multiple currencies and users can also track their transaction history, see the details of each transfer, and check the status of each transaction in real-time. Our application is easy to use and offers a convenient and secure money transfer solution for users in Europe and Angola.",
+        "title2": "2. Who Can Use the App?",
+        "paragraph2": "Our management application is intended to be used by anyone aged 18 or older who wants to manage and store their accumulated data within the community. Users must create an account in the app to use its features. The types of transfers supported by the application include transfers within the community across Europe and Angola. Users can exchange money, goods (in the near future); to friends, family, or for their own management. Transfers can be made in real-time, subject to the availability of funds or material. Users may be subject to restrictions depending on community regulations. We reserve the right to refuse exchanges that do not comply with regulations of any country in the world or our policies or applicable laws.",
+        "title3": "3. Registration and Profile",
+        "paragraph3": "During registration, you must provide accurate, complete information. You are responsible for the confidentiality of your login information.",
+        "title4": "4. Posting a Transfer Request",
+        "paragraph4": "When you add a transfer request, you are solely responsible and the organizer of the shipment. You can indicate whether the transfer has already been carried out by you and how much you have just sent. DandelApp disclaims any liability in case of problems with your transfer.",
+        "title5": "5. Conduct and Behavior",
+        "paragraph5": "You must adhere to the rules and respect towards other users is paramount. Any inappropriate, offensive, or harmful behavior is strictly prohibited and may result in the suspension or termination of your account.",
+        "title6": "6. User-generated Content",
+        "paragraph6": "Any content you publish on the application, including transfer requests and comments, must respect copyright laws and not contain any offensive, defamatory, or illegal content.",
+        "title7": "7. Liability and Risks",
+        "paragraph7": {
+            "1": "Use of DandelApp is at your own risk. DandelApp disclaims all liability for problems arising from the use of the application.",
+            "2": "Our application does not support payments and cannot be held responsible for errors or losses related to money transfers made. We make every effort to ensure the security and accuracy of transaction data made in our application. However, users are responsible for verifying the accuracy of payment information they submit to the community and transaction data before submitting a transaction. We cannot guarantee that all transactions will be processed successfully and cannot be held responsible for processing errors or the unavailability of funds. Users are responsible for checking local laws and regulations before making a request to join the community. We cannot be held responsible for losses or damages resulting from the use of our application."
+        },
+        "title8": "8. User Data Protection in Our Money Transfer Management Application",
+        "paragraph8": "Our management application uses Firebase to store user data, including any payment information. User passwords are encrypted using military-grade encryption techniques to ensure data security. We make every effort to ensure the security and confidentiality of user data stored in our application. All data is stored in secure servers, compliant with current security standards. We do not access user data without authorization and do not share user information with third parties without the user's consent. We are committed to complying with data protection laws and regulations, including the European Union's General Data Protection Regulation (GDPR).",
+        "title9": "9. Collection, Storage, and Use of User Data in Our Money Transfer Application",
+        "paragraph9": "Our application respects the privacy of its users and is committed to protecting their personal information. We only collect data necessary to provide our services and we never share our users' information with third parties unless legally permitted or required. We use the collected data to process exchanges, improve our services, respond to user requests, and provide them with information about our application. User data is securely stored on our servers and we use appropriate security measures to protect personal information against unauthorized access or misuse. Users have the right to view, modify, or delete their personal information at any time. If you have questions or concerns regarding our terms of use, please contact us immediately via our support.",
+        "title10": "10. Account Modification or Termination",
+        "paragraph10": "DandelApp reserves the right to modify, suspend, or terminate your account at any time, in the case of a violation of these terms of use or for any other reason deemed necessary.",
+        "title11": "11. Intellectual Property",
+        "paragraph11": {
+            "1": "DandelApp owns all intellectual property rights related to the application and its content. You may not reproduce, distribute, or use the content of the application for commercial purposes without prior authorization.",
+            "2": "Our application and all its content, including images, texts, graphics, logos, trademarks, and other intellectual property elements, are protected by copyright and intellectual property laws. All rights reserved. Users are not authorized to copy, reproduce, distribute, or use the application's content without written permission from our company. Users are allowed to use the application only for personal and non-commercial purposes. Any unauthorized use of our application or its content may result in legal action. We respect the intellectual property rights of third parties and expect users to do the same. If you believe that content in our application violates your intellectual property rights, please contact us immediately so we can take appropriate action."
+        },
+        "title12": "12. Modification of Terms",
+        "paragraph12": "DandelApp reserves the right to modify these terms of use at any time. Changes will be posted on our website.",
+        "title13": "13. Applicable Law",
+        "paragraph13": "These terms of use and separate agreements by which we provide you services are governed and interpreted in accordance with European and Angolan laws."
+    }
 }
