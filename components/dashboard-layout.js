@@ -59,7 +59,7 @@ export const DashboardLayout = (props) => {
             //my: 3
           }}
           />
-          <Grid container alignItems={"center"} justifyContent={"center"} pt={3} spacing={5}>
+          <Grid container alignItems={"center"} justifyContent={"center"} pt={3} spacing={3}>
             <Grid item sx={{ textAlign: 'center' }}>
               <Link href={PAGE_LINK_TERMS} legacyBehavior sx={{ cursor: 'pointer' }}>
                 <a>
