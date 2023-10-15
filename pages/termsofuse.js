@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { Box, Container, Grid, Stack, Typography } from '@mui/material';
 import { CryptoComponent } from '../components/dashboard/CryptoComponent';
 import { cryptocurrencies } from '../__mocks__/cryptocurrencies';
-import { DEFAULT_CURRENCY, DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, NAMESPACE_LANGAGE_PRIVACY_POLICY, NAMESPACE_LANGAGE_TERMS, TAB_LANGAGES, TAB_NAMEPACES } from '../constants';
+import { DEFAULT_CURRENCY, DEFAULT_LANGAGE, LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, NAMESPACE_LANGAGE_TERMS, TAB_LANGAGES, TAB_NAMEPACES } from '../constants';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { CustomPagetitle } from '../components/custom/custom-page-title';
 import axios from 'axios';
@@ -14,16 +14,16 @@ import { useRouter } from 'next/router';
 
 
 
-export default function Privacy() {
+export default function Terms() {
   const { t } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
 
   return (
     <>
       <Head>
         <title>
-          {`Dandela | ${t('menuPrivacyPolicy')}`}
+          {`Dandela | ${t('menuUseTerms')}`}
         </title>
-        <meta name="description" content={t('description_page', { ns: NAMESPACE_LANGAGE_PRIVACY_POLICY })} />
+        <meta name="description" content={t('description_page', { ns: NAMESPACE_LANGAGE_TERMS })} />
       </Head>
       <Box
         component="main"
@@ -42,17 +42,17 @@ export default function Privacy() {
               />
 
 <Grid container sx={{textAlign:'center', width:'80%'}}>
-              <Typography sx={{textAlign:'center', margin:'0 auto'}} fontWeight={'bold'} fontSize={28}>{t('description_page', { ns: NAMESPACE_LANGAGE_PRIVACY_POLICY })}</Typography>
+              <Typography sx={{textAlign:'center', margin:'0 auto'}} fontWeight={'bold'} fontSize={28}>{t('description_page', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
               </Grid>
 
 
           <Grid container sx={{textAlign:'justify', width:'80%'}}>
-              <Typography fontSize={18} pt={2}>Chez Dandela, nous respectons votre vie privée et nous nous engageons à protéger vos informations personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons et partageons vos informations lorsque vous utilisez l'application DandelApp. En utilisant l'application, vous acceptez les pratiques décrites dans cette politique de confidentialité.</Typography>
+              <Typography fontSize={18} pt={2}>En utilisant l'application DandelApp, vous acceptez les conditions suivantes :</Typography>
             </Grid>
 
-              <Grid container sx={{textAlign:'justify', width:'80%'}} pt={4}>
-              <Typography fontSize={18} fontWeight={'bold'}>1. Collecte d'Informations</Typography>
-              <Typography fontSize={18}>Lors de votre inscription et de l'utilisation de l'application, nous pouvons collecter des informations telles que votre nom, votre adresse e-mail, votre emplacement géographique et d'autres informations nécessaires à la gestion de votre compte.</Typography>
+              <Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
+              <Typography fontSize={18} fontWeight={'bold'}>1. Inscription et Profil</Typography>
+              <Typography fontSize={18}>Lors de votre inscription, vous devez fournir des informations exactes, complètes et à vous êtes responsable de la confidentialité de vos informations de connexion.</Typography>
               </Grid>
 
 

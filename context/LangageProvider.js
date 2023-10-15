@@ -1,7 +1,6 @@
 import React, { createContext, useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/router"
 import { DEFAULT_LANGAGE, STORAGE_LANGAGE } from "../constants";
-import { getLangageStorage, updateLangageStorage } from "../lib/storage/UserStorageFunctions";
 import { useTranslation } from "next-i18next";
 export const LangageModeProviderContext = createContext({ toggleLangageMode: () => { } });
 

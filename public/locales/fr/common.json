@@ -1,7 +1,8 @@
 {
     "description_page" : "La solution ultime pour une gestion financière sans tracas pour les familles qui naviguent entre l'Europe et l'Angola.",
     "menuHome": "Accueil",
-    "menuCryptoConverter": "Convertisseur Crypto",
+    "menuCryptoConverter": "Convertisseur crypto",
+    "menuUseTerms": "Conditions d'utilisation",
     "menuPrivacyPolicy": "Politique de confidentialité",
     "menuListCryptoCurrencies": "Liste",
     "menuMarket":"Marché",

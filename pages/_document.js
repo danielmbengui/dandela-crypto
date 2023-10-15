@@ -16,11 +16,8 @@ class CustomDocument extends Document {
 
           
           */}
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ6X1M1YRR" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2953886510697247"
-          crossOrigin="anonymous" />
           <meta charSet="utf-8" />
-          <meta name="description" content="Dandela Crypto Converter - Financial freedom | Freedom to choose." />
+          <meta name="description" content="Dandela | Bisso Na Bisso" />
           <link
             rel="icon"
             type="image/ico"
@@ -60,13 +57,13 @@ class CustomDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto+Slab|Roboto:300,400,500,700&display=swap"
           />
 
-          <meta name="theme-color" content="#094397" />
+          <meta name="theme-color" content="#633294" />
 
-          <meta name="application-name" content="Dandela Crypto Converter" />
+          <meta name="application-name" content="Dandela | Bisso Na Bisso" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-          <meta name="apple-mobile-web-app-title" content="Dandela Crypto Converter" />
-          <meta name="description" content="Dandela Crypto Converter - Financial freedom | Freedom to choose" />
+          <meta name="apple-mobile-web-app-title" content="Dandela | Bisso Na Bisso" />
+          <meta name="description" content="Dandela | Bisso Na Bisso" />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="msapplication-config" content="/icons/browserconfig.xml" />
@@ -86,14 +83,14 @@ class CustomDocument extends Document {
 
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:url" content="https://dandela.com" />
-          <meta name="twitter:title" content="Dandela Crypto Converter - Financial freedom | Freedom to choose" />
-          <meta name="twitter:description" content="Dandela Crypto Converter - Financial freedom | Freedom to choose" />
+          <meta name="twitter:title" content="Dandela | Bisso Na Bisso" />
+          <meta name="twitter:description" content="Dandela | Bisso Na Bisso" />
           <meta name="twitter:image" content="https://dandela.com/static/images/logos/logo.png" />
           <meta name="twitter:creator" content="@DrillDev" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Dandela | Crypto Converter" />
-          <meta property="og:description" content="Dandela Crypto Converter - Financial freedom | Freedom to choose" />
-          <meta property="og:site_name" content="Dandela Crypto Converter - Financial freedom | Freedom to choose" />
+          <meta property="og:description" content="Dandela | Bisso Na Bisso" />
+          <meta property="og:site_name" content="Dandela | Bisso Na Bisso" />
           <meta property="og:url" content="https://dandela.com" />
           <meta property="og:image" content="/static/images/logos/logo.png" />
         </Head>

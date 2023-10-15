@@ -20,7 +20,7 @@ const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({
 }));
 
 export const DashboardNavbar = (props) => {
-  const { onSidebarOpen, langage, setLangage, currency, setCurrency, ...other } = props;
+  const { onSidebarOpen, langage, setLangage, ...other } = props;
   const settingsRef = useRef(null);
   const [openAccountPopover, setOpenAccountPopover] = useState(false);
 
@@ -71,16 +71,6 @@ priority
           langage={langage} setLangage={setLangage}
           />
           </div>
-          {
-            /*
-<div style={{ mx: 10 }}>
-          <CurrenciesPopover 
-          langage={langage} setLangage={setLangage}
-          currency={currency} setCurrency={setCurrency}
-          />
-          </div>
-            */
-          }
           <div style={{ marginLeft: 30 }}>
           <MaterialUISwitch />
           </div>

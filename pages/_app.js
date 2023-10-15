@@ -1,11 +1,10 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import "../styles/globals.css";
 import Head from 'next/head';
 import { CssBaseline } from '@mui/material';
 import { AuthConsumer, AuthProvider } from '../contexts/auth-context';
 import { createEmotionCache } from '../utils/create-emotion-cache';
-import { registerChartJs } from '../utils/register-chart-js';
-import { getCurrencyStorage, getLangageStorage, getScreenModeStorage, updateLangageStorage } from '../lib/storage/UserStorageFunctions';
+import { getCurrencyStorage, getLangageStorage, getScreenModeStorage } from '../lib/storage/UserStorageFunctions';
 import ThemeModeProvider from '../context/ThemeProvider';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { DashboardLayout } from '../components/dashboard-layout';
@@ -15,8 +14,6 @@ import LangageProvider from '../context/LangageProvider';
 import { useRouter } from 'next/router';
 import { getCurrencyMock } from '../__mocks__/currencies';
 const cryptocurrencies = require("../public/static/assets/cryptocurrencies/completecryptocurrencies.json");
-
-//registerChartJs();
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -39,7 +36,7 @@ const App = (props) => {
   return (
     <ThemeModeProvider screenMode={screenMode}>
       <Head>
-        <title>{`DandelApp | ${t('description_page', { ns: NAMESPACE_LANGAGE_COMMON })}`}</title>
+        <title>{`Dandela | ${t('description_page', { ns: NAMESPACE_LANGAGE_COMMON })}`}</title>
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=yes, viewport-fit=cover' />
         <meta name="description" content={t('description_page', { ns: NAMESPACE_LANGAGE_COMMON })} />
       </Head>
@@ -52,11 +49,12 @@ const App = (props) => {
             (auth) => auth.isLoading
               ? <Fragment />
 :
-              <DashboardLayout cryptocurrencies={cryptocurrencies} 
-              currency={currency} setCurrency={onChangeCurrency} 
+              <DashboardLayout
+              //currency={currency} setCurrency={onChangeCurrency} 
               langage={langage} setLangage={onChangeLanguage}>
                 <Component cryptocurrencies_ids={cryptocurrencies_ids} cryptocurrencies={cryptocurrencies} {...pageProps} 
-                currency={currency} setCurrency={onChangeCurrency} langage={langage} setLangage={onChangeLanguage} 
+                currency={currency} setCurrency={onChangeCurrency} 
+                langage={langage} setLangage={onChangeLanguage} 
                 />
               </DashboardLayout>
           }

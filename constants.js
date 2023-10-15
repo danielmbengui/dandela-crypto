@@ -20,12 +20,14 @@ export const TAB_LANGAGES = [
 export const NAMESPACE_LANGAGE_COMMON = 'common';
 export const NAMESPACE_LANGAGE_HOME = 'home';
 export const NAMESPACE_LANGAGE_CRYPTO_CONVERTER = 'cryptoconverter';
+export const NAMESPACE_LANGAGE_TERMS = 'terms';
 export const NAMESPACE_LANGAGE_PRIVACY_POLICY = 'privacypolicy';
 export const NAMESPACE_LANGAGE_404= '404';
 export const TAB_NAMEPACES = [
     NAMESPACE_LANGAGE_COMMON,
     NAMESPACE_LANGAGE_HOME,
     NAMESPACE_LANGAGE_CRYPTO_CONVERTER,
+    NAMESPACE_LANGAGE_TERMS,
     NAMESPACE_LANGAGE_PRIVACY_POLICY,
     NAMESPACE_LANGAGE_404
 ];
@@ -35,6 +37,7 @@ export const PAGE_LINK_MARKET = "/market";
 export const PAGE_LINK_COIN = "/coin";
 export const PAGE_LINK_CRYPTO_CONVERTER = "/cryptoconverter";
 export const PAGE_LINK_LIST_CRYPTO_CURRENCIES = "/list";
+export const PAGE_LINK_TERMS = "/termsofuse";
 export const PAGE_LINK_PRIVACY_POLICY = "/privacypolicy";
 export const PAGE_LINK_404 = "/404";
 /*

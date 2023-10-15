@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Box, Button, Divider, Drawer, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Button, Divider, Drawer, Grid, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Selector as SelectorIcon } from '../icons/selector';
 import { Logo } from './logo';
@@ -12,10 +12,11 @@ import Image from 'next/image';
 import HomeIcon from '@mui/icons-material/Home';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import { useTranslation } from 'next-i18next';
-import { PAGE_LINK_LIST_CRYPTO_CURRENCIES, PAGE_LINK_CRYPTO_CONVERTER, PAGE_LINK_HOME, NAMESPACE_LANGAGE_COMMON, PAGE_LINK_MARKET } from '../constants';
+import { PAGE_LINK_LIST_CRYPTO_CURRENCIES, PAGE_LINK_CRYPTO_CONVERTER, PAGE_LINK_HOME, NAMESPACE_LANGAGE_COMMON, PAGE_LINK_MARKET, PAGE_LINK_TERMS, PAGE_LINK_PRIVACY_POLICY } from '../constants';
 import { myLoader } from '../lib/ImageLoader';
 import InsightsIcon from '@mui/icons-material/Insights';
 import { ResumeIcon } from '../icons/IconMaterialUi';
+import Link from 'next/link';
 
 export const DashboardSidebar = (props) => {
   const { t } = useTranslation(NAMESPACE_LANGAGE_COMMON);
@@ -254,6 +255,53 @@ export const DashboardSidebar = (props) => {
   <Divider sx={{ borderColor: '#2D3748' }} />
   */
 }
+<Stack
+container
+          sx={{
+            display: 'flex',
+            mt: 5,
+            //mx: 'auto',
+            width: '100%',
+            '& img': {
+              width: '100%'
+            }
+          }}
+        >
+          <Link href={PAGE_LINK_TERMS} legacyBehavior sx={{cursor:'pointer'}}>
+            <a target='_blank' >
+            <Typography
+            color="neutral.600"
+            variant="subtitle2"
+            sx={{textDecoration:'underline', textDecorationColor:'neutral.600', '&:hover': {
+              color:'primary.main',
+              textDecorationColor:'primary.main',
+              fontWeight:'bold'
+            }}}
+          >
+            {t('menuUseTerms')}
+          </Typography>
+            </a>
+            </Link>
+            <Link href={PAGE_LINK_PRIVACY_POLICY} legacyBehavior sx={{cursor:'pointer'}}>
+            <a target='_blank' >
+            <Typography
+            color="neutral.600"
+            variant="subtitle2"
+            sx={{textDecoration:'underline', textDecorationColor:'neutral.600', '&:hover': {
+              color:'primary.main',
+              textDecorationColor:'primary.main',
+              fontWeight:'bold'
+            }}}
+          >
+            {t('menuPrivacyPolicy')}
+          </Typography>
+            </a>
+            </Link>
+
+         
+          
+        </Stack>
+
         <Box
           sx={{
             display: 'flex',

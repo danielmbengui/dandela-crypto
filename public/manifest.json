@@ -1,7 +1,7 @@
 {
-  "name": "Dandela Crypto Converter",
-  "short_name": "Dandela Crypto Converter",
-  "description": "The link between you and crypto world",
+  "name": "Dandela | Bisso Na Bisso",
+  "short_name": "Dandela | Bisso Na Bisso",
+  "description": "La solution ultime pour une gestion financière sans tracas",
   "icons": [
     {
       "src": "/static/images/logos/logo192x192.png",
@@ -28,7 +28,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#094397",
+  "theme_color": "#633294",
   "background_color": "#ffffff",
   "start_url": "/index",
   "scope": "/",
