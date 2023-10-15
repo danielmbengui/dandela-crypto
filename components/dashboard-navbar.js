@@ -49,7 +49,8 @@ export const DashboardNavbar = (props) => {
             px: 2
           }}
         >
-          <IconButton
+          {
+            !hideNavBar && <IconButton
             onClick={onSidebarOpen}
             sx={{
               display: {
@@ -60,6 +61,7 @@ export const DashboardNavbar = (props) => {
           >
             <MenuIcon fontSize="small" />
           </IconButton>
+          }
           <div style={{marginLeft:5, display:'none'}}>
           <Image 
 src={'/static/images/logos/logo.png'}
