@@ -1,3 +1,12 @@
 {
-    "description_page" : "Bem-vindo ao Dandela Crypto Converter, sua fonte online para todas as suas conversões de criptomoeda. Fornecemos uma interface amigável e fácil de usar para converter instantaneamente suas criptomoedas favoritas, como Bitcoin, Ethereum, Litecoin e mais, em moedas populares como USD, EUR, GBP e JPY. Com taxas de câmbio em tempo real e cálculos precisos, você pode ter certeza de ter as informações mais atualizadas para tomar decisões informadas sobre seus investimentos em criptomoedas."
+    "description_page": "A solução definitiva para uma gestão financeira sem complicações para famílias que navegam entre a Europa e Angola.",
+    "page": {
+        "description1": "A solução definitiva para uma gestão financeira sem complicações",
+        "description2": "Para famílias que navegam entre a Europa e Angola",
+        "paragraph1": "Este aplicativo revolucionário oferece uma contabilidade simplificada, permitindo um registro fácil de trocas financeiras dentro de uma família, sem se preocupar com as complicações relacionadas à conversão de moeda.",
+        "paragraph2": "Para uma confiança inabalável, o DandelApp garante total transparência, permitindo que todos os membros da mesma família acessem o histórico de transações.",
+        "paragraph3": "Além disso, nunca perca uma data de pagamento graças a notificações e lembretes, e o painel intuitivo oferece um resumo financeiro claro e compreensível dos fluxos monetários familiares.",
+        "paragraph4": "E para completar, a confidencialidade é garantida no DandelApp: seus dados são criptografados e seguros, sem compartilhamento com terceiros.",
+        "paragraph5": "Com o DandelApp, a gestão financeira familiar entre a Europa e Angola se torna uma tarefa fácil."
+    }
 }

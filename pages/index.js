@@ -35,8 +35,8 @@ export default function HomePage() {
         <Container maxWidth={false}>
         <Stack justifyContent={'center'} alignItems={'center'}>
               <div style={{textAlign:'center'}}>
-              <Typography fontSize={26} color={'primary.main'} fontWeight={'bold'}>La solution ultime pour une gestion financière sans tracas</Typography>
-              <Typography fontSize={24} fontWeight={500}>Pour les familles qui naviguent entre l'Europe et l'Angola</Typography>
+              <Typography fontSize={26} color={'primary.main'} fontWeight={'bold'}>{t('page.description1', { ns: NAMESPACE_LANGAGE_HOME })}</Typography>
+              <Typography fontSize={24} fontWeight={500}>{t('page.description2', { ns: NAMESPACE_LANGAGE_HOME })}</Typography>
               </div>
 
               <img
@@ -47,7 +47,7 @@ export default function HomePage() {
               />
 
 <Grid container sx={{textAlign:{xs:'center', md:'justify'}, width:'80%'}}>
-              <Typography fontSize={18}>Cette application révolutionnaire offre une comptabilisation simplifiée, permettant un enregistrement aisé des échanges financiers au sein d'une famille, et ce, sans se préoccuper des complications liées à la conversion de devises.</Typography>
+              <Typography fontSize={18}>{t('page.paragraph1', { ns: NAMESPACE_LANGAGE_HOME })}</Typography>
               </Grid>
 
               <Grid
@@ -88,9 +88,10 @@ export default function HomePage() {
           </Grid>
 
           <Grid container sx={{textAlign:{xs:'center', md:'justify'}, width:'80%'}}>
-              <Typography fontSize={18} pt={2}>Pour une confiance sans faille, DandelApp assure une transparence totale en permettant à tous les membres de la même famille d'accéder à l'historique des transactions. En outre, ne manquez jamais une date de paiement grâce aux notifications et rappels.</Typography>
-              <Typography fontSize={18} pt={2}>Le tableau de bord intuitif vous offre un résumé financier clair et compréhensible des flux monétaires familiaux. Et pour couronner le tout, la confidentialité est garantie chez DandelApp : vos données sont cryptées et sécurisées, sans partage avec des tiers.</Typography>
-              <Typography fontSize={18} pt={2}>Avec DandelApp, la gestion financière en famille entre l'Europe et l'Angola devient un jeu d'enfant.</Typography>
+              <Typography fontSize={18} pt={2}>{t('page.paragraph2', { ns: NAMESPACE_LANGAGE_HOME })}</Typography>
+              <Typography fontSize={18} pt={2}>{t('page.paragraph3', { ns: NAMESPACE_LANGAGE_HOME })}</Typography>
+              <Typography fontSize={18} pt={2}>{t('page.paragraph4', { ns: NAMESPACE_LANGAGE_HOME })}</Typography>
+              <Typography fontSize={18} pt={2}>{t('page.paragraph5', { ns: NAMESPACE_LANGAGE_HOME })}</Typography>
               </Grid>
 
               <Grid
