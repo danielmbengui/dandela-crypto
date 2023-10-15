@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { AppBar, Avatar, Badge, Box, IconButton, Toolbar, Tooltip } from '@mui/material';
+import { AppBar, Avatar, Badge, Box, IconButton, Stack, Toolbar, Tooltip } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { Bell as BellIcon } from '../icons/bell';
@@ -12,30 +12,33 @@ import MaterialUISwitch from './switch-theme-mode';
 import LanguagePopover from './langage-popover';
 import Image from 'next/image';
 import { myLoader } from '../lib/ImageLoader';
-import CurrenciesPopover from './currencies-popover';
 
-const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
-  boxShadow: theme.shadows[3]
-}));
+
 
 export const DashboardNavbar = (props) => {
-  const { onSidebarOpen, langage, setLangage, ...other } = props;
+  const { onSidebarOpen, langage, setLangage, hideNavBar, ...other } = props;
   const settingsRef = useRef(null);
   const [openAccountPopover, setOpenAccountPopover] = useState(false);
+
+  const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({
+    backgroundColor: hideNavBar ? theme.palette.background.paper : theme.palette.background.paper,
+    boxShadow: hideNavBar ? theme.shadows[0] : theme.shadows[3]
+  }));
 
   return (
     <>
       <DashboardNavbarRoot
         sx={{
+          //display:hideNavBar ? 'none' : 'block',
           left: {
-            lg: 280
+            lg: hideNavBar ? 0 : 280
           },
           width: {
-            lg: 'calc(100% - 280px)'
+            lg: hideNavBar ? '100%' : 'calc(100% - 280px)'
           }
         }}
         {...other}>
+          
         <Toolbar
           disableGutters
           sx={{
@@ -58,7 +61,7 @@ export const DashboardNavbar = (props) => {
           <div style={{marginLeft:5, display:'none'}}>
           <Image 
 src={'/static/images/logos/logo.png'}
-alt={"the logo of Dandela Crypto Converter created by M. Dandela"}
+alt={"the logo of Dandela created by M. Dandela"}
 width={32}
 height={25}
 loader={myLoader}
@@ -66,6 +69,7 @@ quality={100}
 priority
           />
           </div>
+
           <div style={{ mx: 10 }}>
           <LanguagePopover 
           langage={langage} setLangage={setLangage}
@@ -74,6 +78,7 @@ priority
           <div style={{ marginLeft: 30 }}>
           <MaterialUISwitch />
           </div>
+
           <div style={{display:'none'}}>
           <Tooltip title="Search">
             <IconButton sx={{ ml: 1 }}>

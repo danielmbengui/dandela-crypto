@@ -31,6 +31,16 @@ export default function ThemeModeProvider({ children, screenMode }) {
   const purple700 = "#39196A";
   const purple800 = "#280F55";
   const purple900 = "#1C0947";
+  //NEUTRAL
+  const neutral100= '#F3F4F6';
+  const neutral200= '#E5E7EB';
+  const neutral300= '#D1D5DB';
+  const neutral400= '#9CA3AF';
+  const neutral500= '#6B7280';
+  const neutral600= '#4B5563';
+  const neutral700= '#374151';
+  const neutral800= '#1F2937';
+  const neutral900= '#000c25';
 
 
   const purpleLight = "#378aff";
@@ -341,9 +351,9 @@ export default function ThemeModeProvider({ children, screenMode }) {
                 100: '#F3F4F6',
                 200: '#E5E7EB',
                 300: '#D1D5DB',
-                400: '#9CA3AF',
+                400: neutral600,
                 500: '#6B7280',
-                600: '#4B5563',
+                600: neutral400,
                 700: '#374151',
                 800: '#1F2937',
                 900: '#000c25'

@@ -1,7 +1,40 @@
 {
     "description_page" : "Politique de confidentialité",
-    "paragraph_1" : "Dandela Crypto Converter recueille des informations sur les taux de change entre les cryptomonnaies et les devises. Nous utilisons ces informations pour fournir des services de conversion de devises à nos utilisateurs.",
-    "paragraph_2" : "Notre site internet recueille également des informations sur les préférences de nos utilisateurs concernant l'affichage (jour/nuit) et la langue. Ces informations sont stockées dans les paramètres de stockage personnel de l'utilisateur et peuvent être effacées à tout moment manuellement via le navigateur.",
-    "paragraph_3" : "Nous ne partageons pas ces informations avec des tiers à moins que cela ne soit requis par la loi ou pour des raisons de sécurité. Nous prenons des mesures pour protéger vos informations contre la perte, l'utilisation abusive et l'altération.",
-    "paragraph_4" : "Si vous avez des questions ou des préoccupations concernant notre politique de confidentialité, n'hésitez pas à nous contacter. Nous nous engageons à respecter votre vie privée et à protéger vos informations."
+    "page" : {
+        "description":"Chez DandelApp, nous respectons votre vie privée et nous nous engageons à protéger vos informations personnelles. Cette politique de confidentialité explique comment nous collectons, utilisons et partageons vos informations lorsque vous utilisez l'application DandelApp. En utilisant l'application, vous acceptez les pratiques décrites dans cette politique de confidentialité.",
+        "title1":"1. Collecte d'informations",
+        "paragraph1":{
+            "1":"Lors de votre inscription et de l'utilisation de l'application, nous pouvons collecter des informations telles que votre nom, votre adresse e-mail, votre emplacement géographique et d'autres informations nécessaires à la gestion de votre compte.",
+            "titleA":"A. Collecte des données",
+            "paragraphA":"Grâce à cette option, DandelApp collecte certaines de vos données pour l'utilisation publicitaire, les analyses et les statistiques afin de vous offrir la meilleure expérience de jeu possible. Nous tenons à souligner que vos données tels que votre numéro de téléphone ainsi que vos données saisies lors de l'inscription, seront conservées sur nos serveurs, mais ne seront en aucun cas partagées avec d'autres applications ou sites web de tierces parties.",
+            "titleB":"B. Caméra",
+            "paragraphB":"Avec cette option, DandelApp utilisera l'appareil photo de votre téléphone, vous permettant ainsi d'ajouter vos photos instantanées. Soyez assuré que l'accès à l'appareil photo est exclusivement utilisé pour cette fonctionnalité et que vos photos seront conservées sur nos serveurs, mais ne seront en aucun cas partagées avec d'autres applications ou sites web de tierces parties.",
+            "titleC":"C. Librairie photo",
+            "paragraphC":"Avec cette option, DandelApp utilisera l'appareil photo de votre téléphone, vous permettant ainsi d'ajouter vos photos instantanées. Soyez assuré que l'accès à l'appareil photo est exclusivement utilisé pour cette fonctionnalité et que vos photos seront conservées sur nos serveurs, mais ne seront en aucun cas partagées avec d'autres applications ou sites web de tierces parties.",
+            "titleD":"D. Contacts",
+            "paragraphD":"Avec cette option, DandelApp aura accès aux contacts enregistrés sur votre téléphone afin de vous suggérer des amis qui utilisent également l'application. Soyez assuré que ces données ne seront en aucun cas envoyées à nos serveurs, partagées avec d'autres applications ou des sites web de tierces parties.",
+            "titleE":"E. Localisation",
+            "paragraphE":"Avec cette option, DandelApp utilisera la localisation de votre appareil pour vous suggérer les clubs de padel ou de tennis les plus proches de votre position actuelle. Soyez assuré que ces données de localisation sont strictement utilisées pour cette fonctionnalité et ne seront en aucun cas envoyées à nos serveurs, partagées avec d'autres applications ou sites web de tierces parties.",
+            "titleF":"F. Notifications",
+            "paragraphF":"Avec ces options, DandelApp vous offre une expérience complète : les notifications vous tiennent au courant des demandes de match, de vos invitations et des dernières nouveautés sur DandelApp. Soyez assuré que ces fonctionnalités sont conçues pour améliorer votre expérience utilisateur et que vos données seront conservées sur nos serveurs, mais ne seront en aucun cas partagées avec d'autres applications ou sites web de tierces parties."
+        },
+        "title2":"2. Utilisation des informations",
+        "paragraph2":"Nous utilisons les informations collectées pour gérer votre compte, faciliter la publication d'annonces de matchs ouverts, de ventes d'équipements et pour améliorer l'expérience globale des utilisateurs.",
+        "title3":"3. Partage d'informations ",
+        "paragraph3":"Vos informations ne seront pas vendues, louées ou partagées avec des tiers à des fins commerciales sans votre consentement. Cependant, nous pouvons partager certaines informations avec des partenaires de confiance pour améliorer nos services.",
+        "title4":"4. Sécurité des données",
+        "paragraph4":"Nous mettons en place des mesures de sécurité pour protéger vos informations contre tout accès non autorisé, toute altération, toute divulgation ou toute destruction non autorisé",
+        "title5":"5. Cookies et technologies similaires",
+        "paragraph5":"DandelApp peut utiliser des cookies et d'autres technologies similaires pour améliorer votre expérience sur l'application.",
+        "title6":"6. Liens vers des sites web tiers",
+        "paragraph6":"L'application peut contenir des liens vers des sites web tiers. Nous ne sommes pas responsables des pratiques de confidentialité ou du contenu de ces sites.",
+        "title7":"7. Vos droits",
+        "paragraph7":"Vous avez le droit d'accéder, de rectifier et de supprimer vos informations personnelles. Vous pouvez également retirer votre consentement à tout moment.",
+        "title8":"8. Enfants",
+        "paragraph8":"DandelApp n'est pas destiné aux personnes de moins de 18 ans. Nous ne collectons pas sciemment d'informations personnelles auprès d'eux.",
+        "title9":"9. Modification de la politique",
+        "paragraph9":"Nous pouvons mettre à jour cette politique de confidentialité à tout moment. Les modifications seront publiées sur notre site web.",
+        "paragraphContact":"En utilisant l'application DandelApp, vous acceptez ces conditions d'utilisation. Si vous avez des questions ou des préoccupations, veuillez nous contacter à l'adresse :",
+        "mailContact":"contact@dandela.com"
+    }
 }

@@ -20,7 +20,7 @@ import Link from 'next/link';
 
 export const DashboardSidebar = (props) => {
   const { t } = useTranslation(NAMESPACE_LANGAGE_COMMON);
-  const { open, onClose, langage } = props;
+  const { open, onClose, langage, hideNavBar, } = props;
   const theme = useTheme();
   const router = useRouter();
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'), {
@@ -34,66 +34,6 @@ export const DashboardSidebar = (props) => {
       icon: (<HomeIcon fontSize="small"/>),
       title: t('menuHome'),
     },
-    /*
-    {
-      href: PAGE_LINK_CRYPTO_CONVERTER,
-      icon: (<RepeatIcon fontSize="small" color={'inherit'} />),
-      title: t('menuCryptoConverter')
-    },
-    {
-      href: PAGE_LINK_MARKET,
-      icon: (<InsightsIcon fontSize="small" />),
-      title: t('menuMarket')
-    },
-    
-    {
-      href: PAGE_LINK_LIST_CRYPTO_CURRENCIES,
-      icon: (<FormatListNumberedIcon fontSize="small" />),
-      title: t('menuListCryptoCurrencies')
-    },
-    */
-    /*
-      {
-        href: '/converttocrypto',
-        icon: (<ChartBarIcon fontSize="small" />),
-        title: 'FIAT to Crypto'
-      },
-      {
-        href: '/customers',
-        icon: (<UsersIcon fontSize="small" />),
-        title: 'Customers'
-      },
-      {
-        href: '/products',
-        icon: (<ShoppingBagIcon fontSize="small" />),
-        title: 'Products'
-      },
-      {
-        href: '/account',
-        icon: (<UserIcon fontSize="small" />),
-        title: 'Account'
-      },
-      {
-        href: '/settings',
-        icon: (<CogIcon fontSize="small" />),
-        title: 'Settings'
-      },
-      {
-        href: '/login',
-        icon: (<LockIcon fontSize="small" />),
-        title: 'Login'
-      },
-      {
-        href: '/register',
-        icon: (<UserAddIcon fontSize="small" />),
-        title: 'Register'
-      },
-      {
-        href: '/404',
-        icon: (<XCircleIcon fontSize="small" />),
-        title: 'Error'
-      }
-    */
   ];
 
 
@@ -195,66 +135,7 @@ export const DashboardSidebar = (props) => {
           py: 3
         }}
       >
-        {
-          /*
-<Typography
-          color="text.primary"
-          variant="subtitle2"
-        >
-          {t('data_provided_by_coingecko')}
-        </Typography>
-        <NextLink 
-        href={"https://www.coingecko.com/en/api/documentation"}
-        passHref
-        legacyBehavior
-        >
-          <a target="_blank" style={{ textDecoration: 'none' }}>
-            <Typography
-              color="primary.main"
-              variant="body2"
-            >
-              {t('explore_the_api')}
-            </Typography>
-          </a>
-        </NextLink>
-        <Box
-          sx={{
-            display: 'flex',
-            mt: 2,
-            //mx: 'auto',
-            width: '160px',
-            '& img': {
-              width: '100%'
-            }
-          }}
-        >
-          <NextLink
-            href="https://www.coingecko.com/"
-            passHref
-            legacyBehavior
-          >
-            <a target={"_blank"}>
-              <Image
-                alt={"the official logo of CoinGecko"}
-                src="/static/images/sponsors/coingecko.png"
-                width={50}
-                height={50}
-                loader={myLoader}
-                quality={100}
-                priority
-              //layout='responsive'
-              />
-            </a>
-          </NextLink>
-        </Box>
-          */
-        }
 
-{
-  /*
-  <Divider sx={{ borderColor: '#2D3748' }} />
-  */
-}
 <Stack
 container
           sx={{
@@ -353,7 +234,7 @@ container
             backgroundColor: 'background.default',
             //bgcolor:'red',
             color: '#FFFFFF',
-            width: 280
+            width: 280,
           }
         }}
         variant="permanent"
@@ -368,12 +249,12 @@ container
       anchor="left"
       onClose={onClose}
       open={open}
-
       PaperProps={{
         sx: {
           backgroundColor: 'background.default',
           //color: '#FFFFFF',
           //        border: "5px red solid",
+          display: 'flex',
           width: 280
         }
       }}

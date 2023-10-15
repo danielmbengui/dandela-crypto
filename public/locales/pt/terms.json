@@ -1,7 +1,7 @@
 {
-    "description_page": "Termos e Condições",
+    "description_page": "Termos de uso",
     "page": {
-        "description_paragraph": "Ao utilizar o aplicativo DandelApp, você aceita os seguintes termos:",
+        "description": "Ao utilizar o aplicativo DandelApp, você aceita os seguintes termos:",
         "title1": "1. Tudo que você precisa saber",
         "paragraph1": "Nosso aplicativo é apenas um aplicativo de gestão, nenhum pagamento ou qualquer transação é realizada nele. É projetado para permitir que os usuários gerenciem as transferências que fazem dentro da comunidade. Os membros podem acessar seus dados de forma segura e acompanhar o status de suas transações. A criação de uma conta é possível apenas com o consentimento de um membro da comunidade; então o usuário pode adicionar suas próprias informações e gerenciar suas transferências de dinheiro dentro da comunidade. O aplicativo suporta várias moedas e os usuários também podem acompanhar o histórico de suas transações, ver detalhes de cada transferência e verificar o status de cada transação em tempo real. Nosso aplicativo é fácil de usar e oferece uma solução de transferência de dinheiro conveniente e segura para usuários na Europa e em Angola.",
         "title2": "2. Quem pode usar o aplicativo?",
@@ -34,6 +34,8 @@
     "paragraph12": "O DandelApp reserva-se o direito de modificar estes termos de uso a qualquer momento. As modificações serão publicadas em nosso site da web.",
     
     "title13": "13. Legislação aplicável",
-    "paragraph13": "Estes termos de uso e acordos separados pelos quais fornecemos serviços são regidos e interpretados de acordo com as leis europeias e angolanas."
+    "paragraph13": "Estes termos de uso e acordos separados pelos quais fornecemos serviços são regidos e interpretados de acordo com as leis europeias e angolanas.",
+    "paragraphContact": "Ao usar o aplicativo PlayPad, você concorda com estes termos de uso. Se tiver alguma dúvida ou preocupação, entre em contato conosco no endereço:",
+"mailContact": "contact@dandela.com"
     }
 }

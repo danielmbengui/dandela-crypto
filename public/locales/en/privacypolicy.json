@@ -1,7 +1,41 @@
 {
-    "description_page" : "Privacy Policy",
-    "paragraph_1" : "Dandela Crypto Converter collects information about exchange rates between cryptocurrencies and currencies. We use this information to provide currency conversion services to our users.",
-    "paragraph_2" : "Our website also collects information about our user's display preferences (day/night) and language. This information is stored in the user's personal storage settings and can be manually deleted at any time via the browser.",
-    "paragraph_3" : "We don't share this information with third parties unless required by law or for security reasons. We take steps to protect your information from loss, misuse, and alteration.",
-    "paragraph_4" : "If you have any questions or concerns regarding our privacy policy, please do not hesitate to contact us. We are committed to respecting your privacy and protecting your information."
-}
+    "description_page": "Privacy Policy",
+    "page": {
+      "description": "At DandelApp, we respect your privacy and are committed to protecting your personal information. This privacy policy explains how we collect, use, and share your information when you use the DandelApp application. By using the app, you agree to the practices described in this privacy policy.",
+      "title1": "1. Information Collection",
+      "paragraph1": {
+        "1": "During your registration and use of the application, we may collect information such as your name, email address, geographic location, and other information necessary for managing your account.",
+        "titleA": "A. Data Collection",
+        "paragraphA": "Through this feature, DandelApp collects some of your data for advertising, analytics, and statistics to provide you with the best possible gaming experience. We emphasize that your data, such as your phone number and the data entered during registration, will be stored on our servers but will not be shared with third-party applications or websites.",
+        "titleB": "B. Camera",
+        "paragraphB": "With this feature, DandelApp will use your phone's camera, allowing you to add your instant photos. Rest assured that access to the camera is exclusively used for this feature, and your photos will be stored on our servers but will not be shared with third-party applications or websites.",
+        "titleC": "C. Photo Library",
+        "paragraphC": "With this feature, DandelApp will use your phone's camera, allowing you to add your instant photos. Rest assured that access to the camera is exclusively used for this feature, and your photos will be stored on our servers but will not be shared with third-party applications or websites.",
+        "titleD": "D. Contacts",
+        "paragraphD": "With this feature, DandelApp will have access to the contacts stored on your phone to suggest friends who are also using the application. Rest assured that this data will not be sent to our servers, shared with third-party applications, or websites.",
+        "titleE": "E. Location",
+        "paragraphE": "With this feature, DandelApp will use your device's location to suggest the nearest padel or tennis clubs to your current position. Rest assured that this location data is strictly used for this feature and will not be sent to our servers, shared with third-party applications or websites.",
+        "titleF": "F. Notifications",
+        "paragraphF": "With these features, DandelApp provides you with a complete experience: notifications keep you informed of match requests, your invitations, and the latest news on DandelApp. Rest assured that these features are designed to enhance your user experience, and your data will be stored on our servers but will not be shared with third-party applications or websites."
+      },
+      "title2": "2. Use of Information",
+      "paragraph2": "We use the collected information to manage your account, facilitate the posting of open match announcements, equipment sales, and to enhance the overall user experience.",
+      "title3": "3. Information Sharing",
+      "paragraph3": "Your information will not be sold, rented, or shared with third parties for commercial purposes without your consent. However, we may share some information with trusted partners to improve our services.",
+      "title4": "4. Data Security",
+      "paragraph4": "We implement security measures to protect your information against unauthorized access, alteration, unauthorized disclosure, or destruction.",
+      "title5": "5. Cookies and Similar Technologies",
+      "paragraph5": "DandelApp may use cookies and other similar technologies to improve your experience in the application.",
+      "title6": "6. Links to Third-Party Websites",
+      "paragraph6": "The application may contain links to third-party websites. We are not responsible for the privacy practices or the content of these websites.",
+      "title7": "7. Your Rights",
+      "paragraph7": "You have the right to access, correct, and delete your personal information. You can also withdraw your consent at any time.",
+      "title8": "8. Children",
+      "paragraph8": "DandelApp is not intended for individuals under the age of 18. We do not knowingly collect personal information from them.",
+      "title9": "9. Policy Changes",
+      "paragraph9": "We may update this privacy policy at any time. Changes will be posted on our website.",
+      "paragraphContact": "By using the DandelApp application, you agree to these terms of use. If you have any questions or concerns, please contact us at the address:",
+      "mailContact": "contact@dandela.com"
+    }
+  }
+  

@@ -1,7 +1,7 @@
 {
     "description_page": "Terms of Use",
     "page": {
-        "description_paragraph": "By using the DandelApp, you agree to the following terms:",
+        "description": "By using the DandelApp, you agree to the following terms:",
         "title1": "1. What You Need to Know",
         "paragraph1": "Our application is solely a management application, no payment or any transaction is carried out. It is designed to allow users to manage transfers they make within the community. Members can securely access their data and track the status of their transactions. Account creation is only possible via the agreement of a community member; then the user can add their own information and manage their money transfers within the community. The application supports multiple currencies and users can also track their transaction history, see the details of each transfer, and check the status of each transaction in real-time. Our application is easy to use and offers a convenient and secure money transfer solution for users in Europe and Angola.",
         "title2": "2. Who Can Use the App?",
@@ -33,6 +33,8 @@
         "title12": "12. Modification of Terms",
         "paragraph12": "DandelApp reserves the right to modify these terms of use at any time. Changes will be posted on our website.",
         "title13": "13. Applicable Law",
-        "paragraph13": "These terms of use and separate agreements by which we provide you services are governed and interpreted in accordance with European and Angolan laws."
+        "paragraph13": "These terms of use and separate agreements by which we provide you services are governed and interpreted in accordance with European and Angolan laws.",
+        "paragraphContact": "By using the PlayPad application, you agree to these terms of use. If you have any questions or concerns, please contact us at the address:",
+"mailContact": "contact@dandela.com"
     }
 }

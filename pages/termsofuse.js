@@ -11,6 +11,7 @@ import { currencies } from '../__mocks__/currencies';
 import { useTranslation } from 'next-i18next';
 import { getLangageStorage } from '../lib/storage/UserStorageFunctions';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 
 
@@ -47,7 +48,7 @@ export default function Terms() {
 
 
           <Grid container sx={{textAlign:'justify', width:'80%'}}>
-              <Typography fontSize={18} pt={2}>{t('page.description_paragraph', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              <Typography fontSize={18} pt={2}>{t('page.description', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
             </Grid>
 {/****************************/}
             <Grid container sx={{textAlign:'justify', width:'80%'}} pt={2}>
@@ -145,6 +146,11 @@ export default function Terms() {
               </Grid>
               <Grid container sx={{textAlign:'justify', width:'80%'}}>
               <Typography fontSize={18}>{t('page.paragraph13', { ns: NAMESPACE_LANGAGE_TERMS })}</Typography>
+              </Grid>
+{/****************************/}
+              <Grid container sx={{textAlign:'justify', width:'80%'}} pt={5}>
+              <Typography fontSize={18}>{t('page.paragraphContact', { ns: NAMESPACE_LANGAGE_TERMS })} <Link href={`mailto:${t('page.mailContact', { ns: NAMESPACE_LANGAGE_TERMS })}?subject=${t('contact')}`}>{t('page.mailContact', { ns: NAMESPACE_LANGAGE_TERMS })}</Link>.</Typography>
+              
               </Grid>
 {/****************************/}
 

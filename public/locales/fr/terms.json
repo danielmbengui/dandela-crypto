@@ -1,7 +1,7 @@
 {
     "description_page" : "Conditions d'utilisation",
     "page" : {
-        "description_paragraph:":"En utilisant l'application DandelApp, vous acceptez les conditions suivantes :",
+        "description":"En utilisant l'application DandelApp, vous acceptez les conditions suivantes :",
         "title1":"1. Tout ce que vous devez savoir",
         "paragraph1":"Notre application est uniquement une application de gestion, aucun paiement ou quelque transaction n'y est effectuée. Elle est conçue pour permettre aux utilisateurs de gérer les transferts qu'ils effectuent au sein de la communauté. Les membres peuvent ainsi accéder à leurs données en toute sécurité et de suivre l'état de leurs transactions. La création d'un compte est possible uniquement via l'accord d'un membre de la communauté; puis l'utilisateur peut ajouter ses propres informations et gérer ses transferts d'argent au sein de la communauté. L'application prend en charge plusieurs devises et les utilisateurs peuvent également suivre l'historique de leurs transactions, voir les détails de chaque transfert et vérifier l'état de chaque transaction en temps réel. Notre application est facile à utiliser et offre une solution de transfert d'argent pratique et sécurisée pour les utilisateurs du continen européen et de l'Angola.",
         "title2":"2. Qui peut utiliser l'application ?",
@@ -34,6 +34,8 @@
         "title12":"12. Modification des conditions",
         "paragraph12":"DandelApp se réserve le droit de modifier ces conditions d'utilisation à tout moment. Les modifications seront publiées sur notre site web.",
         "title13":"13. Loi applicable",
-        "paragraph13":"Les présentes conditions d’utilisation et des accords séparés par lequel nous vous fournissons des services sont régies et interprétées conformément aux lois européennes et angolaises."
+        "paragraph13":"Les présentes conditions d’utilisation et des accords séparés par lequel nous vous fournissons des services sont régies et interprétées conformément aux lois européennes et angolaises.",
+        "paragraphContact":"En utilisant l'application PlayPad, vous acceptez ces conditions d'utilisation. Si vous avez des questions ou des préoccupations, veuillez nous contacter à l'adresse :",
+        "mailContact":"contact@dandela.com"
     }
 }
