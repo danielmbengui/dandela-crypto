@@ -91,7 +91,7 @@ export const FlagIcon = ({ fill, size, height, width, lang, ...props }) => {
             style={{
                 borderRadius: '50%',
                 width: size,
-                height: size
+                height: size,
             }}
             />
     );
@@ -105,7 +105,7 @@ export const FlagIcon = ({ fill, size, height, width, lang, ...props }) => {
             style={{
                 borderRadius: '50%',
                 width: size,
-                height: size
+                height: size,
             }}
             />
     );

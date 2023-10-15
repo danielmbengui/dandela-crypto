@@ -137,7 +137,6 @@ export const DashboardSidebar = (props) => {
       >
 
 <Stack
-container
           sx={{
             display: 'flex',
             mt: 5,

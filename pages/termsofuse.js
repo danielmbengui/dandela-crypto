@@ -153,7 +153,6 @@ export default function Terms() {
               
               </Grid>
 {/****************************/}
-
             </Stack>
           
         </Container>

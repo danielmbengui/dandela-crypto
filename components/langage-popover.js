@@ -19,7 +19,7 @@ export default function LanguagePopover(props) {
     //const {t} = props;
     const { langage, setLangage } = props;
     const [open, setOpen] = useState(null);
-    const router = useRouter();
+    //const router = useRouter();
     const langageMode = useContext(LangageModeProviderContext);
 
     useEffect(() => {
@@ -27,8 +27,6 @@ export default function LanguagePopover(props) {
       updateLangageStorage(langage);
       //router.push(router.pathname, {}, { locale: langage });
       langageMode.toggleLangageMode(langage);
-    
-    
       console.log("CHANGE LANGAGE" ,langage);
     }, [langage])
     
@@ -38,21 +36,21 @@ export default function LanguagePopover(props) {
       {
         value: LANGAGE_FRENCH,
         label: t('langFrench'),
-        icon: '/assets/icons/ic_flag_fr.svg',
+        //icon: '/assets/icons/ic_flag_fr.svg',
         content: getFlag(LANGAGE_FRENCH, sizeFlag-5, { title: t('langFrench')}),
         smallFlag: getFlag(LANGAGE_FRENCH, sizeFlag / 1.5, { title: t('langFrench')}),
       },
       {
         value: LANGAGE_PORTUGUESE,
         label: t('langPortuguese'),
-        icon: '/assets/icons/ic_flag_de.svg',
+        //icon: '/assets/icons/ic_flag_pt.svg',
         content: getFlag(LANGAGE_PORTUGUESE, sizeFlag-5, { title: t('langPortuguese')}),
         smallFlag: getFlag(LANGAGE_PORTUGUESE, sizeFlag / 1.5, { title: t('langPortuguese')}),
       },
       {
         value: LANGAGE_ENGLISH,
         label: t('langEnglish'),
-        icon: '/assets/icons/ic_flag_en.svg',
+        //icon: '/assets/icons/ic_flag_en.svg',
         content: getFlag(LANGAGE_ENGLISH, sizeFlag-5, { title: t('langEnglish')}),
         smallFlag: getFlag(LANGAGE_ENGLISH, sizeFlag / 1.5, { title: t('langEnglish')}),
       },
@@ -90,7 +88,7 @@ export default function LanguagePopover(props) {
       <IconButton
         onClick={handleOpen}
         sx={{
-          padding: 0,
+          //padding: 0,
           width: 44,
           height: 44,
           ...(open && {

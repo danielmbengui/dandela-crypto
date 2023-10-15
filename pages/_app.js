@@ -51,7 +51,7 @@ const App = (props) => {
               ? <Fragment />
 :
               <DashboardLayout
-              //currency={currency} setCurrency={onChangeCurrency} 
+              currency={currency} setCurrency={onChangeCurrency} 
               //showNavBar={true}
               hideNavBar={hideNavBar}
               langage={langage} setLangage={onChangeLanguage}>

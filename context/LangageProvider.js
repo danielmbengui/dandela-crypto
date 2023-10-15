@@ -7,7 +7,7 @@ export const LangageModeProviderContext = createContext({ toggleLangageMode: () 
 export default function LangageProvider({children, langageMode}){
     const [langage, setLangage] = useState(langageMode);
     const {i18n} = useTranslation();
-
+    const router = useRouter();
     useEffect(() => {
       let _langageMode = DEFAULT_LANGAGE;
       if (typeof (Storage) !== "undefined") {
@@ -20,7 +20,7 @@ export default function LangageProvider({children, langageMode}){
     }, [langageMode]);
     
     //const {langage} = props;
-    const router = useRouter();
+    
   
     useEffect(() => {
       const {

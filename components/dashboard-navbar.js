@@ -13,6 +13,10 @@ import LanguagePopover from './langage-popover';
 import Image from 'next/image';
 import { myLoader } from '../lib/ImageLoader';
 
+const DashboardNavbarRoot = styled(AppBar)(({ theme, hidenavbar }) => ({
+  backgroundColor: hidenavbar == 'true' ? theme.palette.background.paper : theme.palette.background.paper,
+  boxShadow: hidenavbar == 'true' ? theme.shadows[0] : theme.shadows[3]
+}));
 
 
 export const DashboardNavbar = (props) => {
@@ -20,14 +24,12 @@ export const DashboardNavbar = (props) => {
   const settingsRef = useRef(null);
   const [openAccountPopover, setOpenAccountPopover] = useState(false);
 
-  const DashboardNavbarRoot = styled(AppBar)(({ theme }) => ({
-    backgroundColor: hideNavBar ? theme.palette.background.paper : theme.palette.background.paper,
-    boxShadow: hideNavBar ? theme.shadows[0] : theme.shadows[3]
-  }));
+  
 
   return (
     <>
       <DashboardNavbarRoot
+      hidenavbar={hideNavBar.toString()}
         sx={{
           //display:hideNavBar ? 'none' : 'block',
           left: {

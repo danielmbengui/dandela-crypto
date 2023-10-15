@@ -7,29 +7,29 @@ import { DashboardSidebar } from './dashboard-sidebar';
 import { useTranslation } from 'next-i18next';
 import { NAMESPACE_LANGAGE_COMMON, ajouterRetourLigneDepuisJson } from '../constants';
 
-
+const DashboardLayoutRoot = styled('div')(({ theme, hidenavbar }) => ({
+  display: 'flex',
+  flex: '1 1 auto',
+  maxWidth: '100%',
+  paddingTop: 64,
+  [theme.breakpoints.up('lg')]: {
+    paddingLeft: hidenavbar == 'true' ? 0 : 280
+  }
+}));
 
 export const DashboardLayout = (props) => {
   const { children, langage, setLangage, hideNavBar } = props;
   const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-  const DashboardLayoutRoot = styled('div')(({ theme }) => ({
-    display: 'flex',
-    flex: '1 1 auto',
-    maxWidth: '100%',
-    paddingTop: 64,
-    [theme.breakpoints.up('lg')]: {
-      paddingLeft: hideNavBar ? 0 : 280
-    }
-  }));
+  
   
   return (
     <AuthGuard>
-      <DashboardLayoutRoot>
+      <DashboardLayoutRoot hidenavbar={hideNavBar.toString()}>
       <Box
           sx={{
-            display: 'flex',
+            //display: 'flex',
             flex: '1 1 auto',
             flexDirection: 'column',
             width: '100%',
