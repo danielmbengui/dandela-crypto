@@ -2,12 +2,49 @@ import React, { createContext, useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/router"
 import { DEFAULT_LANGAGE, STORAGE_LANGAGE } from "../constants";
 import { useTranslation } from "next-i18next";
+import moment from 'moment';
+import 'moment/locale/fr';
+
 export const LangageModeProviderContext = createContext({ toggleLangageMode: () => { } });
 
 export default function LangageProvider({children, langageMode}){
-    const [langage, setLangage] = useState(langageMode);
+    
     const {i18n} = useTranslation();
     const router = useRouter();
+    const [langage, setLangage] = useState(router.locale || langageMode);
+    
+    useEffect(() => {
+      setLangage(langageMode);
+      //moment.locale(langMode);
+      }, [langageMode])
+
+      useEffect(() => {
+        console.log("ACTUAL locale website address DEFAULT lang", router.defaultLocale);
+        console.log("ACTUAL locale website address", router.locale);
+        if (router.locale) {
+          setLangage(router.locale);
+          //moment.locale(lang);
+        }
+      }, [])
+
+      useEffect(() => {
+        //setLangage(langMode);
+        document.documentElement.setAttribute(STORAGE_LANGAGE, langage);
+        //i18n.changeLanguage(lang);
+        window.localStorage.setItem(STORAGE_LANGAGE, langage);
+        router.replace(router.asPath, router.asPath, { locale: langage })
+        moment.locale(langage);
+    }, [langage]);
+
+    const internationalMode = useMemo(
+      () => ({
+        toggleLangageMode: (_langageMode) => {
+          setLangage(_langageMode);
+        },
+      }),
+      [],
+    );
+/*
     useEffect(() => {
       let _langageMode = DEFAULT_LANGAGE;
       if (typeof (Storage) !== "undefined") {
@@ -36,18 +73,9 @@ export default function LangageProvider({children, langageMode}){
       const browserLanguage = window.navigator.language.slice(0, 2)
   
       const shouldChangeLocale =
-        isReady// and here I use it
-        //&& locale !== langage
-        //&& locale !== browserLanguage
-        //&& locale === defaultLocale
-        && locales.includes(langage)
-        //&& locales.includes(browserLanguage)
-  
+        isReady
+        && locales.includes(langage)  
         if (shouldChangeLocale) {
-          //document.documentElement.setAttribute("lang", langage);
-    //window.localStorage.setItem(STORAGE_SCREEN_MODE, mode);
-    //i18n.changeLanguage(langage);
-    //updateLangageStorage(langage);
           router.push(
             {
                 //...router,
@@ -69,6 +97,7 @@ export default function LangageProvider({children, langageMode}){
       }),
       [],
     );
+    */
 
     return (
       <LangageModeProviderContext.Provider value={internationalMode} langage={langage}>

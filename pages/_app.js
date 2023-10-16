@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import "../styles/globals.css";
 import Head from 'next/head';
 import { CssBaseline } from '@mui/material';
@@ -8,7 +8,7 @@ import { getCurrencyStorage, getLangageStorage, getScreenModeStorage } from '../
 import ThemeModeProvider from '../context/ThemeProvider';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { DashboardLayout } from '../components/dashboard-layout';
-import { NAMESPACE_LANGAGE_COMMON, PAGE_LINK_PRIVACY_POLICY, PAGE_LINK_TERMS, TAB_NAMEPACES } from '../constants';
+import { DEFAULT_LANGAGE, NAMESPACE_LANGAGE_COMMON, PAGE_LINK_PRIVACY_POLICY, PAGE_LINK_TERMS, STORAGE_LANGAGE, TAB_NAMEPACES } from '../constants';
 import { cryptocurrencies_ids } from '../__mocks__/cryptocurrencies_ids';
 import LangageProvider from '../context/LangageProvider';
 import { useRouter } from 'next/router';
@@ -20,7 +20,7 @@ const clientSideEmotionCache = createEmotionCache();
 const App = (props) => {
   const { Component = clientSideEmotionCache, pageProps } = props;
   const [screenMode,] = useState(getScreenModeStorage());
-  const [langage, setLangage] = useState(getLangageStorage());
+  const [langage, setLangage] = useState(DEFAULT_LANGAGE);
   const [currency, setCurrency] = useState(getCurrencyMock(getCurrencyStorage()));
   const {t, i18n} = useTranslation([TAB_NAMEPACES]);
   const router = useRouter();
@@ -33,6 +33,18 @@ const App = (props) => {
   const onChangeCurrency = (_currency) => {
     setCurrency(_currency);
   };
+
+  useEffect(() => {
+    //let lang = getLangageStorage();
+    let lang = DEFAULT_LANGAGE;
+
+    if (!window.localStorage.getItem(STORAGE_LANGAGE)) {
+      window.localStorage.setItem(STORAGE_LANGAGE, DEFAULT_LANGAGE);
+    } else {
+      lang = window.localStorage.getItem(STORAGE_LANGAGE);
+    }
+    setLangage(lang);
+  }, []);
   
   return (
     <ThemeModeProvider screenMode={screenMode}>

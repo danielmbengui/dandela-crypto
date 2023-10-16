@@ -4,7 +4,7 @@ import { alpha } from '@mui/material/styles';
 import { Box, MenuItem, Stack, IconButton, Popover, Typography } from '@mui/material';
 import { FR, GB, PT } from "country-flag-icons/react/3x2";
 import { useTranslation } from 'next-i18next';
-import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON } from '../constants';
+import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_COMMON, TAB_LANGAGES } from '../constants';
 import { useRouter } from 'next/router';
 import { updateLangageStorage } from '../lib/storage/UserStorageFunctions';
 import { LangageModeProviderContext } from '../context/LangageProvider';
@@ -23,10 +23,10 @@ export default function LanguagePopover(props) {
     const langageMode = useContext(LangageModeProviderContext);
 
     useEffect(() => {
-      i18n.changeLanguage(langage);
-      updateLangageStorage(langage);
+      //i18n.changeLanguage(langage);
+      //updateLangageStorage(langage);
       //router.push(router.pathname, {}, { locale: langage });
-      langageMode.toggleLangageMode(langage);
+      //langageMode.toggleLangageMode(langage);
       console.log("CHANGE LANGAGE" ,langage);
     }, [langage])
     
@@ -68,11 +68,23 @@ export default function LanguagePopover(props) {
     }
 
     const onChangeLanguage = (_language) => {
-        setLangage(_language);
+        //setLangage(_language);
         //updateLangageStorage(_language);
         
-        handleClose();
+        //handleClose();
         console.log("LANGAE", _language)
+
+        const _lang = _language;
+        if (TAB_LANGAGES && TAB_LANGAGES.includes(_lang)) {
+            i18n.changeLanguage(_lang);
+            //document.documentElement.setAttribute(STORAGE_LANG_MODE, _lang);
+            setLangage(_lang);
+            //i18n.changeLanguage(_lang);
+            //window.localStorage.setItem(STORAGE_LANG_MODE, _lang);
+            //alert(`The new langage is: ${_lang}`);
+            //setLangage(_language);
+            handleClose();
+        }
     };
 
   const handleOpen = (event) => {
