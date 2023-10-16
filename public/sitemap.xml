@@ -14,31 +14,13 @@
 </url>
 
 <url>
-  <loc>https://dandela.com/</loc>
-  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-
-<url>
   <loc>https://www.dandela.com/pt</loc>
   <lastmod>2023-10-13T17:33:11+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 
 <url>
-  <loc>https://dandela.com/pt</loc>
-  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-
-<url>
   <loc>https://www.dandela.com/en</loc>
-  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-
-<url>
-  <loc>https://dandela.com/en</loc>
   <lastmod>2023-10-13T17:33:11+00:00</lastmod>
   <priority>1.00</priority>
 </url>
@@ -80,4 +62,57 @@
 </url>
 
 
+<url>
+  <loc>https://dandela.com/</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+
+<url>
+  <loc>https://dandela.com/pt</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+
+<url>
+  <loc>https://dandela.com/en</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+
+<url>
+  <loc>https://dandela.com/termsofuse</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://dandela.com/pt/termsofuse</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://dandela.com/en/termsofuse</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://dandela.com/privacypolicy</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://dandela.com/pt/privacypolicy</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://dandela.com/en/privacypolicy</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
 </urlset>
