@@ -19,7 +19,7 @@ const DashboardLayoutRoot = styled('div')(({ theme, hidenavbar }) => ({
 }));
 
 export const DashboardLayout = (props) => {
-  const { children, langage, setLangage, hideNavBar } = props;
+  const { children, langage, setLangage, hideNavBar, hideToolbar } = props;
   const { t, i18n } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
@@ -127,9 +127,9 @@ export const DashboardLayout = (props) => {
       </DashboardLayoutRoot>
 
       {
-        <DashboardNavbar
+        !hideToolbar && <DashboardNavbar
           //isSidebarOpen={isSidebarOpen}
-          hideNavBar={hideNavBar}
+          hideNavBar={hideNavBar} hideToolbar={hideToolbar}
           onSidebarOpen={() => setSidebarOpen(true)}
           onClose={() => setSidebarOpen(false)}
           langage={langage} setLangage={setLangage}

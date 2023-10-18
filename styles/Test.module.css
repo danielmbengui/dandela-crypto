@@ -1,0 +1,75 @@
+.menuContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: blue;
+  }
+  
+  .links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: gray;
+    font-size: 18px;
+    transition: color 0.2s;
+  
+    
+  }
+
+  .link:hover {
+    color: black;
+  }
+  
+
+.logoImg {
+    width: 100px;
+}
+
+.navUl {
+    list-style-type: none;
+    padding: 0;
+}
+
+.navLi {
+    display: inline;
+    margin-right: 20px;
+}
+
+.mainContent {
+    padding: 50px;
+    text-align: center;
+}
+
+.downloadLinks {
+    margin-top: 20px;
+}
+
+.downloadLinksAImg {
+    width: 150px;
+    margin: 0 10px;
+}
+
+.phoneImages {
+    margin-top: 20px;
+}
+
+.phoneImagesImg {
+    width: 250px;
+    margin: 0 10px;
+}
+
+.usersCount {
+    margin-top: 20px;
+    font-size: 24px;
+}

@@ -8,7 +8,7 @@ import { getCurrencyStorage, getLangageStorage, getScreenModeStorage } from '../
 import ThemeModeProvider from '../context/ThemeProvider';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { DashboardLayout } from '../components/dashboard-layout';
-import { DEFAULT_LANGAGE, NAMESPACE_LANGAGE_COMMON, PAGE_LINK_PRIVACY_POLICY, PAGE_LINK_TERMS, STORAGE_LANGAGE, TAB_NAMEPACES } from '../constants';
+import { DEFAULT_LANGAGE, NAMESPACE_LANGAGE_COMMON, PAGE_LINK_PRIVACY_POLICY, PAGE_LINK_TERMS, PAGE_LINK_TEST, STORAGE_LANGAGE, TAB_NAMEPACES } from '../constants';
 import { cryptocurrencies_ids } from '../__mocks__/cryptocurrencies_ids';
 import LangageProvider from '../context/LangageProvider';
 import { useRouter } from 'next/router';
@@ -24,8 +24,9 @@ const App = (props) => {
   const [currency, setCurrency] = useState(getCurrencyMock(getCurrencyStorage()));
   const {t, i18n} = useTranslation([TAB_NAMEPACES]);
   const router = useRouter();
-  const hideNavBar = router.pathname === PAGE_LINK_TERMS || router.pathname === PAGE_LINK_PRIVACY_POLICY;
-
+  const hideNavBar = router.pathname === PAGE_LINK_TERMS || router.pathname === PAGE_LINK_PRIVACY_POLICY || router.pathname === PAGE_LINK_TEST;
+  const hideToolbar = router.pathname === PAGE_LINK_TEST;
+  
   const onChangeLanguage = (language) => {
     setLangage(language);
   };
@@ -65,7 +66,7 @@ const App = (props) => {
               <DashboardLayout
               currency={currency} setCurrency={onChangeCurrency} 
               //showNavBar={true}
-              hideNavBar={hideNavBar}
+              hideNavBar={hideNavBar} hideToolbar={hideToolbar}
               langage={langage} setLangage={onChangeLanguage}>
                 <Component cryptocurrencies_ids={cryptocurrencies_ids} cryptocurrencies={cryptocurrencies} {...pageProps} 
                 currency={currency} setCurrency={onChangeCurrency} 

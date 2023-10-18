@@ -40,6 +40,7 @@ export const PAGE_LINK_LIST_CRYPTO_CURRENCIES = "/list";
 export const PAGE_LINK_TERMS = "/termsofuse";
 export const PAGE_LINK_PRIVACY_POLICY = "/privacypolicy";
 export const PAGE_LINK_404 = "/404";
+export const PAGE_LINK_TEST = "/test";
 /*
 export const PAGE_LINK_HOME = "/";
 export const PAGE_LINK_ERROR_LOGIN = "/app/authentication/errorlogin";

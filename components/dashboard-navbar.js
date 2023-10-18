@@ -20,7 +20,7 @@ const DashboardNavbarRoot = styled(AppBar)(({ theme, hidenavbar }) => ({
 
 
 export const DashboardNavbar = (props) => {
-  const { onSidebarOpen, langage, setLangage, hideNavBar, ...other } = props;
+  const { onSidebarOpen, langage, setLangage, hideNavBar, hideToolbar, ...other } = props;
   const settingsRef = useRef(null);
   const [openAccountPopover, setOpenAccountPopover] = useState(false);
 
