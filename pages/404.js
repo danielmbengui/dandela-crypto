@@ -1,30 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import NextLink from 'next/link';
 import { Box, Button, Container, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { LANGAGE_ENGLISH, LANGAGE_FRENCH, LANGAGE_PORTUGUESE, NAMESPACE_LANGAGE_404, NAMESPACE_LANGAGE_COMMON, NAMESPACE_LANGAGE_CRYPTO_CONVERTER, NAMESPACE_LANGAGE_HOME, PAGE_LINK_404, PAGE_LINK_HOME } from '../constants';
+import { NAMESPACE_LANGAGE_404, NAMESPACE_LANGAGE_COMMON, PAGE_LINK_HOME, TAB_LANGAGES, TAB_NAMEPACES } from '../constants';
 import { useTranslation } from 'next-i18next';
-import { capitalizeAllWord } from '../lib/func/func';
 
 const NotFoundPage = (props) => {
-  const { t, i18n} = useTranslation([NAMESPACE_LANGAGE_404, NAMESPACE_LANGAGE_COMMON])
-/*
-  const onChangeLanguage = (language) => {
-    i18n.changeLanguage(language);
-};
-
-useEffect(() => {
-    onChangeLanguage(langage);
-}, [langage]);
-*/
+  const { t } = useTranslation([NAMESPACE_LANGAGE_COMMON]);
 
   return (
     <>
       <Head>
         <title>
-          {`Dandela | ${t('menu404', { ns: NAMESPACE_LANGAGE_COMMON })}`}
+          {`Dandela | ${t('menu404')}`}
         </title>
         <meta name="description" content={t('description_page', { ns: NAMESPACE_LANGAGE_404 })} />
       </Head>
@@ -97,21 +87,10 @@ useEffect(() => {
   );
 }
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({locale}) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, [
-        NAMESPACE_LANGAGE_COMMON,
-        NAMESPACE_LANGAGE_HOME,
-        NAMESPACE_LANGAGE_CRYPTO_CONVERTER,
-        NAMESPACE_LANGAGE_404,
-        //'footer',
-      ], null, [
-        LANGAGE_ENGLISH,
-        LANGAGE_FRENCH,
-        LANGAGE_PORTUGUESE
-      ])),
-      // Will be passed to the page component as props
+      ...(await serverSideTranslations(locale, TAB_NAMEPACES, null, TAB_LANGAGES)),
     },
   }
 }
