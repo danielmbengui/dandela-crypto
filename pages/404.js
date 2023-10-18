@@ -40,14 +40,14 @@ const NotFoundPage = (props) => {
               color="textPrimary"
               variant="h1"
             >
-              404: {`${t('page_not_there')}`}
+              404: {`${t('page_not_there', { ns: NAMESPACE_LANGAGE_404 })}`}
             </Typography>
             <Typography
               align="center"
               color="textPrimary"
               variant="subtitle2"
             >
-              {`${t('message_error')}`}
+              {`${t('message_error', { ns: NAMESPACE_LANGAGE_404 })}`}
             </Typography>
             <Box sx={{ textAlign: 'center' }}>
               <img
@@ -77,7 +77,7 @@ const NotFoundPage = (props) => {
                   backgroundColor:'secondary.main'
               }}}
               >
-                {`${t('back_to_dasboard')}`}
+                {`${t('back_to_dasboard', { ns: NAMESPACE_LANGAGE_404 })}`}
               </Button>
             </NextLink>
           </Box>

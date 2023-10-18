@@ -61,6 +61,23 @@
   <priority>0.80</priority>
 </url>
 
+<url>
+  <loc>https://www.dandela.com/404</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://www.dandela.com/pt/404</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://www.dandela.com/en/404</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
 
 <url>
   <loc>https://dandela.com/</loc>
@@ -112,6 +129,24 @@
 
 <url>
   <loc>https://dandela.com/en/privacypolicy</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://dandela.com/404</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://dandela.com/pt/404</loc>
+  <lastmod>2023-10-13T17:33:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://dandela.com/en/404</loc>
   <lastmod>2023-10-13T17:33:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
