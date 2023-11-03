@@ -50,9 +50,9 @@ const App = (props) => {
   return (
     <ThemeModeProvider screenMode={screenMode}>
       <Head>
-        <title>{`Dandela | ${t('description_page', { ns: NAMESPACE_LANGAGE_COMMON })}`}</title>
+        <title>{`Dandela | DandelApp`}</title>
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=yes, viewport-fit=cover' />
-        <meta name="description" content={t('description_page', { ns: NAMESPACE_LANGAGE_COMMON })} />
+        <meta name="description" content={"La solution ultime pour une gestion financière sans tracas pour les familles qui naviguent entre l'Europe et l'Angola."} />
       </Head>
 
       <CssBaseline />
