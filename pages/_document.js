@@ -17,6 +17,7 @@ class CustomDocument extends Document {
           
           */}
           <meta charSet="utf-8" />
+          <meta name="google-site-verification" content="-RKLDNGlOZfbXT2E4r81Y0lMnXfsmhcALs046Lf_Xpo" />
           <meta name="description" content="Dandela | Bisso Na Bisso" />
           <link
             rel="icon"
